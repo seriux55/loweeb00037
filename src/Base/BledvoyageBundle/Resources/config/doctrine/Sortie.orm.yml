@@ -1,0 +1,83 @@
+Base\BledvoyageBundle\Entity\Sortie:
+    type: entity
+    table: null
+    repositoryClass: Base\BledvoyageBundle\Entity\SortieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        descreptif:
+            type: text
+        conditions:
+            type: text
+        tarif:
+            type: integer
+        maxPersonne:
+            type: integer
+            column: max_personne
+        dateDebut:
+            type: date
+            column: date_debut
+        heureDebut:
+            type: string
+            length: '16'
+            column: heure_debut
+        dateFin:
+            type: date
+            column: date_fin
+        heureFin:
+            type: string
+            length: '16'
+            column: heure_fin
+        video:
+            type: string
+            length: 255
+        valider:
+            type: string
+            length: 255
+        charge:
+            type: integer
+        acces:
+            type: string
+            length: '512'
+        echeance:
+            type: integer
+        tarifEcheance:
+            type: integer
+            column: tarif_echeance
+        commission:
+            type: integer
+        annuler:
+            type: string
+            length: 255
+        tarifEtud:
+            type: integer
+            column: tarif_etud
+        promoClient:
+            type: integer
+            column: promo_client
+        promoPartenaire:
+            type: integer
+            column: promo_partenaire
+        astuce:
+            type: integer
+        pub:
+            type: integer
+        close:
+            type: integer
+        localisation:
+            type: string
+            length: 255
+        ip:
+            type: string
+            length: 255
+        dateTime:
+            type: datetime
+            column: date_time
+    lifecycleCallbacks: {  }
