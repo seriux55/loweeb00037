@@ -6,147 +6,240 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Sortie
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\SortieRepository")
  */
 class Sortie
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     /**
      * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Categorie")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
-
+    
     /**
      * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
      */
     private $descreptif;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="conditions", type="string", length=255)
      */
     private $conditions;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="localisation", type="string", length=255)
      */
     private $localisation;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="tarif", type="integer")
      */
     private $tarif;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="maxPersonne", type="integer")
      */
     private $maxPersonne;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut", type="datetime")
      */
     private $dateDebut;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="heure_debut", type="string", length=255)
      */
     private $heureDebut;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin", type="datetime")
      */
     private $dateFin;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="heure_fin", type="string", length=255)
      */
     private $heureFin;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="video", type="string", length=255)
      */
     private $video;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="photo1", type="string", length=255)
+     */
+    private $photo1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo2", type="string", length=255)
+     */
+    private $photo2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo3", type="string", length=255)
+     */
+    private $photo3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo4", type="string", length=255)
+     */
+    private $photo4;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="valider", type="string", length=255)
      */
     private $valider;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="charge", type="integer")
      */
     private $charge;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="acces", type="string", length=255)
      */
     private $acces;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="echeance", type="integer")
      */
     private $echeance;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="tarif_echeance", type="integer")
      */
     private $tarifEcheance;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="commission", type="integer")
      */
     private $commission;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="annuler", type="string", length=255)
      */
     private $annuler;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="tarif_etud", type="integer")
      */
     private $tarifEtud;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="promo_client", type="integer")
      */
     private $promoClient;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="promo_partenaire", type="integer")
      */
     private $promoPartenaire;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="astuce", type="integer")
      */
     private $astuce;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="pub", type="integer")
      */
     private $pub;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="close", type="integer")
      */
     private $close;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=255)
      */
     private $ip;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
 
@@ -411,6 +504,98 @@ class Sortie
     public function getVideo()
     {
         return $this->video;
+    }
+
+    /**
+     * Set photo1
+     *
+     * @param string $photo1
+     * @return Sortie
+     */
+    public function setPhoto1($photo1)
+    {
+        $this->photo1 = $photo1;
+
+        return $this;
+    }
+
+    /**
+     * Get photo1
+     *
+     * @return string 
+     */
+    public function getPhoto1()
+    {
+        return $this->photo1;
+    }
+
+    /**
+     * Set photo2
+     *
+     * @param string $photo2
+     * @return Sortie
+     */
+    public function setPhoto2($photo2)
+    {
+        $this->photo2 = $photo2;
+
+        return $this;
+    }
+
+    /**
+     * Get photo2
+     *
+     * @return string 
+     */
+    public function getPhoto2()
+    {
+        return $this->photo2;
+    }
+
+    /**
+     * Set photo3
+     *
+     * @param string $photo3
+     * @return Sortie
+     */
+    public function setPhoto3($photo3)
+    {
+        $this->photo3 = $photo3;
+
+        return $this;
+    }
+
+    /**
+     * Get photo3
+     *
+     * @return string 
+     */
+    public function getPhoto3()
+    {
+        return $this->photo3;
+    }
+
+    /**
+     * Set photo4
+     *
+     * @param string $photo4
+     * @return Sortie
+     */
+    public function setPhoto4($photo4)
+    {
+        $this->photo4 = $photo4;
+
+        return $this;
+    }
+
+    /**
+     * Get photo4
+     *
+     * @return string 
+     */
+    public function getPhoto4()
+    {
+        return $this->photo4;
     }
 
     /**
@@ -779,5 +964,28 @@ class Sortie
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Base\UserBundle\Entity\User $user
+     * @return User
+     */
+    public function setUser(\Base\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Base\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

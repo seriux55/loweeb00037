@@ -6,36 +6,53 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Categorie
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\CategorieRepository")
  */
 class Categorie
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="afficher", type="string", length=255)
      */
     private $afficher;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=255)
      */
     private $ip;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
 

@@ -25,7 +25,8 @@
         "coresphere/console-bundle": "dev-master",
         "jms/serializer-bundle": "0.13.*@dev",
         "doctrine/doctrine-fixtures-bundle": "2.2.*@dev",
-        "ensepar/html2pdf-bundle" : "~2.0"
+        "ensepar/html2pdf-bundle" : "~2.0",
+        "ircmaxell/password-compat": "1.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
