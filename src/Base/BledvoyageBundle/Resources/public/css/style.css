@@ -16,7 +16,7 @@
 body
 {
 	/*background-color :#e9e9e9; #EBEBEB;*/
-	background : url("../image/photo_type/body.png") repeat scroll 0 0 #EBEBEB;
+	background : url("../images/photo_type/body.png") repeat scroll 0 0 #EBEBEB;
 	/*background : url("images/body2.png") repeat scroll 0 0 #222222;*/
 	font-family : Helvetica, Arial, sans-serif;
 	color : #181818;
@@ -273,7 +273,7 @@ body
 
 .bloc_page_enbody 
 {	
-	background: url("images/back_ground_5.png") no-repeat scroll center transparent;
+	background: url("../images/old/back_ground_5.png") no-repeat scroll center transparent;
     border-bottom: 4px solid #00AFF0;
 	height : 400px;
 	position : center;
@@ -448,7 +448,7 @@ body
 	vertical-align : top;
 	display : inline-block;
 	text-align : justify ;
-	background: url("images/bkg_info.png") repeat scroll left top transparent;
+	background: url("../images/old/bkg_info.png") repeat scroll left top transparent;
 	width : 400px;
 	margin : 22px;
 	height : auto;
@@ -467,7 +467,7 @@ body
 {	
 	vertical-align : top;
 	text-align : justify ;
-	background: url("images/bkg_info.png") repeat scroll left top transparent;
+	background: url("../images/old/bkg_info.png") repeat scroll left top transparent;
 	width : 700px;
 	margin : auto;
 	height : auto;
@@ -570,7 +570,7 @@ body
 {	
 	/*background-color : #EEEEEE;*/
 	/*background: url("images/bg.jpg") repeat scroll 0 0 #EBEBEB;*/
-	background: url("images/bkg_info.png") repeat scroll left top transparent;
+	background: url("../images/old/bkg_info.png") repeat scroll left top transparent;
 	/*text-align : center ;*/
 	width : 900px;
 	margin : auto;
@@ -741,13 +741,13 @@ hr
 	text-align: center;
 	width : 100px;
 	height : 100px;
-	background-image: url(images/facebook_bledvoyage_130_1.png);
+	background-image: url("../images/old/facebook_bledvoyage_130_1.png");
 	margin : 10px;
 }
 
 .social_body1:hover
 {
-	background-image: url(images/facebook_bledvoyage_130.png);
+	background-image: url("images/old/facebook_bledvoyage_130.png");
 }
 
 .social_body2
@@ -756,13 +756,13 @@ hr
 	text-align: center;
 	width : 100px;
 	height : 100px;
-	background-image: url(images/twitter_bledvoyage_130_1.png);
+	background-image: url("../images/old/twitter_bledvoyage_130_1.png");
 	margin : 10px;
 }
 
 .social_body2:hover
 {
-	background-image: url(images/twitter_bledvoyage_130.png);
+	background-image: url("../images/old/twitter_bledvoyage_130.png");
 	
 }
 
@@ -772,12 +772,12 @@ hr
 	text-align: center;
 	width : 100px;
 	height : 100px;
-	background-image: url(images/youtube_bledvoyage_130_1.png);
+	background-image: url("../images/old/youtube_bledvoyage_130_1.png");
 	margin : 10px;
 }
 .social_body3:hover
 {
-	background-image: url(images/youtube_bledvoyage_130.png);
+	background-image: url("../images/old/youtube_bledvoyage_130.png");
 }
 
 .social_body img
@@ -788,12 +788,12 @@ hr
 
 .social_body_facebook
 {
-	background-image : url(images/facebook_bledvoyage_130_1.png);
+	background-image : url("../images/old/facebook_bledvoyage_130_1.png");
 }
 
 .social_body_facebook:hover
 {
-	background-image : url(images/facebook_bledvoyage_130.png);
+	background-image : url("../images/old/facebook_bledvoyage_130.png");
 }
 /******************************/
 /*PARCOURS*/
@@ -3137,7 +3137,7 @@ article p
 
 .desins
 {
-	background: url("images/bkg_info.png") repeat scroll left top transparent;
+	background: url("../images/old/bkg_info.png") repeat scroll left top transparent;
 	margin :10px;
 	display : inline-block;
 	/*height : 270px;*/
@@ -3150,7 +3150,7 @@ article p
 
 .desins4
 {
-	background: url("images/bkg_info.png") repeat scroll left top transparent;
+	background: url("../images/old/bkg_info.png") repeat scroll left top transparent;
 	margin :10px;
 	display : inline-block;
 	/*height : 270px;*/
@@ -4338,7 +4338,7 @@ article p
 .headbled
 {
 	background-color : #000000;
-	background : url("../image/photo_type/back_sortie.jpg") no-repeat scroll center -120px;
+	background : url("../images/photo_type/back_sortie.jpg") no-repeat scroll center -120px;
 	/* background : url("../image/photo_type/back_sortie.jpg") no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0); */
 	display: table;
     height: 300px;
@@ -4556,7 +4556,7 @@ article p
 .headcad
 {
 	
-	background : url("../image/cadeau/back_cadeau.jpg") no-repeat scroll center center;
+	background : url("../images/cadeau/back_cadeau.jpg") no-repeat scroll center center;
 	/*background : url("../image/cadeau/back_cadeau.jpg") no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);*/
 	display: table;
     height: 300px;
@@ -4566,7 +4566,7 @@ article p
 }
 .headpro
 {
-	background : url("../image/cadeau/back_pro.jpg") no-repeat scroll center center;
+	background : url("../images/cadeau/back_pro.jpg") no-repeat scroll center center;
 	/*background : url("../image/cadeau/back_pro.jpg") no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);*/
 	display: table;
     height: 300px;
@@ -4736,6 +4736,3 @@ article p
     line-height: 30px;
 	color:#54bbec;
 }
-
-
-

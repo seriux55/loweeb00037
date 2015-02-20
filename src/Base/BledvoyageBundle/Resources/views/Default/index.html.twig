@@ -12,15 +12,15 @@
         <div class="bloc_page_entetee">
             <div class="bloc_page_entete">
                 <div class="bloc_page_entete_1">
-                    <a href="http://www.bledvoyage.com/"><img src="{{ asset('bundles/basebledvoyage/images/old/logo_2.png') }}" alt="logo de bledvoyage" /></a>
+                    <a href="{{ path('base_bledvoyage_homepage') }}"><img src="{{ asset('bundles/basebledvoyage/images/old/logo_2.png') }}" alt="logo de bledvoyage" /></a>
                 </div>
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
-                        <a href="index.php">Accueil</a>
-                        <a href="view/cadeau.php">Promotion</a>
-                        <a href="view/pro.php">Entreprise</a>
-                        <a href="view/type.php?id=7">Formation</a>
-                        <a href="http://www.bledvoyage.com/depot/creation.php">Déposez votre produit</a>
+                        <a href="{{ path('base_bledvoyage_homepage') }}">Accueil</a>
+                        <a href="#">Promotion</a>
+                        <a href="#">Entreprise</a>
+                        <a href="#">Formation</a>
+                        <a href="#">Déposez votre produit</a>
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
                             <p>0 556 179 774</p>
@@ -50,7 +50,7 @@
                 <ul class="naviul">
                     {% for data in categories %}
                     <li class="navili">
-                        <a href="view/type.php?id=<? echo $donnees['id']; ?>" class="navia"><? echo ucfirst($donnees['nom']); ?></a>
+                        <a href="#" class="navia">Sable</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -158,7 +158,7 @@
         <div class="sectiono">
             <div class="mr1i">
                 <div class="phoco">
-                    <a href="view/cadeau.php"><img alt="Image" src="image/cadeau/prix_reduit.png"/></a>
+                    <a href="view/cadeau.php"><img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/prix_reduit.png') }}"/></a>
                 </div>
                 <div class="mr2i">
                     <h4>Achetez des tickets cadeaux et profitez des sorties et activités à prix réduits !</h4>
@@ -209,20 +209,21 @@
                                 -->
                             </article>
                             <div class="opt">
-                                <img alt="Equitation" src="image/op/roller.png">
-                                <img alt="Equitation" src="image/op/equitation.png">
-                                <img alt="Fitness" src="image/op/fitness.png">
-                                <img alt="Golf" src="image/op/golf.png">
-                                <img alt="Kayak" src="image/op/kayak.png">
-                                <img alt="Plongée" src="image/op/plongee.png">
-                                <img alt="Randonnee" src="image/op/randonnee.png">
-                                <img alt="Running" src="image/op/running.png">
-                                <img alt="Marche" src="image/op/marche.png">
-                                <img alt="Sport" src="image/op/sport_eau.png">
-                                <img alt="tenis" src="image/op/tenis.png">
-                                <img alt="Velo" src="image/op/velo.png">
-                                <img alt="Visite" src="image/op/visite.png">
-                                <img alt="Arc" src="image/op/arc.png">
+                                <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">
+                                <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">
+                                <img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">
+                                <img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">
+                                <img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">
+                                <img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">
+                                <img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
+                                <img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">
+                                <img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">
+                                <img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">
+                                <img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">
+                                <img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">
+                                <img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
+                                <img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">
+                                <img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">
                             </div>
                         </div>
                     </div>
@@ -263,7 +264,7 @@
             <hr>
             <div id="bloc_page_footer3">
                 <a href="../contact/tout_savoir_sur_bledvoyage.php">Tout savoir sur bledvoyage</a> -
-                © 2013 <a href="http://www.bledvoyage.com" target="_blank">bledvoyage.com</a> -
+                © 2013 <a href="{{ path('base_bledvoyage_homepage') }}" target="_blank">bledvoyage.com</a> -
                 <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="http://www.bledvoyage.com/images/facebook.png" alt="bledvoyage sur facebook" id="facebook"/></a> -
                 <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="http://www.bledvoyage.com/images/twitter.png" alt="bledvoyage sur twitter" id="twitter"/></a> - 
                 <a href="http://www.youtube.com/user/bledvoyage" target="_blank" title="bledvoyage sur Youtube"><img src="http://www.bledvoyage.com/images/youtube.png" alt="bledvoyage sur youtube" id="skype"/></a> 
