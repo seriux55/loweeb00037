@@ -2,14 +2,17 @@
 
 namespace Base\BledvoyageBundle\Controller;
 
-use Base\BledvoyageBundle\Entity\Sortie;
-use Base\BledvoyageBundle\Entity\Categorie_sortie;
+//use Base\BledvoyageBundle\Entity\Sortie;
+//use Base\BledvoyageBundle\Entity\Categorie_sortie;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $serializer = $this->get('jms_serializer');
+        $url = "http://localhost:8888/bledvoyage/web/app_dev.php/api/sortie.json";
+        $j = file_get_contents($url);
         /*
         $wilaya = array(
             "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna",
@@ -62,6 +65,7 @@ class DefaultController extends Controller
         $response = $this->render('BaseBledvoyageBundle:Default:index.html.twig', array(
             'product'       => $product,
             'categorie'     => $categorie,
+            'json'          => $j,
         ));
         return $response;
     }
