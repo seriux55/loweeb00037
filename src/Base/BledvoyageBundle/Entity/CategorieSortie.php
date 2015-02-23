@@ -5,12 +5,12 @@ namespace Base\BledvoyageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categorie_sortie
+ * CategorieSortie
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\Categorie_sortieRepository")
+ * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\CategorieSortieRepository")
  */
-class Categorie_sortie
+class CategorieSortie
 {
     /**
      * @var integer
@@ -612,7 +612,7 @@ class Categorie_sortie
      * Set sortie
      *
      * @param \Base\BledvoyageBundle\Entity\Sortie $sortie
-     * @return Sortie
+     * @return Categorie_sortie
      */
     public function setSortie(\Base\BledvoyageBundle\Entity\Sortie $sortie)
     {

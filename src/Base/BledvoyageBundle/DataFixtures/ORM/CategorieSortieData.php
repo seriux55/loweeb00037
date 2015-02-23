@@ -8,9 +8,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Base\BledvoyageBundle\Entity\Categorie_sortie;
+use Base\BledvoyageBundle\Entity\CategorieSortie;
 
-class Categorie_sortieData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class CategorieSortieData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     private $container;
 
@@ -21,7 +21,7 @@ class Categorie_sortieData extends AbstractFixture implements FixtureInterface, 
 
     public function load(ObjectManager $manager)
     {
-        $categorie_sortie1 = new Categorie_sortie();
+        $categorie_sortie1 = new CategorieSortie();
         $categorie_sortie1->setSortie($this->getReference('sortie1'));
         $categorie_sortie1->setAir('0');
         $categorie_sortie1->setArc('0');
@@ -44,7 +44,7 @@ class Categorie_sortieData extends AbstractFixture implements FixtureInterface, 
         $categorie_sortie1->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie1);
         
-        $categorie_sortie2 = new Categorie_sortie();
+        $categorie_sortie2 = new CategorieSortie();
         $categorie_sortie2->setSortie($this->getReference('sortie2'));
         $categorie_sortie2->setAir('0');
         $categorie_sortie2->setArc('0');
@@ -67,7 +67,7 @@ class Categorie_sortieData extends AbstractFixture implements FixtureInterface, 
         $categorie_sortie2->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie2);
         
-        $categorie_sortie3 = new Categorie_sortie();
+        $categorie_sortie3 = new CategorieSortie();
         $categorie_sortie3->setSortie($this->getReference('sortie3'));
         $categorie_sortie3->setAir('0');
         $categorie_sortie3->setArc('0');
@@ -90,7 +90,7 @@ class Categorie_sortieData extends AbstractFixture implements FixtureInterface, 
         $categorie_sortie3->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie3);
         
-        $categorie_sortie4 = new Categorie_sortie();
+        $categorie_sortie4 = new CategorieSortie();
         $categorie_sortie4->setSortie($this->getReference('sortie4'));
         $categorie_sortie4->setAir('0');
         $categorie_sortie4->setArc('0');
@@ -113,7 +113,7 @@ class Categorie_sortieData extends AbstractFixture implements FixtureInterface, 
         $categorie_sortie4->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie4);
         
-        $categorie_sortie5 = new Categorie_sortie();
+        $categorie_sortie5 = new CategorieSortie();
         $categorie_sortie5->setSortie($this->getReference('sortie5'));
         $categorie_sortie5->setAir('0');
         $categorie_sortie5->setArc('0');

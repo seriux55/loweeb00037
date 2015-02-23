@@ -5,3 +5,8 @@ base_bledvoyage_homepage:
 index:
     path:     Mail
     defaults: { _controller: BaseBledvoyageBundle:Mail:index }
+
+sortie_nroho:
+    type: rest
+    resource: Base\BledvoyageBundle\Controller\NrohoController
+    prefix: api

@@ -43,9 +43,9 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="descriptif", type="string", length=255)
      */
-    private $descreptif;
+    private $descriptif;
 
     /**
      * @var string
@@ -277,26 +277,26 @@ class Sortie
     }
 
     /**
-     * Set descreptif
+     * Set descriptif
      *
-     * @param string $descreptif
+     * @param string $descriptif
      * @return Sortie
      */
-    public function setDescreptif($descreptif)
+    public function setDescriptif($descriptif)
     {
-        $this->descreptif = $descreptif;
+        $this->descriptif = $descriptif;
 
         return $this;
     }
 
     /**
-     * Get descreptif
+     * Get descriptif
      *
      * @return string 
      */
-    public function getDescreptif()
+    public function getDescriptif()
     {
-        return $this->descreptif;
+        return $this->descriptif;
     }
 
     /**

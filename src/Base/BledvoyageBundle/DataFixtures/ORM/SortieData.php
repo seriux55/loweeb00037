@@ -25,7 +25,7 @@ class SortieData extends AbstractFixture implements FixtureInterface, ContainerA
         $sortie1->setUser($this->getReference('user1'));
         $sortie1->setCategorie($this->getReference('categorie1'));
         $sortie1->setTitre('Quad Aventure');
-        $sortie1->setDescreptif("Encore une nouveauté en Algérie !! 
+        $sortie1->setDescriptif("Encore une nouveauté en Algérie !! 
 A partir du mois de février, chaque Weekend nous nous nous retrouverons à Djbel Chenoua, Tipaza, pour une randonnée en Quad ! D’une matinée ou d’une après-midi. 
 Avec cette nouvelle activité, qui est un mélange de loisir plein air et d’aventure, vous prenderez les commandes d’une machine à sensation pour une aventure en Montagne. Nous partagerons ensemble ce moment de plaisir ! 
 Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
@@ -74,7 +74,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie2->setUser($this->getReference('user2'));
         $sortie2->setCategorie($this->getReference('categorie2'));
         $sortie2->setTitre('Dominez la bête volante');
-        $sortie2->setDescreptif("Encore une nouveauté en Algérie, Nouvelle activité sensation, nouvelles aventure ! 
+        $sortie2->setDescriptif("Encore une nouveauté en Algérie, Nouvelle activité sensation, nouvelles aventure ! 
 Des cerfs-volants géants, insolents et immaitrisables, vous attendent pour les calmer, chaque Week-end à la plage de Chenoua, Tipaza, le temps d’une matinée ou d’une après-midi, venez-vous confronter à .ces ailes géantes ! 
 En compagnie de notre moniteur Mokhtar, qui nous fera le plaisir de découvrir les cerfs-volants géants ! Les sensations seront uniques, traction, traction et traction !
 Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
@@ -119,7 +119,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie3->setUser($this->getReference('user2'));
         $sortie3->setCategorie($this->getReference('categorie3'));
         $sortie3->setTitre('Plongée & Balade sous marine');
-        $sortie3->setDescreptif("Chaque jour de 10h00 à 18h00, à l’heure où la qualité visuelle et des conditions de lumière seront optimales, nous nous retrouverons à Tipaza, pour une plongée sous-marine en bouteille.
+        $sortie3->setDescriptif("Chaque jour de 10h00 à 18h00, à l’heure où la qualité visuelle et des conditions de lumière seront optimales, nous nous retrouverons à Tipaza, pour une plongée sous-marine en bouteille.
 Nous commencerons par une séance d’initiation sous-marine, suivie d’une balade sous l’eau d’environ 20 minutes … et découverte des différentes espèces sous-marines. Nous finirons par un débriefing global. 
 Et pour finir, 
 N’oubliez pas vos clefs USB pour récupérer vos photos & vidéos, toutes fraiches");
@@ -160,7 +160,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie4->setUser($this->getReference('user2'));
         $sortie4->setCategorie($this->getReference('categorie4'));
         $sortie4->setTitre('Décollage immédiat');
-        $sortie4->setDescreptif("Nouvelle activité sensation, nouvelles aventure ! 
+        $sortie4->setDescriptif("Nouvelle activité sensation, nouvelles aventure ! 
 Un vol libre en parapente ? Planer autours des terres de Bouira, chaque weekend, un souvenir inoubliable et garantie à prendre 
 En compagnie de notre moniteur Aziz, que partagera sa passion et son expérience avec nous ! un moment pleine de liberté. Il nous fera le plaisir de découvrir la parapente. 
 Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
@@ -205,7 +205,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5->setUser($this->getReference('user2'));
         $sortie5->setCategorie($this->getReference('categorie5'));
         $sortie5->setTitre('Randonnée VTT');
-        $sortie5->setDescreptif("La pleine de Chenoua et sa montagne qui sont situées à la sortie de la ville de Tipaza, vous accueillent pour une randonnée VTT aventure. 
+        $sortie5->setDescriptif("La pleine de Chenoua et sa montagne qui sont situées à la sortie de la ville de Tipaza, vous accueillent pour une randonnée VTT aventure. 
 La sortie seffectue compagnie de notre moniteur Islem, qui partagera sa passion et son expérience avec nous ! 
 Un moment plein de liberté et sensation. 2 Circuit VTT sont proposés : 
 - Circuit plaisir & aventure: au relief très doux à la portée de tous et de toutes ! Environ 1h30 de nature, despaces vert et de balade en VTT. Idéal pour les débutants. 
@@ -244,7 +244,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5->setPromoPartenaire('0');
         $sortie5->setAstuce('1');
         $sortie5->setPub('1');
-        $sortie5->setClose('0');
+        $sortie5->setClose('1');
         $sortie5->setIp('127.0.0.1');
         $sortie5->setDateTime(new \DateTime('2015-03-01 12:00:00'));
         $manager->persist($sortie5);

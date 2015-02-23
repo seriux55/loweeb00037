@@ -48,9 +48,9 @@
         <div class="navibled">
             <div class="navicont">
                 <ul class="naviul">
-                    {% for data in categories %}
+                    {% for data in categorie %}
                     <li class="navili">
-                        <a href="#" class="navia">Sable</a>
+                        <a href="#" class="navia">{{ data.nom|title }}</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -74,27 +74,28 @@
             </div>
             -->
             {% for data in product %}
+            {% if data.sortie.close == 0 %}
             <section>
                 <div class="conte">
                     <div class="rc">
                         <div class="photorc">
-                            <img src="depot/uploads/<?php echo $donnees['photo_1']; ?>" alt="Image"/>
+                            <img src="depot/uploads/<?php echo $donnees['photo_1']; ?>" alt="{{ data.sortie.titre }}"/>
                         </div>
                         <div class="desrc">
                             <article>
-                                <h1><?php echo stripslashes(htmlspecialchars($donnees['titre']));?></h1>
+                                <h1>{{ data.sortie.titre }}</h1>
                                 <h3>
-                                    <img alt="Image" src="image/interface/date.png"> ' .htmlspecialchars($donnees['date_debut']).' <img alt="Image" src="image/interface/heure.png">'.htmlspecialchars($donnees['heure_debut']).  '  AU <img alt="Image" src="http://www.bledvoyage.com/image/interface/date.png"> ' .htmlspecialchars($donnees['date_fin']).' <img alt="Image" src="http://www.bledvoyage.com/image/interface/heure.png"> ' .htmlspecialchars($donnees['heure_fin']).
+                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  AU <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
                                 </h3>
                                 <h3>
-                                    <img alt="Image" src="image/interface/date.png"> Le ' .htmlspecialchars($donnees['date_debut']).' |  <img alt="Image" src="image/interface/heure.png"> ' .htmlspecialchars($donnees['heure_debut']). ' - ' .htmlspecialchars($donnees['heure_fin']).'.
+                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Le 2015-10-19 |  <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}"> {{ data.sortie.heureDebut }} - {{ data.sortie.heureFin }}
                                 </h3>
                                 <div class="loc">
-                                    <img src="image/interface/loc.png" alt="Image"/>
-                                    <h2><?php echo nl2br(htmlspecialchars(stripslashes($donnees['localisation'])));?></h2>
+                                    <img src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}" alt="Image"/>
+                                    <h2>{{ data.sortie.localisation }}</h2>
                                 </div>
                                 <p>
-                                <?php echo debutchaine(htmlspecialchars(stripslashes($donnees['descreptif'])), 22, "view/detail.php?sortie=".$donnees['id']); ?>
+                                {{ data.sortie.descriptif | slice(0, 150) }}
                                 </p>
                                 <!--
                                 <div class="starblock">
@@ -103,31 +104,31 @@
                                 -->
                             </article>
                             <div class="opt">
-                                <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">
-                                <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">
-                                <img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">
-                                <img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">
-                                <img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">
-                                <img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">
-                                <img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
-                                <img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">
-                                <img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">
-                                <img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">
-                                <img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">
-                                <img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">
-                                <img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
-                                <img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">
-                                <img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">
+                                {% if data.roller == 1 %}<img alt="Roller"   src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
+                                {% if data.equitation == 1 %}<img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
+                                {% if data.fitness == 1 %}<img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
+                                {% if data.golf == 1 %}<img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
+                                {% if data.kayak == 1 %}<img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
+                                {% if data.plongee == 1 %}<img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
+                                {% if data.randonee == 1 %}<img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
+                                {% if data.running == 1 %}<img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
+                                {% if data.marche == 1 %}<img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
+                                {% if data.sportEau == 1 %}<img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
+                                {% if data.tennis == 1 %}<img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
+                                {% if data.velo == 1 %}<img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
+                                {% if data.visites == 1 %}<img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
+                                {% if data.arc == 1 %}<img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
+                                {% if data.quad == 1 %}<img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="choirc">
                         <div class="detrc">
                             <p class="prixnuit">
-                            <strong><?php echo htmlspecialchars($donnees['tarif']);?></strong>
+                            <strong>{{ data.sortie.tarif }}</strong>
                             Da
                             </p>
-                            <p class="prixtot">Max : <?php echo htmlspecialchars($donnees['max_personne']);?> peronnes</p>
+                            <p class="prixtot">Max : {{ data.sortie.maxPersonne }} peronnes</p>
                         </div>
                         <div class="choiev">
                             <div class="detprod">
@@ -143,6 +144,7 @@
                     </div>
                 </div>
             </section>
+            {% endif %}
             {% endfor %}
             <!--
             <div class="plusrc">
@@ -179,28 +181,29 @@
         <!-- // fin de la petite pub -->
         <!-- // les anciennes sortie -->
         <div class=".bloc_page_body3">
+            {% for data in product %}
+            {% if data.sortie.close == 1 %}
             <section>
                 <div class="conte">
                     <div class="rc">
                         <div class="photorc">
-                            <img src="depot/uploads/<?php echo $donnees['photo_1']; ?>" alt="Image"/>
+                            <img src="depot/uploads/<?php echo $donnees['photo_1']; ?>" alt="{{ data.sortie.titre }}"/>
                         </div>
                         <div class="desrc">
                             <article>
-                                <h1><?php echo htmlspecialchars(stripslashes($donnees['titre']));?></h1>
+                                <h1>{{ data.sortie.titre }}</h1>
                                 <h3>
-                                    <img alt="Image" src="image/interface/date.png"> ' .htmlspecialchars($donnees['date_debut']).' <img alt="Image" src="image/interface/heure.png">'.htmlspecialchars($donnees['heure_debut']).  '  AU <img alt="Image" src="http://www.bledvoyage.com/image/interface/date.png"> ' .htmlspecialchars($donnees['date_fin']).' <img alt="Image" src="http://www.bledvoyage.com/image/interface/heure.png"> ' .htmlspecialchars($donnees['heure_fin']).
+                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  AU <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
                                 </h3>
                                 <h3>
-                                    <img alt="Image" src="image/interface/date.png"> Le ' .htmlspecialchars($donnees['date_debut']).' |  <img alt="Image" src="image/interface/heure.png"> ' .htmlspecialchars($donnees['heure_debut']). ' - ' .htmlspecialchars($donnees['heure_fin']).'.
+                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Le 2015-10-19 |  <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}"> {{ data.sortie.heureDebut }} - {{ data.sortie.heureFin }}
                                 </h3>
-                                
                                 <div class="loc">
-                                    <img src="image/interface/loc.png" alt="Image"/>
-                                    <h2><?php echo nl2br(htmlspecialchars(stripslashes($donnees['localisation'])));?></h2>
+                                    <img src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}" alt="Image"/>
+                                    <h2>{{ data.sortie.localisation }}</h2>
                                 </div>
                                 <p>
-                                <?php echo debutchaine(htmlspecialchars(stripslashes($donnees['descreptif'])), 22, "detail.php?sortie=".$donnees['id']); ?>
+                                {{ data.sortie.descriptif | slice(0, 150) }}
                                 </p>
                                 <!--
                                 <div class="starblock">
@@ -209,31 +212,31 @@
                                 -->
                             </article>
                             <div class="opt">
-                                <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">
-                                <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">
-                                <img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">
-                                <img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">
-                                <img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">
-                                <img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">
-                                <img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
-                                <img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">
-                                <img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">
-                                <img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">
-                                <img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">
-                                <img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">
-                                <img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
-                                <img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">
-                                <img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">
+                                {% if data.roller == 1 %}<img alt="Roller"   src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
+                                {% if data.equitation == 1 %}<img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
+                                {% if data.fitness == 1 %}<img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
+                                {% if data.golf == 1 %}<img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
+                                {% if data.kayak == 1 %}<img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
+                                {% if data.plongee == 1 %}<img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
+                                {% if data.randonee == 1 %}<img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
+                                {% if data.running == 1 %}<img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
+                                {% if data.marche == 1 %}<img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
+                                {% if data.sportEau == 1 %}<img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
+                                {% if data.tennis == 1 %}<img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
+                                {% if data.velo == 1 %}<img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
+                                {% if data.visites == 1 %}<img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
+                                {% if data.arc == 1 %}<img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
+                                {% if data.quad == 1 %}<img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="choirc">
                         <div class="detrc">
                             <p class="prixnuit">
-                            <strong><?php echo htmlspecialchars($donnees['tarif']);?></strong>
+                            <strong>{{ data.sortie.tarif }}</strong>
                             Da
                             </p>
-                            <p class="prixtot">Max : <?php echo htmlspecialchars($donnees['max_personne']);?> peronnes</p>
+                            <p class="prixtot">Max : {{ data.sortie.maxPersonne }} peronnes</p>
                         </div>
                         <div class="choiev">
                             <div class="detprod">
@@ -249,6 +252,8 @@
                     </div>
                 </div>
             </section>
+            {% endif %}
+            {% endfor %}
         </div>
         <div class="footer_page">
             <div id="bloc_page_footer2">

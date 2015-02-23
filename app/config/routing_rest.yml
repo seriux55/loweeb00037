@@ -1,0 +1,7 @@
+Rest_Sortie : 
+    type : rest
+    resource: "@BledvoyageBundle/Resources/config/routing_rest.yml"
+
+Rest_User : 
+    type : rest
+    resource: "@UserBundle/Resources/config/routing_rest.yml"
