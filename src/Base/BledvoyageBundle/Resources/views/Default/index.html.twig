@@ -58,7 +58,7 @@
         </div>
         <div class="bloc_page_body222">
             <h2>
-                Les sorties  {{ dump(json) }}
+                Les sorties
             </h2>
         </div>
         <div class=".bloc_page_body3">
@@ -79,7 +79,7 @@
                 <div class="conte">
                     <div class="rc">
                         <div class="photorc">
-                            <img src="depot/uploads/<?php echo $donnees['photo_1']; ?>" alt="{{ data.sortie.titre }}"/>
+                            <img src="{{ asset('upload/img/' ~ data.sortie.photo1) }}" alt="{{ data.sortie.titre }}"/>
                         </div>
                         <div class="desrc">
                             <article>
@@ -132,10 +132,10 @@
                         </div>
                         <div class="choiev">
                             <div class="detprod">
-                                <a href="view/detail.php?sortie=<?php echo $donnees['id'];?>">Détail</a>
+                                <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id  }) }}">Détail</a>
                             </div>
                             <div class="resrc">
-                                <a href="view/participation.php?sortie='.$idsortie.'">Réserver</a>
+                                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
                             </div>
                             <div class="complet">
                                 Complet
@@ -187,7 +187,7 @@
                 <div class="conte">
                     <div class="rc">
                         <div class="photorc">
-                            <img src="depot/uploads/<?php echo $donnees['photo_1']; ?>" alt="{{ data.sortie.titre }}"/>
+                            <img src="{{ asset('upload/img/' ~ data.sortie.photo1) }}" alt="{{ data.sortie.titre }}"/>
                         </div>
                         <div class="desrc">
                             <article>
@@ -240,10 +240,10 @@
                         </div>
                         <div class="choiev">
                             <div class="detprod">
-                                <a href="view/detail.php?sortie=<?php echo $donnees['id'];?>">Détail</a>
+                                <a href="#">Détail</a>
                             </div>
                             <div class="resrc">
-                                <a href="view/participation.php?sortie='.$idsortie.'">Réserver</a>
+                                <a href="#">Réserver</a>
                             </div>
                             <div class="complet">
                                 Complet

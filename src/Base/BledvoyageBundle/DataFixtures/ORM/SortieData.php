@@ -136,7 +136,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie3->setHeureFin('17h00');
         $sortie3->setVideo('https://www.youtube.com/watch?v=igLzB-5FrHk');
         $sortie3->setPhoto1('cover_balade_sous.png');
-        $sortie3->setPhoto2('sortie_aventure_sous.pngg');
+        $sortie3->setPhoto2('sortie_aventure_sous.png');
         $sortie3->setPhoto3('sortie_aventure_sous.png');
         $sortie3->setPhoto4('sortie_sousmarine_balade_cover.png');
         $sortie3->setValider('1');

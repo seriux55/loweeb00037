@@ -5,14 +5,13 @@ namespace Base\BledvoyageBundle\Controller;
 //use Base\BledvoyageBundle\Entity\Sortie;
 //use Base\BledvoyageBundle\Entity\Categorie_sortie;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Base\BledvoyageBundle\Entity\Booking;
+use Base\BledvoyageBundle\Form\Type\BookingType;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $serializer = $this->get('jms_serializer');
-        $url = "http://localhost:8888/bledvoyage/web/app_dev.php/api/sortie.json";
-        $j = file_get_contents($url);
         /*
         $wilaya = array(
             "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna",
@@ -65,7 +64,82 @@ class DefaultController extends Controller
         $response = $this->render('BaseBledvoyageBundle:Default:index.html.twig', array(
             'product'       => $product,
             'categorie'     => $categorie,
-            'json'          => $j,
+        ));
+        return $response;
+    }
+    
+    public function productAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieSortie')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.sortie', 'b')
+                   ->where('b.valider = :valider AND b.id = :id')
+                   ->setParameters(
+                        array(
+                            'valider'    => '1',
+                            'id'         => $id,
+                        ))
+                   ->orderBy('a.id','DESC')
+                   ->getQuery()
+                   ->getResult();
+        
+        $response = $this->render('BaseBledvoyageBundle:Default:product.html.twig', array(
+            'product'   => $product,
+        ));
+        return $response;
+    }
+    
+    public function bookingAction($id)
+    {
+        $booking = new Booking();
+        $booking->setIp($this->getRequest()->getClientIp());
+        $form = $this->createForm(new BookingType($id), $booking);
+        /*
+        $dateReservation = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
+                   ->createQueryBuilder('a')
+                   ->where('a.sortie = :id')
+                   ->setParameter('id', $id)
+                   ->getQuery()
+                   ->getResult();
+        
+        foreach($dateReservation as $value) {
+            //$nbrPlace = $value->getPlace();
+        }
+        */
+        
+        /*
+        $form = $this->createFormBuilder($booking)
+                //->add('nombre', 'integer', array('attr' => array('min' =>1, 'max' => $nbrPlace)))
+                ->add('nombre', 'choice', array(
+                                        'choices' => array(
+                                            '1' => '1',
+                                            '2' => '2',
+                                            '3' => '3',
+                                            '4' => '4',
+                                            '5' => '5',
+                                            '6' => '6',
+                                            '7 et plus' => '7 et plus',
+                                        ),
+                                        'expanded' => true,
+                                        'multiple' => false
+                ))
+                ->add('dateReserver', 'entity', array(
+                                                    'class'         => 'BaseBledvoyageBundle:DateSortie',
+                                                    'property'      => 'annuler',
+                                                    'multiple'      => false,
+                                                    'expanded'      => true,
+                                                    'querybuilder'  => function(\Base\BledvoyageBundle\Entity\DateSortieRepository $r) 
+                                                                       {
+                                                                           return $r->getSelectList();
+                                                                       }
+                ))
+                ->add('promo')
+                ->getForm();  
+        */
+        
+        $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
+            'form'   => $form->createView(),
         ));
         return $response;
     }

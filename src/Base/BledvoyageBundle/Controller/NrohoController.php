@@ -9,11 +9,9 @@ class NrohoController extends Controller
 {
     public function getSortieAction()
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieSortie')
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
                    ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
-                   ->where('b.valider = :valider')
+                   ->where('a.valider = :valider')
                    ->setParameter('valider', '1')
                    ->orderBy('a.id','DESC')
                    ->getQuery()

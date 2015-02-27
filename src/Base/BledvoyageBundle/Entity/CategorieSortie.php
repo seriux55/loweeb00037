@@ -172,10 +172,33 @@ class CategorieSortie
     }
 
     /**
+     * Set sortie
+     *
+     * @param \Base\BledvoyageBundle\Entity\Sortie $sortie
+     * @return CategorieSortie
+     */
+    public function setSortie(\Base\BledvoyageBundle\Entity\Sortie $sortie)
+    {
+        $this->sortie = $sortie;
+
+        return $this;
+    }
+
+    /**
+     * Get sortie
+     *
+     * @return \Base\BledvoyageBundle\Entity\Sortie
+     */
+    public function getSortie()
+    {
+        return $this->sortie;
+    }
+
+    /**
      * Set velo
      *
      * @param string $velo
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setVelo($velo)
     {
@@ -198,7 +221,7 @@ class CategorieSortie
      * Set running
      *
      * @param string $running
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setRunning($running)
     {
@@ -221,7 +244,7 @@ class CategorieSortie
      * Set kayak
      *
      * @param string $kayak
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setKayak($kayak)
     {
@@ -244,7 +267,7 @@ class CategorieSortie
      * Set randonee
      *
      * @param string $randonee
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setRandonee($randonee)
     {
@@ -267,7 +290,7 @@ class CategorieSortie
      * Set roller
      *
      * @param string $roller
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setRoller($roller)
     {
@@ -290,7 +313,7 @@ class CategorieSortie
      * Set plongee
      *
      * @param string $plongee
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setPlongee($plongee)
     {
@@ -313,7 +336,7 @@ class CategorieSortie
      * Set equitation
      *
      * @param string $equitation
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setEquitation($equitation)
     {
@@ -336,7 +359,7 @@ class CategorieSortie
      * Set fitness
      *
      * @param string $fitness
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setFitness($fitness)
     {
@@ -359,7 +382,7 @@ class CategorieSortie
      * Set tennis
      *
      * @param string $tennis
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setTennis($tennis)
     {
@@ -382,7 +405,7 @@ class CategorieSortie
      * Set golf
      *
      * @param string $golf
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setGolf($golf)
     {
@@ -405,7 +428,7 @@ class CategorieSortie
      * Set marche
      *
      * @param string $marche
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setMarche($marche)
     {
@@ -428,7 +451,7 @@ class CategorieSortie
      * Set visites
      *
      * @param string $visites
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setVisites($visites)
     {
@@ -451,7 +474,7 @@ class CategorieSortie
      * Set sportEau
      *
      * @param string $sportEau
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setSportEau($sportEau)
     {
@@ -474,7 +497,7 @@ class CategorieSortie
      * Set arc
      *
      * @param string $arc
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setArc($arc)
     {
@@ -497,7 +520,7 @@ class CategorieSortie
      * Set air
      *
      * @param string $air
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setAir($air)
     {
@@ -520,7 +543,7 @@ class CategorieSortie
      * Set sable
      *
      * @param string $sable
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setSable($sable)
     {
@@ -543,7 +566,7 @@ class CategorieSortie
      * Set quad
      *
      * @param string $quad
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setQuad($quad)
     {
@@ -566,7 +589,7 @@ class CategorieSortie
      * Set ip
      *
      * @param string $ip
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setIp($ip)
     {
@@ -589,7 +612,7 @@ class CategorieSortie
      * Set dateTime
      *
      * @param \DateTime $dateTime
-     * @return Categorie_sortie
+     * @return CategorieSortie
      */
     public function setDateTime($dateTime)
     {
@@ -606,28 +629,5 @@ class CategorieSortie
     public function getDateTime()
     {
         return $this->dateTime;
-    }
-
-    /**
-     * Set sortie
-     *
-     * @param \Base\BledvoyageBundle\Entity\Sortie $sortie
-     * @return Categorie_sortie
-     */
-    public function setSortie(\Base\BledvoyageBundle\Entity\Sortie $sortie)
-    {
-        $this->sortie = $sortie;
-
-        return $this;
-    }
-
-    /**
-     * Get sortie
-     *
-     * @return \Base\BledvoyageBundle\Entity\Sortie
-     */
-    public function getSortie()
-    {
-        return $this->sortie;
     }
 }

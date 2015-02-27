@@ -2,6 +2,9 @@
 
 namespace Base\BledvoyageBundle\Entity;
 
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\SortieRepository")
+ * 
+ * @ExclusionPolicy("all")
  */
 class Sortie
 {
@@ -18,6 +23,7 @@ class Sortie
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
     
@@ -37,6 +43,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Expose
      */
     private $titre;
 
@@ -44,6 +51,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="descriptif", type="string", length=255)
+     * @Expose
      */
     private $descriptif;
 
@@ -51,6 +59,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="conditions", type="string", length=255)
+     * @Expose
      */
     private $conditions;
 
@@ -58,6 +67,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="localisation", type="string", length=255)
+     * @Expose
      */
     private $localisation;
 
@@ -65,6 +75,7 @@ class Sortie
      * @var integer
      *
      * @ORM\Column(name="tarif", type="integer")
+     * @Expose
      */
     private $tarif;
 
@@ -72,6 +83,7 @@ class Sortie
      * @var integer
      *
      * @ORM\Column(name="maxPersonne", type="integer")
+     * @Expose
      */
     private $maxPersonne;
 
@@ -79,6 +91,7 @@ class Sortie
      * @var \DateTime
      *
      * @ORM\Column(name="date_debut", type="datetime")
+     * @Expose
      */
     private $dateDebut;
 
@@ -86,6 +99,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="heure_debut", type="string", length=255)
+     * @Expose
      */
     private $heureDebut;
 
@@ -93,6 +107,7 @@ class Sortie
      * @var \DateTime
      *
      * @ORM\Column(name="date_fin", type="datetime")
+     * @Expose
      */
     private $dateFin;
 
@@ -100,6 +115,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="heure_fin", type="string", length=255)
+     * @Expose
      */
     private $heureFin;
 
@@ -107,6 +123,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="video", type="string", length=255)
+     * @Expose
      */
     private $video;
 
@@ -114,6 +131,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="photo1", type="string", length=255)
+     * @Expose
      */
     private $photo1;
 
@@ -121,6 +139,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="photo2", type="string", length=255)
+     * @Expose
      */
     private $photo2;
 
@@ -128,6 +147,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="photo3", type="string", length=255)
+     * @Expose
      */
     private $photo3;
 
@@ -135,6 +155,7 @@ class Sortie
      * @var string
      *
      * @ORM\Column(name="photo4", type="string", length=255)
+     * @Expose
      */
     private $photo4;
 
@@ -947,7 +968,7 @@ class Sortie
      * Set categorie
      *
      * @param \Base\BledvoyageBundle\Entity\Categorie $categorie
-     * @return Categorie
+     * @return Sortie
      */
     public function setCategorie(\Base\BledvoyageBundle\Entity\Categorie $categorie)
     {
@@ -970,7 +991,7 @@ class Sortie
      * Set user
      *
      * @param \Base\UserBundle\Entity\User $user
-     * @return User
+     * @return Sortie
      */
     public function setUser(\Base\UserBundle\Entity\User $user)
     {

@@ -10,3 +10,15 @@ sortie_nroho:
     type: rest
     resource: Base\BledvoyageBundle\Controller\NrohoController
     prefix: api
+
+bledvoyage_product:
+    path:     /product/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Default:product }
+    requirements:
+        id:   \d+
+
+bledvoyage_booking:
+    path:     /booking/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Default:booking }
+    requirements:
+        id:   \d+
