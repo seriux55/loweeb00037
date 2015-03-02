@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66dfe02ae355188a7eb33629e58851f9",
+    "hash": "2a90544e0466228371573a13b9f8818b",
     "packages": [
         {
             "name": "coresphere/console-bundle",
@@ -1059,12 +1059,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "6c016e3556c0e1a8418efda1be1f7da66df236ad"
+                "reference": "d69a509725a8e4ed2efe6ebb1dd8f78169c60079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/6c016e3556c0e1a8418efda1be1f7da66df236ad",
-                "reference": "6c016e3556c0e1a8418efda1be1f7da66df236ad",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d69a509725a8e4ed2efe6ebb1dd8f78169c60079",
+                "reference": "d69a509725a8e4ed2efe6ebb1dd8f78169c60079",
                 "shasum": ""
             },
             "require": {
@@ -1082,6 +1082,7 @@
             "require-dev": {
                 "jms/serializer-bundle": "~0.12",
                 "sensio/framework-extra-bundle": "~3.0",
+                "symfony/browser-kit": "~2.3",
                 "symfony/form": "~2.3",
                 "symfony/security": "~2.3",
                 "symfony/serializer": "~2.3",
@@ -1128,7 +1129,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2015-02-16 15:25:15"
+            "time": "2015-03-02 20:03:28"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1848,17 +1849,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v2.3.9",
+            "version": "v2.3.11",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "ac4893621b30faf8f970758afea7640122767817"
+                "reference": "374bbea795fa69a85b1623048798a89aebffe62b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ac4893621b30faf8f970758afea7640122767817",
-                "reference": "ac4893621b30faf8f970758afea7640122767817",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/374bbea795fa69a85b1623048798a89aebffe62b",
+                "reference": "374bbea795fa69a85b1623048798a89aebffe62b",
                 "shasum": ""
             },
             "require": {
@@ -1890,7 +1891,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-02-01 05:39:51"
+            "time": "2015-02-27 12:58:18"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2530,14 +2531,14 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20,
-        "doctrine/migrations": 20,
-        "doctrine/doctrine-migrations-bundle": 20,
-        "coresphere/console-bundle": 20,
-        "jms/serializer-bundle": 20,
-        "doctrine/doctrine-fixtures-bundle": 20,
         "ircmaxell/password-compat": 20,
-        "friendsofsymfony/rest-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "jms/serializer-bundle": 20,
+        "friendsofsymfony/rest-bundle": 20,
+        "doctrine/doctrine-fixtures-bundle": 20,
+        "doctrine/doctrine-migrations-bundle": 20,
+        "doctrine/migrations": 20,
+        "coresphere/console-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
