@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class DateSortieRepository extends EntityRepository
 {
+    /*
     public function getDateDebut($id)
     {
         $qb = $this->createQueryBuilder('a')
@@ -22,4 +23,5 @@ class DateSortieRepository extends EntityRepository
                    ));
         return $qb;
     }
+    */
 }

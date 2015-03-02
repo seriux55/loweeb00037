@@ -7,7 +7,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}#chassezlaroutine{% endblock %}</title>
         {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('bundles/basebledvoyage/css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/basebledvoyage/css/style_admin.css') }}"/>
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -20,15 +20,17 @@
                 </div>
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
-                        <a href="{{ path('base_bledvoyage_homepage') }}">Accueil</a>
-                        <a href="#">Promotion</a>
-                        <a href="#">Entreprise</a>
-                        <a href="#">Formation</a>
-                        <a href="#">Déposez votre produit</a>
+                        <a href="{{ path('bledvoyage_admin') }}">Tableau de bord</a>
+                        <a href="{{ path('bledvoyage_admin_commande') }}">Commandes</a>
+                        <a href="{{ path('bledvoyage_admin_reservation') }}">Réservations</a>
+                        <a href="{{ path('bledvoyage_admin_present') }}">Présents</a>
+                        <a href="{{ path('base_bledvoyage_homepage') }}">Les sorties</a>
+                        <!--
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
                             <p>0 556 179 774</p>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>

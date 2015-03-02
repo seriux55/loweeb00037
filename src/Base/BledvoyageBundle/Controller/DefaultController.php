@@ -92,51 +92,22 @@ class DefaultController extends Controller
     
     public function bookingAction($id)
     {
-        $booking = new Booking();
-        $booking->setIp($this->getRequest()->getClientIp());
-        $form = $this->createForm(new BookingType($id), $booking);
-        /*
-        $dateReservation = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
                    ->createQueryBuilder('a')
                    ->where('a.sortie = :id')
                    ->setParameter('id', $id)
                    ->getQuery()
                    ->getResult();
-        
-        foreach($dateReservation as $value) {
-            //$nbrPlace = $value->getPlace();
+        $dateDebut = array();
+        foreach($product as $value){
+            $dateDebut[] = array($value->getDateDebut()->format('Y-m-d') => $value->getDateDebut()->format('d/m/Y'));
         }
-        */
         
-        /*
-        $form = $this->createFormBuilder($booking)
-                //->add('nombre', 'integer', array('attr' => array('min' =>1, 'max' => $nbrPlace)))
-                ->add('nombre', 'choice', array(
-                                        'choices' => array(
-                                            '1' => '1',
-                                            '2' => '2',
-                                            '3' => '3',
-                                            '4' => '4',
-                                            '5' => '5',
-                                            '6' => '6',
-                                            '7 et plus' => '7 et plus',
-                                        ),
-                                        'expanded' => true,
-                                        'multiple' => false
-                ))
-                ->add('dateReserver', 'entity', array(
-                                                    'class'         => 'BaseBledvoyageBundle:DateSortie',
-                                                    'property'      => 'annuler',
-                                                    'multiple'      => false,
-                                                    'expanded'      => true,
-                                                    'querybuilder'  => function(\Base\BledvoyageBundle\Entity\DateSortieRepository $r) 
-                                                                       {
-                                                                           return $r->getSelectList();
-                                                                       }
-                ))
-                ->add('promo')
-                ->getForm();  
-        */
+        $booking = new Booking();
+        $booking->setIp($this->getRequest()->getClientIp());
+        $form = $this->createForm(new BookingType($id, $dateDebut), $booking);
+        
+        /* $this->getRequest()->request->get('promo'); */
         
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
             'form'   => $form->createView(),

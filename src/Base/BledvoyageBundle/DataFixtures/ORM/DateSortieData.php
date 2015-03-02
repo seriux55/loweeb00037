@@ -24,14 +24,14 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $dateSortie1 = new DateSortie();
         $dateSortie1->setSortie($this->getReference('sortie1'));
         $dateSortie1->setDateDebut(new \DateTime("2015-01-01"));
-        $dateSortie1->setDateFin(new \DateTime("2017-01-01"));
+        $dateSortie1->setDateFin(new \DateTime("2015-01-01"));
         $dateSortie1->setStatut("");
         $dateSortie1->setAnnuler("0");
         $manager->persist($dateSortie1);
         
         $dateSortie2 = new DateSortie();
         $dateSortie2->setSortie($this->getReference('sortie1'));
-        $dateSortie2->setDateDebut(new \DateTime("2015-01-01"));
+        $dateSortie2->setDateDebut(new \DateTime("2017-01-01"));
         $dateSortie2->setDateFin(new \DateTime("2017-01-01"));
         $dateSortie2->setStatut("");
         $dateSortie2->setAnnuler("0");
@@ -40,14 +40,14 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $dateSortie3 = new DateSortie();
         $dateSortie3->setSortie($this->getReference('sortie2'));
         $dateSortie3->setDateDebut(new \DateTime("2015-01-01"));
-        $dateSortie3->setDateFin(new \DateTime("2017-01-01"));
+        $dateSortie3->setDateFin(new \DateTime("2015-01-01"));
         $dateSortie3->setStatut("");
         $dateSortie3->setAnnuler("0");
         $manager->persist($dateSortie3);
         
         $dateSortie4 = new DateSortie();
         $dateSortie4->setSortie($this->getReference('sortie2'));
-        $dateSortie4->setDateDebut(new \DateTime("2015-01-01"));
+        $dateSortie4->setDateDebut(new \DateTime("2017-01-01"));
         $dateSortie4->setDateFin(new \DateTime("2017-01-01"));
         $dateSortie4->setStatut("");
         $dateSortie4->setAnnuler("0");
@@ -56,14 +56,14 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $dateSortie5 = new DateSortie();
         $dateSortie5->setSortie($this->getReference('sortie3'));
         $dateSortie5->setDateDebut(new \DateTime("2015-01-01"));
-        $dateSortie5->setDateFin(new \DateTime("2017-01-01"));
+        $dateSortie5->setDateFin(new \DateTime("2015-01-01"));
         $dateSortie5->setStatut("");
         $dateSortie5->setAnnuler("0");
         $manager->persist($dateSortie5);
         
         $dateSortie6 = new DateSortie();
         $dateSortie6->setSortie($this->getReference('sortie3'));
-        $dateSortie6->setDateDebut(new \DateTime("2015-01-01"));
+        $dateSortie6->setDateDebut(new \DateTime("2017-01-01"));
         $dateSortie6->setDateFin(new \DateTime("2017-01-01"));
         $dateSortie6->setStatut("");
         $dateSortie6->setAnnuler("0");
@@ -72,14 +72,14 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $dateSortie7 = new DateSortie();
         $dateSortie7->setSortie($this->getReference('sortie4'));
         $dateSortie7->setDateDebut(new \DateTime("2015-01-01"));
-        $dateSortie7->setDateFin(new \DateTime("2017-01-01"));
+        $dateSortie7->setDateFin(new \DateTime("2015-01-01"));
         $dateSortie7->setStatut("");
         $dateSortie7->setAnnuler("0");
         $manager->persist($dateSortie7);
         
         $dateSortie8 = new DateSortie();
         $dateSortie8->setSortie($this->getReference('sortie4'));
-        $dateSortie8->setDateDebut(new \DateTime("2015-01-01"));
+        $dateSortie8->setDateDebut(new \DateTime("2017-01-01"));
         $dateSortie8->setDateFin(new \DateTime("2017-01-01"));
         $dateSortie8->setStatut("");
         $dateSortie8->setAnnuler("0");
@@ -88,14 +88,14 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $dateSortie9 = new DateSortie();
         $dateSortie9->setSortie($this->getReference('sortie5'));
         $dateSortie9->setDateDebut(new \DateTime("2015-01-01"));
-        $dateSortie9->setDateFin(new \DateTime("2017-01-01"));
+        $dateSortie9->setDateFin(new \DateTime("2015-01-01"));
         $dateSortie9->setStatut("");
         $dateSortie9->setAnnuler("0");
         $manager->persist($dateSortie9);
         
         $dateSortie10 = new DateSortie();
         $dateSortie10->setSortie($this->getReference('sortie5'));
-        $dateSortie10->setDateDebut(new \DateTime("2015-01-01"));
+        $dateSortie10->setDateDebut(new \DateTime("2017-01-01"));
         $dateSortie10->setDateFin(new \DateTime("2017-01-01"));
         $dateSortie10->setStatut("");
         $dateSortie10->setAnnuler("0");

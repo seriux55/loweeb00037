@@ -9,9 +9,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class BookingType extends AbstractType
 {
     private $id;
+    private $dateDebut;
 
-    public function __construct($id){
-        $this->id = $id; // Keep the id of the item.
+    public function __construct($id, $dateDebut){
+        $this->id = $id;
+        $this->dateDebut = $dateDebut;
     }
     
     /**
@@ -34,19 +36,41 @@ class BookingType extends AbstractType
                                             '7 et plus' => '7 et plus',
                                         ),
                                         'expanded' => true,
-                                        'multiple' => false
+                                        'multiple' => false,
             ))
+            ->add('dateReserver', 'choice', array(
+                                        'choices' => $this->dateDebut,
+                                        'expanded' => true,
+                                        'multiple' => false,
+                                        'attr' => array('class' => 'indate'),
+            ))
+            /*
             ->add('dateReserver', 'entity', array(
                                         'class'    => 'BaseBledvoyageBundle:DateSortie',
                                         'property' => 'dateDebut',
                                         'expanded' => false,
                                         'multiple' => true,
-                                        'query_builder' => function(\Base\BledvoyageBundle\Entity\DateSortieRepository $r) use ($id) 
+                                        'query_builder' => function(\Base\BledvoyageBundle\Entity\DateSortieRepository $r) use ($id, $dateDebut) 
                                                            {
                                                                 return $r->getDateDebut($id);
                                                            }
             ))
-            ->add('promo')
+            
+            ->add('promo', 'text', array(
+                                    'attr' => array('class' => 'ouardep'),
+            ))
+            */
+            ->add('promo', 'collection', array(
+                                            'type'           => 'text',
+                                            'allow_add'      => true,
+                                            'allow_delete'   => true,
+                                            'prototype'      => true,
+                                            'prototype_name' => 'tag__name__',
+                                            'options'        => array(
+                                                                'required'  => false,
+                                                                'attr'      => array('class' => 'ouardep')
+                                            ),
+            ))
         ;
     }
     

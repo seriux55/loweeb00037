@@ -1,229 +1,147 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!--[if lt IE 9]>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
-        <![endif]-->
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="{{ asset('bundles/basebledvoyage/css/style.css') }}"/>
-        <title>#chassezlaroutine</title>
-    </head>
-    <body>
-        <div class="bloc_page_entetee">
-            <div class="bloc_page_entete">
-                <div class="bloc_page_entete_1">
-                    <a href="{{ path('base_bledvoyage_homepage') }}"><img src="{{ asset('bundles/basebledvoyage/images/old/logo_2.png') }}" alt="logo de bledvoyage" /></a>
-                </div>
-                <div class="bloc_page_entete_2">
-                    <div class="entete3">
-                        <a href="{{ path('base_bledvoyage_homepage') }}">Accueil</a>
-                        <a href="#">Promotion</a>
-                        <a href="#">Entreprise</a>
-                        <a href="#">Formation</a>
-                        <a href="#">Déposez votre produit</a>
-                        <div class="contsou">
-                            <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
-                            <p>0 556 179 774</p>
-                        </div>
-                    </div>
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Réservation 
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section>
+        <div class="infoparcourss">
+            <div class="info_parcours">
+                <p class="pgras1">Recapitulatif et réservation</p>
+                <div class="rectangle1">
                 </div>
             </div>
-            <div class="bloc_page_entete3">
-                <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="{{ asset('bundles/basebledvoyage/images/old/facebook.png') }}" alt="bledvoyage sur facebook" id="facebook"/></a>
-                <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="{{ asset('bundles/basebledvoyage/images/old/twitter.png') }}" alt="bledvoyage sur twitter" id="twitter"/></a>
-                <a href="http://www.youtube.com/user/bledvoyage" target="_blank" title="bledvoyage sur Youtube"><img src="{{ asset('bundles/basebledvoyage/images/old/youtube.png') }}" alt="bledvoyage sur youtube" id="skype"/></a>
+            <div class="info_parcours">
+                <p class="pgras">Confirmation</p>
+                <div class="rectangle">
+                </div>
             </div>
         </div>
-        <div class="bloc_page_body222">
-            <h2>
-                Réservation 
-            </h2>
-        </div>	
-        <div class=".bloc_page_body3">
-            <section>
-                <div class="infoparcourss">
-                    <div class="info_parcours">
-                        <p class="pgras1">Recapitulatif et réservation</p>
-                        <div class="rectangle1">
+        <div class="forpar">
+            <form method="post" {{ form_enctype(form) }}>
+                <div class="dates">
+                    <h2>
+                        Nombre de places
+                    </h2>
+                    <h6>Combien de places ?</h6>
+                    <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
+                </div>
+                <div class="dates">
+                    {{ form_label(form.nombre, " ") }}
+                    {{ form_errors(form.nombre) }}
+                    {{ form_widget(form.nombre) }}
+                </div>	
+                <div class="dates">
+                    <h2>
+                        Date de réservation
+                    </h2>
+                    <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
+                </div>
+                <div class="dates">
+                    {{ form_label(form.dateReserver, " ") }}
+                    {{ form_errors(form.dateReserver) }}
+
+                    {% for data in form.dateReserver %}
+                        {% if form_label(data) == '01/01/2015' %}
+
+                        {% else %}
+                            {{ form_label(data) }}
+                            {{ form_errors(data) }}
+                            {{ form_widget(data) }}
+                        {% endif %}
+                    {% endfor %}
+
+                    {{ form_widget(form.dateReserver) }}
+
+                    {% if(form.dateReserver == '2015-01-01') %}<p>azertyAZERTY</p>{% endif %}
+
+                </div>	
+                <div class="dates">
+                    <h2>
+                        Avez vous un code promotion ?
+                    </h2>
+                    <h6>J'ai un code promo</h6>
+                    <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/promo.png') }}">
+                </div>
+                <div class="mr7">
+                    <div class="mr4u">
+
+                        <div id="post_promo" data-prototype="{{ _self.widget_prototype(form.promo, 'Remove tag')|escape }}">
+                            {% for widget in form.promo.children %}
+                                {{ _self.widget_prototype(widget, 'Remove tag') }}
+                            {% endfor %}
                         </div>
-                    </div>
-                    <div class="info_parcours">
-                        <p class="pgras">Confirmation</p>
-                        <div class="rectangle">
-                        </div>
+
+                        <a class="btn-add" data-target="post_tags">Add tag</a>
+
+                        <label for="mdp">Passez cette étape si vous n'avez pas de code promo.</label>
+                        <!-- <input class="ouardep" type="text" name="promo0" maxlength="8" /> -->
+                        <div id="cadre"></div>
+                        <input type="button" value=" + " onclick="plus()" />
+                        <input type="button" style="display:none" id="sup" value=" - " onclick="moins()" />
                     </div>
                 </div>
-                <div class="forpar">
-                    <form method="post" {{ form_enctype(form) }}>
-                        <div class="dates">
-                            <h2>
-                                Nombre de places
-                            </h2>
-                            <h6>Combien de places ?</h6>
-                            <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
-                        </div>
-                        <div class="dates">
-                            
-                            {{ form_label(form.nombre, " ") }}
-                            {{ form_errors(form.nombre) }}
-                            {{ form_widget(form.nombre) }}
-                            
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="1">1 Place</label>
-                                    <INPUT type= "radio" name="resa" title="Le nombre de réservation est requis!" x-moz-errormessage="Le nombre de réservation est requis!" required value="1" id="1">
-                                </div>
-                            </div>
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="2">2 Places</label>
-                                    <INPUT type= "radio" name="resa" value="2" id="2">
-                                </div>
-                            </div>
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="3">3 Places</label>
-                                    <INPUT type= "radio" name="resa" value="3" id="3">
-                                </div>
-                            </div>
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="4">4 Places</label>
-                                    <INPUT type= "radio" name="resa" value="4" id="4">
-                                </div>
-                            </div>
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="5">5 Places</label>
-                                    <INPUT type= "radio" name="resa" value="5" id="5">
-                                </div>
-                            </div>
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="6">6 Places</label>
-                                    <INPUT type= "radio" name="resa" value="6" id="6">
-                                </div>
-                            </div>
-                            <div class="outplace">
-                                <div class="inplace">
-                                    <label for="7">7 et Plus</label>
-                                    <INPUT type= "radio" name="resa" value="7 et plus" id="7">
-                                </div>
-                            </div>
-                        </div>	
-                        <div class="dates">
-                            <h2>
-                                Date de réservation
-                            </h2>
-                            <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
-                        </div>
-                        <div class="dates">
-                            {{ form_label(form.dateReserver) }}
-                            {{ form_errors(form.dateReserver) }}
-                            {{ form_widget(form.dateReserver)|date('Y/m/d') }}
-                            <div class="outdate" >
-                                <div class="indate">
-                                    <label for="06/03/2015">06/03/2015</label>
-                                    <INPUT type= "radio" id="06/03/2015" name="date_reservation" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!" value="06/03/2015">
-                                </div>
-                            </div>
-                            <div class="outdate" >
-                                <div class="indate">
-                                    <label for="07/03/2015">07/03/2015</label>
-                                    <INPUT type= "radio" id="07/03/2015" name="date_reservation" value="07/03/2015">
-                                </div>
-                            </div>
-                        </div>	
-                        <div class="dates">
-                            <h2>
-                                Avez vous un code promotion ?
-                            </h2>
-                            <h6>J'ai un code promo</h6>
-                            <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/promo.png') }}">
-                        </div>
-                        <div class="mr7">
-                            <div class="mr4u">
-                                
-                                {{ form_label(form.promo, " ") }}
-                                {{ form_errors(form.promo) }}
-                                {{ form_widget(form.promo) }}
-                                
-                                <label for="mdp">Passez cette étape si vous n'avez pas de code promo.</label>
-                                <input class="ouardep" type="text" name="promo0" maxlength="8" />
-                                <div id="cadre"></div>
-                                <input type="button" value=" + " onclick="plus()" />
-                                <input type="button" style="display:none" id="sup" value=" - " onclick="moins()" />
-                            </div>
-                        </div>
-                        {{ form_rest(form) }}
-                        <div class="mr6">
-                            <input type="hidden" name="sortie" value="37" />
-                            <input class="cherchez" name="login" type="submit" value="Valider"/>
-                        </div>
-                    </form>
+                {{ form_rest(form) }}
+                <div class="mr6">
+                    <input type="hidden" name="sortie" value="37" />
+                    <input class="cherchez" name="login" type="submit" value="Valider"/>
                 </div>
-            </section>
-            <div class="sectiono">
-                <div class="mr1i">
-                    <div class="mr2i">
-                        <h4>Besoin d'aide ?</h4>
-                    </div>
-                    <div class="mr2i">
-                        <p>
-                            Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous ! 
-                        </p>
-                    </div>
-                    <div class="appel">
-                        <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}">
-                        <p>0 556 179 774</p>
-                    </div>
-                </div>
+            </form>
+        </div>
+    </section>
+    <div class="sectiono">
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Besoin d'aide ?</h4>
             </div>
-            <div class="plusrc">
+            <div class="mr2i">
                 <p>
-                    <a href="{{ path('base_bledvoyage_homepage') }}">Revenir au site bledvoyage.com</a>
+                    Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous ! 
                 </p>
             </div>
-        </div>
-        <script type="text/javascript">
-        var c,c2, ch;
-        // ajouter un champ avec son "name" propre;
-        function plus(){
-                c=document.getElementById('cadre');
-                c2=c.getElementsByTagName('input');
-                ch=document.createElement('input');
-                ch.className = "ouardep";
-                ch.setAttribute('type','text');
-                ch.setAttribute('name','promo'+(c2.length+1));
-                ch.maxLength = "8";
-                c.appendChild(ch);
-                document.getElementById('sup').style.display='inline';
-        }
-        // supprimer le dernier champ;
-        function moins(){
-                if(c2.length>0){c.removeChild(c2[c2.length-1])}
-                if(c2.length==0){document.getElementById('sup').style.display='none'};
-        }
-        </script>
-        <div class="footer_page">
-            <div id="bloc_page_footer2">
-                <p>
-                    bledvoyage.com, crée et développe des solutions anti-routines pour particliers et professionnels. 
-                    Il vous permet de trouver les meilleurs offres de séjours, de bons plans sympatiques, de vacances, activités de loisirs en Algérie. 
-                    Recherchez votre séjour n'a jamais été aussi facile, vous partirez en Algérie et participerez aux activités de loisirs en toute confiance.
-                    comparez en un clic les offres ainsi que les tarifs et reservez votre séjour, vos plans loisirs,  
-                    vos vacances au meilleur prix en Algérie. 
-                    Chassez la routine ! 
-                </p>
-            </div>
-            <hr>
-            <div id="bloc_page_footer3">
-                <a href="../contact/tout_savoir_sur_bledvoyage.php">Tout savoir sur bledvoyage</a> -
-                © 2013 <a href="{{ path('base_bledvoyage_homepage') }}" target="_blank">bledvoyage.com</a> -
-                <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="http://www.bledvoyage.com/images/facebook.png" alt="bledvoyage sur facebook" id="facebook"/></a> -
-                <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="http://www.bledvoyage.com/images/twitter.png" alt="bledvoyage sur twitter" id="twitter"/></a> - 
-                <a href="http://www.youtube.com/user/bledvoyage" target="_blank" title="bledvoyage sur Youtube"><img src="http://www.bledvoyage.com/images/youtube.png" alt="bledvoyage sur youtube" id="skype"/></a> 
+            <div class="appel">
+                <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}">
+                <p>0 556 179 774</p>
             </div>
         </div>
-    </body>	
-</html>
+    </div>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('base_bledvoyage_homepage') }}">Revenir au site bledvoyage.com</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+var c,c2, ch;
+// ajouter un champ avec son "name" propre;
+function plus(){
+        c=document.getElementById('cadre');
+        c2=c.getElementsByTagName('input');
+        ch=document.createElement('input');
+        ch.className = "ouardep";
+        ch.setAttribute('type','text');
+        ch.setAttribute('name','promo[]');
+        ch.maxLength = "8";
+        c.appendChild(ch);
+        document.getElementById('sup').style.display='inline';
+}
+// supprimer le dernier champ;
+function moins(){
+        if(c2.length>0){ c.removeChild(c2[c2.length-1]); }
+        if(c2.length===0){ document.getElementById('sup').style.display='none'; };
+}
+</script>
+{% endblock %}

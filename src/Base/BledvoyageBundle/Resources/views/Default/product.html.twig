@@ -1,347 +1,295 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!--[if lt IE 9]>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
-        <![endif]-->
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="{{ asset('bundles/basebledvoyage/css/style.css') }}"/>
-        <title>#chassezlaroutine</title>
-    </head>
-    <body>
-        <div class="bloc_page_entetee">
-            <div class="bloc_page_entete">
-                <div class="bloc_page_entete_1">
-                    <a href="{{ path('base_bledvoyage_homepage') }}"><img src="{{ asset('bundles/basebledvoyage/images/old/logo_2.png') }}" alt="logo de bledvoyage" /></a>
-                </div>
-                <div class="bloc_page_entete_2">
-                    <div class="entete3">
-                        <a href="{{ path('base_bledvoyage_homepage') }}">Accueil</a>
-                        <a href="#">Promotion</a>
-                        <a href="#">Entreprise</a>
-                        <a href="#">Formation</a>
-                        <a href="#">Déposez votre produit</a>
-                        <div class="contsou">
-                            <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
-                            <p>0 556 179 774</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bloc_page_entete3">
-                <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="{{ asset('bundles/basebledvoyage/images/old/facebook.png') }}" alt="bledvoyage sur facebook" id="facebook"/></a>
-                <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="{{ asset('bundles/basebledvoyage/images/old/twitter.png') }}" alt="bledvoyage sur twitter" id="twitter"/></a>
-                <a href="http://www.youtube.com/user/bledvoyage" target="_blank" title="bledvoyage sur Youtube"><img src="{{ asset('bundles/basebledvoyage/images/old/youtube.png') }}" alt="bledvoyage sur youtube" id="skype"/></a>
-            </div>
-        </div>
-        {% for data in product %}
-        <!-- DebutSortie -->
-        <div class="bloc_page_3">
-            <!--Photo-->
-            <div class="sectionni">
-                <div class="photoi">
-                    <img src="{{ asset('upload/img/' ~ data.sortie.photo3) }}" alt="Image"/>
-                </div>
-            </div>
-            <!--FinPhoto-->
-            <!--Info-->
-            <div class="foc_2">
-                <div class="detailima">
-                    <div class="detailinfo">
-                        <div class="detza">
-                            <h3>
-                                {{ data.sortie.titre }}
-                            </h3>
-                            <h4>
-                                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2014-10-01 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">16h00 AU 
-                                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-08-31 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">12h00.
-                            </h4>
-                            <div class="detroi">
-                                <div class="deb">
-                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}">
-                                    <div class="debhead">
-                                        <div class="debbodya">
-                                            <h6>Tipaza</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="deb">
-                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/max.png') }}">
-                                    <div class="debhead">
-                                        <div class="debbody">
-                                            <h6>
-                                            15											
-                                            </h6>
-                                            <p>Personnes</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="der">
-                                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/prix.png') }}">
-                                    <div class="debhead">
-                                        <div class="debbody">
-                                            <h6>14900</h6>
-                                            <p>Dinars</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="resuyo">
-                            <div class="reservationi">
-                                <div class="mr6io">
-                                    <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">
-                                        <input class="trouvezi" type="button" value="Réserver"/>
-                                    </a>
-                                </div>								
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--FinInfo-->
-            <!--Menu-->
-            <div class="detailono">
-                <div class="mt1">
-                    <div class="detailform">
-                        <nav class="detali">  
-                            <ul>
-                                <li><a onClick="document.getElementById('description').style.display='block'; 
-                                                document.getElementById('conditions').style.display='none'; 
-                                                document.getElementById('photos').style.display='none';">Description</a></li>
+{% extends '::base.html.twig' %}
 
-                                <li><a onClick="document.getElementById('description').style.display='none'; 
-                                                document.getElementById('conditions').style.display='none'; 
-                                                document.getElementById('photos').style.display='block';">Photos</a></li>
-                                <li><a onClick="document.getElementById('description').style.display='none'; 
-                                                document.getElementById('conditions').style.display='block'; 
-                                                document.getElementById('photos').style.display='none';" >Conditions</a></li>
-                                <!--<li>Avis</li>-->
-                                <li><a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a></li>								
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <!--FinMenu-->
-            <!-- LeProjet -->					
-            <div id="description" style="display:block;">					
-                <div class="sectiar">
-                    <h2>Description</h2> 
-                </div>
-                <div class="sectiono"> 
-                    <div class="mr1i">
-                        <div class="mr2i">
-                            <h4>À propos</h4>
-                        </div>
-                        <div class="mr2i">
-                            <p>
-                                {{ data.sortie.descriptif }}
-                            </p>
-                        </div>
-                        <!-- Astuce -->
-                        <!-- FinAstucce -->
-                        <div class="mr2i">
-                            <h5>Catégorie</h5>
-                            <p>                                                                                                                                                                                                                                   <img alt="Kayak" src="../image/op/kayak.png">								
-                                {% if data.roller == 1 %}       <img alt="Roller"       src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
-                                {% if data.equitation == 1 %}   <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
-                                {% if data.fitness == 1 %}      <img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
-                                {% if data.golf == 1 %}         <img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
-                                {% if data.plongee == 1 %}      <img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
-                                {% if data.randonee == 1 %}     <img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
-                                {% if data.running == 1 %}      <img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
-                                {% if data.marche == 1 %}       <img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
-                                {% if data.sportEau == 1 %}     <img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
-                                {% if data.tennis == 1 %}       <img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
-                                {% if data.velo == 1 %}         <img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
-                                {% if data.visites == 1 %}      <img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
-                                {% if data.arc == 1 %}          <img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
-                                {% if data.quad == 1 %}         <img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
-                                {% if data.kayak ==1 %}         <img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
-                            </p>
-                        </div>
-                        <div class="mr2i">
-                            <h5>Quelques mots sur l'organisateur</h5>
-                            <div class="pholui">
-                                <img src="../depot/uploads/mansor.png" alt="Image"/>
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block body %}
+{% for data in product %}
+<!-- DebutSortie -->
+<div class="bloc_page_3">
+    <!--Photo-->
+    <div class="sectionni">
+        <div class="photoi">
+            <img src="{{ asset('upload/img/' ~ data.sortie.photo3) }}" alt="Image"/>
+        </div>
+    </div>
+    <!--FinPhoto-->
+    <!--Info-->
+    <div class="foc_2">
+        <div class="detailima">
+            <div class="detailinfo">
+                <div class="detza">
+                    <h3>
+                        {{ data.sortie.titre }}
+                    </h3>
+                    <h4>
+                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2014-10-01 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">16h00 AU 
+                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-08-31 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">12h00.
+                    </h4>
+                    <div class="detroi">
+                        <div class="deb">
+                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}">
+                            <div class="debhead">
+                                <div class="debbodya">
+                                    <h6>Tipaza</h6>
+                                </div>
                             </div>
-                            <div class="texlui">
-                                <h6>Amar, Mohamed et lakroum</h6>
-                                <p>
-                                    Salut, 
-                                    Nous sommes Amar, Mohamed et lakroum, des passionnés de la nature, de la plongée et d’aventure et moniteurs expérimentés. Nous nous sommes peut-etre rencontrés lors de nos sorties bateau, plongée, rando, ... a Tipaza.
-                                    Nous nous sommes unis proposer une offre « week end détente » tout compris : activités, hébergement, balades, ftor et shor, ... Nous avons pensé a ceux et celle qui habitent loin de Tipaza, Oran, Sidi bel abbes, Canstantine,... Qui nous contactent souvent pour nous demander des activités avec hébergement.  C’est aussi le deal idéal pour ceux et celles qui souhaitent se ressourcer et fuir la ville, le bruit, la pollution, le stress quotidien. Nous serons ravis de vous accueillir et de partager nos passions avec vous, le temps d’un week end a Tipaza. Marhba bikoum !								</p>
+                        </div>
+                        <div class="deb">
+                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/max.png') }}">
+                            <div class="debhead">
+                                <div class="debbody">
+                                    <h6>
+                                    15											
+                                    </h6>
+                                    <p>Personnes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="der">
+                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/prix.png') }}">
+                            <div class="debhead">
+                                <div class="debbody">
+                                    <h6>14900</h6>
+                                    <p>Dinars</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="casoute">
-                        <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
-                    </div>
                 </div>
-            </div>	
-            <!--FinLeProjet-->
-            <!-- video -->	
-            <!-- FinVideo -->
-            <!-- LeProjet -->					
-            <div id="conditions" style="display:block;">					
-                <div class="sectiar">
-                    <h2>Conditions</h2> 
-                </div>
-                <div class="sectiono"> 
-                    <div class="mr1i">
-                        <div class="mr2i">
-                            <h4>Conditions</h4>
-                        </div>
-                        <div class="mr2i">
-                            <p>
-                                {{ data.sortie.conditions }}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="casoute">
-                        <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
-                    </div>
-                </div>
-            </div>	
-            <!-- FinProjet -->
-            <!--FinAide-->	
-            <div id="photos" style="display:block;">					
-                <div class="sectiar">
-                    <h2>Des questions ?</h2> 
-                </div>
-                <div class="sectiono"> 
-                    <div class="mr1i">
-                        <div class="mr2i">
-                            <h4>Appelez-nous !</h4>
-                        </div>
-                        <div class="mr2i">
-                            <p>
-                                Vous souhaitez avoir plus d'information sur l'activité ? Appelez-nous ! 
-                            </p>
-                        </div>
-                        <div class="appel">
-                            <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}">
-                            <p>0 556 179 774</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- LeAide -->					
-            <div id="photos" style="display:block;">					
-                <div class="sectiar">
-                    <h2>Photos</h2> 
-                </div>
-                <div class="sectiono"> 
-                    <div class="mr1i">
-                        <div class="mr2i">
-                            <h4>Photos</h4>
-                        </div>
-                        <div class="intro4">
-                            <div class="photoss">
-                                <img src="{{ asset('upload/img/' ~ data.sortie.photo2) }}" alt="Image"/>
-                                <img src="{{ asset('upload/img/' ~ data.sortie.photo3) }}" alt="Image"/>
-                                <img src="{{ asset('upload/img/' ~ data.sortie.photo4) }}" alt="Image"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="casoute">
-                        <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
-                    </div>				
-                </div>
-            </div>	
-            <!--FinLeProjet-->	
-        </div>
-        <!-- FinSortie -->
-        <!-- Partage -->
-        <div id="conditions" style="display:block;">					
-            <div class="sectiar">
-                <h2>Réseaux Sociaux</h2> 
-            </div>
-            <div class="sectiono"> 
-                <div class="mr1i">
-                    <div class="mr2i">
-                        <h4>Partagez l'évènement avec vos amis</h4>
-                    </div>
-                    <div class="mr2i">
-                        <table>
-                            <tr>
-                                <td>
-                                    <!-- Bouton Google -->
-                                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
-                                    <div class="g-plusone" data-size="tall"></div>
-                                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
-                                    <script type="text/javascript">
-                                        window.___gcfg = {lang: 'fr'};
-                                        (function() {
-                                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                            po.src = 'https://apis.google.com/js/plusone.js';
-                                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                        })();
-                                    </script>
-                                    <!-- Fin bouton-->
-                                </td>
-                                <td>
-                                    <!-- Bouton Twitter -->
-                                    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="fr">Tweeter</a>
-                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                                    <!-- Fin Bouton -->
-                                </td>
-                                <td>
-                                    <!-- Bouton facebook -->
-                                    <div class="fb-share-button" data-type="box_count"></div>
-                                    <div id="fb-root"></div>
-                                    <script>(function(d, s, id) {
-                                        var js, fjs = d.getElementsByTagName(s)[0];
-                                        if (d.getElementById(id)) return;
-                                        js = d.createElement(s); js.id = id;
-                                        js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
-                                        fjs.parentNode.insertBefore(js, fjs);
-                                    }(document, 'script', 'facebook-jssdk'));</script>
-                                    <!-- Fin Bouton -->
-                                </td>
-                                <td class="haut">
-                                    <!-- Bouton In -->
-                                    <script src="//platform.linkedin.com/in.js" type="text/javascript">
-                                    lang: fr_FR
-                                    </script>
-                                    <script type="IN/Share" data-counter="top"></script>
-                                    <!-- Fin Bouton -->
-                                </td>
-                            </tr>
-                        </table>
+                <div class="resuyo">
+                    <div class="reservationi">
+                        <div class="mr6io">
+                            <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">
+                                <input class="trouvezi" type="button" value="Réserver"/>
+                            </a>
+                        </div>								
                     </div>
                 </div>
             </div>
         </div>
-        <!--FinPartage-->
-        <div class="plusrc">
-            <p>
-                <a href="http://www.bledvoyage.com/">
-                    Cliquez ici pour retourner à la liste des sorties...  
-                </a>
-            </p>
-        </div>
-        {% endfor %}
-        <div class="footer_page">
-            <div id="bloc_page_footer2">
-                <p>
-                    bledvoyage.com, crée et développe des solutions anti-routines pour particliers et professionnels. 
-                    Il vous permet de trouver les meilleurs offres de séjours, de bons plans sympatiques, de vacances, activités de loisirs en Algérie. 
-                    Recherchez votre séjour n'a jamais été aussi facile, vous partirez en Algérie et participerez aux activités de loisirs en toute confiance.
-                    comparez en un clic les offres ainsi que les tarifs et reservez votre séjour, vos plans loisirs,  
-                    vos vacances au meilleur prix en Algérie. 
-                    Chassez la routine ! 
-                </p>
-            </div>
-            <hr>
-            <div id="bloc_page_footer3">
-                <a href="../contact/tout_savoir_sur_bledvoyage.php">Tout savoir sur bledvoyage</a> -
-                © 2013 <a href="{{ path('base_bledvoyage_homepage') }}" target="_blank">bledvoyage.com</a> -
-                <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="http://www.bledvoyage.com/images/facebook.png" alt="bledvoyage sur facebook" id="facebook"/></a> -
-                <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="http://www.bledvoyage.com/images/twitter.png" alt="bledvoyage sur twitter" id="twitter"/></a> - 
-                <a href="http://www.youtube.com/user/bledvoyage" target="_blank" title="bledvoyage sur Youtube"><img src="http://www.bledvoyage.com/images/youtube.png" alt="bledvoyage sur youtube" id="skype"/></a> 
+    </div>
+    <!--FinInfo-->
+    <!--Menu-->
+    <div class="detailono">
+        <div class="mt1">
+            <div class="detailform">
+                <nav class="detali">  
+                    <ul>
+                        <li><a onClick="document.getElementById('description').style.display='block'; 
+                                        document.getElementById('conditions').style.display='none'; 
+                                        document.getElementById('photos').style.display='none';">Description</a></li>
+
+                        <li><a onClick="document.getElementById('description').style.display='none'; 
+                                        document.getElementById('conditions').style.display='none'; 
+                                        document.getElementById('photos').style.display='block';">Photos</a></li>
+                        <li><a onClick="document.getElementById('description').style.display='none'; 
+                                        document.getElementById('conditions').style.display='block'; 
+                                        document.getElementById('photos').style.display='none';" >Conditions</a></li>
+                        <!--<li>Avis</li>-->
+                        <li><a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a></li>								
+                    </ul>
+                </nav>
             </div>
         </div>
-    </body>	
-</html>
+    </div>
+    <!--FinMenu-->
+    <!-- LeProjet -->					
+    <div id="description" style="display:block;">					
+        <div class="sectiar">
+            <h2>Description</h2> 
+        </div>
+        <div class="sectiono"> 
+            <div class="mr1i">
+                <div class="mr2i">
+                    <h4>À propos</h4>
+                </div>
+                <div class="mr2i">
+                    <p>
+                        {{ data.sortie.descriptif }}
+                    </p>
+                </div>
+                <!-- Astuce -->
+                <!-- FinAstucce -->
+                <div class="mr2i">
+                    <h5>Catégorie</h5>
+                    <p>                                                                                                                                                                                                                                   <img alt="Kayak" src="../image/op/kayak.png">								
+                        {% if data.roller == 1 %}       <img alt="Roller"       src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
+                        {% if data.equitation == 1 %}   <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
+                        {% if data.fitness == 1 %}      <img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
+                        {% if data.golf == 1 %}         <img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
+                        {% if data.plongee == 1 %}      <img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
+                        {% if data.randonee == 1 %}     <img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
+                        {% if data.running == 1 %}      <img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
+                        {% if data.marche == 1 %}       <img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
+                        {% if data.sportEau == 1 %}     <img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
+                        {% if data.tennis == 1 %}       <img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
+                        {% if data.velo == 1 %}         <img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
+                        {% if data.visites == 1 %}      <img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
+                        {% if data.arc == 1 %}          <img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
+                        {% if data.quad == 1 %}         <img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
+                        {% if data.kayak ==1 %}         <img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
+                    </p>
+                </div>
+                <div class="mr2i">
+                    <h5>Quelques mots sur l'organisateur</h5>
+                    <div class="pholui">
+                        <img src="../depot/uploads/mansor.png" alt="Image"/>
+                    </div>
+                    <div class="texlui">
+                        <h6>Amar, Mohamed et lakroum</h6>
+                        <p>
+                            Salut, 
+                            Nous sommes Amar, Mohamed et lakroum, des passionnés de la nature, de la plongée et d’aventure et moniteurs expérimentés. Nous nous sommes peut-etre rencontrés lors de nos sorties bateau, plongée, rando, ... a Tipaza.
+                            Nous nous sommes unis proposer une offre « week end détente » tout compris : activités, hébergement, balades, ftor et shor, ... Nous avons pensé a ceux et celle qui habitent loin de Tipaza, Oran, Sidi bel abbes, Canstantine,... Qui nous contactent souvent pour nous demander des activités avec hébergement.  C’est aussi le deal idéal pour ceux et celles qui souhaitent se ressourcer et fuir la ville, le bruit, la pollution, le stress quotidien. Nous serons ravis de vous accueillir et de partager nos passions avec vous, le temps d’un week end a Tipaza. Marhba bikoum !								</p>
+                    </div>
+                </div>
+            </div>
+            <div class="casoute">
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+            </div>
+        </div>
+    </div>	
+    <!--FinLeProjet-->
+    <!-- video -->	
+    <!-- FinVideo -->
+    <!-- LeProjet -->					
+    <div id="conditions" style="display:block;">					
+        <div class="sectiar">
+            <h2>Conditions</h2> 
+        </div>
+        <div class="sectiono"> 
+            <div class="mr1i">
+                <div class="mr2i">
+                    <h4>Conditions</h4>
+                </div>
+                <div class="mr2i">
+                    <p>
+                        {{ data.sortie.conditions }}
+                    </p>
+                </div>
+            </div>
+            <div class="casoute">
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+            </div>
+        </div>
+    </div>	
+    <!-- FinProjet -->
+    <!--FinAide-->	
+    <div id="photos" style="display:block;">					
+        <div class="sectiar">
+            <h2>Des questions ?</h2> 
+        </div>
+        <div class="sectiono"> 
+            <div class="mr1i">
+                <div class="mr2i">
+                    <h4>Appelez-nous !</h4>
+                </div>
+                <div class="mr2i">
+                    <p>
+                        Vous souhaitez avoir plus d'information sur l'activité ? Appelez-nous ! 
+                    </p>
+                </div>
+                <div class="appel">
+                    <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}">
+                    <p>0 556 179 774</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LeAide -->					
+    <div id="photos" style="display:block;">					
+        <div class="sectiar">
+            <h2>Photos</h2> 
+        </div>
+        <div class="sectiono"> 
+            <div class="mr1i">
+                <div class="mr2i">
+                    <h4>Photos</h4>
+                </div>
+                <div class="intro4">
+                    <div class="photoss">
+                        <img src="{{ asset('upload/img/' ~ data.sortie.photo2) }}" alt="Image"/>
+                        <img src="{{ asset('upload/img/' ~ data.sortie.photo3) }}" alt="Image"/>
+                        <img src="{{ asset('upload/img/' ~ data.sortie.photo4) }}" alt="Image"/>
+                    </div>
+                </div>
+            </div>
+            <div class="casoute">
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+            </div>				
+        </div>
+    </div>	
+    <!--FinLeProjet-->	
+</div>
+<!-- FinSortie -->
+<!-- Partage -->
+<div id="conditions" style="display:block;">					
+    <div class="sectiar">
+        <h2>Réseaux Sociaux</h2> 
+    </div>
+    <div class="sectiono"> 
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Partagez l'évènement avec vos amis</h4>
+            </div>
+            <div class="mr2i">
+                <table>
+                    <tr>
+                        <td>
+                            <!-- Bouton Google -->
+                            <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+                            <div class="g-plusone" data-size="tall"></div>
+                            <!-- Placez cette ballise après la dernière balise Bouton +1. -->
+                            <script type="text/javascript">
+                                window.___gcfg = {lang: 'fr'};
+                                (function() {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script>
+                            <!-- Fin bouton-->
+                        </td>
+                        <td>
+                            <!-- Bouton Twitter -->
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="fr">Tweeter</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                            <!-- Fin Bouton -->
+                        </td>
+                        <td>
+                            <!-- Bouton facebook -->
+                            <div class="fb-share-button" data-type="box_count"></div>
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                            <!-- Fin Bouton -->
+                        </td>
+                        <td class="haut">
+                            <!-- Bouton In -->
+                            <script src="//platform.linkedin.com/in.js" type="text/javascript">
+                            lang: fr_FR;
+                            </script>
+                            <script type="IN/Share" data-counter="top"></script>
+                            <!-- Fin Bouton -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FinPartage-->
+<div class="plusrc">
+    <p>
+        <a href="{{ path('base_bledvoyage_homepage') }}">Cliquez ici pour retourner à la liste des sorties...</a>
+    </p>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,387 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Admin:index page</h1>
+<div class="bloc_page_body222">
+    <h2>
+        Tableau de Bord
+    </h2>
+</div>		
+<section>
+    <div class="avisor">
+        <h3>31 sorties</h3>
+        <p> Nombres de réservations total = 368</p>				
+        <p> Nombres de places réservés = 1007</p>						
+        <p>
+            CA potentiel = 
+        </p>
+    </div>
+</section>
+<div class=".bloc_page_body3">
+    <script>
+    jQuery(document).ready(function(){
+        $("#boutonplus4").on("click", function(){
+            $("#boutonplus4").hide();
+            $("#boutonmoins4").show();
+            $("#plus4").slideDown();
+            return false;
+        });
+        $("#boutonmoins4").on("click", function(){
+            $("#boutonmoins4").hide();
+            $("#boutonplus4").show();
+            $("#plus4").slideUp();
+            return false;
+        });
+    });
+    </script>
+    <section>
+        <div class="soutir">
+            <h3 style="display:inline">Pack loisirs 12  // </h3>
+            <a id="boutonplus4" href="#" class="leplus"> Ouvrir</a>
+            <a style="display:none" id="boutonmoins4" href="#" class="leplus"> Reduire</a>
+        </div>
+    <div style="display:none" id="plus4">
+        <div class="avisor">
+            <div class="avileft">
+                <p>
+                        Tarif : 19900 Da/personne  
+                </p>
+                <p>
+                        <!-- Charge :  Da/personne -->
+                </p>
+            </div>
+            <div class="aviright">
+                <div class="headav">
+                    <h2>Résa Total</h2> 
+                </div>
+                <div class="headav">
+                    <h2>Résa confirmés</h2>
+                    <p>12 </p>
+                    <div class="evod">
+                        <div class="evodo">
+                            <div style="width:20%;" class="evoda">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="headav">
+                    <h2>Places confirmées</h2>				
+                </div>
+                <div class="headav">
+                    <h2>Présent</h2>							
+                <div class="evod">
+                    <div class="evodo">
+                        <div style="width:20%;" class="evoda">
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="headav">
+                    <h2>Facturé</h2>					
+                </div>
+            </div>
+            </div>
+            <div class="avison">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="numero">Ligne</th>
+                            <th>N° de Commande</th>
+                            <th>Date commande</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Tél.</th>
+                            <th>Quantité</th>
+                            <th>Date achat</th>
+                            <th>Paiement</th>
+                            <th>RDV</th>
+                            <th>Note</th>
+                            <th>Note</th>
+                            <th>Confirmer</th>
+                            <th>Facture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="numero">1</td>
+                            <td>942</td>
+                            <td>2015-02-27</td>
+                            <td>Ahmed</td>
+                            <td>Bouderouaia</td>
+                            <td>0560466563</td>
+                            <td>1</td>
+                            <td>2015-02-27</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur"></td>
+                            <td><a href="note.php?confirmation=942" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=942" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=942" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">2</td>
+                            <td>873</td>
+                            <td>2015-02-23</td>
+                            <td>Garedach</td>
+                            <td>Sido</td>
+                            <td>0774618805</td>
+                            <td>1</td>
+                            <td>2015-02-23</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur"></td>
+                            <td><a href="note.php?confirmation=873" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=873" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=873" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">3</td>
+                            <td>758</td>
+                            <td>2015-02-15</td>
+                            <td>Abdelhafid</td>
+                            <td>Rahil</td>
+                            <td>0559407080</td>
+                            <td>1</td>
+                            <td>2015-02-15</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Aucune réponse</td>
+                            <td><a href="note.php?confirmation=758" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=758" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=758" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">4</td>
+                            <td>735</td>
+                            <td>2015-02-14</td>
+                            <td>Nassim</td>
+                            <td>Boussadia</td>
+                            <td>0790233843</td>
+                            <td>1</td>
+                            <td>2015-02-14</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Aucune réponse</td>
+                            <td><a href="note.php?confirmation=735" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=735" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=735" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">5</td>
+                            <td>726</td>
+                            <td>2015-02-14</td>
+                            <td>Sabrine</td>
+                            <td>Aiouaz</td>
+                            <td>0550133732</td>
+                            <td>7 et plus</td>
+                            <td>2015-02-14</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Annulée</td>
+                            <td><a href="note.php?confirmation=726" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=726" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=726" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">6</td>
+                            <td>713</td>
+                            <td>2015-02-13</td>
+                            <td>Kacem</td>
+                            <td>Zerarka</td>
+                            <td>0555912919</td>
+                            <td>7 et plus</td>
+                            <td>2015-02-13</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Annulée</td>
+                            <td><a href="note.php?confirmation=713" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=713" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=713" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">7</td>
+                            <td>712</td>
+                            <td>2015-02-13</td>
+                            <td>Mehdi</td>
+                            <td>Benchaouche</td>
+                            <td>0554542661</td>
+                            <td>1</td>
+                            <td>2015-02-13</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Aucune réponse</td>
+                            <td><a href="note.php?confirmation=712" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=712" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=712" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">8</td>
+                            <td>670</td>
+                            <td>2015-02-12</td>
+                            <td>Mohamed el hadi</td>
+                            <td>Filali</td>
+                            <td>0661454779</td>
+                            <td>2</td>
+                            <td>2015-02-12</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Annulée</td>
+                            <td><a href="note.php?confirmation=670" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=670" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=670" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">9</td>
+                            <td>645</td>
+                            <td>2015-02-10</td>
+                            <td>Ait akil</td>
+                            <td>Ryad</td>
+                            <td>0558253239</td>
+                            <td>3</td>
+                            <td>2015-02-10</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Aucune réponse</td>
+                            <td><a href="note.php?confirmation=645" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=645" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=645" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">10</td>
+                            <td>635</td>
+                            <td>2015-02-10</td>
+                            <td>Imed</td>
+                            <td>Boukhof</td>
+                            <td>0555779999</td>
+                            <td>7 et plus</td>
+                            <td>2015-02-10</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Aucune réponse</td>
+                            <td><a href="note.php?confirmation=635" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=635" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=635" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr class="spetel">
+                            <td class="numero">11</td>
+                            <td>328</td>
+                            <td>2015-01-30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>2015-01-30</td>
+                            <td class="couleur"></td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">12</td>
+                            <td>56</td>
+                            <td>2014-11-26</td>
+                            <td>Oussama </td>
+                            <td>Ferdi</td>
+                            <td>213554273307</td>
+                            <td>2</td>
+                            <td>2014-11-26</td>
+                            <td></td>
+                            <td></td>
+                            <td class="couleur">Annulée</td>
+                            <td><a href="note.php?confirmation=56" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=56" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="facture.php?confirmation=56" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">13</td>
+                            <td>463</td>
+                            <td>2015-02-03</td>
+                            <td>Farah</td>
+                            <td>Benhadj djilali </td>
+                            <td>0660799339</td>
+                            <td>1</td>
+                            <td>2015-02-03</td>
+                            <td>Virement bancaire</td>
+                            <td></td>
+                            <td class="couleur"></td>
+                            <td><a href="note.php?confirmation=463" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=463" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
+                            <td><a href="facture.php?confirmation=463" target="_blank" class="button">Facturer</a></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">14</td>
+                            <td>307</td>
+                            <td>2015-01-29</td>
+                            <td>Nadjib</td>
+                            <td>Fertas</td>
+                            <td>0781298461</td>
+                            <td>1</td>
+                            <td>2015-01-29</td>
+                            <td>Rendez-vous</td>
+                            <td>31/01/2015 Matin / après-midi Alger centre / Chenoua</td>
+                            <td class="couleur"></td>
+                            <td><a href="note.php?confirmation=307" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=307" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
+                            <td><a href="facture.php?confirmation=307" target="_blank" class="button">Facturer</a></td>
+                        </tr>
+                        <tr>
+                            <td class="numero">15</td>
+                            <td>90</td>
+                            <td>2014-12-07</td>
+                            <td>Toufik</td>
+                            <td>Berrayah</td>
+                            <td>0660075070</td>
+                            <td>1</td>
+                            <td>2014-12-07</td>
+                            <td>Rendez-vous</td>
+                            <td></td>
+                            <td class="couleur">SMS envoyé</td>
+                            <td><a href="note.php?confirmation=90" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=90" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
+                            <td><a href="facture.php?confirmation=90" target="_blank" class="button">Facturer</a></td>
+                        </tr>
+                        <tr class="spetela">
+                            <td class="numero">16</td>
+                            <td class="okao"><img src="{{ asset('bundles/basebledvoyage/images/admin/oka.png') }}" alt="ok" class="oka"> 732</td>
+                            <td>2015-02-14</td>
+                            <td>Zohir</td>
+                            <td>Maloum</td>
+                            <td>0551159290</td>
+                            <td>2</td>
+                            <td>2015-02-14</td>
+                            <td>Rendez-vous</td>
+                            <td>15/02/2015 Matin / après-midi Alger</td>
+                            <td class="couleur"></td>
+                            <td><a href="note.php?confirmation=732" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=732" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
+                            <td><a class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Facturé</a></td>
+                        </tr>
+                        <tr class="spetela">
+                            <td class="numero">17</td>
+                            <td class="okao"><img src="{{ asset('bundles/basebledvoyage/images/admin/oka.png') }}" alt="ok" class="oka"> 253</td>
+                            <td>2015-01-24</td>
+                            <td>Amina </td>
+                            <td>Karaouzene </td>
+                            <td>0560078910</td>
+                            <td>1</td>
+                            <td>2015-01-24</td>
+                            <td>Rendez-vous</td>
+                            <td>30/01/2015 Matin / après-midi Chenoua </td>
+                            <td class="couleur">En attente d'une réponse</td>
+                            <td><a href="note.php?confirmation=253" target="_blank" class="button">Note</a></td>
+                            <td><a href="confirmation.php?confirmation=253" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
+                            <td><a class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Facturé</a></td>
+                        </tr>
+                    </tbody>
+                </table>			
+            </div> 
+        </div>
+    </section>
+</div>
+{% endblock %}

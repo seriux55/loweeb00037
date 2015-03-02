@@ -22,3 +22,19 @@ bledvoyage_booking:
     defaults: { _controller: BaseBledvoyageBundle:Default:booking }
     requirements:
         id:   \d+
+
+bledvoyage_admin:
+    path:     manager
+    defaults: { _controller: BaseBledvoyageBundle:Admin:index }
+
+bledvoyage_admin_commande:
+    path:     manager/commande
+    defaults: { _controller: BaseBledvoyageBundle:Admin:commande }
+
+bledvoyage_admin_reservation:
+    path:     manager/reservation
+    defaults: { _controller: BaseBledvoyageBundle:Admin:reservation }
+
+bledvoyage_admin_present:
+    path:     manager/present
+    defaults: { _controller: BaseBledvoyageBundle:Admin:present }
