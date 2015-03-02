@@ -201,6 +201,18 @@ class UserData extends AbstractFixture implements FixtureInterface, ContainerAwa
         $user15->setPassword($this->container->get('security.encoder_factory')->getEncoder($user15)->encodePassword('aaaaaa', $user15->getSalt()));
         $manager->persist($user15);
         
+        $user16 = new User();
+        $user16->setBorn(1992);
+        $user16->setEmail('p@gmail.com');
+        $user16->setFirstname('Boulila');
+        $user16->setGender(1);
+        $user16->setPhone('');
+        $user16->setSecondename('Kamel');
+        $user16->setIp('127.0.0.1');
+        $user16->setEnabled('1');
+        $user16->setPassword($this->container->get('security.encoder_factory')->getEncoder($user16)->encodePassword('aaaaaa', $user16->getSalt()));
+        $manager->persist($user16);
+        
         $manager->flush();
         
         $this->addReference('user1',  $user1);
@@ -218,6 +230,7 @@ class UserData extends AbstractFixture implements FixtureInterface, ContainerAwa
         $this->addReference('user13', $user13);
         $this->addReference('user14', $user14);
         $this->addReference('user15', $user15);
+        $this->addReference('user16', $user16);
     }
     
     public function getOrder()

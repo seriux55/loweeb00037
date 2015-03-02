@@ -25,43 +25,39 @@
     </div>
 </section>
 <div class=".bloc_page_body3">
+    
+    {% for data in product %}
     <script>
     jQuery(document).ready(function(){
-        $("#boutonplus52").on("click", function(){
-            $("#boutonplus52").hide();
-            $("#boutonmoins52").show();
-            $("#plus52").slideDown();
+        $("#boutonplus{{ data.id }}").on("click", function(){
+            $("#boutonplus{{ data.id }}").hide();
+            $("#boutonmoins{{ data.id }}").show();
+            $("#plus{{ data.id }}").slideDown();
             return false;
         });
-        $("#boutonmoins52").on("click", function(){
-            $("#boutonmoins52").hide();
-            $("#boutonplus52").show();
-            $("#plus52").slideUp();
+        $("#boutonmoins{{ data.id }}").on("click", function(){
+            $("#boutonmoins{{ data.id }}").hide();
+            $("#boutonplus{{ data.id }}").show();
+            $("#plus{{ data.id }}").slideUp();
             return false;
         });
     });
     </script>
     <section>
         <div class="soutir">
-            <h3 style="display:inline">Quad Aventure  // Tipaza</h3>
-            <a class="leplus" href="#" id="boutonplus52"> Ouvrir</a>
-            <a class="leplus" href="#" id="boutonmoins52" style="display:none"> Reduire</a>
+            <h3 style="display:inline">{{ data.titre }}  // {{ data.localisation }}</h3>
+            <a class="leplus"  href="#" id="boutonplus{{ data.id }}"> Ouvrir</a>
+            <a class="leplus" href="#" id="boutonmoins{{ data.id }}" style="display:none"> Reduire</a>
         </div>
-        <div id="plus52" style="display:none">
+        <div id="plus{{ data.id }}" style="display:none">
             <div class="avisor">
                 <div class="avileft">
                     <h4>
-                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Du 02/06/2015 AU 28/02/2015 | <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">  9h00 - 17h00.
+                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Du {{ data.dateDebut|date('d/m/Y') }} AU {{ data.dateFin|date('d/m/Y') }} | <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">  {{ data.heureDebut }} - {{ data.heureFin }}.
                     </h4>
                     <p>
-                        Tarif : 3900 Da/personne  
+                        Tarif : {{ data.tarif }} Da/personne  
                     </p>
-                    <!-- 
-                    <p>
-                        Charge :  Da/personne
-                    </p>
-                    -->
-                    <p>
                     <div class="buttono" target="_blank" href="facture.php?confirmation=">Facturer</div>
                 </div>
                 <div class="aviright">
@@ -80,11 +76,11 @@
                     </div>
                     <div class="headav">
                         <h2>Places confirmées</h2>
-                        <p>155 </p>
+                        <p>155</p>
                     </div>
                     <div class="headav">
                         <h2>Présent</h2>
-                        <p>66 </p>
+                        <p>66</p>
                         <div class="evod">
                             <div class="evodo">
                                 <div class="evoda" style="width:20%;">
@@ -94,7 +90,7 @@
                     </div>
                     <div class="headav">
                         <h2>Facturé</h2>
-                        <p>28 </p>							
+                        <p>28</p>							
                     </div>
                 </div>
             </div>
@@ -123,110 +119,165 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="spetel">
-                            <td class="numero">30</td>
-                            <td>1381</td>
-                            <td>24/12/2014</td>
-                            <td>Hadjer</td>
-                            <td>Bendjillali </td>
-                            <td></td>
-                            <td>1</td>
-                            <td>aucune</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="couleur"></td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td class="numero">84</td>
-                            <td>1553</td>
-                            <td>09/02/2015</td>
-                            <td>Youcef</td>
-                            <td>Oulad babouhoun</td>
-                            <td>0661699757</td>
-                            <td>3</td>
-                            <td>13/02/2015</td>
-                            <td>13/02/2015</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="couleur"></td>
-                            <td><a class="button" target="_blank" href="note.php?confirmation=1553">Note</a></td>
-                            <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1553"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                            <td><a class="button" target="_blank" href="accompte.php?confirmation=1553">Accompte</a></td>
-                            <td><a class="button" target="_blank" href="avis.php?confirmation=1553">Avis</a></td>
-                        </tr>
-                        <tr>
-                            <td class="numero">1</td>
-                            <td>1696</td>
-                            <td>27/02/2015</td>
-                            <td>Nazim adel</td>
-                            <td>Belazougui</td>
-                            <td>0557188305</td>
-                            <td>5</td>
-                            <td>06/03/2015</td> 
-                            <td></td>
-                            <td></td>
-                            <td>3x invalide(s)/3x a payé</td>
-                            <td></td>
-                            <td></td>
-                            <td class="couleur"></td>
-                            <td><a class="button" target="_blank" href="note.php?confirmation=1696">Note</a></td>
-                            <td><a class="button" target="_blank" href="confirmation.php?confirmation=1696">Confirmer</a></td>
-                            <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1696">Accompte</div></td>
-                            <td><div class="buttono" target="_blank" href="avis.php?confirmation=1696">Avis</div></td>
-                        </tr>
-                        <tr>
-                            <td class="numero">93</td>
-                            <td>1564</td>
-                            <td>11/02/2015</td>
-                            <td>Mohamed amine</td>
-                            <td>Maiza</td>
-                            <td>0540268671</td>
-                            <td>3</td>
-                            <td>13/02/2015</td>
-                            <td>12/02/2015</td>
-                            <td></td>
-                            <td>Code INVALIDE!</td>
-                            <td></td>
-                            <td></td>
-                            <td class="couleur"></td>
-                            <td><a class="button" target="_blank" href="note.php?confirmation=1564">Note</a></td>
-                            <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1564"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                            <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1564">Accompte</div></td>
-                            <td><a class="buttona" target="_blank" href="avis.php?confirmation=1564">  Avis</a></td>
-                        </tr>
-                        <tr class="spetela">
-                            <td class="numero">99</td>
-                            <td class="okao"><img class="oka" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> 1507</td>
-                            <td>31/01/2015</td>
-                            <td>Mehdi</td>
-                            <td>Benchaouche</td>
-                            <td>0554542661</td>
-                            <td>6</td>
-                            <td>07/02/2015</td>
-                            <td>13/02/2015</td>
-                            <td></td>
-                            <td>Pack loisirs 6</td>
-                            <td></td>
-                            <td></td>
-                            <td class="couleur">Pack</td>
-                            <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
-                            <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                            <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1507">Accompte</div></td>
-                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a></td>
-                        </tr>
+                        {% set i = 1 %}
+                        {% for dataR in reservation %}
+                            {% if dataR.sortie == data.id %}
+                                {%     if dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 0 and dataR.avis == 1 %}
+                                    <tr class="spetela">
+                                        <td class="numero">{{ i }}</td>
+                                        <td class="okao"><img class="oka" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> {{ dataR.id }}</td>
+                                        <td>{{ dataR.dateTime|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.prenom }}</td>
+                                        <td>{{ dataR.nom }}</td>
+                                        <td>{{ dataR.tel }}</td>
+                                        <td>{{ dataR.place }}</td>
+                                        <td>{{ dataR.dateReserver|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.dateConfirmer|date('d/m/Y') }}</td>
+                                        <td></td>
+                                        <td>???</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="couleur">Pack</td>
+                                        <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1507">Accompte</div></td>
+                                        <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a></td>
+                                    </tr>
+                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 1 %}
+                                    <tr class="spetela">
+                                        <td class="numero">{{ i }}</td>
+                                        <td class="okao"><img class="oka" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> {{ dataR.id }}</td>
+                                        <td>{{ dataR.dateTime|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.prenom }}</td>
+                                        <td>{{ dataR.nom }}</td>
+                                        <td>{{ dataR.tel }}</td>
+                                        <td>{{ dataR.place }}</td>
+                                        <td>{{ dataR.dateReserver|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.dateConfirmer|date('d/m/Y') }}</td>
+                                        <td></td>
+                                        <td>Pack loisirs 6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="couleur">Pack</td>
+                                        <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><a class="buttona" target="_blank" href="accompte.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Accompte</a></td>
+                                        <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a></td>
+                                    </tr>
+                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 0 %}
+                                    <tr>
+                                        <td class="numero">{{ i }}</td>
+                                        <td> {{ dataR.id }}</td>
+                                        <td>{{ dataR.dateTime|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.prenom }}</td>
+                                        <td>{{ dataR.nom }}</td>
+                                        <td>{{ dataR.tel }}</td>
+                                        <td>{{ dataR.place }}</td>
+                                        <td>{{ dataR.dateReserver|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.dateConfirmer|date('d/m/Y') }}</td>
+                                        <td></td>
+                                        <td>Pack loisirs 6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="couleur">Pack</td>
+                                        <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><a class="buttona" target="_blank" href="accompte.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Accompte</a></td>
+                                        <td><a class="button" target="_blank" href="avis.php?confirmation=1553">Avis</a></td>
+                                    </tr>
+                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 0 and dataR.avis == 0 %}
+                                    <tr>
+                                        <td class="numero">{{ i }}</td>
+                                        <td>{{ dataR.id }}</td>
+                                        <td>{{ dataR.dateTime|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.prenom }}</td>
+                                        <td>{{ dataR.nom }}</td>
+                                        <td>{{ dataR.tel }}</td>
+                                        <td>{{ dataR.place }}</td>
+                                        <td>{{ dataR.dateReserver|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.dateConfirmer|date('d/m/Y') }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="couleur"></td>
+                                        <td><a class="button" target="_blank" href="note.php?confirmation=1553">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1553"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><a class="button" target="_blank" href="accompte.php?confirmation=1553">Accompte</a></td>
+                                        <td><a class="button" target="_blank" href="avis.php?confirmation=1553">Avis</a></td>
+                                    </tr>
+                                {% elseif dataR.tel is not empty and dataR.confirmer == 0 and dataR.acompte == 0 and dataR.avis == 0 %}
+                                    <tr>
+                                        <td class="numero">{{ i }}</td>
+                                        <td>{{ dataR.id }}</td>
+                                        <td>{{ dataR.dateTime|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.prenom }}</td>
+                                        <td>{{ dataR.nom }}</td>
+                                        <td>{{ dataR.tel }}</td>
+                                        <td>{{ dataR.place }}</td>
+                                        <td>{{ dataR.dateReserver|date('d/m/Y') }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>3x invalide(s)/3x a payé</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="couleur"></td>
+                                        <td><a class="button" target="_blank" href="note.php?confirmation=1696">Note</a></td>
+                                        <td><a class="button" target="_blank" href="confirmation.php?confirmation=1696">Confirmer</a></td>
+                                        <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1696">Accompte</div></td>
+                                        <td><div class="buttono" target="_blank" href="avis.php?confirmation=1696">Avis</div></td>
+                                    </tr>
+                                {% else %}
+                                    <tr class="spetel">
+                                        <td class="numero">{{ i }}</td>
+                                        <td>{{ dataR.id }}</td>
+                                        <td>{{ dataR.dateTime|date('d/m/Y') }}</td>
+                                        <td>{{ dataR.prenom }}</td>
+                                        <td>{{ dataR.nom }}</td>
+                                        <td></td>
+                                        <td>{{ dataR.place }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="couleur"></td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                {% endif %}
+                                {% set i = i + 1 %}
+                            {% endif %}
+                        {% endfor %}
                     </tbody>
                 </table>
             </div> 
         </div>
     </section>
+    {% endfor %}
 </div>
+{% endblock %}
+
+{% block javascript %}
+<!--
+<script>
+jQuery(document).ready(function(){
+    $("#boutonplus52").on("click", function(){
+        $("#boutonplus52").hide();
+        $("#boutonmoins52").show();
+        $("#plus52").slideDown();
+        return false;
+    });
+    $("#boutonmoins52").on("click", function(){
+        $("#boutonmoins52").hide();
+        $("#boutonplus52").show();
+        $("#plus52").slideUp();
+        return false;
+    });
+});
+</script>
+-->
 {% endblock %}
