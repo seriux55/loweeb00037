@@ -19,15 +19,15 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "doctrine/migrations": "1.0.*@dev",
-        "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
-        "coresphere/console-bundle": "dev-master",
-        "jms/serializer-bundle": "0.13.*@dev",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*@dev",
-        "ensepar/html2pdf-bundle" : "~2.0",
         "ircmaxell/password-compat": "1.0.*@dev",
-        "friendsofsymfony/rest-bundle": "1.6.*@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "jms/serializer-bundle": "0.13.*@dev",
+        "friendsofsymfony/rest-bundle": "1.6.*@dev",
+        "ensepar/html2pdf-bundle" : "~2.0",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*@dev",
+        "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
+        "doctrine/migrations": "1.0.*@dev",
+        "coresphere/console-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
