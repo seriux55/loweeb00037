@@ -4,21 +4,21 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0fd65316afd85df9e19c11133f5b0253",
+    "hash": "18bdd9db5e8a2813a8281f9f9d5acba5",
     "packages": [
         {
             "name": "coresphere/console-bundle",
-            "version": "dev-master",
+            "version": "0.1.0",
             "target-dir": "CoreSphere/ConsoleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CoreSphere/ConsoleBundle.git",
-                "reference": "6cf6090c995badc566e88ddd2ff5749f1cdcba7c"
+                "reference": "2c482cbf8bdb882b70e291c5fc01072f27382c42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/6cf6090c995badc566e88ddd2ff5749f1cdcba7c",
-                "reference": "6cf6090c995badc566e88ddd2ff5749f1cdcba7c",
+                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/2c482cbf8bdb882b70e291c5fc01072f27382c42",
+                "reference": "2c482cbf8bdb882b70e291c5fc01072f27382c42",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "javascript",
                 "symfony"
             ],
-            "time": "2014-06-13 10:21:57"
+            "time": "2013-04-21 21:57:54"
         },
         {
             "name": "doctrine/annotations",
@@ -2537,8 +2537,7 @@
         "friendsofsymfony/rest-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "doctrine/doctrine-migrations-bundle": 20,
-        "doctrine/migrations": 20,
-        "coresphere/console-bundle": 20
+        "doctrine/migrations": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
