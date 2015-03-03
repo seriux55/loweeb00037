@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a90544e0466228371573a13b9f8818b",
+    "hash": "0fd65316afd85df9e19c11133f5b0253",
     "packages": [
         {
             "name": "coresphere/console-bundle",
@@ -2531,9 +2531,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "jms/serializer-bundle": 20,
         "ircmaxell/password-compat": 20,
         "friendsofsymfony/user-bundle": 20,
-        "jms/serializer-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "doctrine/doctrine-migrations-bundle": 20,
