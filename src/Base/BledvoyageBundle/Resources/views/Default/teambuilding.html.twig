@@ -1,0 +1,146 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="bled">
+    <div class="headpro">
+        <div class="contint">
+            <div class="message">
+                <h1>Chassez la routine !</h1>
+                <h2>De l'aventure, du plaisir, de la cohésion, du challenge pour ses salariés, ses collaborateurs, ses partenaires, ... 
+
+                Des activités de Team Building, des sorties détente, sur mesure et unique en Algérie. 
+                </h2>
+                <p>
+                    <a href="#decouvrir">Découvrir nos offres pour corporates</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="decouvrir">
+</div>
+<div class="bloc_page_body222">
+    <h2>
+        Team Building, Plaisir & Aventure
+    </h2>
+</div>
+<div class="bloc_page_3">
+    <div class="sectiono">
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Nos offres pour les professionnels</h4>
+            </div>
+            <div class="mr2i">
+                <p>
+                    Mer, Terre, Montagne, Air, ... bledvoyage.com crée et développe des solutions anti-routine pour professionnels. 
+                    <br>
+                    Des activités innovantes, dynamique et riche en sensation, idéal pour favoriser la cohésion d'équipe.
+                    <br>
+                </p>
+            </div>
+            <div class="mr2i">
+                <div class="phoco">
+                    <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre_pro_1.jpg') }}"/>
+                </div>
+            </div>
+        </div>
+        <!--<div class="casoute">
+                <a href="#">Tél. 0 556 179 774</a>
+        </div>-->
+        <div class="mr2i">
+            <h4>Contactez-nous !</h4>
+        </div>
+        <div class="mr2i">
+            <p>
+            Intéressé par l'une de nos offres ? Vous souhaitez une formule personnaliser ? Des demandes particulières ? Besoin de plus d'information sur la sortie ? Appelez-nous ! 
+            </p>
+        </div>
+        <div class="appel">
+            <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}"/>
+            <p>0 556 179 774</p>
+        </div>
+        <div class="mr2i">
+            <p>
+                Nous sommes aussi joignables par e-mail : contact@bledvoyage.com 
+            </p>
+        </div>
+    </div>
+</div>
+<div class="bloc_page_3">
+
+    <div class="sectiono">
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Télécharger notre brochure</h4>
+            </div>
+            <div class="mr2i">
+                <p>
+                    Téléchergez notre brochure PDF, vous y trouverez des offres détaillées, avec déscription complète des activités.
+                </p>
+            </div>
+        </div>
+        <div class="casoute">
+            <a href="{{ path('bledvoyage_teambuilding_pdf') }}">Télécharger</a>
+        </div>
+    </div>
+</div>
+<div class="bloc_page_body222">
+    <h2>
+        Ils nous font confiance
+    </h2>
+</div>
+<div class="bloc_avis">
+    <div class="bl_avis">
+        <div class="bm_avis">
+            <div class="bw_avis">
+                <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}"/>
+            </div>
+            <div class="bx_avis">
+                <h6>Prénom, nom de l'entreprise</h6>
+            </div>
+        </div>
+    </div>
+    <div class="bl_avis">
+        <div class="bm_avis">
+            <div class="bw_avis">
+                <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}"/>
+            </div>
+            <div class="bx_avis">
+                <h6>Prénom, nom de l'entreprise</h6>
+            </div>
+        </div>
+    </div>
+    <div class="bl_avis">
+        <div class="bm_avis">
+            <div class="bw_avis">
+                <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}"/>
+            </div>
+            <div class="bx_avis">
+                <h6>Prénom, nom de l'entreprise</h6>
+            </div>
+        </div>
+        <p>
+            Très agréable sortie. Nous nous sommes bien amusé les quad et le parcour étaient a la hauteur de nos esperances . 
+            les guides et le personnel encadreur sont très agréable et professionnels. On reviendra avec plaisir pour une autre aventure.
+        <p>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+$('a[href^="#"]').ready(function(){
+    $('a[href^="#decouvrir"]').on('click', function(evt){
+        evt.preventDefault(); 
+        var target = $(this).attr('href');
+        $('html, body')
+            .stop()
+            .animate({scrollTop: $(target).offset().top}, 1000 ); 
+    });
+});
+</script>
+{% endblock %}

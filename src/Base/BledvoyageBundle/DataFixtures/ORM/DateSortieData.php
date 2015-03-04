@@ -101,6 +101,22 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $dateSortie10->setAnnuler("0");
         $manager->persist($dateSortie10);
         
+        $dateSortie11 = new DateSortie();
+        $dateSortie11->setSortie($this->getReference('sortie5'));
+        $dateSortie11->setDateDebut(new \DateTime("2015-01-01"));
+        $dateSortie11->setDateFin(new \DateTime("2015-01-01"));
+        $dateSortie11->setStatut("");
+        $dateSortie11->setAnnuler("0");
+        $manager->persist($dateSortie11);
+        
+        $dateSortie12 = new DateSortie();
+        $dateSortie12->setSortie($this->getReference('sortie5'));
+        $dateSortie12->setDateDebut(new \DateTime("2017-01-01"));
+        $dateSortie12->setDateFin(new \DateTime("2017-01-01"));
+        $dateSortie12->setStatut("");
+        $dateSortie12->setAnnuler("0");
+        $manager->persist($dateSortie12);
+        
         $manager->flush();
         
         $this->addReference('dateSortie1',  $dateSortie1);
@@ -113,6 +129,8 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $this->addReference('dateSortie8',  $dateSortie8);
         $this->addReference('dateSortie9',  $dateSortie9);
         $this->addReference('dateSortie10', $dateSortie10);
+        $this->addReference('dateSortie11', $dateSortie11);
+        $this->addReference('dateSortie12', $dateSortie12);
     }
     
     public function getOrder()

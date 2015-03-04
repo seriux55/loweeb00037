@@ -21,9 +21,9 @@
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
                         <a href="{{ path('base_bledvoyage_homepage') }}">Accueil</a>
-                        <a href="#">Promotion</a>
-                        <a href="#">Entreprise</a>
-                        <a href="#">Formation</a>
+                        <a href="{{ path('bledvoyage_promotion') }}">Promotion</a>
+                        <a href="{{ path('bledvoyage_teambuilding') }}">Entreprise</a>
+                        {% block formation %}{% endblock %}
                         <a href="#">Déposez votre produit</a>
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
@@ -61,6 +61,9 @@
                 <a href="http://www.youtube.com/user/bledvoyage" target="_blank" title="bledvoyage sur Youtube"><img src="{{ asset('bundles/basebledvoyage/images/old/youtube.png') }}" alt="bledvoyage sur youtube" id="skype"/></a>
             </div>
         </div>
+        {% endblock %}
+        {% block jquery %}
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

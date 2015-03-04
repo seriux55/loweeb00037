@@ -136,13 +136,37 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $categorie_sortie5->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie5);
         
+        $categorie_sortie6 = new CategorieSortie();
+        $categorie_sortie6->setSortie($this->getReference('sortie6'));
+        $categorie_sortie6->setAir('0');
+        $categorie_sortie6->setArc('0');
+        $categorie_sortie6->setEquitation('0');
+        $categorie_sortie6->setFitness('0');
+        $categorie_sortie6->setGolf('0');
+        $categorie_sortie6->setKayak('0');
+        $categorie_sortie6->setMarche('0');
+        $categorie_sortie6->setPlongee('0');
+        $categorie_sortie6->setQuad('0');
+        $categorie_sortie6->setRandonee('0');
+        $categorie_sortie6->setRoller('0');
+        $categorie_sortie6->setRunning('0');
+        $categorie_sortie6->setSable('0');
+        $categorie_sortie6->setSportEau('1');
+        $categorie_sortie6->setTennis('0');
+        $categorie_sortie6->setVelo('0');
+        $categorie_sortie6->setVisites('1');
+        $categorie_sortie6->setIp('127.0.0.1');
+        $categorie_sortie6->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie6);
+        
         $manager->flush();
         
-        $this->addReference('$categorie_sortie1',  $categorie_sortie1);
-        $this->addReference('$categorie_sortie2',  $categorie_sortie2);
-        $this->addReference('$categorie_sortie3',  $categorie_sortie3);
-        $this->addReference('$categorie_sortie4',  $categorie_sortie4);
-        $this->addReference('$categorie_sortie5',  $categorie_sortie5);
+        $this->addReference('categorie_sortie1',  $categorie_sortie1);
+        $this->addReference('categorie_sortie2',  $categorie_sortie2);
+        $this->addReference('categorie_sortie3',  $categorie_sortie3);
+        $this->addReference('categorie_sortie4',  $categorie_sortie4);
+        $this->addReference('categorie_sortie5',  $categorie_sortie5);
+        $this->addReference('categorie_sortie6',  $categorie_sortie6);
     }
     
     public function getOrder()

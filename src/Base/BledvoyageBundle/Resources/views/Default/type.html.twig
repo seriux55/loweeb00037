@@ -6,14 +6,10 @@
 
 {% block body %}
 <div class="bled">
-    <div class="headbled">
-        <div class="messago">
-            <h1>#chassezlaroutine</h1>
-            <h2>bledvoyage.com crée et developpe des solutions anti-routines pour particuliers et professionnels 
-            <br/>
-            Détente, Sensation, Aventure, Challenge, Adrénaline,... Nous vous aidons à trouver des plans sympas pour chasser la routine.
-            </h2>
-        </div>
+    <div class="headbleda">
+        {% for data in product %}
+        <img src="{{ asset('bundles/basebledvoyage/images/photo_type/categorie/' ~ data.sortie.categorie.image ) }}" alt="sable">
+        {% endfor %}
     </div>
 </div>
 <div class="navibled">
@@ -22,7 +18,7 @@
             {% for data in categorie %}
             {% if data.nom != 'formation' %}
             <li class="navili">
-                <a href="{{ path('bledvoyage_type', { 'id':data.id }) }}" class="navia">{{ data.nom|title }}</a>
+                <a href="{{ path('bledvoyage_type', { 'id' : data.id }) }}" class="navia">{{ data.nom|title }}</a>
             </li>
             {% endif %}
             {% endfor %}
@@ -147,7 +143,7 @@
             offir en cadeau.</p>
         </div>
         <div class="casoute">
-            <a href="view/cadeau.php">Découvrir nos offres à tarifs réduits</a>
+            <a href="{{ path('bledvoyage_promotion') }}">Découvrir nos offres à tarifs réduits</a>
         </div>
     </div>
 </div>

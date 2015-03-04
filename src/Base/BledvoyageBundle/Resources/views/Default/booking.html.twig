@@ -123,25 +123,26 @@
 </div>
 {% endblock %}
 
+{% block jquery %}{% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
 var c,c2, ch;
 // ajouter un champ avec son "name" propre;
 function plus(){
-        c=document.getElementById('cadre');
-        c2=c.getElementsByTagName('input');
-        ch=document.createElement('input');
-        ch.className = "ouardep";
-        ch.setAttribute('type','text');
-        ch.setAttribute('name','promo[]');
-        ch.maxLength = "8";
-        c.appendChild(ch);
-        document.getElementById('sup').style.display='inline';
+    c=document.getElementById('cadre');
+    c2=c.getElementsByTagName('input');
+    ch=document.createElement('input');
+    ch.className = "ouardep";
+    ch.setAttribute('type','text');
+    ch.setAttribute('name','promo[]');
+    ch.maxLength = "8";
+    c.appendChild(ch);
+    document.getElementById('sup').style.display='inline';
 }
 // supprimer le dernier champ;
 function moins(){
-        if(c2.length>0){ c.removeChild(c2[c2.length-1]); }
-        if(c2.length===0){ document.getElementById('sup').style.display='none'; };
+    if(c2.length>0){ c.removeChild(c2[c2.length-1]); }
+    if(c2.length===0){ document.getElementById('sup').style.display='none'; };
 }
 </script>
 {% endblock %}

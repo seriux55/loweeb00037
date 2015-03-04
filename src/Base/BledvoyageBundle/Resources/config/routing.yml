@@ -23,6 +23,25 @@ bledvoyage_booking:
     requirements:
         id:   \d+
 
+bledvoyage_promotion:
+    path:     /promotion
+    defaults: { _controller: BaseBledvoyageBundle:Default:promotion }
+
+bledvoyage_type:
+    path:     /type/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Default:type }
+    requirements:
+        id:   \d+
+
+bledvoyage_teambuilding:
+    path:     /teambuilding
+    defaults: { _controller: BaseBledvoyageBundle:Default:teambuilding }
+
+
+bledvoyage_teambuilding_pdf:
+    path:     /teambuilding/pdf
+    defaults: { _controller: BaseBledvoyageBundle:Default:pdfTeambuilding }
+
 bledvoyage_admin:
     path:     manager
     defaults: { _controller: BaseBledvoyageBundle:Admin:index }

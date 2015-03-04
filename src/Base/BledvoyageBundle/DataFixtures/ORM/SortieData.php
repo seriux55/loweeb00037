@@ -249,6 +249,61 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5->setDateTime(new \DateTime('2015-03-01 12:00:00'));
         $manager->persist($sortie5);
         
+        $sortie6 = new Sortie();
+        $sortie6->setUser($this->getReference('user1'));
+        $sortie6->setCategorie($this->getReference('categorie6'));
+        $sortie6->setTitre('Formation & Stage Parapente');
+        $sortie6->setDescriptif("Volez par vous-même ! C’est ce que Jaafar vous propose.
+Une formation de 7 jours à temps plein ou partiel, à votre rythme, pour une initiation à l’activité de « Parapente » et acquérir les principes de vols élémentaires, dans plusieurs villes en Algérie : Oran, Blida, Tipaza, Alger, Bouira, Setif,… Devenez autonome en Parapente‎ !
+
+Programme :
+Plus de 56 heures de cours théoriques et de séances pratiques, réparties à votre rythme et en compagnie de moniteurs diplômés et expérimentés.
+Matériel et équipements à votre disposition et adaptés à tous les niveaux. De nombreux vols par jour. Prise en main, décollage, pilotage, atterrissage, météorologie, etc.
+À la fin de cette formation, Le moniteur vous délivrera une licence fédérale, une attestation de formation « Pilote Autonome », une assurance RC aérienne d’une année. ET vous serez capable de voler seul !");
+        $sortie6->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Être en bonne santé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
+Présentez un certificat médical de non contre-indication à la pratique du parapente,
+Accessible à partir de 14 ans sans prérequis avec autorisation parentale,
+
+Pièces à fournir pour la formation :
+Un certificat médical de non contre-indication à la pratique du parapente,
+Un acte de naissance,
+4 photos d’identité,
+Copie de la carte nationale.
+Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre,
+
+A prévoir
+Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à votre confort et votre sécurité.");
+        $sortie6->setLocalisation('Oran, Blida, Tipaza, Alger, Bouira, Setif ');
+        $sortie6->setTarif(49000);
+        $sortie6->setMaxPersonne(10);
+        $sortie6->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie6->setHeureDebut('9h00');
+        $sortie6->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie6->setHeureFin('17h00');
+        $sortie6->setVideo('https://www.youtube.com/watch?v=x2geTtXd_xE');
+        $sortie6->setPhoto1('forma_1.png');
+        $sortie6->setPhoto2('forma_1.png');
+        $sortie6->setPhoto3('format_2.png');
+        $sortie6->setPhoto4('format_2.png');
+        $sortie6->setValider('1');
+        $sortie6->setCharge('');
+        $sortie6->setAcces('');
+        $sortie6->setEcheance('0');
+        $sortie6->setTarifEcheance('0');
+        $sortie6->setCommission('');
+        $sortie6->setAnnuler('0');
+        $sortie6->setTarifEtud('0');
+        $sortie6->setPromoClient('0');
+        $sortie6->setPromoPartenaire('0');
+        $sortie6->setAstuce('1');
+        $sortie6->setPub('1');
+        $sortie6->setClose('0');
+        $sortie6->setIp('127.0.0.1');
+        $sortie6->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie6);
+        
         $manager->flush();
         
         $this->addReference('sortie1',  $sortie1);
@@ -256,6 +311,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $this->addReference('sortie3',  $sortie3);
         $this->addReference('sortie4',  $sortie4);
         $this->addReference('sortie5',  $sortie5);
+        $this->addReference('sortie6',  $sortie6);
     }
     
     public function getOrder()
