@@ -4,6 +4,7 @@
 
 {% block stylesheets %}
 {{ parent() }}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -24,7 +25,6 @@
     </div>
 </section>
 <div class=".bloc_page_body3">
-    
     {% for data in product %}
     <script>
     jQuery(document).ready(function(){
@@ -260,7 +260,8 @@
 </div>
 {% endblock %}
 
-{% block javascript %}
+{% block jquery %}{% endblock %}
+{% block javascripts %}
 <!--
 <script>
 jQuery(document).ready(function(){

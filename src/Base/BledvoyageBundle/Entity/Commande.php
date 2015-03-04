@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commande
 {
+    public function __construct()
+    {
+        $this->dateTime  = new \dateTime();
+        $this->confirmer = '0';
+        $this->facture   = '0';
+        $this->dateRdv   = new \dateTime('0000-00-00 00:00:00');
+    }
+    
     /**
      * @var integer
      *
@@ -26,6 +34,12 @@ class Commande
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\CategorieTicket")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorieTicket;
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Paiement")
@@ -224,7 +238,7 @@ class Commande
      * @param string $confirmer
      * @return Commande
      */
-    public function setConfirmation($confirmer)
+    public function setConfirmer($confirmer)
     {
         $this->confirmer = $confirmer;
 
@@ -523,7 +537,7 @@ class Commande
      * @param \Base\BledvoyageBundle\Entity\Paiement $paiement
      * @return Commande
      */
-    public function setPaiement(\Base\UserBundle\Entity\Paiement $paiement)
+    public function setPaiement(\Base\BledvoyageBundle\Entity\Paiement $paiement)
     {
         $this->paiement = $paiement;
 
@@ -538,5 +552,28 @@ class Commande
     public function getPaiement()
     {
         return $this->paiement;
+    }
+
+    /**
+     * Set categorieTicket
+     *
+     * @param \Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket
+     * @return Commande
+     */
+    public function setCategorieTicket(\Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket)
+    {
+        $this->categorieTicket = $categorieTicket;
+
+        return $this;
+    }
+
+    /**
+     * Get categorieTicket
+     *
+     * @return \Base\BledvoyageBundle\Entity\CategorieTicket
+     */
+    public function getCategorieTicket()
+    {
+        return $this->categorieTicket;
     }
 }

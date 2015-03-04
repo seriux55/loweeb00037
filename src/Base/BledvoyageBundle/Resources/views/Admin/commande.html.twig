@@ -11,7 +11,7 @@
 <h1>Welcome to the Admin:index page</h1>
 <div class="bloc_page_body222">
     <h2>
-        Tableau de Bord
+        Commandes de tickets
     </h2>
 </div>		
 <section>
@@ -25,68 +25,66 @@
     </div>
 </section>
 <div class=".bloc_page_body3">
+    {% for data in product %}
     <script>
     jQuery(document).ready(function(){
-        $("#boutonplus4").on("click", function(){
-            $("#boutonplus4").hide();
-            $("#boutonmoins4").show();
-            $("#plus4").slideDown();
+        $("#boutonplus{{ data.id }}").on("click", function(){
+            $("#boutonplus{{ data.id }}").hide();
+            $("#boutonmoins{{ data.id }}").show();
+            $("#plus{{ data.id }}").slideDown();
             return false;
         });
-        $("#boutonmoins4").on("click", function(){
-            $("#boutonmoins4").hide();
-            $("#boutonplus4").show();
-            $("#plus4").slideUp();
+        $("#boutonmoins{{ data.id }}").on("click", function(){
+            $("#boutonmoins{{ data.id }}").hide();
+            $("#boutonplus{{ data.id }}").show();
+            $("#plus{{ data.id }}").slideUp();
             return false;
         });
     });
     </script>
     <section>
         <div class="soutir">
-            <h3 style="display:inline">Pack loisirs 12  // </h3>
-            <a id="boutonplus4" href="#" class="leplus"> Ouvrir</a>
-            <a style="display:none" id="boutonmoins4" href="#" class="leplus"> Reduire</a>
+            <h3 style="display:inline">{{ data.titre }}  // </h3>
+            <a id="boutonplus{{ data.id }}" href="#" class="leplus"> Ouvrir</a>
+            <a style="display:none" id="boutonmoins{{ data.id }}" href="#" class="leplus"> Reduire</a>
         </div>
-    <div style="display:none" id="plus4">
-        <div class="avisor">
-            <div class="avileft">
-                <p>
-                        Tarif : 19900 Da/personne  
-                </p>
-                <p>
-                        <!-- Charge :  Da/personne -->
-                </p>
-            </div>
-            <div class="aviright">
-                <div class="headav">
-                    <h2>Résa Total</h2> 
+        <div style="display:none" id="plus{{ data.id }}">
+            <div class="avisor">
+                <div class="avileft">
+                    <p>
+                        Tarif : {{ data.tarif }} Da/personne  
+                    </p>
                 </div>
-                <div class="headav">
-                    <h2>Résa confirmés</h2>
-                    <p>12 </p>
+                <div class="aviright">
+                    <div class="headav">
+                        <h2>Résa Total</h2> 
+                    </div>
+                    <div class="headav">
+                        <h2>Résa confirmés</h2>
+                        <p>12 </p>
+                        <div class="evod">
+                            <div class="evodo">
+                                <div style="width:20%;" class="evoda">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="headav">
+                        <h2>Places confirmées</h2>				
+                    </div>
+                    <div class="headav">
+                        <h2>Présent</h2>							
                     <div class="evod">
                         <div class="evodo">
                             <div style="width:20%;" class="evoda">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="headav">
-                    <h2>Places confirmées</h2>				
-                </div>
-                <div class="headav">
-                    <h2>Présent</h2>							
-                <div class="evod">
-                    <div class="evodo">
-                        <div style="width:20%;" class="evoda">
-                        </div>
+                    </div>
+                    <div class="headav">
+                        <h2>Facturé</h2>					
                     </div>
                 </div>
-                </div>
-                <div class="headav">
-                    <h2>Facturé</h2>					
-                </div>
-            </div>
             </div>
             <div class="avison">
                 <table>
@@ -109,6 +107,27 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% set i = 1 %}
+                        {% for dataT in commande %}
+                        <tr>
+                            <td class="numero">{{ i }}</td>
+                            <td>{{ dataT.id }}</td>
+                            <td>{{ dataT.dateTime|date('d/m/Y') }}</td>
+                            <td>{{ dataT.prenom }}</td>
+                            <td>{{ dataT.nom }}</td>
+                            <td>{{ dataT.tel }}</td>
+                            <td>{{ dataT.place }}</td>
+                            <td>{{ dataT.dateAchat|date('d/m/Y') }}</td>
+                            <td>{{ dataT.modePaiement }}</td>
+                            <td>{{ dataT.rdv }}</td>
+                            <td class="couleur"></td>
+                            <td><a   href="" target="_blank" class="button">Note</a></td>
+                            <td><a   href="" target="_blank" class="button">Envoyer</a></td>
+                            <td><div href="" target="_blank" class="buttono">Facturer</div></td>
+                        </tr>
+                        {% set i = i + 1 %}
+                        {% endfor %}
+                        ------------
                         <tr>
                             <td class="numero">1</td>
                             <td>942</td>
@@ -383,5 +402,13 @@
             </div> 
         </div>
     </section>
+    {% endfor %}
 </div>
+{% endblock %}
+
+{% block jquery %}{% endblock %}
+{% block javascripts %}
+<script>
+// --
+</script>
 {% endblock %}

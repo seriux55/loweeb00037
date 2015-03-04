@@ -73,37 +73,46 @@ class AdminController extends Controller
         $commande = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
+                   ->leftJoin('a.user', 'b')
                    ->addSelect('c')
-                   ->leftJoin('a.user', 'c')
-                   ->where('b.valider = :valider')
-                   ->setParameter('valider', '1')
-                   ->orderBy('a.id','DESC')
+                   ->leftJoin('a.categorieTicket', 'c')
+                   ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
         
         $d = array();
-        foreach ($commande as $sortie)
+        foreach ($commande as $data)
         {
-            if(!in_array($sortie->getSortie()->getTitre(), $d))
+            if(!in_array($data->getCategorieTicket()->getNom(), $d))
             {
-                $sorties[] = array(
-                    'id'            => $sortie->getSortie()->getId(),
-                    'titre'         => $sortie->getSortie()->getTitre(),
-                    'localisation'  => $sortie->getSortie()->getLocalisation(),
-                    'dateDebut'     => $sortie->getSortie()->getDateDebut(),
-                    'dateFin'       => $sortie->getSortie()->getDateFin(),
-                    'heureDebut'    => $sortie->getSortie()->getHeureDebut(),
-                    'heureFin'      => $sortie->getSortie()->getHeureFin(),
-                    'tarif'         => $sortie->getSortie()->getTarif(),
+                $ticket[] = array(
+                    'id'            => $data->getCategorieTicket()->getId(),
+                    'titre'         => $data->getCategorieTicket()->getNom(),
+                    'tarif'         => $data->getCategorieTicket()->getTarif(),
+                    'duree'         => $data->getCategorieTicket()->getDuree(),
+                    'nombre'        => $data->getCategorieTicket()->getNombreActivite(),
                 );
-                $d[] = $sortie->getSortie()->getTitre();
+                $d[] = $data->getCategorieTicket()->getNom();
             }
-            
+            $commande[] = array(
+                'id'            => $data->getId(),
+                'ticket'        => $data->getCategorieTicket()->getNom(),
+                'nom'           => $data->getUser()->getFirstname(),
+                'prenom'        => $data->getUser()->getSecondename(),
+                'tel'           => $data->getUser()->getPhone(),
+                'dateTime'      => $data->getDateTime(),
+                'place'         => $data->getNombre(),
+                'dateAchat'     => $data->getDateAchat(),
+                'entreprise'    => $data->getEntreprise(),
+                'adresse'       => $data->getAdresse(),
+                'modePaiement'  => $data->getModePaiement(),
+                'rdv'           => $data->getDateRdv()->format('d/m/Y').' '.$data->getHeureRdv().' '.$data->getLieuRdv(),
+            );
         }
         return $this->render('BaseBledvoyageBundle:Admin:commande.html.twig', array(
-            'product'   => $commande,
-        ));    
+            'product'   => $ticket,
+            'commande'  => $commande,
+        ));
         
     }
     

@@ -40,15 +40,14 @@ R.I.B : 003 - 00448 - 300183300019.');
         
         $paiement4 = new Paiement();
         $paiement4->setMode('chèque');
-        $paiement4->setInformation('Libeller le chèque à l ordre de : Sebastopol
+        $paiement4->setInformation('Libeller le chèque à l\'ordre de : Sebastopol
 Envoyer le chèque à :
 81, Chenoua plage - 42000, Tipaza - Algérie.');
         $manager->persist($paiement4);
         
         $paiement5 = new Paiement();
         $paiement5->setMode('professionnels');
-        $paiement5->setInformation('Envoyez un bon de commande, avec le pack demandé, le nombre de pack, signature et cachet, par 
-E-mail : contact@bledvoyage.com, ou par Fax au : +213 24 47 14 04');
+        $paiement5->setInformation('Envoyez un bon de commande, avec le pack demandé, le nombre de pack, signature et cachet, par E-mail : contact@bledvoyage.com, ou par Fax au : +213 24 47 14 04');
         $manager->persist($paiement5);
         
         $manager->flush();
@@ -62,6 +61,6 @@ E-mail : contact@bledvoyage.com, ou par Fax au : +213 24 47 14 04');
     
     public function getOrder()
     {
-        return 7; // l'ordre dans lequel les fichiers sont chargés
+        return 8; // l'ordre dans lequel les fichiers sont chargés
     }
 }
