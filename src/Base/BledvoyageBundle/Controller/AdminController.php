@@ -64,8 +64,7 @@ class AdminController extends Controller
         return $this->render('BaseBledvoyageBundle:Admin:index.html.twig', array(
             'product'       => $sorties,
             'reservation'   => $reservation,
-        ));    
-        
+        ));
     }
     
     public function commandeAction()
@@ -96,7 +95,7 @@ class AdminController extends Controller
             }
             $commande[] = array(
                 'id'            => $data->getId(),
-                'ticket'        => $data->getCategorieTicket()->getNom(),
+                'idCategorie'   => $data->getCategorieTicket()->getId(),
                 'nom'           => $data->getUser()->getFirstname(),
                 'prenom'        => $data->getUser()->getSecondename(),
                 'tel'           => $data->getUser()->getPhone(),
@@ -106,6 +105,9 @@ class AdminController extends Controller
                 'entreprise'    => $data->getEntreprise(),
                 'adresse'       => $data->getAdresse(),
                 'modePaiement'  => $data->getModePaiement(),
+                'confirmer'     => $data->getConfirmer(),
+                'facture'       => $data->getFacture(),
+                'note'          => $data->getNote(),
                 'rdv'           => $data->getDateRdv()->format('d/m/Y').' '.$data->getHeureRdv().' '.$data->getLieuRdv(),
             );
         }
@@ -113,7 +115,6 @@ class AdminController extends Controller
             'product'   => $ticket,
             'commande'  => $commande,
         ));
-        
     }
     
     public function reservationAction()
@@ -122,7 +123,6 @@ class AdminController extends Controller
         return $this->render('BaseBledvoyageBundle:Admin:reservation.html.twig', array(
                 // ...
         ));    
-        
     }
     
     public function presentAction()
@@ -131,6 +131,29 @@ class AdminController extends Controller
         return $this->render('BaseBledvoyageBundle:Admin:present.html.twig', array(
                 // ...
         ));    
+    }
+    
+    public function commandeConfirmertAction($id)
+    {
         
+        return $this->render('BaseBledvoyageBundle:Admin:commande_confirmer.html.twig', array(
+                // ...
+        ));
+    }
+    
+    public function commandeNoteAction($id)
+    {
+        
+        return $this->render('BaseBledvoyageBundle:Admin:commande_note.html.twig', array(
+                // ...
+        ));    
+    }
+    
+    public function commandeFacturerAction($id)
+    {
+        
+        return $this->render('BaseBledvoyageBundle:Admin:commande_facturer.html.twig', array(
+                // ...
+        ));
     }
 }

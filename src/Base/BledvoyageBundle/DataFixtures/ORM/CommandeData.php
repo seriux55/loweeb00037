@@ -29,7 +29,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande1->setTextPerso("");
         $commande1->setNote("");
         $commande1->setConfirmer("0");
-        $commande1->setFacture("");
+        $commande1->setFacture("0");
         $commande1->setAcompte("");
         $commande1->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande1->setEntreprise("");
@@ -71,7 +71,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande3->setTextPerso("");
         $commande3->setNote("");
         $commande3->setConfirmer("0");
-        $commande3->setFacture("");
+        $commande3->setFacture("0");
         $commande3->setAcompte("");
         $commande3->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande3->setEntreprise("");
@@ -92,7 +92,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande4->setTextPerso("");
         $commande4->setNote("");
         $commande4->setConfirmer("0");
-        $commande4->setFacture("");
+        $commande4->setFacture("0");
         $commande4->setAcompte("");
         $commande4->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande4->setEntreprise("");
@@ -113,7 +113,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande5->setTextPerso("");
         $commande5->setNote("");
         $commande5->setConfirmer("0");
-        $commande5->setFacture("");
+        $commande5->setFacture("0");
         $commande5->setAcompte("");
         $commande5->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande5->setEntreprise("");
@@ -134,7 +134,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande6->setTextPerso("");
         $commande6->setNote("");
         $commande6->setConfirmer("0");
-        $commande6->setFacture("");
+        $commande6->setFacture("0");
         $commande6->setAcompte("");
         $commande6->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande6->setEntreprise("");
@@ -155,7 +155,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande7->setTextPerso("");
         $commande7->setNote("");
         $commande7->setConfirmer("0");
-        $commande7->setFacture("");
+        $commande7->setFacture("0");
         $commande7->setAcompte("");
         $commande7->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande7->setEntreprise("");
@@ -176,7 +176,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande8->setTextPerso("");
         $commande8->setNote("");
         $commande8->setConfirmer("0");
-        $commande8->setFacture("");
+        $commande8->setFacture("0");
         $commande8->setAcompte("");
         $commande8->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande8->setEntreprise("");
@@ -197,7 +197,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande9->setTextPerso("");
         $commande9->setNote("");
         $commande9->setConfirmer("0");
-        $commande9->setFacture("");
+        $commande9->setFacture("0");
         $commande9->setAcompte("");
         $commande9->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande9->setEntreprise("");
@@ -218,7 +218,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande10->setTextPerso("");
         $commande10->setNote("");
         $commande10->setConfirmer("1");
-        $commande10->setFacture("");
+        $commande10->setFacture("0");
         $commande10->setAcompte("");
         $commande10->setDateAchat(new \Datetime('2015-03-01 12:00:00'));
         $commande10->setEntreprise("");

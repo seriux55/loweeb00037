@@ -1,0 +1,101 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Confirmation de commande
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h3>Numéro de commande : 965.</h3>
+            <h3>Prénom et Nom : MOHAMED SAID AHMED BACHA.</h3>
+            <h3>Téléphone : 0550816001.</h3>
+            <h1>Catégorie : Pack découverte.</h1>
+            <h3>Tarif : 1900 Dinars/personne.</h3>
+        </article>
+        <div class="forpar">
+            <form method="post" action="confirmation_post.php">
+                <div class="mr7">
+                    <div class="mr4u">
+                        <label for="resa">Quantité de tickets</label>
+                        <p class="coord">Combien de tickets ?</p>
+                        <input class="ouardep" type="number" name="resa" id="resa" required="required" min="1" max="5000" value="2" placeholder="Ex : 1">
+                        <!-- <input class="ouardep" type="text" name="resa" id="resa" value="2"
+                        size="35" placeholder="Ex : 1"/> -->
+                    </div>
+                </div>
+                <div class="mr4ui">
+                    <label for="avis">Mode de paiement ?</label>
+                    <div class="etemo">
+                        <label class="lienavi" for="1">Sur place</label>
+                        <INPUT type= "radio" name="paiement" value="Sur place" id="1" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                               document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="2">Chenoua</label>
+                        <INPUT type= "radio" name="paiement" value="Chenoua" id="2" onclick="document.getElementById('chenoua').style.display='block';
+                                                                                             document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div id="chenoua" style="display:none">
+                        <label class="lienavi">Date du RDV</label>
+                        <input class="datepicker" type="text" name="date1"  placeholder="Ex : 22/02/2015">
+                        <label class="lienavi">Heure du RDV</label>
+                        <input type="text" name="heure1" placeholder="Ex : 16:00">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="3">Rendez-vous</label>
+                        <INPUT type= "radio" name="paiement" value="Rendez-vous" id="3" onclick="document.getElementById('rdv').style.display='block';
+                                                                                                 document.getElementById('chenoua').style.display='none';">
+                    </div>
+                    <div id="rdv" style="display:none">
+                        <label class="lienavi">Date du RDV</label>
+                        <input class="datepicker" type="text" name="date2"  placeholder="Ex : 22/02/2015">
+                        <label class="lienavi">Heure du RDV</label>
+                        <input type="text" name="heure2" placeholder="Ex : 16:00">
+                        <label class="lienavi">Lieu du RDV</label>
+                        <input type="text" name="lieu2"   placeholder="Ex : La grande poste">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="4">Mandat postal</label>
+                        <INPUT type= "radio" name="paiement" value="Mandat postal" id="4" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                                   document.getElementById('rdv').style.display='none';">
+
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="5">Virement bancaire</label>
+                        <INPUT type= "radio" name="paiement" value="Virement bancaire" id="5" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                                       document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="6">Chèque</label>
+                        <INPUT type= "radio" name="paiement" value="Chèque" id="6" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                            document.getElementById('rdv').style.display='none';">
+                    </div>
+                </div>
+
+                <div class="mr4ui">
+                    <div class="etemo">
+                        <label class="lienavi">Confirmer l'adresse mail</label>
+                        <INPUT class="ouardep" type= "text" name="mmail" value="gm_said@hotmail.com">
+                    </div>
+                </div>
+                <div class="mr6">
+                    <input type="hidden" name="confirmation" value="965" />
+                    <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="tableau.php">
+                Revenir au tableau de bord
+            </a>
+        </p>
+    </div>
+</div>  
+{% endblock %}

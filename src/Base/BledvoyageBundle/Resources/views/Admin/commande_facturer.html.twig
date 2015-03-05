@@ -1,0 +1,93 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Facturation 
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h1>Catégorie ticket : Pack découverte.</h1>
+            <h3>Tarif : 1900 Da/per</h3>
+            <h3>Numéro de réservation : 247.</h3>
+            <h3>Prénom Nom : Raouf Mellel.</h3>
+            <h3>Téléphone : 0661783843.</h3>
+            <h3>E-mail : mellelraouf@gmail.com.</h3>
+            <h3>Date de commande : 23/01/2015.</h3>
+            <h3>La quantité : 1.</h3>
+            <h1>Total : 1900 Dinars</h1>
+        </article>
+        <div class="forpar">
+            <form method="post" action="facture_post.php">
+                <div class="mr4u">  
+                    <label for="present">Nombre de tickets</label>
+                    <p class="coord">Combien de tickets</p>
+                    <input class="ouardep" type="text" name="resa" id="present" value="1"
+                    size="35" placeholder="Ex : 1"/>
+                </div>
+                <div class="mr4u">  
+                    <label for="email">Confirmer l'adresse mail</label>
+                    <p class="coord">L'adresse mail</p>
+                    <input class="ouardep" type="text" name="mail" id="mail" value="mellelraouf@gmail.com" />
+                </div>
+                <div class="mr4u">  
+                    <label for="entreprise">Nom de l'entreprise</label>
+                    <p class="coord">L'entreprise</p>
+                    <input class="ouardep" type="text" name="entreprise" id="entreprise" placeholder="BNP"/>
+                </div>
+                <div class="mr4u">  
+                    <label for="adresse">Adresse de l'entreprise</label>
+                    <p class="coord">L'adresse</p>
+                    <textarea class="ouardep" id="adresse" cols="30" rows="4" name="adresse" placeholder="32 rue Kateb Yacine
+                    16256 Draria"></textarea>
+                </div>
+                <div class="mr4ui">
+                    <label for="avis">Mode de paiement ?</label>
+                    <div class="etemo">
+                        <label class="lienavi" for="1">Espèce</label>
+                        <INPUT type= "radio" name="paiement" value="1" id="1">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="2">Mandat postal</label>
+                        <INPUT type= "radio" name="paiement" value="2" id="2">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="3">Virement bancaire</label>
+                        <INPUT type= "radio" name="paiement" value="3" id="3">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="4">Chèque</label>
+                        <INPUT type= "radio" name="paiement" value="4" id="4">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="5">Professionnel</label>
+                        <INPUT type= "radio" name="paiement" value="5" id="5">
+                    </div>
+                </div>
+                <div class="mr4ui">
+                    <div class="etemo">
+                        <label class="lienavi">Confirmer le texte personnalisé</label>
+                        <textarea class="ouardep" id="textperso" cols="30" rows="4" name="textperso" 
+                        maxlength="64">Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ...</textarea>
+                    </div>
+                </div>
+                <div class="mr6">
+                    <input type="hidden" name="confirmation" value="247" />
+                    <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+    <p>
+        <a href="tableau.php">
+            Revenir au tableau de bord
+        </a>
+    </p>
+    </div>
+</div>
+{% endblock %}

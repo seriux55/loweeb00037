@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Booking
  *
- * @ORM\Table()
+ * @ORM\Table(name="bledvoyage__Booking")
  * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\BookingRepository")
  */
 class Booking
@@ -19,6 +19,7 @@ class Booking
         $this->avis             = "0";
         $this->dateRdv          = new \DateTime('0000-00-00');
         $this->note             = "";
+        $this->promo            = "";
         $this->creneau          = "";
         $this->participation    = "";
         $this->facture          = "0";
@@ -80,7 +81,7 @@ class Booking
     /**
      * @var array
      *
-     * @ORM\Column(name="promo", type="simple_array")
+     * @ORM\Column(name="promo", type="simple_array", nullable=true)
      */
     private $promo;
 

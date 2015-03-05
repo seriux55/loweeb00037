@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Sortie
  *
- * @ORM\Table()
+ * @ORM\Table(name="bledvoyage__Sortie")
  * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\SortieRepository")
  * 
  * @ExclusionPolicy("all")

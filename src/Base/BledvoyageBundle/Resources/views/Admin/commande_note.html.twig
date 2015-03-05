@@ -1,0 +1,60 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Note sur la commande
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h3>Numéro de réservation : 965.</h3>
+            <h3>Prénom et Nom : MOHAMED SAID AHMED BACHA.</h3>
+            <h3>Téléphone : 0550816001.</h3>
+            <h1>Catégorie : Pack découverte.</h1>
+            <h3>Tarif : 1900 Dinars/personne.</h3>
+        </article>
+        <div class="forpar">
+            <form method="post" action="note_post.php">
+                <div class="mr4ui">
+                    <label for="avis">Note</label>
+                    <div class="etemo">
+                        <label class="lienavi">SMS envoyé</label>
+                        <INPUT type="radio" name="note" value="SMS envoyé" id="5">									
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi">Aucune réponse</label>
+                        <INPUT type="radio" name="note" value="Aucune réponse" id="1">									
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi">En attente d'une réponse</label>
+                        <INPUT type="radio" name="note" value="En attente d'une réponse" id="2">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi">Annulée</label>
+                        <INPUT type="radio" name="note" value="Annulée" id="3">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi">Vide</label>
+                        <INPUT type="radio" name="note" value="" id="4">
+                    </div>
+                </div>
+                <div class="mr6">
+                    <input type="hidden" name="confirmation" value="965" />
+                    <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="tableau.php">
+            Revenir au tableau de bord
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}

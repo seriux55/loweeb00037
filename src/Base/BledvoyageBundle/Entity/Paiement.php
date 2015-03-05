@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Paiement
  *
- * @ORM\Table()
+ * @ORM\Table(name="bledvoyage__Paiement")
  * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\PaiementRepository")
  */
 class Paiement
