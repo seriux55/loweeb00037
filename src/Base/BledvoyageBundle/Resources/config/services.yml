@@ -1,6 +1,6 @@
 parameters:
 #    base_bledvoyage.example.class: Base\BledvoyageBundle\Example
-    basebundle.db.table_prefix: bledvoyage__
+    basebledvoyagebundle.db.table_prefix: bledvoyage__
 
 services:
 #    base_bledvoyage.example:
@@ -8,6 +8,6 @@ services:
 #        arguments: [@service_id, "plain_value", %parameter%]
     basebundle.tblprefix_subscriber:
         class: Base\bledvoyageBundle\Service\Subscriber\TablePrefixSubscriber
-        arguments: [%basebundle.db.table_prefix%]
+        arguments: [%basebledvoyagebundle.db.table_prefix%]
         tags:
             - { name: doctrine.event_subscriber }

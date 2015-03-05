@@ -70,7 +70,7 @@ class AdminController extends Controller
     
     public function commandeAction()
     {
-        $commande = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.user', 'b')
@@ -81,7 +81,7 @@ class AdminController extends Controller
                    ->getResult();
         
         $d = array();
-        foreach ($commande as $data)
+        foreach ($product as $data)
         {
             if(!in_array($data->getCategorieTicket()->getId(), $d))
             {
