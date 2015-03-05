@@ -133,7 +133,7 @@ class AdminController extends Controller
         ));    
     }
     
-    public function commandeConfirmertAction($id)
+    public function commandeConfirmerAction($id)
     {
         
         return $this->render('BaseBledvoyageBundle:Admin:commande_confirmer.html.twig', array(
