@@ -12,6 +12,29 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Booking
 {
+    public function __construct() {
+        $this->dateTime         = new \DateTime('now');
+        $this->dateConfirmer    = new \DateTime('0000-00-00');
+        $this->confirmer        = "0";
+        $this->avis             = "0";
+        $this->dateRdv          = new \DateTime('0000-00-00');
+        $this->note             = "";
+        $this->creneau          = "";
+        $this->participation    = "";
+        $this->facture          = "0";
+        $this->acompte          = "0";
+        $this->mandat           = "0";
+        $this->cheque           = "0";
+        $this->virement         = "0";
+        $this->espece           = "0";
+        $this->ticketPromo      = "";
+        $this->promoApayer      = "";
+        $this->lieuFormation    = "";
+        $this->modeChoisi       = "";
+        $this->heureRdv         = "";
+        $this->lieuRdv          = "";       
+    }
+    
     /**
      * @var integer
      *
@@ -55,9 +78,9 @@ class Booking
     private $nombre;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="promo", type="string", length=255)
+     * @ORM\Column(name="promo", type="simple_array")
      */
     private $promo;
 
@@ -514,7 +537,7 @@ class Booking
     /**
      * Set promo
      *
-     * @param string $promo
+     * @param array $promo
      * @return Booking
      */
     public function setPromo($promo)
@@ -527,7 +550,7 @@ class Booking
     /**
      * Get promo
      *
-     * @return string 
+     * @return array 
      */
     public function getPromo()
     {

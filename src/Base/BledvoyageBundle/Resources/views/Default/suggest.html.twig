@@ -1,0 +1,352 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Création d'une sortie 
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section>
+        <div class="infoparcourss">
+            <div class="parcre">
+                <p class="pgras1">Création</p>
+                <div class="rectangle1">
+                </div>
+            </div>
+            <div class="parcre">
+                <p class="pgras">Finalisation</p>
+                <div class="rectangle">
+                </div>
+            </div>
+            <div class="parcre">
+                <p class="pgras">Confirmation</p>
+                <div class="rectangle">
+                </div>
+            </div>
+        </div>
+        <div class="resae">
+            <div class="sectiar">
+                <h2>Information sur la sortie</h2>
+            </div>
+            <div class="sectiono">
+                <form method="post" action="creation_post.php" enctype="multipart/form-data"><input type="hidden" name="PHPSESSID" value="o77ehqdsamtk52up4ih4amd9v4" />
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <label for="localisation">Localisation</label>
+                            <input class="ouardep" type="text" name="localisation" id="localisation" placeholder="Tipaza" 
+                            size="35"/>
+                        </div>
+                    </div>
+                    <div class="mr7">
+                        <label for="titre">Titre de la sortie </label>
+                        <input class="ouatitre" type="text" name="titre" id="titre" placeholder="Une randonée à Tikejda..." 
+                        size="50"/>
+                    </div>
+                    <div class="mr7">
+                        <label for="type">Type de sortie </label>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox"  value="1" name="velo" id="velo">
+                            </div>
+                            <div class="opit">
+                                <label for="velo" class="pigo">
+                                    <img alt="Velo" src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">
+                                    <div class="piod">
+                                        Vélo, Cyclime
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                            <input type="checkbox"  value="1" name="randonee" id="randonnee">
+                            </div>
+                            <div class="opit">
+                                <label for="randonnee" class="pigo">
+                                    <img alt="Randonnee" src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
+                                    <div class="piod">
+                                        Randonée, Camping
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox"  value="1" name="fitness" id="fitness">
+                            </div>
+                            <div class="opit">
+                                <label for="fitness" class="pigo">
+                                    <img alt="Fitness" src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">
+                                    <div class="piod">
+                                        fitness, Danses
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="running" id="running">
+                            </div>
+                            <div class="opit">
+                                <label for="running" class="pigo">
+                                    <img alt="Running" src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">
+                                    <div class="piod">
+                                        Running
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="roller" id="roller">
+                            </div>
+                            <div class="opit">
+                                <label for="roller" class="pigo">
+                                    <img alt="Running" src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">
+                                    <div class="piod">
+                                        Roller
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox"  value="1" name="tennis" id="tennis">
+                            </div>
+                            <div class="opit">
+                                <label for="tennis" class="pigo">
+                                    <img alt="tenis" src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">
+                                    <div class="piod">
+                                        Tennis
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox"  value="1" name="sport_eau" id="sport_eau">
+                            </div>
+                            <div class="opit">
+                                <label for="sport_eau" class="pigo">
+                                    <img alt="Sport" src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">
+                                    <div class="piod">
+                                        Sport d'eau
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox"  value="1" name="plongee" id="plongee">
+                            </div>
+                            <div class="opit">
+                                <label for="plongee" class="pigo">
+                                    <img alt="Plongée" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">
+                                    <div class="piod">
+                                        Plongée
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox"  value="1" name="golf" id="golf">
+                            </div>
+                            <div class="opit">
+                                <label for="golf" class="pigo">
+                                    <img alt="Golf" src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">
+                                    <div class="piod">
+                                        Golf
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="kayak" id="kayak">
+                            </div>
+                            <div class="opit">
+                                <label for="kayak" class="pigo">
+                                    <img alt="Kayak" src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">
+                                    <div class="piod">
+                                        Kayak, bateau
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="equitation" id="equitation">
+                            </div>
+                            <div class="opit">
+                                <label for="equitation" class="pigo">
+                                    <img alt="Equitation" src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">
+                                    <div class="piod">
+                                        Equitation
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="marche" id="marche">
+                            </div>
+                            <div class="opit">
+                                <label for="marche" class="pigo">
+                                    <img alt="Marche" src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">
+                                    <div class="piod">
+                                        Marche
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="visites" id="visites">
+                            </div>
+                            <div class="opit">
+                                <label for="visites" class="pigo">
+                                    <img alt="Visite" src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
+                                    <div class="piod">
+                                        Visites patromoine
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="air" id="air">
+                            </div>
+                            <div class="opit">
+                                <label for="air" class="pigo">
+                                    <img alt="Air" src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
+                                    <div class="piod">
+                                        Air
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="sable" id="sable">
+                            </div>
+                            <div class="opit">
+                                <label for="sable" class="pigo">
+                                    <img alt="Sable" src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
+                                    <div class="piod">
+                                        Sable
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                <input type="checkbox" value="1" name="quad" id="quad">
+                            </div>
+                            <div class="opit">
+                                <label for="sable" class="pigo">
+                                    <img alt="Quad" src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">
+                                    <div class="piod">
+                                        Quad
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <label for="date_debut">Date de début de la sortie</label>
+                            <input class="datepicker" type="text" name="date_debut" id="date_debut" placeholder="01/10/2014" 
+                            size="35">
+                        </div>
+                        <div class="mr4u">
+                            <label for="heure_debut">Heure de début</label>
+                            <input class="ouardep" type="text" name="heure_debut" id="heure_debut" placeholder="18h15" 
+                            size="35"/>
+                        </div>
+                        <div class="mr4u">
+                            <label for="date_fin">Date de fin de la sortie</label>
+                            <input class="datepicker" type="text" name="date_fin" id="date_fin" placeholder="01/10/2014" 
+                            size="35">
+                        </div>
+                        <div class="mr4u">
+                            <label for="heure_fin">Heure de fin</label>
+                            <input class="ouardep" type="text" name="heure_fin" id="heure_fin" placeholder="02/10/2014" 
+                            size="35"/>
+                        </div>
+                    </div>
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <label for="tarif">Tarif par personne</label>
+                            <input class="ouardep" type="text" name="tarif" id="tarif" placeholder="2000 Da" 
+                            size="35"/>
+                        </div>
+                        <div class="mr4u">
+                            <label for="max_personne">Nombre maximum de personne</label>
+                            <input class="ouardep" type="text" name="max_personne" id="max_personne" placeholder="15" 
+                            size="35"/>
+                        </div>
+                    </div>
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <label for="descreptif">Descriptif</label>
+                            <p class="coord">Assurez vous de l'avoir écrit correctement. Vous receverez votre réservation par e-mail.</p>
+                            <textarea class="textarea" cols="30" rows="5" name="descreptif" id="descreptif"></textarea>
+                        </div>
+                        <div class="mr4u">
+                            <label for="condi">Condition</label>
+                            <p class="coord">Assurez vous de l'avoir écrit correctement. pour vous contacter en cas de besoin.</p>
+                            <textarea class="textarea" cols="30" rows="5" name="condi" id="condi"></textarea>
+                        </div>
+                    </div>
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <input type="file" name="photo_1">
+                        </div>
+                        <div class="mr4u">
+                            <input type="file" name="photo_2">
+                        </div>
+                        <div class="mr4u">
+                            <input type="file" name="photo_3">
+                        </div>
+                        <div class="mr4u">
+                            <input type="file" name="photo_4">
+                        </div>
+                    </div>
+                    <div class="mr6">
+                        <input class="cherchez" name="login" type="submit" value="Valider"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="sectiono">
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Besoin d'aide ?</h4>
+            </div>
+            <div class="mr2i">
+                <p>
+                    Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous ! 
+                </p>
+            </div>
+            <div class="appel">
+                <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}">
+                <p>0 556 179 774</p>
+            </div>
+        </div>
+    </div>
+    <div class="plusrc">
+        <p>
+            <a href="../index.php?PHPSESSID=o77ehqdsamtk52up4ih4amd9v4">
+                Revenir au site bledvoyage.com
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block jquery %}{% endblock %}

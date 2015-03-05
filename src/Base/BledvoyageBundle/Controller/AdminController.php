@@ -83,7 +83,7 @@ class AdminController extends Controller
         $d = array();
         foreach ($commande as $data)
         {
-            if(!in_array($data->getCategorieTicket()->getNom(), $d))
+            if(!in_array($data->getCategorieTicket()->getId(), $d))
             {
                 $ticket[] = array(
                     'id'            => $data->getCategorieTicket()->getId(),
@@ -92,7 +92,7 @@ class AdminController extends Controller
                     'duree'         => $data->getCategorieTicket()->getDuree(),
                     'nombre'        => $data->getCategorieTicket()->getNombreActivite(),
                 );
-                $d[] = $data->getCategorieTicket()->getNom();
+                $d[] = $data->getCategorieTicket()->getId();
             }
             $commande[] = array(
                 'id'            => $data->getId(),

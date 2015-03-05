@@ -64,8 +64,6 @@ class BookingType extends AbstractType
                                             'type'           => 'text',
                                             'allow_add'      => true,
                                             'allow_delete'   => true,
-                                            'prototype'      => true,
-                                            'prototype_name' => 'tag__name__',
                                             'options'        => array(
                                                                 'required'  => false,
                                                                 'attr'      => array('class' => 'ouardep')

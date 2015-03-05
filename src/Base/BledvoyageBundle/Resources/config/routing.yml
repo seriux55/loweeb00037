@@ -33,6 +33,10 @@ bledvoyage_type:
     requirements:
         id:   \d+
 
+bledvoyage_suggest:
+    path:     /suggest
+    defaults: { _controller: BaseBledvoyageBundle:Default:suggest }
+
 bledvoyage_teambuilding:
     path:     /teambuilding
     defaults: { _controller: BaseBledvoyageBundle:Default:teambuilding }

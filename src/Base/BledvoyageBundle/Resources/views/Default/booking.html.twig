@@ -2,11 +2,6 @@
 
 {% block title %}{{ parent() }}{% endblock %}
 
-{% block stylesheets %}
-{{ parent() }}
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-{% endblock %}
-
 {% block body %}
 <div class="bloc_page_body222">
     <h2>
@@ -34,7 +29,7 @@
                         Nombre de places
                     </h2>
                     <h6>Combien de places ?</h6>
-                    <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
+                    <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
                 <div class="dates">
                     {{ form_label(form.nombre, " ") }}
@@ -45,7 +40,7 @@
                     <h2>
                         Date de réservation
                     </h2>
-                    <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
+                    <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
                 </div>
                 <div class="dates">
                     {{ form_label(form.dateReserver, " ") }}
@@ -76,24 +71,21 @@
                 <div class="mr7">
                     <div class="mr4u">
 
-                        <div id="post_promo" data-prototype="{{ _self.widget_prototype(form.promo, 'Remove tag')|escape }}">
-                            {% for widget in form.promo.children %}
-                                {{ _self.widget_prototype(widget, 'Remove tag') }}
-                            {% endfor %}
-                        </div>
-
-                        <a class="btn-add" data-target="post_tags">Add tag</a>
+                        {{ form_label(form.promo, " ") }}
+                        {{ form_errors(form.promo) }}
+                        {{ form_widget(form.promo) }}
 
                         <label for="mdp">Passez cette étape si vous n'avez pas de code promo.</label>
                         <!-- <input class="ouardep" type="text" name="promo0" maxlength="8" /> -->
+                        <!--
                         <div id="cadre"></div>
                         <input type="button" value=" + " onclick="plus()" />
                         <input type="button" style="display:none" id="sup" value=" - " onclick="moins()" />
+                        -->
                     </div>
                 </div>
                 {{ form_rest(form) }}
                 <div class="mr6">
-                    <input type="hidden" name="sortie" value="37" />
                     <input class="cherchez" name="login" type="submit" value="Valider"/>
                 </div>
             </form>
@@ -123,7 +115,6 @@
 </div>
 {% endblock %}
 
-{% block jquery %}{% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
 var c,c2, ch;
@@ -144,5 +135,69 @@ function moins(){
     if(c2.length>0){ c.removeChild(c2[c2.length-1]); }
     if(c2.length===0){ document.getElementById('sup').style.display='none'; };
 }
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+    var $container = $('div#base_bledvoyagebundle_booking_promo');
+
+    // On ajoute un lien pour ajouter une nouvelle catégorie
+    var $addLink = $('<input type="button" value=" + " id="add_category" />');
+    $container.append($addLink);
+
+    // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+    $addLink.click(function(e) {
+      addCategory($container);
+      e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+      return false;
+    });
+
+    // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+    var index = $container.find(':input').length;
+
+    // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+    if (index === 0) {
+      addCategory($container);
+    } else {
+      // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
+      $container.children('div').each(function() {
+        addDeleteLink($(this));
+      });
+    }
+
+    // La fonction qui ajoute un formulaire Categorie
+    function addCategory($container) {
+      // Dans le contenu de l'attribut « data-prototype », on remplace :
+      // - le texte "__name__label__" qu'il contient par le label du champ
+      // - le texte "__name__" qu'il contient par le numéro du champ
+      var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, '')
+          .replace(/__name__/g, index));
+
+      // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+      addDeleteLink($prototype);
+
+      // On ajoute le prototype modifié à la fin de la balise <div>
+      $container.append($prototype);
+
+      // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+      index++;
+    }
+
+    // La fonction qui ajoute un lien de suppression d'une catégorie
+    function addDeleteLink($prototype) {
+      // Création du lien
+      $deleteLink = $('<input type="button" value=" - " />');
+
+      // Ajout du lien
+      $prototype.append($deleteLink);
+
+      // Ajout du listener sur le clic du lien
+      $deleteLink.click(function(e) {
+        $prototype.remove();
+        e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        return false;
+      });
+    }
+  });
 </script>
 {% endblock %}

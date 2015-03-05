@@ -84,10 +84,24 @@ class DefaultController extends Controller
         }
         
         $booking = new Booking();
-        $booking->setIp($this->getRequest()->getClientIp());
         $form = $this->createForm(new BookingType($id, $dateDebut), $booking);
         
         /* $this->getRequest()->request->get('promo'); */
+        
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $booking->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id));
+                $booking->setUser($this->get('security.context')->getToken()->getUser());
+                $booking->setDateReserver(new \DateTime($request->get('dateResever')));
+                $booking->setIp($this->getRequest()->getClientIp());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($booking);
+                $em->flush();
+                return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
+            }
+        }
         
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
             'form'   => $form->createView(),
@@ -162,6 +176,14 @@ class DefaultController extends Controller
         $response->setContent(file_get_contents($chemin.$fichier));
         $response->headers->set('Content-Type', 'application/force-download'); // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
         $response->headers->set('Content-disposition', 'filename='. $fichier);
+        return $response;
+    }
+    
+    public function suggestAction()
+    {
+        $response = $this->render('BaseBledvoyageBundle:Default:suggest.html.twig', array(
+            //'form'   => $form->createView(),
+        ));
         return $response;
     }
 }
