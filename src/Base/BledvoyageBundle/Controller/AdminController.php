@@ -145,12 +145,13 @@ class AdminController extends Controller
                    ->getResult();
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
+            $frToDatetime = $this->container->get('FrToDatetime');
             $em = $this->getDoctrine()->getManager();
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
             $commande->setModePaiement($request->get('paiement'));
             $commande->setNombre($request->get('nombre'));
             $commande->setLieuRdv($request->get('lieuRdv'));
-            //$commande->setDateRdv($request->get('dateRdv'));
+            $commande->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))));
             $commande->setHeureRdv($request->get('heureRdv'));
             $commande->getUser()->setEmail($request->get('email'));
             $commande->setConfirmer('1');
