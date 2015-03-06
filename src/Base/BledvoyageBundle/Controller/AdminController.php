@@ -19,7 +19,6 @@ class AdminController extends Controller
                    ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
-        
         $d = array();
         foreach ($product as $data)
         {
@@ -60,7 +59,6 @@ class AdminController extends Controller
             );
             $number++;
         }
-        
         return $this->render('BaseBledvoyageBundle:Admin:index.html.twig', array(
             'product'       => $sorties,
             'reservation'   => $reservation,
@@ -78,7 +76,6 @@ class AdminController extends Controller
                    ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
-        
         $d = array();
         foreach ($product as $data)
         {
@@ -135,25 +132,101 @@ class AdminController extends Controller
     
     public function commandeConfirmerAction($id)
     {
-        
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.user', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('a.categorieTicket', 'c')
+                   ->where('a.id = :id')
+                   ->setParameter('id', $id)
+                   ->orderBy('a.id','ASC')
+                   ->getQuery()
+                   ->getResult();
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
+            $commande->setModePaiement($request->get('paiement'));
+            $commande->setNombre($request->get('nombre'));
+            $commande->setLieuRdv($request->get('lieuRdv'));
+            //$commande->setDateRdv($request->get('dateRdv'));
+            $commande->setHeureRdv($request->get('heureRdv'));
+            $commande->getUser()->setEmail($request->get('email'));
+            $commande->setConfirmer('1');
+            $em->persist($commande);
+            $em->flush();
+            return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
+        }
         return $this->render('BaseBledvoyageBundle:Admin:commande_confirmer.html.twig', array(
-                // ...
+            'product' => $product,
         ));
     }
     
     public function commandeNoteAction($id)
     {
-        
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.user', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('a.categorieTicket', 'c')
+                   ->where('a.id = :id')
+                   ->setParameter('id', $id)
+                   ->orderBy('a.id','ASC')
+                   ->getQuery()
+                   ->getResult();
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
+            $commande->setNote($request->get('note'));
+            $em->persist($commande);
+            $em->flush();
+            return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
+        }
         return $this->render('BaseBledvoyageBundle:Admin:commande_note.html.twig', array(
-                // ...
+            'product' => $product,
         ));    
     }
     
     public function commandeFacturerAction($id)
     {
-        
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.user', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('a.categorieTicket', 'c')
+                   ->where('a.id = :id')
+                   ->setParameter('id', $id)
+                   ->orderBy('a.id','ASC')
+                   ->getQuery()
+                   ->getResult();
+        foreach ($product as $data)
+        {
+            $nombre = $data->getNombre();
+            $tarif  = $data->getCategorieTicket()->getTarif();
+        }
+        $total = $nombre * $tarif;
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
+            $commande->setPaiement($request->get('paiement'));
+            $commande->setNombre($request->get('nombre'));
+            $commande->setEntreprise($request->get('entreprise'));
+            $commande->setAdresse($request->get('adresse'));
+            $commande->setUser()->setEmail($request->get('email'));
+            $commande->setTextPerso($request->get('textPerso'));
+            $commande->setFacturer('1');
+            $em->persist($commande);
+            $em->flush();
+            return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
+        }
         return $this->render('BaseBledvoyageBundle:Admin:commande_facturer.html.twig', array(
-                // ...
+            'product' => $product,
+            'total'   => $total,
         ));
     }
 }

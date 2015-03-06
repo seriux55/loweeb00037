@@ -3,6 +3,7 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
+{% for data in product %}
 <div class="bloc_page_body222">
     <h2>
         Note sur la commande
@@ -11,14 +12,14 @@
 <div class=".bloc_page_body3">
     <section class="suito">
         <article>
-            <h3>Numéro de réservation : 965.</h3>
-            <h3>Prénom et Nom : MOHAMED SAID AHMED BACHA.</h3>
-            <h3>Téléphone : 0550816001.</h3>
-            <h1>Catégorie : Pack découverte.</h1>
-            <h3>Tarif : 1900 Dinars/personne.</h3>
+            <h3>Numéro de commande : {{ data.id }}.</h3>
+            <h3>Prénom et Nom : {{ data.user.secondename ~ ' ' ~ data.user.firstname }}.</h3>
+            <h3>Téléphone : {{ data.user.phone }}.</h3>
+            <h1>Catégorie du ticket : {{ data.categorieTicket.nom }}.</h1>
+            <h3>Tarif : {{ data.categorieTicket.tarif }} Dinars/personne.</h3>
         </article>
         <div class="forpar">
-            <form method="post" action="note_post.php">
+            <form method="post">
                 <div class="mr4ui">
                     <label for="avis">Note</label>
                     <div class="etemo">
@@ -43,7 +44,6 @@
                     </div>
                 </div>
                 <div class="mr6">
-                    <input type="hidden" name="confirmation" value="965" />
                     <input class="cherchez" name="login" type="submit" value="Envoyer"/>
                 </div>
             </form>
@@ -57,4 +57,5 @@
         </p>
     </div>
 </div>
+{% endfor %}
 {% endblock %}

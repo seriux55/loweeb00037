@@ -3,6 +3,7 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
+{% for data in product %}
 <div class="bloc_page_body222">
     <h2>
         Facturation 
@@ -11,28 +12,28 @@
 <div class=".bloc_page_body3">
     <section class="suito">
         <article>
-            <h1>Catégorie ticket : Pack découverte.</h1>
-            <h3>Tarif : 1900 Da/per</h3>
-            <h3>Numéro de réservation : 247.</h3>
-            <h3>Prénom Nom : Raouf Mellel.</h3>
-            <h3>Téléphone : 0661783843.</h3>
-            <h3>E-mail : mellelraouf@gmail.com.</h3>
-            <h3>Date de commande : 23/01/2015.</h3>
-            <h3>La quantité : 1.</h3>
-            <h1>Total : 1900 Dinars</h1>
+            <h1>Catégorie ticket : {{ data.categorieTicket.nom }}.</h1>
+            <h3>Tarif : {{ data.categorieTicket.tarif }} Dinars/personne.</h3>
+            <h3>Numéro de commande : {{ data.id }}.</h3>
+            <h3>Prénom et Nom : {{ data.user.secondename ~ ' ' ~ data.user.firstname }}.</h3>
+            <h3>Téléphone : {{ data.user.phone }}.</h3>
+            <h3>E-mail : {{ data.user.email }}.</h3>
+            <h3>Date de commande : {{ data.dateTime|date('d/m/Y') }}.</h3>
+            <h3>La quantité : {{ data.nombre }}.</h3>
+            <h1>Total : {{ total }} Dinars</h1>
         </article>
         <div class="forpar">
             <form method="post" action="facture_post.php">
                 <div class="mr4u">  
                     <label for="present">Nombre de tickets</label>
                     <p class="coord">Combien de tickets</p>
-                    <input class="ouardep" type="text" name="resa" id="present" value="1"
+                    <input class="ouardep" type="text" name="resa" id="present" value="{{ data.nombre }}"
                     size="35" placeholder="Ex : 1"/>
                 </div>
                 <div class="mr4u">  
                     <label for="email">Confirmer l'adresse mail</label>
                     <p class="coord">L'adresse mail</p>
-                    <input class="ouardep" type="text" name="mail" id="mail" value="mellelraouf@gmail.com" />
+                    <input class="ouardep" type="text" name="mail" id="mail" value="{{ data.user.email }}" />
                 </div>
                 <div class="mr4u">  
                     <label for="entreprise">Nom de l'entreprise</label>
@@ -90,4 +91,5 @@
     </p>
     </div>
 </div>
+{% endfor %}
 {% endblock %}
