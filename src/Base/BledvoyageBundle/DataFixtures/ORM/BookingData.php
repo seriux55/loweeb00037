@@ -118,7 +118,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         $booking4->setConfirmer('1');
         $booking4->setNote('Téléphone fermé');
         $booking4->setCreneau('');
-        $booking4->setAvis('1');
+        $booking4->setAvis('2');
         $booking4->setParticipation('');
         $booking4->setFacture('0');
         $booking4->setAcompte('1200');
@@ -147,7 +147,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         $booking5->setConfirmer('1');
         $booking5->setNote('Téléphone fermé');
         $booking5->setCreneau('');
-        $booking5->setAvis('1');
+        $booking5->setAvis('2');
         $booking5->setParticipation('');
         $booking5->setFacture('0');
         $booking5->setAcompte('0');

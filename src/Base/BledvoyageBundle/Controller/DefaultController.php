@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\BledvoyageBundle\Entity\Booking;
 use Base\BledvoyageBundle\Form\Type\BookingType;
+use Base\BledvoyageBundle\Entity\AvisSortie;
 
 class DefaultController extends Controller
 {
@@ -175,6 +176,38 @@ class DefaultController extends Controller
     {
         $response = $this->render('BaseBledvoyageBundle:Default:suggest.html.twig', array(
             //'form'   => $form->createView(),
+        ));
+        return $response;
+    }
+    
+    public function avisAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.sortie', 'b')
+                   ->where('a.id = :id')
+                   ->setParameter('id', $id)
+                   ->getQuery()
+                   ->getResult();
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $avis = new AvisSortie();
+            $booking = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')->find($id);
+            $avis->setBooking($booking);
+            $avis->setAvis($request->get('avis'));
+            $avis->setEmotion($request->get('emotion'));
+            $avis->setDateTime(new \DateTime());
+            $avis->setIp($this->getRequest()->getClientIp());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($avis);
+            $booking->setAvis('1');
+            $em->persist($booking);
+            $em->flush();
+            return $this->render('BaseBledvoyageBundle:Confirmation:user_sortie_avis.html.twig');
+        }
+        $response = $this->render('BaseBledvoyageBundle:Default:avis.html.twig', array(
+            'product' => $product,
         ));
         return $response;
     }

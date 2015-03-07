@@ -54,4 +54,11 @@ class ConfirmationController extends Controller
             //'product' => $product,
         ));
     }
+    
+    public function avisReservationAction()
+    {
+        return $this->render('BaseBledvoyageBundle:Confirmation:reservation_avis.html.twig', array(
+            //'product' => $product,
+        ));
+    }
 }

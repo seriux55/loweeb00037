@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+{% for data in product %}
+<div class="bloc_page_body222">
+    <h2>
+        Avis
+    </h2>
+</div>	
+<div class="bloc_page_body3">
+    <section>
+        <div class="avisor">
+            <h3>Laissez-nous votre avis !</h3>
+            <p>
+                Vous avez récemment participé à la sortie : "{{ data.sortie.titre }}", à "{{ data.sortie.localisation }}".<br/>
+                Nous étions très ravis de vous acceuillir.  
+            </p>
+            <p>
+                Le fait de publier un avis après avoir utilisé le site permet 
+                d'avoir un retour sur le bon déroulement des sorties et échanges entre utilisateurs.
+            </p>
+        </div>
+        <div class="forpar">
+            <form method="post">
+                <div class="mr7">
+                    <div class="mr4u">
+                        <label for="avis">1. Votre émotion sur la sortie ?</label>
+                        <div class="etemo">
+                            <label class="lienavi" for="1"><img class="emoavi" src="{{ asset('bundles/basebledvoyage/images/avis/bien.png') }}" alt="bien"></label>
+                            <INPUT type= "radio" name="emotion" value="1" id="1">
+                        </div>
+                        <div class="etemo">
+                            <label class="lienavi" for="2"><img class="emoavi" src="{{ asset('bundles/basebledvoyage/images/avis/cava.png') }}" alt="cava"></label>
+                            <INPUT type= "radio" name="emotion" value="3" id="2">
+                        </div>
+                        <div class="etemo">
+                            <label class="lienavi" for="3"><img class="emoavi" src="{{ asset('bundles/basebledvoyage/images/avis/decu.png') }}" alt="deçu"></label>
+                            <INPUT type= "radio" name="emotion" value="3" id="3">
+                        </div>
+                    </div>
+                </div>
+                <div class="mr7">
+                    <div class="mr4u">
+                        <label for="avis">2. Comment vous avez trouvé la sortie ?  le guide ? </label>
+                        <textarea class="textarea" cols="30" rows="5" name="avis" id="avis"></textarea>
+                    </div>
+                </div>
+                <div class="mr6">
+                    <input class="cherchez" name="login" type="submit" value="Valider"/>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block jquery %}{% endblock %}

@@ -314,6 +314,7 @@ class AdminController extends Controller
                         'creneau'       => $booking->getCreneau(),
                         'condition'     => $booking->getSortie()->getConditions(),
                         'moniteur'      => $booking->getSortie()->getUser()->getSecondename().' '.$booking->getSortie()->getUser()->getFirstname(),
+                        'planAcces'     => $booking->getSortie()->getPlanSortie(),
                     )
                 )))
             ;
@@ -340,14 +341,36 @@ class AdminController extends Controller
                    ->getResult();
         foreach ($product as $data)
         {
-            $total = $data->getCategorieTicket()->getTarif() * $data->getNombre();
+            $total = $data->getSortie()->getTarif() * $data->getNombre();
         }
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
             $booking = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
+            $booking->setAvis('2');
             $em->persist($booking);
             $em->flush();
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Hello Email') //Votre sortie, bledvoyage.com
+                ->setFrom('contact@nroho.com')
+                ->setTo('nadir.allam@bledvoyage.com')
+                ->setBody($this->renderView('BaseBledvoyageBundle:Mail:reservation_avis.txt.twig', array(
+                    'product' => array(
+                        'id'            => $booking->getId(),
+                        'nom'           => $booking->getUser()->getFirstname(),
+                        'prenom'        => $booking->getUser()->getSecondename(),
+                        'sortie'        => $booking->getSortie()->getTitre(),
+                        'localisation'  => $booking->getSortie()->getLocalisation(),
+                        'email'         => $booking->getUser()->getEmail(),
+                        'tel'           => $booking->getUser()->getPhone(),
+                        'dateTime'      => $booking->getDateTime(),
+                        'tarif'         => $booking->getSortie()->getTarif(),
+                        'nombre'        => $booking->getNombre(),
+                        'total'         => $total,
+                    )
+                )))
+            ;
+            $this->get('mailer')->send($message);
             return $this->forward('BaseBledvoyageBundle:Confirmation:avisReservation');
         }
         return $this->render('BaseBledvoyageBundle:Admin:reservation_avis.html.twig', array(

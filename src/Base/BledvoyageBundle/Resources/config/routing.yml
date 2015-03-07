@@ -33,6 +33,12 @@ bledvoyage_type:
     requirements:
         id:   \d+
 
+bledvoyage_avis:
+    path:     /avis/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Default:avis }
+    requirements:
+        id:   \d+
+
 bledvoyage_suggest:
     path:     /suggest
     defaults: { _controller: BaseBledvoyageBundle:Default:suggest }

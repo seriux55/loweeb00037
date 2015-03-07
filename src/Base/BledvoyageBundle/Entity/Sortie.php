@@ -118,6 +118,14 @@ class Sortie
      * @Expose
      */
     private $heureFin;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_acces", type="string", length=1023)
+     * @Expose
+     */
+    private $planAcces;
 
     /**
      * @var string
@@ -502,6 +510,29 @@ class Sortie
     public function getHeureFin()
     {
         return $this->heureFin;
+    }
+
+    /**
+     * Set planAcces
+     *
+     * @param string $planAcces
+     * @return Sortie
+     */
+    public function setPlanAcces($planAcces)
+    {
+        $this->planAcces = $planAcces;
+
+        return $this;
+    }
+
+    /**
+     * Get planAcces
+     *
+     * @return string 
+     */
+    public function getPlanAcces()
+    {
+        return $this->planAcces;
     }
 
     /**

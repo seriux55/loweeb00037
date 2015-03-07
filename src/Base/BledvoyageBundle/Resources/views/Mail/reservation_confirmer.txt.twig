@@ -6,7 +6,7 @@ DETAIL RESERVATION :
 N° de réservation : {{ product.id }}
 Sortie : {{ product.sortie }} 
 Date de réservation : {{ product.dateTime|date('d/m/Y') }}
-Tarif normal :  {{ product.tarif }} da/per
+Tarif : {{ product.tarif }} da/personne
 Heure de début : {{ product.heureDebut }}
 Nombre de places : {{ product.nombre }}
 Votre créneau : {{ product.creneau }}
@@ -25,7 +25,7 @@ Conditions de participation :
 
 
 Plan d'accès :
-
+{{ product.planAcces }}
 
 Personne à contacter :
 Soumia : 0556179774

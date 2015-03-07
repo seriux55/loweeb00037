@@ -1,0 +1,34 @@
+Bonjour {{ product.prenom }}, 
+Vous avez récemment participé à la sortie : {{ product.sortie }}, à {{ product.localisation }}.
+Nous étions très ravis de vous acceuillir. 
+On vous invite à laisser votre avis sur cette sortie ici : http://www.bledvoyage.com/avis/{{ product.id }}
+
+Partagez vos photos avec vous ! Sur nos pages facebook : 
+#nroho : https://www.facebook.com/nroho
+#chassezlaroutine : https://www.facebook.com/Bledvoyage
+
+Aussi, vous trouverez ci-dessous les détails de participation.
+
+------
+Participant : 
+
+N° de réservation : {{ product.id }}
+Sortie : {{ product.sortie }}
+Localisation : {{ product.localisation }}
+Prénom et Nom : {{ product.prenom }}, {{ product.nom }}
+Téléphone : {{ product.tel }}
+E-mail : {{ product.email }}
+Date de réservation : {{ product.dateTime|date('d/m/Y') }}
+Tarif : {{ product.tarif }} da/personne
+Nombre de places : {{ product.nombre }}
+Total  : {{ product.total }} da
+
+A bientôt.
+bledvoyage.com
+
+---
+bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+81 Chenoua plage, 42000 Tipaza, Algérie.
+contact@bledvoyage.com
+www.bledvoyage.com
+Fax : 00 213 24 47 14 04

@@ -48,6 +48,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie1->setHeureDebut('9h00');
         $sortie1->setDateFin(new \DateTime('2015-02-28 00:00:00'));
         $sortie1->setHeureFin('17h00');
+        $sortie1->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie1->setVideo('https://www.youtube.com/watch?v=igLzB-5FrHk');
         $sortie1->setPhoto1('quad.jpg');
         $sortie1->setPhoto2('quad.jpg');
@@ -93,6 +94,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie2->setHeureDebut('9h00');
         $sortie2->setDateFin(new \DateTime('2015-02-28 00:00:00'));
         $sortie2->setHeureFin('17h00');
+        $sortie2->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie2->setVideo('https://www.youtube.com/watch?v=igLzB-5FrHk');
         $sortie2->setPhoto1('cerf_volant.png');
         $sortie2->setPhoto2('cerf_volant.png');
@@ -134,6 +136,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie3->setHeureDebut('9h00');
         $sortie3->setDateFin(new \DateTime('2015-02-28 00:00:00'));
         $sortie3->setHeureFin('17h00');
+        $sortie3->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie3->setVideo('https://www.youtube.com/watch?v=igLzB-5FrHk');
         $sortie3->setPhoto1('cover_balade_sous.png');
         $sortie3->setPhoto2('sortie_aventure_sous.png');
@@ -179,6 +182,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie4->setHeureDebut('9h00');
         $sortie4->setDateFin(new \DateTime('2015-02-28 00:00:00'));
         $sortie4->setHeureFin('17h00');
+        $sortie4->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie4->setVideo('https://www.youtube.com/watch?v=x2geTtXd_xE');
         $sortie4->setPhoto1('decolage.png');
         $sortie4->setPhoto2('decolage_cover.png');
@@ -227,6 +231,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5->setHeureDebut('9h00');
         $sortie5->setDateFin(new \DateTime('2015-02-28 00:00:00'));
         $sortie5->setHeureFin('17h00');
+        $sortie5->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie5->setVideo('https://www.youtube.com/watch?v=6FV3QZLkq5A');
         $sortie5->setPhoto1('ico_vtt.png');
         $sortie5->setPhoto2('randonnee_vtt.png');
@@ -282,6 +287,7 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
         $sortie6->setHeureDebut('9h00');
         $sortie6->setDateFin(new \DateTime('2016-02-28 00:00:00'));
         $sortie6->setHeureFin('17h00');
+        $sortie6->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie6->setVideo('https://www.youtube.com/watch?v=x2geTtXd_xE');
         $sortie6->setPhoto1('forma_1.png');
         $sortie6->setPhoto2('forma_1.png');
