@@ -1,0 +1,44 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Avis 
+    </h2>
+</div>	
+<div class="bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h1>Sortie : Balade et découverte de la ville Romaine, Tipaza.</h1>
+            <h3>Tarif : 2900 Da/per</h3>
+            <h3>Numéro de réservation : 1594.</h3>
+            <h3>Prénom Nom : Nadir ALLAM.</h3>
+            <h3>Téléphone : 0606060606.</h3>
+            <h3>E-mail : seriux55@hotmail.com.</h3>
+            <h3>Date de réservation : 21/02/2015.</h3>
+            <h3>Nombre de places : 2.</h3>
+            <h3>Accompte :  Da.</h3>
+            <h1>Total : 5800 Dinars</h1
+        </article>
+        <div class="forpar">
+            <form method="post">
+                <div class="mr6">
+                    <input class="cherchez" name="login" type="submit" value="Envoyer" />
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('bledvoyage_admin') }}">
+                Revenir au tableau de bord
+            </a>
+        </p>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block jquery %}{% endblock %}

@@ -137,9 +137,9 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">Pack</td>
-                                        <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                                        <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1507">Accompte</div></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
                                         <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a></td>
                                     </tr>
                                 {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 1 %}
@@ -158,9 +158,9 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">Pack</td>
-                                        <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                                        <td><a class="buttona" target="_blank" href="accompte.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Accompte</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Accompte</a></td>
                                         <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a></td>
                                     </tr>
                                 {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 0 %}
@@ -179,10 +179,10 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">Pack</td>
-                                        <td><a class="button" target="_blank" href="note.php?confirmation=1507">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                                        <td><a class="buttona" target="_blank" href="accompte.php?confirmation=1507"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Accompte</a></td>
-                                        <td><a class="button" target="_blank" href="avis.php?confirmation=1553">Avis</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Accompte</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>
                                     </tr>
                                 {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 0 and dataR.avis == 0 %}
                                     <tr>
@@ -200,10 +200,10 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur"></td>
-                                        <td><a class="button" target="_blank" href="note.php?confirmation=1553">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="confirmation.php?confirmation=1553"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
-                                        <td><a class="button" target="_blank" href="accompte.php?confirmation=1553">Accompte</a></td>
-                                        <td><a class="button" target="_blank" href="avis.php?confirmation=1553">Avis</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">  Confirmé</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>
                                     </tr>
                                 {% elseif dataR.tel is not empty and dataR.confirmer == 0 and dataR.acompte == 0 and dataR.avis == 0 %}
                                     <tr>
@@ -221,10 +221,10 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur"></td>
-                                        <td><a class="button" target="_blank" href="note.php?confirmation=1696">Note</a></td>
-                                        <td><a class="button" target="_blank" href="confirmation.php?confirmation=1696">Confirmer</a></td>
-                                        <td><div class="buttono" target="_blank" href="accompte.php?confirmation=1696">Accompte</div></td>
-                                        <td><div class="buttono" target="_blank" href="avis.php?confirmation=1696">Avis</div></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
+                                        <td><a class="button" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}">Confirmer</a></td>
+                                        <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
+                                        <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</div></td>
                                     </tr>
                                 {% else %}
                                     <tr class="spetel">

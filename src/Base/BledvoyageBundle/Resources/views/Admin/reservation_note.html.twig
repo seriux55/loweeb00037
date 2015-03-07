@@ -1,0 +1,70 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+{% for data in product %}
+<div class="bloc_page_body222">
+    <h2>
+        Note 
+    </h2>
+</div>
+<div class="bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h3>Numéro de réservation : {{ data.id }}.</h3>
+            <h3>Prénom et Nom : {{ data.user.secondename ~ ' ' ~ data.user.firstname }}.</h3>
+            <h3>Téléphone : {{ data.user.phone }}.</h3>
+            <h1>Sortie : {{ data.sortie.titre ~ ', ' ~ data.sortie.localisation }}.</h1>
+            <h3>Tarif : {{ data.sortie.tarif }} Dinars/personne.</h3>
+            <h3><img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Du {{ data.sortie.dateDebut|date('d/m/Y') }} AU {{ data.sortie.dateFin|date('d/m/Y') }} | <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">  {{ data.sortie.heureDebut }} - {{ data.sortie.heureFin }}.</h3>
+        </article>
+        <div class="forpar">
+            <form method="post">
+                <div class="mr4ui">
+                    <label>Note</label>
+                    <div class="etemo">
+                        <textarea class="ouardep" name="notearea" rows="10" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="mr4ui">
+                    <label>Note</label>
+                    <div class="etemo">
+                        <label class="lienavi" for="1">SMS envoyé</label>
+                        <INPUT type="radio" name="note" value="SMS envoyé">									
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="2">Aucune réponse</label>
+                        <INPUT type="radio" name="note" value="Aucune réponse">									
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="3">En attente d'une réponse</label>
+                        <INPUT type="radio" name="note" value="En attente d'une réponse">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="4">Annulée</label>
+                        <INPUT type="radio" name="note" value="Annulée">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="5">Vide</label>
+                        <INPUT type="radio" name="note" value="">
+                    </div>
+                </div>
+                <div class="mr6">
+                    <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('bledvoyage_admin') }}">
+                Revenir au tableau de bord
+            </a>
+        </p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block jquery %}{% endblock %}

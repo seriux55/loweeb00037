@@ -16,6 +16,11 @@ class FrToDatetime {
         $month      = substr($date,3,2);
         $year       = substr($date,6,4);
         $timestamp  = mktime('00','00','00',$month,$day,$year);
-        return date('Y-m-d',$timestamp);
+        if(date('Y-m-d',$timestamp) == '1999-11-30'){
+            $response = '0000-00-00';
+        }else{
+            $response = date('Y-m-d',$timestamp);
+        }
+        return $response;
     }
 }

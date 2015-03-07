@@ -1,0 +1,144 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+{% endblock %}
+
+{% block body %}
+{% for data in product %}
+<div class="bloc_page_body222">
+    <h2>
+        Confirmation 
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h3>Numéro de réservation : {{ data.id }}.</h3>
+            <h3>Prénom et Nom : {{ data.user.secondename }} {{ data.user.firstname }}.</h3>
+            <h3>Téléphone : {{ data.user.phone }}.</h3>
+            <h3>Mail : {{ data.user.email }}.</h3>
+            <h1>Sortie : {{ data.sortie.titre }}, {{ data.sortie.localisation }}.</h1>
+            <h3>Tarif : {{ data.sortie.tarif }} Dinars/personne.</h3>
+            <h3>
+                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Du {{ data.sortie.dateDebut|date('d/m/Y') }} AU {{ data.sortie.dateFin|date('d/m/Y') }} | <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">  {{ data.sortie.heureDebut }} - {{ data.sortie.heureFin }}.
+            </h3>
+        </article>
+        <div class="forpar">
+            <form method="post">
+                <div class="mr7">
+                    <div class="mr4u">
+                        <label for="nombre">Nombre de réservation</label>
+                        <p class="coord">Combien de places ?</p>
+                        <input class="ouardep" type="text" name="nombre" value="{{ data.nombre }}" placeholder="Ex : 1"/>
+                    </div>
+                    <div class="mr4uo">
+                        <label for="dateConfirmer">Date</label>
+                        <p class="coord">Date de réservation</p>
+                        <input class="datepicker" type="text" name="dateConfirmer" placeholder="01/10/2014" value="{{ data.dateReserver|date('d/m/Y') }}" size="8">
+                    </div>
+                    <div class="mr4uo">
+                        <label for="creneau">Heure du créneau</label>
+                        <p class="coord">Début du créneau</p>
+                        <input class="ouardep" type="text" name="creneau" value="{{ data.creneau }}" placeholder="13h00" size="8">
+                    </div>
+                </div>
+                <div class="mr4ui">
+                    <label for="paiement">Mode de paiement ?</label>
+                    <div class="etemo">
+                        <label class="lienavi" for="1">Sur place</label>
+                        <INPUT type= "radio" checked="checked" name="paiement" value="Sur place" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                                          document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="2">Chenoua</label>
+                        <INPUT type= "radio" name="paiement" value="Chenoua" onclick="document.getElementById('chenoua').style.display='block';
+                                                                                      document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div id="chenoua" style="display:none">
+                        <input class="datepicker" type="text" name="date1"  placeholder="Ex : 22/02/2015">
+                        <input class="ouardep"    type="text" name="heure1" placeholder="Ex : 16:00">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="3">Rendez-vous</label>
+                        <INPUT type= "radio" name="paiement" value="Rendez-vous" onclick="document.getElementById('rdv').style.display='block';
+                                                                                          document.getElementById('chenoua').style.display='none';">
+                    </div>
+                    <div id="rdv" style="display:none">
+                        <input class="datepicker" type="text" name="date2"  placeholder="Ex : 22/02/2015">
+                        <input class="ouardep"    type="text" name="heure2" placeholder="Ex : 16:00">
+                        <input class="ouardep"    type="text" name="lieu2"  placeholder="Ex : La grande poste">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="4">Mandat postal</label>
+                        <INPUT type= "radio" name="paiement" value="Mandat postal" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                            document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="5">Virement bancaire</label>
+                        <INPUT type= "radio" name="paiement" value="Virement bancaire" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                                document.getElementById('rdv').style.display='none';">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="6">Chèque</label>
+                        <INPUT type= "radio" name="paiement" value="Chèque" onclick="document.getElementById('chenoua').style.display='none';
+                                                                                     document.getElementById('rdv').style.display='none';">
+                    </div>
+                </div>
+                <div class="mr4ui">
+                    <div class="etemo">
+                        <label class="lienavi">Confirmer l'adresse mail</label>
+                        <INPUT class="ouardep" type= "text" name="email" value="{{ data.user.email }}">
+                    </div>
+                </div>
+                <div class="mr6">
+                    <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('bledvoyage_admin') }}">
+                Revenir au tableau de bord
+            </a>
+        </p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<script>
+jQuery(function($){
+    $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin',
+        'Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+        dayNamesMin: ['D','L','M','M','J','V','S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+    $( ".datepicker" ).datepicker( $.datepicker.regional[ "fr" ] );
+});
+$(function() {
+    $('input.datepicker').datepicker();
+});
+</script>
+{% endblock %}

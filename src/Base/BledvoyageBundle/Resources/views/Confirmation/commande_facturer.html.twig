@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        C'est envoyé 
+    </h2>
+</div>	
+<div class="bloc_page_body3">	
+    <section class="suito">
+        <article>
+            <h1>C'est envoyé !</h1>
+            <h3>Cilquez ici <a class="tablea" href="{{ path('base_bledvoyage_homepage') }}">commandes</a> pour revenir au tableau</h3>
+        </article>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('base_bledvoyage_homepage') }}">
+                Revenir au tableau de bord
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block jquery %}{% endblock %}

@@ -14,23 +14,6 @@ class User extends BaseUser
     //@ORM\OneToOne(targetEntity="Base\NrohoBundle\Entity\ImageProfil", cascade={"persist"})
     
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    
-    /**
      * Le constructeur
      */
     public function __construct()
@@ -40,15 +23,11 @@ class User extends BaseUser
     }
     
     /**
-     * Faire que le pseudo egal a l'adresse mail
-     * 
-     * @param type $email
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    public function setEmail($email)
-    {
-        parent::setEmail($email);
-        $this->setUsername($email);
-    }
+    protected $id;
     
     /**
      * @var integer
@@ -88,6 +67,13 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="apropos", type="string", length=511)
+     */
+    private $apropos;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="ip", type="string", length=255)
      */
     private $ip;
@@ -98,6 +84,27 @@ class User extends BaseUser
      * @ORM\Column(name="deposit", type="datetime")
      */
     private $deposit;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Faire que le pseudo egal a l'adresse mail
+     * 
+     * @param type $email
+     */
+    public function setEmail($email)
+    {
+        parent::setEmail($email);
+        $this->setUsername($email);
+    }
     
 
     /**
@@ -213,6 +220,29 @@ class User extends BaseUser
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    /**
+     * Set apropos
+     *
+     * @param string $apropos
+     * @return User
+     */
+    public function setApropos($apropos)
+    {
+        $this->apropos = $apropos;
+
+        return $this;
+    }
+
+    /**
+     * Get apropos
+     *
+     * @return string 
+     */
+    public function getApropos()
+    {
+        return $this->apropos;
     }
 
     /**

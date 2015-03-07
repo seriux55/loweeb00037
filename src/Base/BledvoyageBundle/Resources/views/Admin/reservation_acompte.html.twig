@@ -1,0 +1,68 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+{% for data in product %}
+<div class="bloc_page_body222">
+    <h2>
+        Accompte 
+    </h2>
+</div>	
+<div class=".bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h1>Sortie : {{ data.sortie.titre }}, {{ data.sortie.localisation }}.</h1>
+            <h3>Tarif : {{ data.sortie.tarif }} Da/per</h3>
+            <h3>Numéro de réservation : {{ data.id }}.</h3>
+            <h3>Prénom Nom : {{ data.user.secondename }} {{ data.user.firstname }}.</h3>
+            <h3>Téléphone : {{ data.user.phone }}.</h3>
+            <h3>E-mail : {{ data.user.email }}.</h3>
+            <h3>Date de réservation : {{ data.dateTime|date('d/m/Y') }}.</h3>
+            <h3>Nombre de places : {{ data.nombre }}.</h3>
+            <h1>Total : {{ total }} Dinars</h1>
+        </article>
+        <div class="forpar">
+            <form method="post">
+                <div class="mr4ui">
+                    <label for="accompte">Montant du versement</label>
+                    <p class="coord">En dinars</p>
+                    <input class="ouardep" type="text" name="accompte" id="accompte" placeholder="Ex : 3500"/>
+                </div>
+                <div class="mr4ui">
+                    <label for="avis">Mode de paiement ?</label>
+                    <div class="etemo">
+                        <label class="lienavi" for="1">Mandat postal</label>
+                        <INPUT type= "checkbox" name="mandat" value="Mandat postal" id="1">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="2">Virement bancaire</label>
+                        <INPUT type= "checkbox" name="virement" value="Virement bancaire" id="2">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="3">Chèque</label>
+                        <INPUT type= "checkbox" name="cheque" value="Chèque" id="3">
+                    </div>
+                    <div class="etemo">
+                        <label class="lienavi" for="4">Espèce</label>
+                        <INPUT type= "checkbox" name="espece" value="Espèce" id="4">
+                    </div>
+                </div>
+                    <div class="mr6">
+                        <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+                    </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+    <p>
+        <a href="{{ path('bledvoyage_admin') }}">
+        Revenir au tableau de bord
+        </a>
+        </p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block jquery %}{% endblock %}

@@ -3,8 +3,6 @@
 namespace Base\BledvoyageBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-//use Base\BledvoyageBundle\Entity\Sortie;
-//use Base\BledvoyageBundle\Entity\Categorie_sortie;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\BledvoyageBundle\Entity\Booking;
 use Base\BledvoyageBundle\Form\Type\BookingType;
@@ -82,12 +80,8 @@ class DefaultController extends Controller
         foreach($product as $value){
             $dateDebut[] = array($value->getDateDebut()->format('Y-m-d') => $value->getDateDebut()->format('d/m/Y'));
         }
-        
         $booking = new Booking();
         $form = $this->createForm(new BookingType($id, $dateDebut), $booking);
-        
-        /* $this->getRequest()->request->get('promo'); */
-        
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
@@ -102,7 +96,6 @@ class DefaultController extends Controller
                 return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
             }
         }
-        
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
             'form'   => $form->createView(),
         ));
@@ -125,7 +118,6 @@ class DefaultController extends Controller
                    ->orderBy('a.id','DESC')
                    ->getQuery()
                    ->getResult();
-        
         $categorie = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Categorie')
                    ->createQueryBuilder('a')
                    ->where('a.nom = :nom1 OR a.nom = :nom2 OR a.nom = :nom3 OR a.nom = :nom4 OR a.nom = :nom5 OR a.nom = :nom6')

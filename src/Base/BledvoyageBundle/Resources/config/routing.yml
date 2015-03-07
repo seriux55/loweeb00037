@@ -79,3 +79,27 @@ bledvoyage_admin_commande_confirmer:
     defaults: { _controller: BaseBledvoyageBundle:Admin:commandeConfirmer }
     requirements:
         id:   \d+
+
+bledvoyage_admin_reservation_note:
+    path:     manager/reservation/note/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:reservationNote }
+    requirements:
+        id:   \d+
+
+bledvoyage_admin_reservation_avis:
+    path:     manager/reservation/avis/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:reservationAvis }
+    requirements:
+        id:   \d+
+
+bledvoyage_admin_reservation_confirmer:
+    path:     manager/reservation/confirmer/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:reservationConfirmer }
+    requirements:
+        id:   \d+
+
+bledvoyage_admin_reservation_acompte:
+    path:     manager/reservation/acompte/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:reservationAcompte }
+    requirements:
+        id:   \d+
