@@ -245,10 +245,11 @@ class AdminController extends Controller
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
             $booking = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
-            if(empty($request->get('notearea'))){
+            $notearea = $request->get('notearea');
+            if(empty($notearea)){
                 $booking->setNote($request->get('note'));
             }else{
-                $booking->setNote($request->get('notearea'));
+                $booking->setNote($notearea);
             }
             $em->persist($booking);
             $em->flush();
@@ -281,11 +282,16 @@ class AdminController extends Controller
                     ->setCreneau($request->get('creneau'))
                     ->setConfirmer('1')
                     ->getUser()->setEmail($request->get('email'));
-            if(!empty($request->get('date1')) || !empty($request->get('heure1'))){
+            $date1  = $request->get('date1');
+            $heure1 = $request->get('heure1');
+            $date2  = $request->get('date2');
+            $heure2 = $request->get('heure2');
+            $lieu2  = $request->get('lieu2');
+            if(!empty($date1) || !empty($heure1)){
                 $booking->setdateRdv(new \DateTime($frToDatetime->toDatetime($request->get('date1'))))
                         ->setHeureRdv($request->get('heure1'))
                         ->setLieuRdv('Chenoua');
-            }elseif(!empty($request->get('date2')) || !empty($request->get('heure2')) || !empty($request->get('lieu2'))){
+            }elseif(!empty($date2) || !empty($heure2) || !empty($lieu2)){
                 $booking->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('date2'))))
                         ->setHeureRdv($request->get('heure2'))
                         ->setLieurdv($request->get('lieu2'));
