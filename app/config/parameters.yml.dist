@@ -2,14 +2,16 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     8888
-    database_name:     bledvoyage
+    database_name:     lesite
     database_user:     root
     database_password: root
 
     mailer_transport:  smtp
-    mailer_host:       smtp.nroho.com
-    mailer_user:       contact@nroho.com
-    mailer_password:   Chalgrin16
+    mailer_auth_mode:  login
+    mailer_host:       smtp.lesite.com
+    mailer_port:       587
+    mailer_user:       contact@lesite.com
+    mailer_password:   1234
 
     locale:            fr
-    secret:            ad18b0133415d916045efd2fcd265c74
+    secret:            82763HJBS872387SKJQB9875
