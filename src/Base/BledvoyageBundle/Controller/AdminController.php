@@ -401,4 +401,11 @@ class AdminController extends Controller
             'total'   => $total,
         ));    
     }
+    
+    public function statisticAction()
+    {
+        return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', array(
+            // --
+        )); 
+    }
 }

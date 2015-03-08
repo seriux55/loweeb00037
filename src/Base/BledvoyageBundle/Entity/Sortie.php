@@ -283,6 +283,52 @@ class Sortie
     }
 
     /**
+     * Set user
+     *
+     * @param \Base\UserBundle\Entity\User $user
+     * @return Sortie
+     */
+    public function setUser(\Base\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Base\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \Base\BledvoyageBundle\Entity\Categorie $categorie
+     * @return Sortie
+     */
+    public function setCategorie(\Base\BledvoyageBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Base\BledvoyageBundle\Entity\Categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
      * Set titre
      *
      * @param string $titre
@@ -993,51 +1039,5 @@ class Sortie
     public function getDateTime()
     {
         return $this->dateTime;
-    }
-
-    /**
-     * Set categorie
-     *
-     * @param \Base\BledvoyageBundle\Entity\Categorie $categorie
-     * @return Sortie
-     */
-    public function setCategorie(\Base\BledvoyageBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \Base\BledvoyageBundle\Entity\Categorie
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \Base\UserBundle\Entity\User $user
-     * @return Sortie
-     */
-    public function setUser(\Base\UserBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Base\UserBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

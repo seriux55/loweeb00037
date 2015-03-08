@@ -5,16 +5,16 @@
 {% block stylesheets %}{{ parent() }}{% endblock %}
 
 {% block body %}
+{% for data in product %}
 <div class="bled">
     <div class="headbleda">
-        {% for data in product %}
         <img src="{{ asset('bundles/basebledvoyage/images/photo_type/categorie/' ~ data.sortie.categorie.image ) }}" alt="sable">
-        {% endfor %}
     </div>
 </div>
 <div class="navibled">
     <div class="navicont">
         <ul class="naviul">
+            
             {% for data in categorie %}
             {% if data.nom != 'formation' %}
             <li class="navili">
@@ -27,10 +27,10 @@
 </div>
 <div class="bloc_page_body222">
     <h2>
-        Les sorties
+        {% if data.sortie.categorie.nom != 'formation' %}Les sorties{% else %}Les formations{% endif %}
     </h2>
 </div>
-<div class=".bloc_page_body3">
+<div class="bloc_page_body3">
 
     <!--
     <div class="resrcbare">
@@ -42,7 +42,7 @@
             ?>
     </div>
     -->
-    {% for data in product %}
+    
     {% if data.sortie.close == 0 %}
     <section>
         <div class="conte">
@@ -73,21 +73,21 @@
                         -->
                     </article>
                     <div class="opt">
-                        {% if data.roller == 1 %}<img alt="Roller"   src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
-                        {% if data.equitation == 1 %}<img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
-                        {% if data.fitness == 1 %}<img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
-                        {% if data.golf == 1 %}<img alt="Golf"         src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
-                        {% if data.kayak == 1 %}<img alt="Kayak"        src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
-                        {% if data.plongee == 1 %}<img alt="Plongée"      src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
-                        {% if data.randonee == 1 %}<img alt="Randonnee"    src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
-                        {% if data.running == 1 %}<img alt="Running"      src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
-                        {% if data.marche == 1 %}<img alt="Marche"       src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
-                        {% if data.sportEau == 1 %}<img alt="Sport"        src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
-                        {% if data.tennis == 1 %}<img alt="tenis"        src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
-                        {% if data.velo == 1 %}<img alt="Velo"         src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
-                        {% if data.visites == 1 %}<img alt="Visite"       src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
-                        {% if data.arc == 1 %}<img alt="Arc"          src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
-                        {% if data.quad == 1 %}<img alt="Quad"         src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
+                        {% if data.roller == 1 %}<img alt="Roller"          src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
+                        {% if data.equitation == 1 %}<img alt="Equitation"  src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
+                        {% if data.fitness == 1 %}<img alt="Fitness"        src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
+                        {% if data.golf == 1 %}<img alt="Golf"              src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
+                        {% if data.kayak == 1 %}<img alt="Kayak"            src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
+                        {% if data.plongee == 1 %}<img alt="Plongée"        src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
+                        {% if data.randonee == 1 %}<img alt="Randonnee"     src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
+                        {% if data.running == 1 %}<img alt="Running"        src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
+                        {% if data.marche == 1 %}<img alt="Marche"          src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
+                        {% if data.sportEau == 1 %}<img alt="Sport"         src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
+                        {% if data.tennis == 1 %}<img alt="tenis"           src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
+                        {% if data.velo == 1 %}<img alt="Velo"              src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
+                        {% if data.visites == 1 %}<img alt="Visite"         src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
+                        {% if data.arc == 1 %}<img alt="Arc"                src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
+                        {% if data.quad == 1 %}<img alt="Quad"              src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
                     </div>
                 </div>
             </div>
@@ -114,7 +114,6 @@
         </div>
     </section>
     {% endif %}
-    {% endfor %}
     <!--
     <div class="plusrc">
         <p>
@@ -148,6 +147,7 @@
     </div>
 </div>
 <!-- // fin de la petite pub -->
+{% endfor %}
 {% endblock %}
 
 {% block jquery %}{% endblock %}

@@ -109,3 +109,7 @@ bledvoyage_admin_reservation_acompte:
     defaults: { _controller: BaseBledvoyageBundle:Admin:reservationAcompte }
     requirements:
         id:   \d+
+
+bledvoyage_admin_statisqtique:
+    path:     manager/statistic
+    defaults: { _controller: BaseBledvoyageBundle:Admin:statistic }
