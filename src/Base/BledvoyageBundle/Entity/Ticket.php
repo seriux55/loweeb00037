@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ticket
 {
+    public function __construct() {
+        $this->code      = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
+        $this->dateDebut = new \DateTime(date('Y-m-d'));
+        $this->used      = '0';
+        $this->close     = '0';
+        $this->dateTime  = new \DateTime();
+    }
+    
     /**
      * @var integer
      *
@@ -20,18 +28,12 @@ class Ticket
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\CategorieTicket")
+     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Commande")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $categorieTicket;
+    private $commande;
 
     /**
      * @var string
@@ -94,49 +96,26 @@ class Ticket
     }
 
     /**
-     * Set user
+     * Set commande
      *
-     * @param \Base\UserBundle\Entity\User $user
+     * @param \Base\BledvoyageBundle\Entity\Commande $commande
      * @return Ticket
      */
-    public function setUser(\Base\UserBundle\Entity\User $user)
+    public function setCommande(\Base\BledvoyageBundle\Entity\Commande $commande)
     {
-        $this->user = $user;
+        $this->commande = $commande;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get commande
      *
-     * @return \Base\UserBundle\Entity\User
+     * @return \Base\BledvoyageBundle\Entity\Commande
      */
-    public function getUser()
+    public function getCommande()
     {
-        return $this->user;
-    }
-
-    /**
-     * Set categorieTicket
-     *
-     * @param \Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket
-     * @return Ticket
-     */
-    public function setCategorieTicket(\Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket)
-    {
-        $this->categorieTicket = $categorieTicket;
-
-        return $this;
-    }
-
-    /**
-     * Get categorieTicket
-     *
-     * @return \Base\BledvoyageBundle\Entity\CategorieTicket
-     */
-    public function getCategorieTicket()
-    {
-        return $this->categorieTicket;
+        return $this->commande;
     }
 
     /**

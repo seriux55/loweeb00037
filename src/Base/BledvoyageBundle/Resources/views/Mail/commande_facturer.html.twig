@@ -1,4 +1,4 @@
-Mayssa, 
+{{ product.prenom }}, 
 Vous trouverez en pièces jointes : 
 - Votre pack de ticket cadeau,
 - Votre facture détaillée.
@@ -12,16 +12,16 @@ Ci-dessous quelques informations sur votre achat.
 ------
 FACTURE : 
 
-N° de commande : 808
-Catégorie du ticket : Pack découverte
-Prénom et Nom : Mayssa, Nait chabane 
-Téléphone : 0557195736
-E-mail : maissa94@hotmail.com
-Date de commande : 21/02/2015 
-Tarif : 1900 Da/ticket
-Quantité : 6
-Mode de paiement : mandat postale
-Total  : 11400 Da
+N° de commande : {{ product.id }}
+Catégorie du ticket : {{ product.ticket }}
+Prénom et Nom : {{ product.prenom }}, {{ product.nom }} 
+Téléphone : {{ product.tel }}
+E-mail : {{ product.email }}
+Date de commande : {{ product.dateTime|date('d/m/Y') }}
+Tarif : {{ product.tarif }} Da/ticket
+Quantité : {{ product.nombre }}
+Mode de paiement : {{ product.paiement }}
+Total  : {{ product.total }} Da
 
 
 

@@ -3,13 +3,13 @@ base_bledvoyage_homepage:
     defaults: { _controller: BaseBledvoyageBundle:Default:index }
 
 index:
-    path:     Mail
+    path:     mail
     defaults: { _controller: BaseBledvoyageBundle:Mail:index }
 
 sortie_nroho:
-    type: rest
+    type:     rest
     resource: Base\BledvoyageBundle\Controller\NrohoController
-    prefix: api
+    prefix:   api
 
 bledvoyage_product:
     path:     /product/{id}

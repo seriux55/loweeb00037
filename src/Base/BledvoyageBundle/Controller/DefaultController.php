@@ -183,9 +183,9 @@ class DefaultController extends Controller
         $fichier  = "offre_journée_team_building.pdf";
         $chemin   = "bundles/basebledvoyage/pdf/"; // emplacement de votre fichier .pdf
         $response = new Response();
-        $response->setContent(file_get_contents($chemin.$fichier));
-        $response->headers->set('Content-Type', 'application/force-download'); // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
-        $response->headers->set('Content-disposition', 'filename='. $fichier);
+        $response->setContent(file_get_contents($chemin.$fichier))
+                 ->headers->set('Content-Type', 'application/force-download') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
+                 ->headers->set('Content-disposition', 'filename='. $fichier);
         return $response;
     }
     
@@ -211,11 +211,11 @@ class DefaultController extends Controller
         if ($request->getMethod() == 'POST') {
             $avis = new AvisSortie();
             $booking = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')->find($id);
-            $avis->setBooking($booking);
-            $avis->setAvis($request->get('avis'));
-            $avis->setEmotion($request->get('emotion'));
-            $avis->setDateTime(new \DateTime());
-            $avis->setIp($this->getRequest()->getClientIp());
+            $avis->setBooking($booking)
+                 ->setAvis($request->get('avis'))
+                 ->setEmotion($request->get('emotion'))
+                 ->setDateTime(new \DateTime())
+                 ->setIp($this->getRequest()->getClientIp());
             $em = $this->getDoctrine()->getManager();
             $em->persist($avis);
             $booking->setAvis('1');

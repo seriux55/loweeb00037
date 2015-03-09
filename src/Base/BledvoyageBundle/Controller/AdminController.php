@@ -3,6 +3,8 @@
 namespace Base\BledvoyageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Swift_Attachment;
+use Base\BledvoyageBundle\Entity\Ticket;
 
 class AdminController extends Controller
 {
@@ -82,11 +84,11 @@ class AdminController extends Controller
             if(!in_array($data->getCategorieTicket()->getId(), $d))
             {
                 $ticket[] = array(
-                    'id'            => $data->getCategorieTicket()->getId(),
-                    'titre'         => $data->getCategorieTicket()->getNom(),
-                    'tarif'         => $data->getCategorieTicket()->getTarif(),
-                    'duree'         => $data->getCategorieTicket()->getDuree(),
-                    'nombre'        => $data->getCategorieTicket()->getNombreActivite(),
+                    'id'        => $data->getCategorieTicket()->getId(),
+                    'titre'     => $data->getCategorieTicket()->getNom(),
+                    'tarif'     => $data->getCategorieTicket()->getTarif(),
+                    'duree'     => $data->getCategorieTicket()->getDuree(),
+                    'nombre'    => $data->getCategorieTicket()->getNombreActivite(),
                 );
                 $d[] = $data->getCategorieTicket()->getId();
             }
@@ -148,13 +150,13 @@ class AdminController extends Controller
             $frToDatetime = $this->container->get('FrToDatetime');
             $em = $this->getDoctrine()->getManager();
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
-            $commande->setModePaiement($request->get('paiement'));
-            $commande->setNombre($request->get('nombre'));
-            $commande->setLieuRdv($request->get('lieuRdv'));
-            $commande->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))));
-            $commande->setHeureRdv($request->get('heureRdv'));
-            $commande->getUser()->setEmail($request->get('email'));
-            $commande->setConfirmer('1');
+            $commande->setModePaiement($request->get('paiement'))
+                     ->setNombre($request->get('nombre'))
+                     ->setLieuRdv($request->get('lieuRdv'))
+                     ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))))
+                     ->setHeureRdv($request->get('heureRdv'))
+                     ->getUser()->setEmail($request->get('email'))
+                     ->setConfirmer('1');
             $em->persist($commande);
             $em->flush();
             return $this->forward('BaseBledvoyageBundle:Confirmation:confirmerCommande');
@@ -211,16 +213,71 @@ class AdminController extends Controller
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
+            $paiement = $em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode($request->get('paiement'));
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
-            $commande->setPaiement($request->get('paiement'));
-            $commande->setNombre($request->get('nombre'));
-            $commande->setEntreprise($request->get('entreprise'));
-            $commande->setAdresse($request->get('adresse'));
-            $commande->setUser()->setEmail($request->get('email'));
-            $commande->setTextPerso($request->get('textPerso'));
-            $commande->setFacturer('1');
+            $commande->setPaiement($paiement)
+                     ->setNombre($request->get('nombre'))
+                     ->setEntreprise($request->get('entreprise'))
+                     ->setAdresse($request->get('adresse'))
+                     ->getUser()->setEmail($request->get('email'))
+                     //->setTextPerso($request->get('textPerso'))
+                     //->setFacture('1')
+            ;
             $em->persist($commande);
             $em->flush();
+            $ticket  = new Ticket();
+            $dateFin = date('Y-m-d', strtotime($commande->getCategorieTicket()->getDuree()));
+            $ticket->setCommande($commande)
+                   ->setDateFin(new \DateTime($dateFin))
+                   ->setIp($this->getRequest()->getClientIp());
+            $em->persist($ticket);
+            $em->flush();
+            $total   = $commande->getCategorieTicket()->getTarif() * $commande->getNombre();
+            $facturePdf = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_facture.pdf.twig', array(
+                'product' => array(
+                    'offre'         => $commande->getCategorieTicket()->getNom(),
+                    'prenom'        => $commande->getUser()->getSecondename(),
+                    'nom'           => $commande->getUser()->getFirstname(),
+                    'idCommande'    => $commande->getId(),
+                    'id'            => $ticket->getId(),
+                    'dateTime'      => $commande->getDateTime(),
+                    'paiement'      => $commande->getPaiement()->getMode(),
+                    'entreprise'    => $commande->getEntreprise(),
+                    'adresse'       => $commande->getAdresse(),
+                    'tel'           => $commande->getUser()->getPhone(),
+                    'email'         => $commande->getUser()->getEmail(),
+                    'tarif'         => $commande->getCategorieTicket()->getTarif(),
+                    'nombre'        => $commande->getNombre(),
+                    'total'         => $total,
+                )
+            ));
+            $html2pdf = new \HTML2PDF('P','A4','fr');
+            $html2pdf->pdf->SetDisplayMode('real');
+            $html2pdf->writeHTML($facturePdf);
+            $content = $html2pdf->Output('Facture.pdf', true);
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
+                ->setFrom('contact@nroho.com')
+                ->setTo('nadir.allam@bledvoyage.com')
+                ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_facturer.html.twig', array(
+                    'product' => array(
+                        'id'            => $commande->getId(),
+                        'prenom'        => $commande->getUser()->getSecondename(),
+                        'nom'           => $commande->getUser()->getFirstname(),
+                        'tel'           => $commande->getUser()->getPhone(),
+                        'email'         => $commande->getUser()->getEmail(),
+                        'tarif'         => $commande->getCategorieTicket()->getTarif(),
+                        'nombre'        => $commande->getNombre(),
+                        'ticket'        => $commande->getCategorieTicket()->getNom(),
+                        'dateTime'      => $commande->getDateTime(),
+                        'paiement'      => $commande->getPaiement()->getMode(),
+                        'total'         => $total,
+                    )
+                )))
+                ->attach(Swift_Attachment::newInstance($content, 'facture.pdf', 'application/pdf'))
+            ;
+            $this->get('mailer')->send($message);
+            
             return $this->forward('BaseBledvoyageBundle:Confirmation:facturerCommande');
         }
         return $this->render('BaseBledvoyageBundle:Admin:commande_facturer.html.twig', array(
