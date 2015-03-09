@@ -47,7 +47,6 @@ bledvoyage_teambuilding:
     path:     /teambuilding
     defaults: { _controller: BaseBledvoyageBundle:Default:teambuilding }
 
-
 bledvoyage_teambuilding_pdf:
     path:     /teambuilding/pdf
     defaults: { _controller: BaseBledvoyageBundle:Default:pdfTeambuilding }

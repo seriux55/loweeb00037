@@ -7,16 +7,13 @@
     <div class="bloc_page_body222">
         <h2>Connexion</h2>
     </div>
-    <div class="sectiono">
-        <div id="mr1">
+        <section>
             <div class="nouveau7">                      
                 <form action="{{ path("fos_user_security_check") }}" method="post">
                     <div class="mr7">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                         <div class="mr3">
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                        </div>
-                        <div class="mr3">
-                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                            <label for="username">Adresse mail :</label>
                             <input class="ouardepp" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
                         </div>
                         <div class="mr3">
@@ -48,7 +45,6 @@
                     {% endif %}
                 </form>
             </div>
-        </div>
-    </div>
+        </section>
 </div>
 {% endblock fos_user_content %}

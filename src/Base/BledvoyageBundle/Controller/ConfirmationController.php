@@ -6,6 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ConfirmationController extends Controller
 {
+    public function userBookingAction()
+    {
+        return $this->render('BaseBledvoyageBundle:Confirmation:user_reservation.html.twig', array(
+            //'product' => $product,
+        ));
+    }
+    
     public function noteCommandeAction()
     {
         return $this->render('BaseBledvoyageBundle:Confirmation:commande_note.html.twig', array(

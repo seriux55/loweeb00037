@@ -81,15 +81,31 @@ class DefaultController extends Controller
         foreach($product as $value){
             $dateDebut[] = array($value->getDateDebut()->format('Y-m-d') => $value->getDateDebut()->format('d/m/Y'));
         }
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $frToDatetime = $this->container->get('FrToDatetime');
+            $booking = new Booking();
+            $booking->setUser($this->get('security.context')->getToken()->getUser())
+                    ->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id))
+                    ->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateReserver'))))
+                    ->setNombre($request->get('nombre'))
+                    ->setIp($this->getRequest()->getClientIp());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($booking);
+            $em->flush();
+            return $this->forward('BaseBledvoyageBundle:Confirmation:userBooking');
+        }
+        /*
         $booking = new Booking();
         $form = $this->createForm(new BookingType($id, $dateDebut), $booking);
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             if ($form->isValid()) {
+                $frToDatetime = $this->container->get('FrToDatetime');
                 $booking->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id));
                 $booking->setUser($this->get('security.context')->getToken()->getUser());
-                $booking->setDateReserver(new \DateTime($request->get('dateResever')));
+                $booking->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateResever'))));
                 $booking->setIp($this->getRequest()->getClientIp());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($booking);
@@ -97,8 +113,9 @@ class DefaultController extends Controller
                 return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
             }
         }
+        */
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
-            'form'   => $form->createView(),
+            'product'   => $product,
         ));
         return $response;
     }

@@ -8,7 +8,7 @@
         Réservation 
     </h2>
 </div>	
-<div class=".bloc_page_body3">
+<div class="bloc_page_body3">
     <section>
         <div class="infoparcourss">
             <div class="info_parcours">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="forpar">
-            <form method="post" {{ form_enctype(form) }}>
+            <form method="post">
                 <div class="dates">
                     <h2>
                         Nombre de places
@@ -32,10 +32,49 @@
                     <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
                 <div class="dates">
-                    {{ form_label(form.nombre, " ") }}
-                    {{ form_errors(form.nombre) }}
-                    {{ form_widget(form.nombre) }}
-                </div>	
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="1">1 Place</label>
+                            <input type= "radio" name="nombre" title="Le nombre de réservation est requis!" x-moz-errormessage="Le nombre de réservation est requis!" required value="1" id="1">
+                        </div>
+                    </div>
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="2">2 Places</label>
+                            <input type= "radio" name="nombre" value="2" id="2">
+                        </div>
+                    </div>
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="3">3 Places</label>
+                            <input type= "radio" name="nombre" value="3" id="3">
+                        </div>
+                    </div>
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="4">4 Places</label>
+                            <input type= "radio" name="nombre" value="4" id="4">
+                        </div>
+                    </div>
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="5">5 Places</label>
+                            <input type= "radio" name="nombre" value="5" id="5">
+                        </div>
+                    </div>
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="6">6 Places</label>
+                            <input type= "radio" name="nombre" value="6" id="6">
+                        </div>
+                    </div>
+                    <div class="outplace">
+                        <div class="inplace">
+                            <label for="7">7 et Plus</label>
+                            <input type= "radio" name="nombre" value="7" id="7">
+                        </div>
+                    </div>
+                </div>
                 <div class="dates">
                     <h2>
                         Date de réservation
@@ -43,23 +82,49 @@
                     <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
                 </div>
                 <div class="dates">
-                    {{ form_label(form.dateReserver, " ") }}
-                    {{ form_errors(form.dateReserver) }}
-
-                    {% for data in form.dateReserver %}
-                        {% if form_label(data) == '01/01/2015' %}
-
+                    {% set date = 0 %}
+                    {% for data in product %}
+                    {% if data.dateFin|date('Y-m-d') > 'now'|date('Y-m-d') %}
+                        {% if data.dateDebut == data.dateFin %}
+                        <div class="outdate">
+                            <div class="indate">    
+                                <label for="{{ data.dateDebut|date('d/m/Y') }}">{{ data.dateDebut|date('d/m/Y') }}</label>
+                                <input type= "radio" id="{{ data.dateDebut|date('d/m/Y') }}" name="dateReserver" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!" value="{{ data.dateDebut|date('d/m/Y') }}">
+                            </div>
+                        </div>
                         {% else %}
-                            {{ form_label(data) }}
-                            {{ form_errors(data) }}
-                            {{ form_widget(data) }}
+                        <div class="outdatea">
+                            <div class="indateà">    
+                                <label for="{{ data.dateDebut|date('d/m/Y') }}">Du {{ data.dateDebut|date('d/m/Y') }}, au {{ data.dateFin|date('d/m/Y') }}</label>
+                                <input type= "radio" id="{{ data.dateDebut|date('d/m/Y') }}" name="dateReserver" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!" value="{{ data.dateDebut|date('d/m/Y') }}">
+                            </div>
+                        </div>
                         {% endif %}
+                        {% set date = date + 1 %}
+                    {% else %}
+                        {% if data.dateDebut == data.dateFin %}
+                        <div class="outdate" >
+                            <div class="indate">
+                                <label>
+                                    {{ data.dateDebut|date('d/m/Y') }}
+                                </label>
+                                <p>Complet</p>
+                                <img class="calendara" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/sad.png') }}">
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="outdatea" >
+                            <div class="indateo">
+                                <label>
+                                    Du {{ data.dateDebut|date('d/m/Y') }}, au {{ data.dateFin|date('d/m/Y') }}
+                                </label>
+                                <p>Complet</p>
+                                <img class="calendara" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/sad.png') }}">
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
                     {% endfor %}
-
-                    {{ form_widget(form.dateReserver) }}
-
-                    {% if(form.dateReserver == '2015-01-01') %}<p>azertyAZERTY</p>{% endif %}
-
                 </div>	
                 <div class="dates">
                     <h2>
@@ -70,23 +135,19 @@
                 </div>
                 <div class="mr7">
                     <div class="mr4u">
-
-                        {{ form_label(form.promo, " ") }}
-                        {{ form_errors(form.promo) }}
-                        {{ form_widget(form.promo) }}
-
                         <label for="mdp">Passez cette étape si vous n'avez pas de code promo.</label>
-                        <!-- <input class="ouardep" type="text" name="promo0" maxlength="8" /> -->
-                        <!--
+                        <input class="ouardep" type="text" name="promo0" maxlength="8" />
                         <div id="cadre"></div>
                         <input type="button" value=" + " onclick="plus()" />
                         <input type="button" style="display:none" id="sup" value=" - " onclick="moins()" />
-                        -->
                     </div>
                 </div>
-                {{ form_rest(form) }}
                 <div class="mr6">
+                    {% if date != 0 %}
                     <input class="cherchez" name="Valider" type="submit" value="Valider"/>
+                    {% else %}
+                    <input class="cherchez" name="Complet" type="botton" value="Complet"/>
+                    {% endif %}
                 </div>
             </form>
         </div>
@@ -125,17 +186,18 @@ function plus(){
     ch=document.createElement('input');
     ch.className = "ouardep";
     ch.setAttribute('type','text');
-    ch.setAttribute('name','promo[]');
+    ch.setAttribute('name','promo'+(c2.length+1));
     ch.maxLength = "8";
     c.appendChild(ch);
     document.getElementById('sup').style.display='inline';
 }
 // supprimer le dernier champ;
 function moins(){
-    if(c2.length>0){ c.removeChild(c2[c2.length-1]); }
-    if(c2.length===0){ document.getElementById('sup').style.display='none'; };
+    if(c2.length>0){c.removeChild(c2[c2.length-1])}
+    if(c2.length===0){document.getElementById('sup').style.display='none'};
 }
 </script>
+<!--
 <script type="text/javascript">
   $(document).ready(function() {
     // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
@@ -200,4 +262,5 @@ function moins(){
     }
   });
 </script>
+-->
 {% endblock %}
