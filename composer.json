@@ -27,7 +27,8 @@
         "doctrine/doctrine-fixtures-bundle": "2.2.*@dev",
         "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
         "doctrine/migrations": "1.0.*@dev",
-        "coresphere/console-bundle": "0.1.0"
+        "coresphere/console-bundle": "0.1.0",
+        "ob/highcharts-bundle": "1.2"
     },
     "scripts": {
         "post-install-cmd": [

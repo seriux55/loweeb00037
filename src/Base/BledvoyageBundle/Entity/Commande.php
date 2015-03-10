@@ -164,6 +164,75 @@ class Commande
     }
 
     /**
+     * Set user
+     *
+     * @param \Base\UserBundle\Entity\User $user
+     * @return Commande
+     */
+    public function setUser(\Base\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Base\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set categorieTicket
+     *
+     * @param \Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket
+     * @return Commande
+     */
+    public function setCategorieTicket(\Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket)
+    {
+        $this->categorieTicket = $categorieTicket;
+
+        return $this;
+    }
+
+    /**
+     * Get categorieTicket
+     *
+     * @return \Base\BledvoyageBundle\Entity\CategorieTicket
+     */
+    public function getCategorieTicket()
+    {
+        return $this->categorieTicket;
+    }
+
+    /**
+     * Set paiement
+     *
+     * @param \Base\BledvoyageBundle\Entity\Paiement $paiement
+     * @return Commande
+     */
+    public function setPaiement(\Base\BledvoyageBundle\Entity\Paiement $paiement)
+    {
+        $this->paiement = $paiement;
+
+        return $this;
+    }
+
+    /**
+     * Get paiement
+     *
+     * @return \Base\BledvoyageBundle\Entity\Paiement
+     */
+    public function getPaiement()
+    {
+        return $this->paiement;
+    }
+
+    /**
      * Set nombre
      *
      * @param integer $nombre
@@ -506,74 +575,5 @@ class Commande
     public function getDateTime()
     {
         return $this->dateTime;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \Base\UserBundle\Entity\User $user
-     * @return Commande
-     */
-    public function setUser(\Base\UserBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Base\UserBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * Set paiement
-     *
-     * @param \Base\BledvoyageBundle\Entity\Paiement $paiement
-     * @return Commande
-     */
-    public function setPaiement(\Base\BledvoyageBundle\Entity\Paiement $paiement)
-    {
-        $this->paiement = $paiement;
-
-        return $this;
-    }
-
-    /**
-     * Get paiement
-     *
-     * @return \Base\BledvoyageBundle\Entity\Paiement
-     */
-    public function getPaiement()
-    {
-        return $this->paiement;
-    }
-
-    /**
-     * Set categorieTicket
-     *
-     * @param \Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket
-     * @return Commande
-     */
-    public function setCategorieTicket(\Base\BledvoyageBundle\Entity\CategorieTicket $categorieTicket)
-    {
-        $this->categorieTicket = $categorieTicket;
-
-        return $this;
-    }
-
-    /**
-     * Get categorieTicket
-     *
-     * @return \Base\BledvoyageBundle\Entity\CategorieTicket
-     */
-    public function getCategorieTicket()
-    {
-        return $this->categorieTicket;
     }
 }

@@ -5,6 +5,7 @@ namespace Base\BledvoyageBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Swift_Attachment;
 use Base\BledvoyageBundle\Entity\Ticket;
+use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class AdminController extends Controller
 {
@@ -219,12 +220,11 @@ class AdminController extends Controller
                      ->setNombre($request->get('nombre'))
                      ->setEntreprise($request->get('entreprise'))
                      ->setAdresse($request->get('adresse'))
+                     ->setTextPerso($request->get('textPerso'))
+                     ->setFacture('1')
                      ->getUser()->setEmail($request->get('email'))
-                     //->setTextPerso($request->get('textPerso'))
-                     //->setFacture('1')
             ;
             $em->persist($commande);
-            $em->flush();
             $ticket  = new Ticket();
             $dateFin = date('Y-m-d', strtotime($commande->getCategorieTicket()->getDuree()));
             $ticket->setCommande($commande)
@@ -251,14 +251,31 @@ class AdminController extends Controller
                     'total'         => $total,
                 )
             ));
-            $html2pdf = new \HTML2PDF('P','A4','fr');
-            $html2pdf->pdf->SetDisplayMode('real');
-            $html2pdf->writeHTML($facturePdf);
-            $content = $html2pdf->Output('Facture.pdf', true);
+            $ticketPdf = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_ticket.pdf.twig', array(
+                'product' => array(
+                    'code'          => $ticket->getCode(),
+                    'dateFin'       => $dateFin,
+                    'image'         => $commande->getCategorieTicket()->getPhoto(),
+                    'textPerso'     => $request->get('textPerso'),
+                )
+            ));
+            $catalogue = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_catalogue.pdf.twig');
+            $pdf_1 = new \HTML2PDF('P','A4','fr');
+            $pdf_1->pdf->SetDisplayMode('real');
+            $pdf_1->writeHTML($ticketPdf);
+            $content_1 = $pdf_1->Output('Ticket.pdf', true);
+            $pdf_2 = new \HTML2PDF('P','A4','fr');
+            $pdf_2->pdf->SetDisplayMode('real');
+            $pdf_2->writeHTML($facturePdf);
+            $content_2 = $pdf_2->Output('Facture_'.$commande->getUser()->getSecondename().'_'.$commande->getUser()->getFirstname().'.pdf', true);
+            $pdf_3 = new \HTML2PDF('P','A4','fr');
+            $pdf_3->pdf->SetDisplayMode('real');
+            $pdf_3->writeHTML($catalogue);
+            $content_3 = $pdf_3->Output('Catalogue.pdf', true);
             $message = \Swift_Message::newInstance()
                 ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
                 ->setFrom('contact@nroho.com')
-                ->setTo('nadir.allam@bledvoyage.com')
+                ->setTo('nadir.allam@gmail.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_facturer.html.twig', array(
                     'product' => array(
                         'id'            => $commande->getId(),
@@ -274,7 +291,9 @@ class AdminController extends Controller
                         'total'         => $total,
                     )
                 )))
-                ->attach(Swift_Attachment::newInstance($content, 'facture.pdf', 'application/pdf'))
+                ->attach(Swift_Attachment::newInstance($content_1, 'Ticket.pdf', 'application/pdf'))
+                ->attach(Swift_Attachment::newInstance($content_2, 'Facture_'.$commande->getUser()->getSecondename().'_'.$commande->getUser()->getFirstname().'.pdf', 'application/pdf'))
+                ->attach(Swift_Attachment::newInstance($content_3, 'Catalogue.pdf', 'application/pdf'))
             ;
             $this->get('mailer')->send($message);
             
@@ -461,8 +480,118 @@ class AdminController extends Controller
     
     public function statisticAction()
     {
+        $date1 = date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY'));
+        $date2 = date('Y-m-d', strtotime(date('Y-m-d').' - 5 DAY'));
+        $date3 = date('Y-m-d', strtotime(date('Y-m-d').' - 4 DAY'));
+        $date4 = date('Y-m-d', strtotime(date('Y-m-d').' - 3 DAY'));
+        $date5 = date('Y-m-d', strtotime(date('Y-m-d').' - 2 DAY'));
+        $date6 = date('Y-m-d', strtotime(date('Y-m-d').' - 1 DAY'));
+        $date7 = date('Y-m-d');
+        $commande = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                   ->createQueryBuilder('a')
+                   ->where('a.dateTime >= :date')
+                   ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
+                   ->getQuery()
+                   ->getResult();
+        $reservation = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ->createQueryBuilder('a')
+                   ->where('a.dateTime >= :date')
+                   ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
+                   ->getQuery()
+                   ->getResult();
+        $ticket = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
+                   ->createQueryBuilder('a')
+                   ->where('a.dateTime >= :date')
+                   ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
+                   ->getQuery()
+                   ->getResult();
+        $reservation1 = $reservation2 = $reservation3 = $reservation4 = $reservation5 = $reservation6 = $reservation7 = 0;
+        $commande1 = $commande2 = $commande3 = $commande4 = $commande5 = $commande6 = $commande7 = 0;
+        $ticket1 = $ticket2 = $ticket3 = $ticket4 = $ticket5 = $ticket6 = $ticket7 = 0;
+        
+        foreach($reservation as $data){
+            $datetime = $data->getDateTime()->format('Y-m-d');
+            switch($datetime){
+                case $date1:
+                    $reservation1++; break;
+                case $date2:
+                    $reservation2++; break;
+                case $date3:
+                    $reservation3++; break;
+                case $date4:
+                    $reservation4++; break;
+                case $date5:
+                    $reservation5++; break;
+                case $date6:
+                    $reservation6++; break;
+                case $date7:
+                    $reservation7++; break;
+            }
+        }
+        foreach($commande as $data){
+            $datetime = $data->getDateTime()->format('Y-m-d');
+            switch($datetime){
+                case $date1:
+                    $commande1++; break;
+                case $date2:
+                    $commande2++; break;
+                case $date3:
+                    $commande3++; break;
+                case $date4:
+                    $commande4++; break;
+                case $date5:
+                    $commande5++; break;
+                case $date6:
+                    $commande6++; break;
+                case $date7:
+                    $commande7++; break;
+            }
+        }
+        foreach($ticket as $data){
+            $datetime = $data->getDateTime()->format('Y-m-d');
+            switch($datetime){
+                case $date1:
+                    $ticket1++; break;
+                case $date2:
+                    $ticket2++; break;
+                case $date3:
+                    $ticket3++; break;
+                case $date4:
+                    $ticket4++; break;
+                case $date5:
+                    $ticket5++; break;
+                case $date6:
+                    $ticket6++; break;
+                case $date7:
+                    $ticket7++; break;
+            }
+        }
+        // Chart
+        $sellsHistory = array(
+            array(
+                "name" => "Total des reservations", 
+                "data" => array($reservation1, $reservation2, $reservation3, $reservation4, $reservation5, $reservation6, $reservation7)
+            ),
+            array(
+                "name" => "Total des commandes", 
+                "data" => array($commande1, $commande2, $commande3, $commande4, $commande5, $commande6, $commande7)
+            ),
+            array(
+                "name" => "Tickets vendu", 
+                "data" => array($ticket1, $ticket2, $ticket3, $ticket4, $ticket5, $ticket6, $ticket7)
+            ),
+        );
+        $dates  = array($date1, $date2, $date3, $date4, $date5, $date6, $date7);
+        $ob     = new Highchart();
+        // ID de l'élement de DOM que vous utilisez comme conteneur
+        $ob->chart->renderTo('linechart');  
+        $ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+        $ob->yAxis->title(array('text' => "La quantité"));
+        $ob->xAxis->title(array('text' => "La date"));
+        $ob->xAxis->categories($dates);
+        $ob->series($sellsHistory);
         return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', array(
-            // --
+            'chart' => $ob,
         )); 
     }
 }

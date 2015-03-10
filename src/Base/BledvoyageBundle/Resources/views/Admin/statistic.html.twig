@@ -3,7 +3,16 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.highcharts.com/4.0.1/highcharts.js"></script>
+    <script src="//code.highcharts.com/4.0.1/modules/exporting.js"></script>
     <h1>Statistiques</h1>
+    <section>
+        <script type="text/javascript">
+            {{ chart(chart) }}
+        </script>
+        <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    </section>
 {% endblock %}
 
 {% block jquery %}{% endblock %}

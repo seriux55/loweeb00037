@@ -9,10 +9,6 @@ class MailController extends Controller
 {
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $paiement = $em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode('espèce');
-        
-        /*
         $html = "<page>allo</page>";
         $body = "azerty";
         $html2pdf = new \HTML2PDF('P','A4','fr');
@@ -32,7 +28,7 @@ class MailController extends Controller
         ;
     
         $this->get('mailer')->send($message);
-        */
+        
         return $this->render('BaseBledvoyageBundle:Mail:index.html.twig', array(
             'product' => $paiement,
         ));
