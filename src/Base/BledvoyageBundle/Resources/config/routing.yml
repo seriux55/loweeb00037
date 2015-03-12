@@ -27,6 +27,12 @@ bledvoyage_promotion:
     path:     /promotion
     defaults: { _controller: BaseBledvoyageBundle:Default:promotion }
 
+bledvoyage_promotion_type:
+    path:     /promotion/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Default:promotionType }
+    requirements:
+        id:   \d+
+
 bledvoyage_type:
     path:     /type/{id}
     defaults: { _controller: BaseBledvoyageBundle:Default:type }

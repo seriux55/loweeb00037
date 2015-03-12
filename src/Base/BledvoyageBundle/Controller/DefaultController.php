@@ -5,7 +5,7 @@ namespace Base\BledvoyageBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\BledvoyageBundle\Entity\Booking;
-use Base\BledvoyageBundle\Form\Type\BookingType;
+use Base\BledvoyageBundle\Entity\Commande;
 use Base\BledvoyageBundle\Entity\AvisSortie;
 
 class DefaultController extends Controller
@@ -164,8 +164,47 @@ class DefaultController extends Controller
     
     public function promotionAction()
     {
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')->findAll();
         $response = $this->render('BaseBledvoyageBundle:Default:promotion.html.twig', array(
-            //'form'   => $form->createView(),
+            'product' => $product,
+        ));
+        return $response;
+    }
+    
+    public function promotionTypeAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')
+                   ->createQueryBuilder('a')
+                   ->where('a.id = :id')
+                   ->setParameter('id', $id)
+                   ->getQuery()
+                   ->getResult();
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $commande = new Commande();
+            $textPerso = $request->get('textPerso');
+            if($textPerso == "Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ..."){ $textPerso = ""; }
+            $commande->setUser($this->get('security.context')->getToken()->getUser())
+                     ->setCategorieTicket($em->getRepository('BaseBledvoyageBundle:CategorieTicket')->find($id))
+                     ->setPaiement($em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode('espèce'))
+                     ->setNombre($request->get('nombre'))
+                     ->setTextPerso($textPerso)
+                     ->setIp($this->getRequest()->getClientIp());
+            $em->persist($commande);
+            $em->flush();
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Hello Email') //Votre commande chez bledvoyage.com
+                ->setFrom('contact@bledvoyage.com')
+                ->setTo('nadir.allam@bledvoyage.com')
+                ->setBody($this->renderView('BaseBledvoyageBundle:Mail:user_commande.txt.twig', array(
+                    'product' => $commande)
+                ));
+            $this->get('mailer')->send($message);
+            return $this->render('BaseBledvoyageBundle:Confirmation:user_commande.html.twig');
+        }
+        $response = $this->render('BaseBledvoyageBundle:Default:commande.html.twig', array(
+            'product' => $product,
         ));
         return $response;
     }

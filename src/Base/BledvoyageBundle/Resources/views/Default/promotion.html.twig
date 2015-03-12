@@ -10,10 +10,10 @@
         <div class="contint">
             <div class="message">
                 <h1>Des activités à prix réduits !</h1>
-                <h2>De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches.
-
-                Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités sur mesure : 
-                Sensations sur terre, sur mer, en montagne ... à prix réduits !
+                <h2>
+                    De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches.
+                    Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités sur mesure : 
+                    Sensations sur terre, sur mer, en montagne ... à prix réduits !
                 </h2>
                 <p>
                     <a href="#decouvrir">Découvrir nos tickets cadeaux</a>
@@ -25,87 +25,28 @@
 <div id="decouvrir"></div>
 <div class="bloc_page_body222">
     <h2>
-    Pour soi-même ou pour offrir ! 
+        Pour le plaisir d'offrir et de s'offrir ! 
     </h2>
 </div>
-		
+{% for data in product %}
 <div class="bloc_page_3">
     <div class="sectiono">
         <div class="mr1i">
             <div class="phoco">
-                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/pack_1.png') }}">
+                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/' ~ data.photo) }}">
             </div>
             <div class="mr2bo">
-                <h4>Pack découverte</h4>
+                <h4>{{ data.nom }}</h4>
             </div>
             <div class="mr2bo">
                 <div class="headmr">
                     <div class="bome">
                         <p>
                             En commandant ce pack, vous recevrez un ticket cadeau qui permettra 
-                            à son bénéficiaire de participer à 1 activité, d'une valeur de 1900 Dinars, au lieu de 2900 Dinars.
+                            à son bénéficiaire de participer à {{ data.nombreActivite }} activité, d'une valeur de {{ data.tarif }} Dinars, au lieu de {{ data.tarif + data.economie }} Dinars.
                         </p>
                         <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> Le ticket cadeau est valable pendant 6 Mois. 
-                        </p>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/cad.png') }}"> Le ticket cadeau vous permet d'accéder aux activités loisirs : 
-                        </p>
-                        <div class="tbome">
-                            <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}"> MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
-                            </p>
-                            <p>							
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}"> TERRE : Randonnée Cheval, Randonnée VTT, Balade et découverte de la ville Romaine.
-                            </p>
-                            <p>
-                                <img alt="Image"  class="bbo" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}"> MER : Randonnée aquatique, Bouée sensation.
-                            </p>
-                            <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}"> AIR : Cerf volant géant.
-                            </p>
-                        </div>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/exclu.png') }}"> EXCLUSIVITÉ : Avec ce ticket, vous aurez l'accès en exclusivité aux nouvelles activités qui seront lancées prochainement : 
-                            Tyrolienne géante, Escalade, Parcours aventure, ....
-                        </p>
-                    </div>
-                    <div class="headtar">
-                        <h5>1900 Da</h5>
-                        <h6>1000 Da d'économie</h6>
-                        <p>
-                            Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <form method="post" action="resa_1.php">
-            <div class="casoute">
-                <input type="hidden" name="id_categorie" value="1" />
-                <input class="anou" type="submit" value="Commander">
-            </div>
-        </form>
-    </div>
-</div>
-<div class="bloc_page_3">
-    <div class="sectiono">
-        <div class="mr1i">
-            <div class="phoco">
-                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/pack_3.png') }}">
-            </div>
-            <div class="mr2bo">
-                <h4>Pack loisirs 3</h4>
-            </div>
-            <div class="mr2bo">
-                <div class="headmr">
-                    <div class="bome">
-                        <p>
-                            En commandant ce pack, vous recevrez un ticket cadeau qui permettra 
-                            à son bénéficiaire de participer à 1 activité, d'une valeur de 1900 Dinars, au lieu de 2900 Dinars.
-                        </p>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> Le ticket cadeau est valable pendant 6 Mois. 
+                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> Le ticket cadeau est valable pendant {{ data.duree }} Mois. 
                         </p>
                         <p>
                             <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/cad.png') }}"> Le ticket cadeau vous permet d'accéder aux activités loisirs : 
@@ -130,8 +71,8 @@
                         </p>
                     </div>
                     <div class="headtar">
-                        <h5>5400 Da</h5>
-                        <h6>3300 Da d'économie</h6>
+                        <h5>{{ data.tarif }} Da</h5>
+                        <h6>{{ data.economie }} Da d'économie</h6>
                         <p>
                             Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
                         </p>
@@ -139,132 +80,14 @@
                 </div>
             </div>
         </div> 
-        <form method="post" action="resa_1.php">
-            <div class="casoute">
-                <input type="hidden" name="id_categorie" value="2" />
-                <input class="anou" type="submit" value="Commander">
-            </div>
-        </form>
+        <div class="casoute">
+            <a href="{{ path('bledvoyage_promotion_type', { 'id': data.id }) }}">
+                <input class="anou" type="button" value="Commander">
+            </a>
+        </div>
     </div>
 </div>
-<div class="bloc_page_3">
-    <div class="sectiono">
-        <div class="mr1i">
-            <div class="phoco">
-                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/pack_6.png') }}">
-            </div>
-            <div class="mr2bo">
-                <h4>Pack loisirs 6</h4>
-            </div>
-            <div class="mr2bo">
-                <div class="headmr">
-                    <div class="bome">
-                        <p>
-                            En commandant ce pack, vous recevrez un ticket cadeau qui permettra 
-                            à son bénéficiaire de participer à 1 activité, d'une valeur de 1900 Dinars, au lieu de 2900 Dinars.
-                        </p>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> Le ticket cadeau est valable pendant 6 Mois. 
-                        </p>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/cad.png') }}"> Le ticket cadeau vous permet d'accéder aux activités loisirs : 
-                        </p>
-                        <div class="tbome">
-                            <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}"> MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
-                            </p>
-                            <p>							
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}"> TERRE : Randonnée Cheval, Randonnée VTT, Balade et découverte de la ville Romaine.
-                            </p>
-                            <p>
-                                <img alt="Image"  class="bbo" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}"> MER : Randonnée aquatique, Bouée sensation.
-                            </p>
-                            <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}"> AIR : Cerf volant géant.
-                            </p>
-                        </div>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/exclu.png') }}"> EXCLUSIVITÉ : Avec ce ticket, vous aurez l'accès en exclusivité aux nouvelles activités qui seront lancées prochainement : 
-                            Tyrolienne géante, Escalade, Parcours aventure, ....
-                        </p>
-                    </div>
-                    <div class="headtar">
-                        <h5>10900 Da</h5>
-                        <h6>6500 Da d'économie</h6>
-                        <p>
-                            Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <form method="post" action="resa_1.php">
-            <div class="casoute">
-                <input type="hidden" name="id_categorie" value="3" />
-                <input class="anou" type="submit" value="Commander">
-            </div>
-        </form>
-    </div>
-</div>
-<div class="bloc_page_3">
-    <div class="sectiono">
-        <div class="mr1i">
-            <div class="phoco">
-                <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/cadeau/pack_12.png') }}">
-            </div>
-            <div class="mr2bo">
-                <h4>Pack loisirs 12</h4>
-            </div>
-            <div class="mr2bo">
-                <div class="headmr">
-                    <div class="bome">
-                        <p>
-                        En commandant ce pack, vous recevrez un ticket cadeau qui permettra 
-                        à son bénéficiaire de participer à 1 activité, d'une valeur de 1900 Dinars, au lieu de 2900 Dinars.
-                        </p>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> Le ticket cadeau est valable pendant 6 Mois. 
-                        </p>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/cad.png') }}"> Le ticket cadeau vous permet d'accéder aux activités loisirs : 
-                        </p>
-                        <div class="tbome">
-                            <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}"> MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
-                            </p>
-                            <p>							
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}"> TERRE : Randonnée Cheval, Randonnée VTT, Balade et découverte de la ville Romaine.
-                            </p>
-                            <p>
-                                <img alt="Image"  class="bbo" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}"> MER : Randonnée aquatique, Bouée sensation.
-                            </p>
-                            <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}"> AIR : Cerf volant géant.
-                            </p>
-                        </div>
-                        <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/exclu.png') }}"> EXCLUSIVITÉ : Avec ce ticket, vous aurez l'accès en exclusivité aux nouvelles activités qui seront lancées prochainement : 
-                            Tyrolienne géante, Escalade, Parcours aventure, ....
-                        </p>
-                    </div>
-                    <div class="headtar">
-                        <h5>19900 Da</h5>
-                        <h6>14900 Da d'économie</h6>
-                        <p>
-                            Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <form method="post" action="resa_1.php">
-            <div class="casoute">
-                <input type="hidden" name="id_categorie" value="4" />
-                <input class="anou" type="submit" value="Commander">
-            </div>
-        </form>
-    </div>
-</div>
+{% endfor %}
 {% endblock %}
 
 {% block javascripts %}

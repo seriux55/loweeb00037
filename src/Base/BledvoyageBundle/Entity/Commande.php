@@ -14,10 +14,18 @@ class Commande
 {
     public function __construct()
     {
-        $this->dateTime  = new \dateTime();
-        $this->confirmer = '0';
-        $this->facture   = '0';
-        $this->dateRdv   = new \dateTime('0000-00-00 00:00:00');
+        $this->dateTime     = new \dateTime();
+        $this->confirmer    = '0';
+        $this->acompte      = '0';
+        $this->note         = '';
+        $this->entreprise   = '';
+        $this->adresse      = '';
+        $this->modePaiement = '';
+        $this->heureRdv     = '';
+        $this->lieuRdv      = '';
+        $this->facture      = '0';
+        $this->dateRdv      = new \dateTime('0000-00-00 00:00:00');
+        $this->dateAchat    = new \dateTime('0000-00-00 00:00:00');
     }
     
     /**

@@ -21,16 +21,17 @@ class MailController extends Controller
         
         $message = \Swift_Message::newInstance()
             ->setSubject('Hello Email')
-            ->setFrom('contact@nroho.com')
+            ->setFrom('contact@bledvoyage.com')
             ->setTo(array('validation@nroho.com', 'seriux55@hotmail.com'))
             ->setBody('hey!')
+            ->attach(Swift_Attachment::newInstance($content, 'document1.pdf', 'application/pdf'))
             ->attach(Swift_Attachment::newInstance($content, 'document2.pdf', 'application/pdf'))
         ;
     
         $this->get('mailer')->send($message);
         
         return $this->render('BaseBledvoyageBundle:Mail:index.html.twig', array(
-            'product' => $paiement,
+            //'product' => $paiement,
         ));
     }
 }

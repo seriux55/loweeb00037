@@ -59,6 +59,7 @@ class AdminController extends Controller
                 'avis'          => $data->getAvis(),
                 'confirmer'     => $data->getConfirmer(),
                 'acompte'       => $data->getAcompte(),
+                'note'          => $data->getNote(),
             );
             $number++;
         }
@@ -156,8 +157,8 @@ class AdminController extends Controller
                      ->setLieuRdv($request->get('lieuRdv'))
                      ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))))
                      ->setHeureRdv($request->get('heureRdv'))
-                     ->getUser()->setEmail($request->get('email'))
-                     ->setConfirmer('1');
+                     ->setConfirmer('1')
+                     ->getUser()->setEmail($request->get('email'));
             $em->persist($commande);
             $em->flush();
             return $this->forward('BaseBledvoyageBundle:Confirmation:confirmerCommande');
@@ -184,7 +185,16 @@ class AdminController extends Controller
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
-            $commande->setNote($request->get('note'));
+            $notearea = $request->get('notearea');
+            $note     = $request->get('note');
+            if(empty($notearea) && ($note == 'Annulée')){
+                $commande->setNote($note)
+                         ->setConfirmer('0');
+            }else if(empty($notearea) && ($note != 'Annulée')){
+                $commande->setNote($note);
+            }else{
+                $commande->setNote($notearea);
+            }
             $em->persist($commande);
             $em->flush();
             return $this->forward('BaseBledvoyageBundle:Confirmation:noteCommande');
@@ -204,7 +214,6 @@ class AdminController extends Controller
                    ->leftJoin('a.categorieTicket', 'c')
                    ->where('a.id = :id')
                    ->setParameter('id', $id)
-                   ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
         foreach ($product as $data)
@@ -222,8 +231,7 @@ class AdminController extends Controller
                      ->setAdresse($request->get('adresse'))
                      ->setTextPerso($request->get('textPerso'))
                      ->setFacture('1')
-                     ->getUser()->setEmail($request->get('email'))
-            ;
+                     ->getUser()->setEmail($request->get('email'));
             $em->persist($commande);
             $ticket  = new Ticket();
             $dateFin = date('Y-m-d', strtotime($commande->getCategorieTicket()->getDuree()));
@@ -253,10 +261,10 @@ class AdminController extends Controller
             ));
             $ticketPdf = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_ticket.pdf.twig', array(
                 'product' => array(
-                    'code'          => $ticket->getCode(),
-                    'dateFin'       => $dateFin,
                     'image'         => $commande->getCategorieTicket()->getPhoto(),
                     'textPerso'     => $request->get('textPerso'),
+                    'code'          => $ticket->getCode(),
+                    'dateFin'       => date('d/m/Y', strtotime('+'.$commande->getCategorieTicket()->getDuree().' month')),
                 )
             ));
             $catalogue = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_catalogue.pdf.twig');
@@ -274,7 +282,7 @@ class AdminController extends Controller
             $content_3 = $pdf_3->Output('Catalogue.pdf', true);
             $message = \Swift_Message::newInstance()
                 ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
-                ->setFrom('contact@nroho.com')
+                ->setFrom('contact@bledvoyage.com')
                 ->setTo('nadir.allam@gmail.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_facturer.html.twig', array(
                     'product' => array(
@@ -319,11 +327,15 @@ class AdminController extends Controller
                    ->getResult();
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
-            $em = $this->getDoctrine()->getManager();
-            $booking = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
+            $em       = $this->getDoctrine()->getManager();
+            $booking  = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
             $notearea = $request->get('notearea');
-            if(empty($notearea)){
-                $booking->setNote($request->get('note'));
+            $note     = $request->get('note');
+            if(empty($notearea) && ($note == 'Annulée')){
+                $booking->setNote($note)
+                        ->setConfirmer('0');
+            }else if(empty($notearea) && ($note != 'Annulée')){
+                $booking->setNote($note);
             }else{
                 $booking->setNote($notearea);
             }
@@ -376,7 +388,7 @@ class AdminController extends Controller
             $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
-                ->setFrom('contact@nroho.com')
+                ->setFrom('contact@bledvoyage.com')
                 ->setTo('nadir.allam@bledvoyage.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:reservation_confirmer.txt.twig', array(
                     'product' => array(
@@ -390,7 +402,7 @@ class AdminController extends Controller
                         'creneau'       => $booking->getCreneau(),
                         'condition'     => $booking->getSortie()->getConditions(),
                         'moniteur'      => $booking->getSortie()->getUser()->getSecondename().' '.$booking->getSortie()->getUser()->getFirstname(),
-                        'planAcces'     => $booking->getSortie()->getPlanSortie(),
+                        'planAcces'     => $booking->getSortie()->getPlanAcces(),
                     )
                 )))
             ;

@@ -136,7 +136,7 @@
                                         <td>???</td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur">Pack</td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona"   target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
@@ -157,7 +157,7 @@
                                         <td>Pack loisirs 6</td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur">Pack</td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- bottona -> bottono -->
@@ -178,7 +178,7 @@
                                         <td>Pack loisirs 6</td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur">Pack</td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a></td> <!-- bottona -> bottono -->
@@ -199,7 +199,7 @@
                                         <td>Pack loisirs 6</td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur">Pack</td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a></td> <!-- bottona -> bottono -->
@@ -220,7 +220,7 @@
                                         <td>Pack loisirs 6</td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur">Pack</td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a></td> <!-- bottona -> bottono -->
@@ -241,7 +241,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur"></td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- botton -> bottono -->
@@ -262,7 +262,7 @@
                                         <td>3x invalide(s)/3x a payé</td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur"></td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}">Confirmer</a></td>
                                         <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
@@ -283,7 +283,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="couleur"></td>
+                                        <td class="couleur">{{ dataR.note }}</td>
                                         <td>--</td>
                                         <td>--</td>
                                         <td>--</td>
