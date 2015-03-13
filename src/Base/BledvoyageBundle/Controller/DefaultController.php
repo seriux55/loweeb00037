@@ -84,6 +84,14 @@ class DefaultController extends Controller
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $frToDatetime = $this->container->get('FrToDatetime');
+            $promo = $request->request->all();
+            foreach($promo as $key => $value){
+                if(substr($key, 0, 5) == "promo"){
+                    $a[] = substr($key, 5);
+                }
+            }
+            $nbr_promo = max($a);
+            
             $booking = new Booking();
             $booking->setUser($this->get('security.context')->getToken()->getUser())
                     ->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id))
@@ -93,7 +101,9 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($booking);
             $em->flush();
-            return $this->forward('BaseBledvoyageBundle:Confirmation:userBooking');
+            return $this->forward('BaseBledvoyageBundle:Confirmation:userBooking', array(
+                'a' => $promo['promo0'],
+            ));
         }
         /*
         $booking = new Booking();
