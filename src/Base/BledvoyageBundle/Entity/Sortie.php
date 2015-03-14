@@ -170,7 +170,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="valider", type="string", length=255)
+     * @ORM\Column(name="valider", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $valider;
 
@@ -212,7 +212,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="annuler", type="string", length=255)
+     * @ORM\Column(name="annuler", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $annuler;
 
@@ -240,21 +240,21 @@ class Sortie
     /**
      * @var integer
      *
-     * @ORM\Column(name="astuce", type="integer")
+     * @ORM\Column(name="astuce", type="integer", options={"comment" = "0:non, 1:oui"})
      */
     private $astuce;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="pub", type="integer")
+     * @ORM\Column(name="pub", type="integer", options={"comment" = "0:non, 1:oui"})
      */
     private $pub;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="close", type="integer")
+     * @ORM\Column(name="close", type="integer", options={"comment" = "0:non, 1:oui"})
      */
     private $close;
 

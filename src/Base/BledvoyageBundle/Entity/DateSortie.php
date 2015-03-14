@@ -51,7 +51,7 @@ class DateSortie
     /**
      * @var string
      *
-     * @ORM\Column(name="annuler", type="string", length=255)
+     * @ORM\Column(name="annuler", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $annuler;
 

@@ -85,13 +85,16 @@ class DefaultController extends Controller
         if ($request->getMethod() == 'POST') {
             $frToDatetime = $this->container->get('FrToDatetime');
             $promo = $request->request->all();
-            foreach($promo as $key => $value){
+            foreach ( $promo as $key => $val )
+            {
                 if(substr($key, 0, 5) == "promo"){
                     $a[] = substr($key, 5);
                 }
             }
             $nbr_promo = max($a);
-            
+            for($i=0;$i<=$nbr_promo;$i++){
+                $a = 11;
+            }
             $booking = new Booking();
             $booking->setUser($this->get('security.context')->getToken()->getUser())
                     ->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id))
@@ -101,8 +104,8 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($booking);
             $em->flush();
-            return $this->forward('BaseBledvoyageBundle:Confirmation:userBooking', array(
-                'a' => $promo['promo0'],
+            return $this->render('BaseBledvoyageBundle:Confirmation:user_reservation.html.twig', array(
+                'a' => $a,
             ));
         }
         /*
@@ -229,12 +232,16 @@ class DefaultController extends Controller
     
     public function pdfTeambuildingAction()
     {
-        $fichier  = "offre_journée_team_building.pdf";
+        $fichier  = "offre_journee_team_building.pdf";
         $chemin   = "bundles/basebledvoyage/pdf/"; // emplacement de votre fichier .pdf
         $response = new Response();
         $response->setContent(file_get_contents($chemin.$fichier))
-                 ->headers->set('Content-Type', 'application/force-download') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
-                 ->headers->set('Content-disposition', 'filename='. $fichier);
+                 ->headers->set('Content-Type', 'application/pdf') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
+                 
+                 //->headers->set('Content-Type', 'application/force-download') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
+                 //->headers->set('Content-Disposition', 'attachment; filename="offre_journee_team_building.pdf"')
+                 //->headers->set('Content-disposition', 'filename='. $fichier)
+                ;
         return $response;
     }
     

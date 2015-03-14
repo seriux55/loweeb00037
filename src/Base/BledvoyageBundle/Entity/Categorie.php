@@ -38,7 +38,7 @@ class Categorie
     /**
      * @var string
      *
-     * @ORM\Column(name="afficher", type="string", length=255)
+     * @ORM\Column(name="afficher", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $afficher;
 

@@ -79,14 +79,14 @@ class Commande
     /**
      * @var string
      *
-     * @ORM\Column(name="confirmer", type="string", length=255)
+     * @ORM\Column(name="confirmer", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $confirmer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="facture", type="string", length=255)
+     * @ORM\Column(name="facture", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $facture;
 

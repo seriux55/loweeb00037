@@ -88,7 +88,7 @@ class Booking
     /**
      * @var string
      *
-     * @ORM\Column(name="confirmer", type="string", length=255)
+     * @ORM\Column(name="confirmer", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $confirmer;
 
@@ -109,7 +109,7 @@ class Booking
     /**
      * @var string
      *
-     * @ORM\Column(name="avis", type="string", length=255)
+     * @ORM\Column(name="avis", type="string", length=255, options={"comment" = "0:non, 1:oui, 2:en attente"})
      */
     private $avis;
 
@@ -123,7 +123,7 @@ class Booking
     /**
      * @var string
      *
-     * @ORM\Column(name="facture", type="string", length=255)
+     * @ORM\Column(name="facture", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $facture;
 

@@ -37,7 +37,7 @@ class AvisSortie
     /**
      * @var integer
      *
-     * @ORM\Column(name="emotion", type="integer")
+     * @ORM\Column(name="emotion", type="integer", options={"comment" = "0:content, 1:bof, 3:triste"})
      */
     private $emotion;
 

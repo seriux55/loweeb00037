@@ -5,6 +5,7 @@ namespace Base\BledvoyageBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Swift_Attachment;
 use Base\BledvoyageBundle\Entity\Ticket;
+use Base\BledvoyageBundle\Entity\Operateur;
 use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class AdminController extends Controller
@@ -160,6 +161,12 @@ class AdminController extends Controller
                      ->setConfirmer('1')
                      ->getUser()->setEmail($request->get('email'));
             $em->persist($commande);
+            $operateur = new Operateur();
+            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+                      ->setCommande($commande)
+                      ->setAction('2')
+                      ->setIp($this->getRequest()->getClientIp());
+            $em->persist($operateur);
             $em->flush();
             return $this->forward('BaseBledvoyageBundle:Confirmation:confirmerCommande');
         }
@@ -196,6 +203,12 @@ class AdminController extends Controller
                 $commande->setNote($notearea);
             }
             $em->persist($commande);
+            $operateur = new Operateur();
+            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+                      ->setCommande($commande)
+                      ->setAction('1')
+                      ->setIp($this->getRequest()->getClientIp());
+            $em->persist($operateur);
             $em->flush();
             return $this->forward('BaseBledvoyageBundle:Confirmation:noteCommande');
         }
@@ -239,6 +252,12 @@ class AdminController extends Controller
                    ->setDateFin(new \DateTime($dateFin))
                    ->setIp($this->getRequest()->getClientIp());
             $em->persist($ticket);
+            $operateur = new Operateur();
+            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+                      ->setCommande($commande)
+                      ->setAction('4')
+                      ->setIp($this->getRequest()->getClientIp());
+            $em->persist($operateur);
             $em->flush();
             $total   = $commande->getCategorieTicket()->getTarif() * $commande->getNombre();
             $facturePdf = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_facture.pdf.twig', array(
@@ -340,6 +359,12 @@ class AdminController extends Controller
                 $booking->setNote($notearea);
             }
             $em->persist($booking);
+            $operateur = new Operateur();
+            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+                      ->setBooking($booking)
+                      ->setAction('1')
+                      ->setIp($this->getRequest()->getClientIp());
+            $em->persist($operateur);
             $em->flush();
             return $this->forward('BaseBledvoyageBundle:Confirmation:noteReservation');
         }
@@ -385,6 +410,12 @@ class AdminController extends Controller
                         ->setLieurdv($request->get('lieu2'));
             }
             $em->persist($booking);
+            $operateur = new Operateur;
+            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+                      ->setBooking($booking)
+                      ->setAction('2')
+                      ->setIp($this->getRequest()->getClientIp());
+            $em->persist($operateur);
             $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
@@ -437,6 +468,12 @@ class AdminController extends Controller
             $booking = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
             $booking->setAvis('2');
             $em->persist($booking);
+            $operateur = new Operateur;
+            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+                      ->setBooking($booking)
+                      ->setAction('5')
+                      ->setIp($this->getRequest()->getClientIp());
+            $em->persist($operateur);
             $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Hello Email') //Votre sortie, bledvoyage.com

@@ -66,7 +66,7 @@ class Ticket
     /**
      * @var string
      *
-     * @ORM\Column(name="close", type="string", length=255)
+     * @ORM\Column(name="close", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $close;
 
