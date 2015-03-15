@@ -1,40 +1,25 @@
 Bonjour {{ product.prenom }}, 
-Nous vous confirmons votre réservation. Vous trouverez ci-après, les détails de votre réservation.
+Nous vous confirmons votre commande. Vous trouverez ci-après, les détails de votre commande.
 
-DETAIL RESERVATION : 
+DETAIL COMMANDE : 
 
-N° de réservation : {{ product.id }}
-Sortie : {{ product.sortie }} 
-Date de réservation : {{ product.dateTime|date('d/m/Y') }}
-Tarif : {{ product.tarif }} da/personne
-Heure de début : {{ product.heureDebut }}
-Nombre de places : {{ product.nombre }}
-Votre créneau : {{ product.creneau }}
+N° de commande : {{ product.id }}
+Catégorie : {{ product.categorie }}
+Date de commande : {{ product.dateTime|date('d/m/Y') }} 
+Tarif : {{ product.tarif }}
+Nombre de tickets : {{ product.nombre }}
 
-Grâce à la promotion vous n'avez plus rien a payer.
-
-Suivez nos aventures sur nos pages facebook : 
-#nroho : https://www.facebook.com/nroho
-#chassezlaroutine : https://www.facebook.com/bledvoyage
-
-Aussi, vous trouverez ci-après les conditions de participation imposé par le moniteur, un plan d'accès, ainsi que les coordonées 
-de la personne à contacter :
-
-Conditions de participation :
-{{ product.condition }}
-
-
-Plan d'accès :
-{{ product.planAcces }}
+Mode de paiement choisi : {{ product.modePaiement }}
+{% if product.modePaiement == 'Rendez-vous' %}
+à {{ product.lieuRdv }} le {{ product.dateRdv|date('d/m/Y') }} à {{ product.heureRdv }}
+{% endif %}
 
 Personne à contacter :
 Soumia : 0556179774
 
-Moniteur activité :
-{{ product.moniteur }}
 
 -----
-Modalités de paiement : 
+Nos modes de paiement : 
 Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre réservation rapidement :
 Prendre une photo lisible avec votre reçu avec votre smartphone, 
 appareil photo,... Et envoyez-nous la photo avec votre numéro de réservation sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
@@ -48,7 +33,7 @@ CCP : 0000378861  75
 
 --
 2  Le virement bancaire : 
-Titulaire du compte : BADR - Sebastopol - 81, Cehnoua plage, 42000, Tiapza - Algérie.
+Titulaire du compte : BADR - Sebastopol - 81, Chenoua plage, 42000, Tiapza - Algérie.
 R.I.B : 003 - 00448 - 300183300019.
 
 
@@ -62,7 +47,7 @@ Envoyer le chèque à :
 --
 4  Entreprises et professionnels
 Envoyez un bon de commande, avec, nombre de place, date de réservation, signature et cachet, par 
-E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 07. 
+E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 04. 
 
 
 --

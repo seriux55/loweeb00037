@@ -119,9 +119,9 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{{ dataT.dateAchat|date('d/m/Y') }}</td>
+                            <td>{% if dataT.dateAchat != 'Ì' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
-                            <td>{{ dataT.rdv }}</td>
+                            <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td class="couleur">{{ dataT.note }}</td>
                             <td><a href="{{ path('bledvoyage_admin_commande_note',      { 'id': dataT.id } ) }}" target="_blank" class="button">Note</a></td>
                             <td><a href="{{ path('bledvoyage_admin_commande_confirmer', { 'id': dataT.id } ) }}" target="_blank" class="button">Envoyer</a></td>
@@ -136,9 +136,9 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{{ dataT.dateAchat|date('d/m/Y') }}</td>
+                            <td>{% if dataT.dateAchat != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
-                            <td>{{ dataT.rdv }}</td>
+                            <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td class="couleur">{{ dataT.note }}</td>
                             <td><a href="{{ path('bledvoyage_admin_commande_note',      { 'id': dataT.id } ) }}" target="_blank" class="button">Note</a></td>
                             <td><a href="{{ path('bledvoyage_admin_commande_confirmer', { 'id': dataT.id } ) }}" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
@@ -153,9 +153,9 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{{ dataT.dateAchat|date('d/m/Y') }}</td>
+                            <td>{% if dataT.dateAchat != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
-                            <td>{{ dataT.rdv }}</td>
+                            <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td class="couleur">{{ dataT.note }}</td>
                             <td><a href="{{ path('bledvoyage_admin_commande_note',      { 'id': dataT.id } ) }}" target="_blank" class="button">Note</a></td>
                             <td><a href="{{ path('bledvoyage_admin_commande_confirmer', { 'id': dataT.id } ) }}" target="_blank" class="buttona"><img src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}" alt="ok" class="oko">Envoyé</a></td>
@@ -170,9 +170,9 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{{ dataT.dateAchat|date('d/m/Y') }}</td>
+                            <td>{% if dataT.dateAchat != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
-                            <td>{{ dataT.rdv }}</td>
+                            <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td></td>
                             <td>--</td>
                             <td>--</td>

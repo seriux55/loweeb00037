@@ -168,6 +168,26 @@ class AdminController extends Controller
                       ->setIp($this->getRequest()->getClientIp());
             $em->persist($operateur);
             $em->flush();
+            $message = \Swift_Message::newInstance()
+                ->setSubject('test Confirmation de commande') //Confirmation de reservation, bledvoyage.com
+                ->setFrom('contact@bledvoyage.com')
+                ->setTo('nadir.allam@bledvoyage.com')
+                ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_confirmer.txt.twig', array(
+                    'product' => array(
+                        'prenom'        => $commande->getUser()->getSecondename(),
+                        'id'            => $commande->getId(),
+                        'categorie'     => $commande->getCategorieTicket()->getNom(),
+                        'dateTime'      => $commande->getDateTime(),
+                        'tarif'         => $commande->getCategorieTicket()->getTarif(),
+                        'nombre'        => $commande->getNombre(),
+                        'modePaiement'  => $commande->getModePaiement(),
+                        'dateRdv'       => $commande->getDateRdv(),
+                        'heureRdv'      => $commande->getHeureRdv(),
+                        'lieuRdv'       => $commande->getLieuRdv(),
+                    )
+                )))
+            ;
+            $this->get('mailer')->send($message);
             return $this->forward('BaseBledvoyageBundle:Confirmation:confirmerCommande');
         }
         return $this->render('BaseBledvoyageBundle:Admin:commande_confirmer.html.twig', array(
@@ -300,7 +320,7 @@ class AdminController extends Controller
             $pdf_3->writeHTML($catalogue);
             $content_3 = $pdf_3->Output('Catalogue.pdf', true);
             $message = \Swift_Message::newInstance()
-                ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
+                ->setSubject('test Votre ticket cadeau, bledvoyage.com')
                 ->setFrom('contact@bledvoyage.com')
                 ->setTo('nadir.allam@gmail.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_facturer.html.twig', array(
@@ -418,7 +438,7 @@ class AdminController extends Controller
             $em->persist($operateur);
             $em->flush();
             $message = \Swift_Message::newInstance()
-                ->setSubject('Hello Email') //Confirmation de reservation, bledvoyage.com
+                ->setSubject('test Confirmation de reservation, bledvoyage.com')
                 ->setFrom('contact@bledvoyage.com')
                 ->setTo('nadir.allam@bledvoyage.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:reservation_confirmer.txt.twig', array(
@@ -476,7 +496,7 @@ class AdminController extends Controller
             $em->persist($operateur);
             $em->flush();
             $message = \Swift_Message::newInstance()
-                ->setSubject('Hello Email') //Votre sortie, bledvoyage.com
+                ->setSubject('test Votre sortie, bledvoyage.com')
                 ->setFrom('contact@nroho.com')
                 ->setTo('nadir.allam@bledvoyage.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:reservation_avis.txt.twig', array(

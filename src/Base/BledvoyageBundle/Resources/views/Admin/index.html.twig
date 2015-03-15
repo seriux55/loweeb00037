@@ -161,7 +161,7 @@
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
                                         <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
                                         <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- bottona -> bottono -->
-                                        <td><a class="buttona">Avis</a></td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>
                                     </tr>
                                 {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 1 %}
                                     <tr class="spetela">

@@ -79,9 +79,9 @@ class Booking
     private $nombre;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="promo", type="simple_array", nullable=true)
+     * @ORM\Column(name="promo", type="string", length=255, nullable=true)
      */
     private $promo;
 
@@ -538,7 +538,7 @@ class Booking
     /**
      * Set promo
      *
-     * @param array $promo
+     * @param string $promo
      * @return Booking
      */
     public function setPromo($promo)
@@ -551,7 +551,7 @@ class Booking
     /**
      * Get promo
      *
-     * @return array 
+     * @return string 
      */
     public function getPromo()
     {

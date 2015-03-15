@@ -84,28 +84,75 @@ class DefaultController extends Controller
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $frToDatetime = $this->container->get('FrToDatetime');
-            $promo = $request->request->all();
-            foreach ( $promo as $key => $val )
+            $post = $request->request->all();
+            foreach ( $post as $key => $val )
             {
                 if(substr($key, 0, 5) == "promo"){
                     $a[] = substr($key, 5);
                 }
             }
-            $nbr_promo = max($a);
+            $invalide = $nbr_promo = max($a);
+            $where = $code = $text = '';
+            $nombre = $request->get('nombre');
             for($i=0;$i<=$nbr_promo;$i++){
-                $a = 11;
+                if($i == 0){ 
+                    $where .= "a.code = '".addslashes($request->get('promo'.$i))."'";
+                    $code  .= $request->get('promo'.$i);
+                }else{
+                    $where .= " OR a.code = '".addslashes($request->get('promo'.$i))."'";
+                    $code  .= ', '.$request->get('promo'.$i);
+                }
+            }
+            $promo = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.commande', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('b.categorieTicket', 'c')
+                   ->where($where)
+                   ->getQuery()
+                   ->getResult();
+            foreach($promo as $value){
+                $reste = $value->getCommande()->getCategorieTicket()->getNombreActivite() - $value->getUsed();
+                if($value->getClose() == '1'){
+                    $text .= ', utilisé';
+                }else if($value->getDateFin()->format('Y-m-d') < \date('Y-m-d')){
+                    $text .= ', expiré';
+                }else if($nombre != 0 && $reste > 0 && $reste >  $nombre){
+                    // li bqa kter men wech rahi tdemandi
+                    // il paye rien
+                    $used = $value->getUsed() + $nombre;
+                    // update
+                    $nombre = 0;
+                }else if($nombre != 0 && $reste > 0 && $reste == $nombre){
+                    // li bqa kima wech rahi tdemandi
+                    // il paye rien
+                    $used = $value->getUsed() + $nombre;
+                    // update
+                    $nombre = 0;
+                }else if($nombre != 0 && $reste > 0 && $reste <  $nombre){
+                    // li bqa qel men wach rahi tdemandi
+                    // il paye la difference
+                    $used = $value->getUsed() + $reste;
+                    $nombre = $nombre - $reste;
+                }else if($nombre != 0 && $reste <= 0){
+                    // il ne lui reste plus de place
+                    $text .= ', utilisé';
+                }
+                $invalide--;
             }
             $booking = new Booking();
             $booking->setUser($this->get('security.context')->getToken()->getUser())
                     ->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id))
                     ->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateReserver'))))
                     ->setNombre($request->get('nombre'))
+                    ->setPromo($code)
                     ->setIp($this->getRequest()->getClientIp());
             $em = $this->getDoctrine()->getManager();
             $em->persist($booking);
             $em->flush();
             return $this->render('BaseBledvoyageBundle:Confirmation:user_reservation.html.twig', array(
-                'a' => $a,
+                'a' => $promo,
             ));
         }
         /*
@@ -236,9 +283,9 @@ class DefaultController extends Controller
         $chemin   = "bundles/basebledvoyage/pdf/"; // emplacement de votre fichier .pdf
         $response = new Response();
         $response->setContent(file_get_contents($chemin.$fichier))
-                 ->headers->set('Content-Type', 'application/pdf') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
+                 //->headers->set('Content-Type', 'application/pdf') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
                  
-                 //->headers->set('Content-Type', 'application/force-download') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
+                 ->headers->set('Content-Type', 'application/force-download') // modification du content-type pour forcer le téléchargement (sinon le navigateur internet essaie d'afficher le document)
                  //->headers->set('Content-Disposition', 'attachment; filename="offre_journee_team_building.pdf"')
                  //->headers->set('Content-disposition', 'filename='. $fichier)
                 ;
