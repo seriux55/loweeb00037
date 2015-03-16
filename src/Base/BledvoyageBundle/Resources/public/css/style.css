@@ -3530,8 +3530,8 @@ article p
     padding: 10px 70px;
     text-align: center;
     text-decoration: none;
-	font-family:Helvetica,Arial,sans-serif;
-	cursor:pointer;
+    font-family:Helvetica,Arial,sans-serif;
+    cursor:pointer;
 }
 
 .casoute .anou:hover {
@@ -3541,6 +3541,37 @@ article p
 }
 
 .casoute .anou:active {
+    background-color: #E9E9E9;
+    background-image: none;
+    border-color: #C6C6C6;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+    color: #333333;
+}
+
+.casouty .anou {
+    background-color: #FFFFFF;
+    border: 1px solid #CDCACA;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    color: #333333;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 7px;
+    padding: 6px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family:Helvetica,Arial,sans-serif;
+    cursor:pointer;
+    margin-bottom: 5px;
+}
+
+.casouty .anou:hover {
+    background-image: linear-gradient(to bottom, #F8F8F8 0px, #EEEEEE 100%);
+    border-color: #C6C6C6;
+    /*text-decoration: underline;*/
+}
+
+.casouty .anou:active {
     background-color: #E9E9E9;
     background-image: none;
     border-color: #C6C6C6;

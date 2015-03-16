@@ -79,6 +79,7 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# FOS User Configuration
 fos_user:
     db_driver: orm
     firewall_name: main
@@ -96,6 +97,7 @@ sensio_framework_extra:
     view:    { annotations: false }
     #router:  { annotations: true }
 
+# FOS REST Configuration
 fos_rest:
     param_fetcher_listener: true
     body_listener: true
@@ -104,3 +106,9 @@ fos_rest:
         view_response_listener: 'force'
     routing_loader:
         default_format: json
+
+# Stof\DoctrineExtensionBundle Configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true

@@ -12,7 +12,7 @@ sortie_nroho:
     prefix:   api
 
 bledvoyage_product:
-    path:     /product/{id}
+    path:     /product/{id}/{slug}
     defaults: { _controller: BaseBledvoyageBundle:Default:product }
     requirements:
         id:   \d+

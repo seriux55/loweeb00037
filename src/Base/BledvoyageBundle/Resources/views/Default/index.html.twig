@@ -104,7 +104,7 @@
                 </div>
                 <div class="choiev">
                     <div class="detprod">
-                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id  }) }}">Détail</a>
+                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id, 'slug':data.sortie.slug  }) }}">Détail</a>
                     </div>
                     {% if data.sortie.close == 0 %}
                     <div class="resrc">

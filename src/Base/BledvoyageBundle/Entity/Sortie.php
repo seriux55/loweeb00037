@@ -4,6 +4,7 @@ namespace Base\BledvoyageBundle\Entity;
 
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -46,6 +47,12 @@ class Sortie
      * @Expose
      */
     private $titre;
+    
+    /**
+     * @Gedmo\Slug(fields={"titre"})
+     * @ORM\Column(name="slug", type="string", length=128)
+     */
+    private $slug;
 
     /**
      * @var string
@@ -349,6 +356,29 @@ class Sortie
     public function getTitre()
     {
         return $this->titre;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Sortie
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

@@ -575,6 +575,24 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         $manager->flush();
         
         $this->addReference('booking1',  $booking1);
+        $this->addReference('booking2',  $booking2);
+        $this->addReference('booking3',  $booking3);
+        $this->addReference('booking4',  $booking4);
+        $this->addReference('booking5',  $booking5);
+        $this->addReference('booking6',  $booking6);
+        $this->addReference('booking7',  $booking7);
+        $this->addReference('booking8',  $booking8);
+        $this->addReference('booking9',  $booking9);
+        $this->addReference('booking10',  $booking10);
+        $this->addReference('booking11',  $booking11);
+        $this->addReference('booking12',  $booking12);
+        $this->addReference('booking13',  $booking13);
+        $this->addReference('booking14',  $booking14);
+        $this->addReference('booking15',  $booking15);
+        $this->addReference('booking16',  $booking16);
+        $this->addReference('booking17',  $booking17);
+        $this->addReference('booking18',  $booking18);
+        $this->addReference('booking19',  $booking19);
     }
     
     public function getOrder()
