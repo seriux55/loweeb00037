@@ -5,6 +5,11 @@
 {% block stylesheets %}{{ parent() }}{% endblock %}
 
 {% block body %}
+{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+{{ render(controller('BaseUserBundle:Security:login', { 'id' : 2, 'booking' : booking } )) }}
+{{ render(controller('BaseUserBundle:Registration:register', { 'id' : booking } )) }}
+{% else %}
+
 {% for data in product %}
 <div class="bloc_page_body222">
     <h2>
@@ -134,4 +139,7 @@
     }
 </script>
 {% endfor %}
+
+{% endif %}
+
 {% endblock %}

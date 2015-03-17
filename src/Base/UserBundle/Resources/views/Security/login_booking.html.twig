@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="bloc_page_bodyg">
+    <div class="bloc_page_body222">
+        <h2>Connexion</h2>
+    </div>
+    <section>
+        <div class="nouveau7">                      
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <div class="mr7">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <div class="mr3">
+                        <label for="username">Adresse mail :</label>
+                        <input class="ouardepp" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    </div>
+                    <div class="mr3">
+                        <label for="password">{{ 'security.login.password'|trans }}</label>
+                        <input class="ouardepp" type="password" id="password" name="_password" required="required" />
+                    </div>
+                    <div class="mr3">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    </div>
+                    <div class="mr3">
+                        <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
+                    </div>
+                    <div class="mr3">
+                        <a href="#inscription">Inscription</a>
+                    </div>
+                </div>
+                <div class="mr2">
+                    <div class="mr6io">
+                        <input type="hidden" name="_target_path" value="{{ booking }}" />
+                        <input class="trouvezi" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    </div>
+                </div>
+                {% if error %}
+                <div class="mr2">
+                    <div class="mr6">
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </section>
+</div>

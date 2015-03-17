@@ -3,6 +3,12 @@
 {% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
+
+{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+{{ render(controller('BaseUserBundle:Security:login', { 'id' : 1, 'booking' : booking } )) }}
+{{ render(controller('BaseUserBundle:Registration:register', { 'id' : booking } )) }}
+{% else %}
+
 <div class="bloc_page_body222">
     <h2>
         Réservation 
@@ -176,6 +182,8 @@
         </p>
     </div>
 </div>
+{% endif %}
+
 {% endblock %}
 
 {% block javascripts %}

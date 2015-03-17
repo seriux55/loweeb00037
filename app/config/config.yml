@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@BaseUserBundle/Resources/config/services.yml" }
 
 framework:
     #esi:             ~
@@ -91,7 +92,7 @@ fos_user:
         form:
             type:       base_user_registration
         confirmation:
-            enabled:    true
+            enabled:    false # true si validation par email
  
 sensio_framework_extra:
     view:    { annotations: false }

@@ -36,7 +36,7 @@ security:
         - { path: ^/type$,          role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /manager,         role: [ROLE_ADMIN, ROLE_MODERATEUR] }
         - { path: /_console/,       role: ROLE_ADMIN }
-        - { path: ^/booking,        role: ROLE_USER }
+        #- { path: ^/booking,        role: ROLE_USER }
         - { path: ^/avis$,          role: ROLE_USER }
         - { path: ^/suggest,        role: ROLE_USER }
-        - { path: /promotion/.*,    role: ROLE_USER }
+        #- { path: /promotion/.*,    role: ROLE_USER }

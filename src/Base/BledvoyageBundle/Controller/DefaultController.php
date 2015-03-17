@@ -62,9 +62,12 @@ class DefaultController extends Controller
                    ->orderBy('a.id','DESC')
                    ->getQuery()
                    ->getResult();
-        
+        foreach ($product as $data) {
+            $titre = $data->getSortie()->getTitre();
+        }
         $response = $this->render('BaseBledvoyageBundle:Default:product.html.twig', array(
             'product'   => $product,
+            'titre'     => $titre,
         ));
         return $response;
     }
@@ -176,6 +179,7 @@ class DefaultController extends Controller
         */
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
             'product'   => $product,
+            'booking'   => $id,
         ));
         return $response;
     }
@@ -264,7 +268,8 @@ class DefaultController extends Controller
             return $this->render('BaseBledvoyageBundle:Confirmation:user_commande.html.twig');
         }
         $response = $this->render('BaseBledvoyageBundle:Default:commande.html.twig', array(
-            'product' => $product,
+            'product'   => $product,
+            'booking'   => $id,
         ));
         return $response;
     }
