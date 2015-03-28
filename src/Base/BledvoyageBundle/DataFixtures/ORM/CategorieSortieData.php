@@ -171,6 +171,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
     
     public function getOrder()
     {
-        return 4; // l'ordre dans lequel les fichiers sont chargés
+        return 5; // l'ordre dans lequel les fichiers sont chargés
     }
 }

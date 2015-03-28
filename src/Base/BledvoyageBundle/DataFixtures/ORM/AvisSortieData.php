@@ -117,6 +117,6 @@ class AvisSortieData extends AbstractFixture implements FixtureInterface, Contai
     
     public function getOrder()
     {
-        return 10; // l'ordre dans lequel les fichiers sont chargés
+        return 11; // l'ordre dans lequel les fichiers sont chargés
     }
 }

@@ -5,16 +5,20 @@
 {% block stylesheets %}{{ parent() }}{% endblock %}
 
 {% block body %}
-{% for data in product %}
 <div class="bled">
     <div class="headbleda">
-        <img src="{{ asset('bundles/basebledvoyage/images/photo_type/categorie/' ~ data.sortie.categorie.image ) }}" alt="sable">
+        {% set i = false %}
+        {% for data in product %}
+        {% if i == 0 %}
+        <img src="{{ asset('bundles/basebledvoyage/images/photo_type/categorie/' ~ data.sortie.categorie.image ) }}" alt="{{ data.sortie.categorie.nom }}">
+        {% set i = true %}
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 <div class="navibled">
     <div class="navicont">
         <ul class="naviul">
-            
             {% for data in categorie %}
             {% if data.nom != 'formation' %}
             <li class="navili">
@@ -27,7 +31,13 @@
 </div>
 <div class="bloc_page_body222">
     <h2>
+        {% set i = false %}
+        {% for data in product %}
+        {% if i == 0 %}
         {% if data.sortie.categorie.nom != 'formation' %}Les sorties{% else %}Les formations{% endif %}
+        {% set i = true %}
+        {% endif %}
+        {% endfor %}
     </h2>
 </div>
 <div class="bloc_page_body3">
@@ -42,13 +52,14 @@
             ?>
     </div>
     -->
-    
+
+    {% for data in product %}
     {% if data.sortie.close == 0 %}
     <section>
         <div class="conte">
             <div class="rc">
                 <div class="photorc">
-                    <img src="{{ asset('upload/img/' ~ data.sortie.photo1) }}" alt="{{ data.sortie.titre }}"/>
+                    <img src="{{ asset(data.sortie.picture1.webPath) }}" alt="{{ data.sortie.picture1.alt }}" />
                 </div>
                 <div class="desrc">
                     <article>
@@ -101,7 +112,7 @@
                 </div>
                 <div class="choiev">
                     <div class="detprod">
-                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id  }) }}">Détail</a>
+                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id, 'slug':data.sortie.slug }) }}">Détail</a>
                     </div>
                     <div class="resrc">
                         <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
@@ -114,6 +125,7 @@
         </div>
     </section>
     {% endif %}
+    {% endfor %}
     <!--
     <div class="plusrc">
         <p>
@@ -147,7 +159,6 @@
     </div>
 </div>
 <!-- // fin de la petite pub -->
-{% endfor %}
 {% endblock %}
 
 {% block jquery %}{% endblock %}

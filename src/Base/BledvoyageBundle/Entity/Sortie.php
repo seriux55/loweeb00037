@@ -18,6 +18,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Sortie
 {
+    public function __construct() {
+        $this->valider  = "0";
+        $this->annuler  = "0";
+        $this->astuce   = "0";
+        $this->pub      = "0";
+        $this->close    = "0";
+        $this->dateTime = new \DateTime();
+    }
+    
     /**
      * @var integer
      *
@@ -36,9 +45,37 @@ class Sortie
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Categorie")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $categorie;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Base\BledvoyageBundle\Entity\Picture", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     * @Expose
+     */
+    private $picture1;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Base\BledvoyageBundle\Entity\Picture", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     * @Expose
+     */
+    private $picture2;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Base\BledvoyageBundle\Entity\Picture", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     * @Expose
+     */
+    private $picture3;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Base\BledvoyageBundle\Entity\Picture", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     * @Expose
+     */
+    private $picture4;
     
     /**
      * @var string
@@ -129,7 +166,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="plan_acces", type="string", length=1023)
+     * @ORM\Column(name="plan_acces", type="string", length=1023, nullable=true)
      * @Expose
      */
     private $planAcces;
@@ -137,7 +174,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="string", length=255)
+     * @ORM\Column(name="video", type="string", length=255, nullable=true)
      * @Expose
      */
     private $video;
@@ -145,7 +182,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="photo1", type="string", length=255)
+     * @ORM\Column(name="photo1", type="string", length=255, nullable=true)
      * @Expose
      */
     private $photo1;
@@ -153,7 +190,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="photo2", type="string", length=255)
+     * @ORM\Column(name="photo2", type="string", length=255, nullable=true)
      * @Expose
      */
     private $photo2;
@@ -161,7 +198,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="photo3", type="string", length=255)
+     * @ORM\Column(name="photo3", type="string", length=255, nullable=true)
      * @Expose
      */
     private $photo3;
@@ -169,7 +206,7 @@ class Sortie
     /**
      * @var string
      *
-     * @ORM\Column(name="photo4", type="string", length=255)
+     * @ORM\Column(name="photo4", type="string", length=255, nullable=true)
      * @Expose
      */
     private $photo4;
@@ -184,35 +221,35 @@ class Sortie
     /**
      * @var integer
      *
-     * @ORM\Column(name="charge", type="integer")
+     * @ORM\Column(name="charge", type="integer", nullable=true)
      */
     private $charge;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="acces", type="string", length=255)
+     * @ORM\Column(name="acces", type="string", length=255, nullable=true)
      */
     private $acces;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="echeance", type="integer")
+     * @ORM\Column(name="echeance", type="integer", nullable=true)
      */
     private $echeance;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="tarif_echeance", type="integer")
+     * @ORM\Column(name="tarif_echeance", type="integer", nullable=true)
      */
     private $tarifEcheance;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="commission", type="integer")
+     * @ORM\Column(name="commission", type="integer", nullable=true)
      */
     private $commission;
 
@@ -226,21 +263,21 @@ class Sortie
     /**
      * @var integer
      *
-     * @ORM\Column(name="tarif_etud", type="integer")
+     * @ORM\Column(name="tarif_etud", type="integer", nullable=true)
      */
     private $tarifEtud;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="promo_client", type="integer")
+     * @ORM\Column(name="promo_client", type="integer", nullable=true)
      */
     private $promoClient;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="promo_partenaire", type="integer")
+     * @ORM\Column(name="promo_partenaire", type="integer", nullable=true)
      */
     private $promoPartenaire;
 
@@ -333,6 +370,98 @@ class Sortie
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set picture1
+     *
+     * @param \Base\BledvoyageBundle\Entity\Picture $picture1
+     * @return Sortie
+     */
+    public function setPicture1(\Base\BledvoyageBundle\Entity\Picture $picture1)
+    {
+        $this->picture1 = $picture1;
+
+        return $this;
+    }
+
+    /**
+     * Get picture1
+     *
+     * @return \Base\BledvoyageBundle\Entity\Picture
+     */
+    public function getPicture1()
+    {
+        return $this->picture1;
+    }
+
+    /**
+     * Set picture2
+     *
+     * @param \Base\BledvoyageBundle\Entity\Picture $picture2
+     * @return Sortie
+     */
+    public function setPicture2(\Base\BledvoyageBundle\Entity\Picture $picture2)
+    {
+        $this->picture2 = $picture2;
+
+        return $this;
+    }
+
+    /**
+     * Get picture2
+     *
+     * @return \Base\BledvoyageBundle\Entity\Picture
+     */
+    public function getPicture2()
+    {
+        return $this->picture2;
+    }
+
+    /**
+     * Set picture3
+     *
+     * @param \Base\BledvoyageBundle\Entity\Picture $picture3
+     * @return Sortie
+     */
+    public function setPicture3(\Base\BledvoyageBundle\Entity\Picture $picture3)
+    {
+        $this->picture3 = $picture3;
+
+        return $this;
+    }
+
+    /**
+     * Get picture3
+     *
+     * @return \Base\BledvoyageBundle\Entity\Picture
+     */
+    public function getPicture3()
+    {
+        return $this->picture3;
+    }
+
+    /**
+     * Set picture4
+     *
+     * @param \Base\BledvoyageBundle\Entity\Picture $picture4
+     * @return Sortie
+     */
+    public function setPicture4(\Base\BledvoyageBundle\Entity\Picture $picture4)
+    {
+        $this->picture4 = $picture4;
+
+        return $this;
+    }
+
+    /**
+     * Get picture4
+     *
+     * @return \Base\BledvoyageBundle\Entity\Picture
+     */
+    public function getPicture4()
+    {
+        return $this->picture4;
     }
 
     /**

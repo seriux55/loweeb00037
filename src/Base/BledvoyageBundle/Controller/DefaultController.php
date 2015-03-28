@@ -4,9 +4,14 @@ namespace Base\BledvoyageBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Base\BledvoyageBundle\Entity\Booking;
 use Base\BledvoyageBundle\Entity\Commande;
 use Base\BledvoyageBundle\Entity\AvisSortie;
+use Base\BledvoyageBundle\Entity\Sortie;
+use Base\BledvoyageBundle\Entity\CategorieSortie;
+use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
+use Base\BledvoyageBundle\Entity\Picture;
 
 class DefaultController extends Controller
 {
@@ -16,6 +21,8 @@ class DefaultController extends Controller
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.sortie', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('b.picture1', 'c')
                    ->where('b.valider = :valider')
                    ->setParameter('valider', '1')
                    ->orderBy('a.id','DESC')
@@ -53,6 +60,14 @@ class DefaultController extends Controller
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.sortie', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('b.picture1', 'c')
+                   ->addSelect('d')
+                   ->leftJoin('b.picture2', 'd')
+                   ->addSelect('e')
+                   ->leftJoin('b.picture3', 'e')
+                   ->addSelect('f')
+                   ->leftJoin('b.picture4', 'f')
                    ->where('b.valider = :valider AND b.id = :id')
                    ->setParameters(
                         array(
@@ -72,7 +87,7 @@ class DefaultController extends Controller
         return $response;
     }
     
-    public function bookingAction($id)
+    public function bookingAction(Request $request, $id)
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
                    ->createQueryBuilder('a')
@@ -84,7 +99,6 @@ class DefaultController extends Controller
         foreach($product as $value){
             $dateDebut[] = array($value->getDateDebut()->format('Y-m-d') => $value->getDateDebut()->format('d/m/Y'));
         }
-        $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $frToDatetime = $this->container->get('FrToDatetime');
             $post = $request->request->all();
@@ -192,6 +206,8 @@ class DefaultController extends Controller
                    ->leftJoin('a.sortie', 'b')
                    ->addSelect('c')
                    ->leftJoin('b.categorie', 'c')
+                   ->addSelect('d')
+                   ->leftJoin('b.picture1', 'd')
                    ->where('b.valider = :valider AND b.categorie = :id')
                    ->setParameters(array(
                             'valider'   => '1',
@@ -235,7 +251,7 @@ class DefaultController extends Controller
         return $response;
     }
     
-    public function promotionTypeAction($id)
+    public function promotionTypeAction(Request $request, $id)
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')
                    ->createQueryBuilder('a')
@@ -243,7 +259,6 @@ class DefaultController extends Controller
                    ->setParameter('id', $id)
                    ->getQuery()
                    ->getResult();
-        $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
             $commande = new Commande();
@@ -297,15 +312,77 @@ class DefaultController extends Controller
         return $response;
     }
     
-    public function suggestAction()
+    public function suggestAction(Request $request)
     {
+        $sortie = new CategorieSortie();
+        $form = $this->createForm(new CategorieSortieType(), $sortie);
+        
+        if ($form->handleRequest($request)->isValid()) {
+            $sortie->getSortie()->setIp($this->getRequest()->getClientIp());
+            $sortie->getSortie()->setUser($this->get('security.context')->getToken()->getUser());
+            $sortie->setIp($this->getRequest()->getClientIp());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($sortie);
+            $em->flush();
+            $response = $this->render('BaseBledvoyageBundle:Confirmation:user_suggest.html.twig');
+            return $response;
+        }
+        /*
+        if ($request->getMethod() == 'POST') {
+            $frToDatetime = $this->container->get("FrToDatetime");
+            $em = $this->getDoctrine()->getManager();
+            $sortie = new Sortie();
+            $sortie->setUser($this->get('security.context')->getToken()->getUser())
+                   ->setLocalisation($request->request->get('localisation'))
+                   ->setTitre($request->request->get('titre'))
+                   ->setDateDebut(new \DateTime($frToDatetime->toDatetime($request->request->get('dateDebut'))))
+                   ->setHeureDebut($request->request->get('heureDebut'))
+                   ->setDateFin(new \DateTime($frToDatetime->toDatetime($request->request->get('dateFin'))))
+                   ->setHeureFin($request->request->get('heureFin'))
+                   ->setTarif($request->request->get('tarif'))
+                   ->setMaxPersonne($request->request->get('maxPersonne'))
+                   ->setDescriptif($request->request->get('descriptif'))
+                   ->setConditions($request->request->get('conditions'))
+                   ->setIp($this->getRequest()->getClientIp());
+            $picture = new Picture();
+            $picture->upload();
+            $em->persist($picture);
+            $sortie->setPicture1($picture);
+            $categorieSortie = new CategorieSortie();
+            $categorieSortie->setIp($this->getRequest()->getClientIp());
+            if(null != $request->request->get('velo')){ $categorieSortie->setVelo($request->request->get('velo')); }
+            if(null != $request->request->get('running')){ $categorieSortie->setRunning($request->request->get('running')); }
+            if(null != $request->request->get('kayak')){ $categorieSortie->setKayak($request->request->get('kayak')); }
+            if(null != $request->request->get('randonee')){ $categorieSortie->setRandonee($request->request->get('randonee')); }
+            if(null != $request->request->get('roller')){ $categorieSortie->setRoller($request->request->get('roller')); }
+            if(null != $request->request->get('plangee')){ $categorieSortie->setPlangee($request->request->get('plangee')); }
+            if(null != $request->request->get('equitation')){ $categorieSortie->setEquitation($request->request->get('equitation')); }
+            if(null != $request->request->get('fitness')){ $categorieSortie->setFitness($request->request->get('fitness')); }
+            if(null != $request->request->get('tennis')){ $categorieSortie->setTennis($request->request->get('tennis')); }
+            if(null != $request->request->get('golf')){ $categorieSortie->setGolf($request->request->get('golf')); }
+            if(null != $request->request->get('marche')){ $categorieSortie->setMarche($request->request->get('marche')); }
+            if(null != $request->request->get('visites')){ $categorieSortie->setVisites($request->request->get('visites')); }
+            if(null != $request->request->get('sportEau')){ $categorieSortie->setSportEau($request->request->get('sportEau')); }
+            if(null != $request->request->get('arc')){ $categorieSortie->setArc($request->request->get('arc')); }
+            if(null != $request->request->get('air')){ $categorieSortie->setAir($request->request->get('air')); }
+            if(null != $request->request->get('sable')){ $categorieSortie->setSable($request->request->get('sable')); }
+            if(null != $request->request->get('quad')){ $categorieSortie->setQuad($request->request->get('quad')); }
+            
+            
+            $em->persist($sortie);
+            $categorieSortie->setSortie($sortie);
+            $em->persist($categorieSortie);
+            $em->flush();
+        }
+        */
+        
         $response = $this->render('BaseBledvoyageBundle:Default:suggest.html.twig', array(
-            //'form'   => $form->createView(),
+            'form'   => $form->createView(),
         ));
         return $response;
     }
     
-    public function avisAction($id)
+    public function avisAction(Resquest $request, $id)
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
@@ -315,7 +392,6 @@ class DefaultController extends Controller
                    ->setParameter('id', $id)
                    ->getQuery()
                    ->getResult();
-        $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $avis = new AvisSortie();
             $booking = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')->find($id);

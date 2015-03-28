@@ -135,6 +135,6 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
     
     public function getOrder()
     {
-        return 5; // l'ordre dans lequel les fichiers sont chargés
+        return 6; // l'ordre dans lequel les fichiers sont chargés
     }
 }

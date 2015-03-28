@@ -597,6 +597,6 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
     
     public function getOrder()
     {
-        return 6; // l'ordre dans lequel les fichiers sont chargés
+        return 7; // l'ordre dans lequel les fichiers sont chargés
     }
 }

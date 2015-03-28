@@ -37,6 +37,6 @@ class TicketData extends AbstractFixture implements FixtureInterface, ContainerA
     
     public function getOrder()
     {
-        return 11; // l'ordre dans lequel les fichiers sont chargés
+        return 12; // l'ordre dans lequel les fichiers sont chargés
     }
 }

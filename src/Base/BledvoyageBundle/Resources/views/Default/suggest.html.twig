@@ -2,6 +2,11 @@
 
 {% block title %}{{ parent() }}{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+{% endblock %}
+
 {% block body %}
 <div class="bloc_page_body222">
     <h2>
@@ -32,24 +37,22 @@
                 <h2>Information sur la sortie</h2>
             </div>
             <div class="sectiono">
-                <form method="post" action="creation_post.php" enctype="multipart/form-data"><input type="hidden" name="PHPSESSID" value="o77ehqdsamtk52up4ih4amd9v4" />
+                <form method="post" enctype="multipart/form-data" {{ form_enctype(form) }}>
                     <div class="mr7">
                         <div class="mr4u">
-                            <label for="localisation">Localisation</label>
-                            <input class="ouardep" type="text" name="localisation" id="localisation" placeholder="Tipaza" 
-                            size="35"/>
+                            <label>Localisation</label>
+                            {{ form_widget(form.sortie.localisation, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <label for="titre">Titre de la sortie </label>
-                        <input class="ouatitre" type="text" name="titre" id="titre" placeholder="Une randonée à Tikejda..." 
-                        size="50"/>
+                        {{ form_widget(form.sortie.titre, {'attr': {'class': 'ouatitre'} }) }}
                     </div>
                     <div class="mr7">
                         <label for="type">Type de sortie </label>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox"  value="1" name="velo" id="velo">
+                                {{ form_widget(form.velo) }}
                             </div>
                             <div class="opit">
                                 <label for="velo" class="pigo">
@@ -62,11 +65,11 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                            <input type="checkbox"  value="1" name="randonee" id="randonnee">
+                                {{ form_widget(form.randonee) }}
                             </div>
                             <div class="opit">
-                                <label for="randonnee" class="pigo">
-                                    <img alt="Randonnee" src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
+                                <label for="randonee" class="pigo">
+                                    <img alt="Randonee" src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
                                     <div class="piod">
                                         Randonée, Camping
                                     </div>
@@ -75,7 +78,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox"  value="1" name="fitness" id="fitness">
+                                {{ form_widget(form.fitness) }}
                             </div>
                             <div class="opit">
                                 <label for="fitness" class="pigo">
@@ -88,7 +91,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="running" id="running">
+                                {{ form_widget(form.running) }}
                             </div>
                             <div class="opit">
                                 <label for="running" class="pigo">
@@ -101,7 +104,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="roller" id="roller">
+                                {{ form_widget(form.roller) }}
                             </div>
                             <div class="opit">
                                 <label for="roller" class="pigo">
@@ -114,7 +117,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox"  value="1" name="tennis" id="tennis">
+                                {{ form_widget(form.tennis) }}
                             </div>
                             <div class="opit">
                                 <label for="tennis" class="pigo">
@@ -127,7 +130,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox"  value="1" name="sport_eau" id="sport_eau">
+                                {{ form_widget(form.sportEau) }}
                             </div>
                             <div class="opit">
                                 <label for="sport_eau" class="pigo">
@@ -140,7 +143,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox"  value="1" name="plongee" id="plongee">
+                                {{ form_widget(form.plongee) }}
                             </div>
                             <div class="opit">
                                 <label for="plongee" class="pigo">
@@ -153,7 +156,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox"  value="1" name="golf" id="golf">
+                                {{ form_widget(form.golf) }}
                             </div>
                             <div class="opit">
                                 <label for="golf" class="pigo">
@@ -166,7 +169,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="kayak" id="kayak">
+                                {{ form_widget(form.kayak) }}
                             </div>
                             <div class="opit">
                                 <label for="kayak" class="pigo">
@@ -179,7 +182,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="equitation" id="equitation">
+                                {{ form_widget(form.equitation) }}
                             </div>
                             <div class="opit">
                                 <label for="equitation" class="pigo">
@@ -192,7 +195,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="marche" id="marche">
+                                {{ form_widget(form.marche) }}
                             </div>
                             <div class="opit">
                                 <label for="marche" class="pigo">
@@ -205,7 +208,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="visites" id="visites">
+                                {{ form_widget(form.visites) }}
                             </div>
                             <div class="opit">
                                 <label for="visites" class="pigo">
@@ -218,7 +221,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="air" id="air">
+                                {{ form_widget(form.air) }}
                             </div>
                             <div class="opit">
                                 <label for="air" class="pigo">
@@ -231,7 +234,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="sable" id="sable">
+                                {{ form_widget(form.sable) }}
                             </div>
                             <div class="opit">
                                 <label for="sable" class="pigo">
@@ -244,13 +247,26 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                <input type="checkbox" value="1" name="quad" id="quad">
+                                {{ form_widget(form.quad) }}
                             </div>
                             <div class="opit">
-                                <label for="sable" class="pigo">
+                                <label for="quad" class="pigo">
                                     <img alt="Quad" src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">
                                     <div class="piod">
                                         Quad
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="tyso">
+                            <div class="opig">
+                                {{ form_widget(form.arc) }}
+                            </div>
+                            <div class="opit">
+                                <label for="arc" class="pigo">
+                                    <img alt="Arc" src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">
+                                    <div class="piod">
+                                        Arc
                                     </div>
                                 </label>
                             </div>
@@ -259,64 +275,59 @@
                     <div class="mr7">
                         <div class="mr4u">
                             <label for="date_debut">Date de début de la sortie</label>
-                            <input class="datepicker" type="text" name="date_debut" id="date_debut" placeholder="01/10/2014" 
-                            size="35">
+                            {{ form_widget(form.sortie.dateDebut, {'attr': {'class': 'datepicker'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="heure_debut">Heure de début</label>
-                            <input class="ouardep" type="text" name="heure_debut" id="heure_debut" placeholder="18h15" 
-                            size="35"/>
+                            {{ form_widget(form.sortie.heureDebut, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="date_fin">Date de fin de la sortie</label>
-                            <input class="datepicker" type="text" name="date_fin" id="date_fin" placeholder="01/10/2014" 
-                            size="35">
+                            {{ form_widget(form.sortie.dateFin, {'attr': {'class': 'datepicker'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="heure_fin">Heure de fin</label>
-                            <input class="ouardep" type="text" name="heure_fin" id="heure_fin" placeholder="02/10/2014" 
-                            size="35"/>
+                            {{ form_widget(form.sortie.heureFin, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
                             <label for="tarif">Tarif par personne</label>
-                            <input class="ouardep" type="text" name="tarif" id="tarif" placeholder="2000 Da" 
-                            size="35"/>
+                            {{ form_widget(form.sortie.tarif, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="max_personne">Nombre maximum de personne</label>
-                            <input class="ouardep" type="text" name="max_personne" id="max_personne" placeholder="15" 
-                            size="35"/>
+                            {{ form_widget(form.sortie.maxPersonne, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
-                            <label for="descreptif">Descriptif</label>
+                            <label for="descriptif">Descriptif</label>
                             <p class="coord">Assurez vous de l'avoir écrit correctement. Vous receverez votre réservation par e-mail.</p>
-                            <textarea class="textarea" cols="30" rows="5" name="descreptif" id="descreptif"></textarea>
+                            {{ form_widget(form.sortie.descriptif, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="condi">Condition</label>
                             <p class="coord">Assurez vous de l'avoir écrit correctement. pour vous contacter en cas de besoin.</p>
-                            <textarea class="textarea" cols="30" rows="5" name="condi" id="condi"></textarea>
+                            {{ form_widget(form.sortie.conditions, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
-                            <input type="file" name="photo_1">
+                            {{ form_widget(form.sortie.picture1.file) }}
+                        
+                        <div class="mr4u">
+                            {{ form_widget(form.sortie.picture2.file) }}
                         </div>
                         <div class="mr4u">
-                            <input type="file" name="photo_2">
+                            {{ form_widget(form.sortie.picture3.file) }}
                         </div>
                         <div class="mr4u">
-                            <input type="file" name="photo_3">
-                        </div>
-                        <div class="mr4u">
-                            <input type="file" name="photo_4">
+                            {{ form_widget(form.sortie.picture4.file) }}
                         </div>
                     </div>
                     <div class="mr6">
+                        {{ form_rest(form) }}
                         <input class="cherchez" name="login" type="submit" value="Valider"/>
                     </div>
                 </form>
@@ -347,15 +358,13 @@
         </p>
     </div>
 </div>
-
-
-
+<!--
 <div class="bloc_page_body222">
     <h2>
         Création d'une sortie 
     </h2>
 </div>	
-<div class=".bloc_page_body3">
+<div class="bloc_page_body3">
     <section>
         <div class="infoparcourss">
             <div class="parcre">
@@ -431,7 +440,6 @@
     </div>
 </div>
 
-
 <div class="bloc_page_body222">
     <h2>
         Création d'une sortie 
@@ -475,6 +483,37 @@
         </p>
     </div>
 </div>
+-->
 {% endblock %}
 
-{% block jquery %}{% endblock %}
+{% block javascripts %}
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+jQuery(function($){
+    $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin',
+        'Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+        dayNamesMin: ['D','L','M','M','J','V','S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 7,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+    $( ".datepicker" ).datepicker( $.datepicker.regional[ "fr" ] );
+});
+$(function() {
+    $('input.datepicker').datepicker();
+});
+</script>
+{% endblock %}

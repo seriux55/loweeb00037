@@ -49,6 +49,8 @@ class SecurityController extends Controller
             $book = '/booking/'.$booking;
         }elseif ($id == 2){
             $book = '/promotion/'.$booking;
+        }elseif ($id == 0){
+            $book = '';
         }
 
         return $this->renderLogin(array(

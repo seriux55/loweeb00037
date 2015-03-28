@@ -118,9 +118,3 @@ bledvoyage_admin_reservation_acompte:
 bledvoyage_admin_statisqtique:
     path:     manager/statistic
     defaults: { _controller: BaseBledvoyageBundle:Admin:statistic }
-
-bledvoyage_fusion:
-    path:     fusion/{id}
-    defaults: { _controller: BaseBledvoyageBundle:Default:fusion }
-    requirements:
-        id:   \d+

@@ -24,6 +24,10 @@ class SortieData extends AbstractFixture implements FixtureInterface, ContainerA
         $sortie1 = new Sortie();
         $sortie1->setUser($this->getReference('user1'));
         $sortie1->setCategorie($this->getReference('categorie1'));
+        $sortie1->setPicture1($this->getReference('picture1'));
+        $sortie1->setPicture2($this->getReference('picture2'));
+        $sortie1->setPicture3($this->getReference('picture3'));
+        $sortie1->setPicture4($this->getReference('picture4'));
         $sortie1->setTitre('Quad Aventure');
         $sortie1->setDescriptif("Encore une nouveauté en Algérie !! 
 A partir du mois de février, chaque Weekend nous nous nous retrouverons à Djbel Chenoua, Tipaza, pour une randonnée en Quad ! D’une matinée ou d’une après-midi. 
@@ -74,6 +78,10 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie2 = new Sortie();
         $sortie2->setUser($this->getReference('user2'));
         $sortie2->setCategorie($this->getReference('categorie2'));
+        $sortie2->setPicture1($this->getReference('picture5'));
+        $sortie2->setPicture2($this->getReference('picture6'));
+        $sortie2->setPicture3($this->getReference('picture7'));
+        $sortie2->setPicture4($this->getReference('picture8'));
         $sortie2->setTitre('Dominez la bête volante');
         $sortie2->setDescriptif("Encore une nouveauté en Algérie, Nouvelle activité sensation, nouvelles aventure ! 
 Des cerfs-volants géants, insolents et immaitrisables, vous attendent pour les calmer, chaque Week-end à la plage de Chenoua, Tipaza, le temps d’une matinée ou d’une après-midi, venez-vous confronter à .ces ailes géantes ! 
@@ -120,6 +128,10 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie3 = new Sortie();
         $sortie3->setUser($this->getReference('user2'));
         $sortie3->setCategorie($this->getReference('categorie3'));
+        $sortie3->setPicture1($this->getReference('picture9'));
+        $sortie3->setPicture2($this->getReference('picture10'));
+        $sortie3->setPicture3($this->getReference('picture11'));
+        $sortie3->setPicture4($this->getReference('picture12'));
         $sortie3->setTitre('Plongée & Balade sous marine');
         $sortie3->setDescriptif("Chaque jour de 10h00 à 18h00, à l’heure où la qualité visuelle et des conditions de lumière seront optimales, nous nous retrouverons à Tipaza, pour une plongée sous-marine en bouteille.
 Nous commencerons par une séance d’initiation sous-marine, suivie d’une balade sous l’eau d’environ 20 minutes … et découverte des différentes espèces sous-marines. Nous finirons par un débriefing global. 
@@ -162,6 +174,10 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie4 = new Sortie();
         $sortie4->setUser($this->getReference('user2'));
         $sortie4->setCategorie($this->getReference('categorie4'));
+        $sortie4->setPicture1($this->getReference('picture13'));
+        $sortie4->setPicture2($this->getReference('picture14'));
+        $sortie4->setPicture3($this->getReference('picture15'));
+        $sortie4->setPicture4($this->getReference('picture16'));
         $sortie4->setTitre('Décollage immédiat');
         $sortie4->setDescriptif("Nouvelle activité sensation, nouvelles aventure ! 
 Un vol libre en parapente ? Planer autours des terres de Bouira, chaque weekend, un souvenir inoubliable et garantie à prendre 
@@ -208,6 +224,10 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5 = new Sortie();
         $sortie5->setUser($this->getReference('user2'));
         $sortie5->setCategorie($this->getReference('categorie5'));
+        $sortie5->setPicture1($this->getReference('picture17'));
+        $sortie5->setPicture2($this->getReference('picture18'));
+        $sortie5->setPicture3($this->getReference('picture19'));
+        $sortie5->setPicture4($this->getReference('picture20'));
         $sortie5->setTitre('Randonnée VTT');
         $sortie5->setDescriptif("La pleine de Chenoua et sa montagne qui sont situées à la sortie de la ville de Tipaza, vous accueillent pour une randonnée VTT aventure. 
 La sortie seffectue compagnie de notre moniteur Islem, qui partagera sa passion et son expérience avec nous ! 
@@ -257,6 +277,10 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie6 = new Sortie();
         $sortie6->setUser($this->getReference('user1'));
         $sortie6->setCategorie($this->getReference('categorie6'));
+        $sortie6->setPicture1($this->getReference('picture21'));
+        $sortie6->setPicture2($this->getReference('picture22'));
+        $sortie6->setPicture3($this->getReference('picture23'));
+        $sortie6->setPicture4($this->getReference('picture24'));
         $sortie6->setTitre('Formation & Stage Parapente');
         $sortie6->setDescriptif("Volez par vous-même ! C’est ce que Jaafar vous propose.
 Une formation de 7 jours à temps plein ou partiel, à votre rythme, pour une initiation à l’activité de « Parapente » et acquérir les principes de vols élémentaires, dans plusieurs villes en Algérie : Oran, Blida, Tipaza, Alger, Bouira, Setif,… Devenez autonome en Parapente‎ !
@@ -322,6 +346,6 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
     
     public function getOrder()
     {
-        return 3; // l'ordre dans lequel les fichiers sont chargés
+        return 4; // l'ordre dans lequel les fichiers sont chargés
     }
 }

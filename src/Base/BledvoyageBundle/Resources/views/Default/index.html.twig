@@ -34,7 +34,7 @@
         Les sorties
     </h2>
 </div>
-<div class=".bloc_page_body3">
+<div class="bloc_page_body3">
 
     <!--
     <div class="resrcbare">
@@ -51,7 +51,7 @@
         <div class="conte">
             <div class="rc">
                 <div class="photorc">
-                    <img src="{{ asset('upload/img/' ~ data.sortie.photo1) }}" alt="{{ data.sortie.titre }}"/>
+                    <img src="{{ asset(data.sortie.picture1.webPath) }}" alt="{{ data.sortie.picture1.alt }}" />
                 </div>
                 <div class="desrc">
                     <article>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="choiev">
                     <div class="detprod">
-                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id, 'slug':data.sortie.slug  }) }}">Détail</a>
+                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id, 'slug':data.sortie.slug }) }}">Détail</a>
                     </div>
                     {% if data.sortie.close == 0 %}
                     <div class="resrc">

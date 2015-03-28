@@ -91,6 +91,6 @@ Durant toute sa période de validité, le ticket reste échangeable, modifiable,
     
     public function getOrder()
     {
-        return 7; // l'ordre dans lequel les fichiers sont chargés
+        return 8; // l'ordre dans lequel les fichiers sont chargés
     }
 }

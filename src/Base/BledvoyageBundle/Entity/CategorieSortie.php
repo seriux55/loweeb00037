@@ -12,6 +12,29 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CategorieSortie
 {
+    public function __construct() {
+        /*
+        $this->velo         = false;
+        $this->running      = false;
+        $this->kayak        = false;
+        $this->randonee     = false;
+        $this->roller       = false;
+        $this->plongee      = false;
+        $this->equitation   = false;
+        $this->fitness      = false;
+        $this->tennis       = false;
+        $this->golf         = false;
+        $this->marche       = false;
+        $this->visites      = false;
+        $this->sportEau     = false;
+        $this->arc          = false;
+        $this->air          = false;
+        $this->sable        = false;
+        $this->quad         = false;
+        */
+        $this->dateTime     = new \Datetime();
+    }
+    
     /**
      * @var integer
      *
@@ -22,7 +45,7 @@ class CategorieSortie
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Sortie")
+     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Sortie", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $sortie;
@@ -30,119 +53,119 @@ class CategorieSortie
     /**
      * @var string
      *
-     * @ORM\Column(name="velo", type="string", length=255)
+     * @ORM\Column(name="velo", type="boolean")
      */
     private $velo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="running", type="string", length=255)
+     * @ORM\Column(name="running", type="boolean")
      */
     private $running;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="kayak", type="string", length=255)
+     * @ORM\Column(name="kayak", type="boolean")
      */
     private $kayak;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="randonee", type="string", length=255)
+     * @ORM\Column(name="randonee", type="boolean")
      */
     private $randonee;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="roller", type="string", length=255)
+     * @ORM\Column(name="roller", type="boolean")
      */
     private $roller;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="plongee", type="string", length=255)
+     * @ORM\Column(name="plongee", type="boolean")
      */
     private $plongee;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="equitation", type="string", length=255)
+     * @ORM\Column(name="equitation", type="boolean")
      */
     private $equitation;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fitness", type="string", length=255)
+     * @ORM\Column(name="fitness", type="boolean")
      */
     private $fitness;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tennis", type="string", length=255)
+     * @ORM\Column(name="tennis", type="boolean")
      */
     private $tennis;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="golf", type="string", length=255)
+     * @ORM\Column(name="golf", type="boolean")
      */
     private $golf;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marche", type="string", length=255)
+     * @ORM\Column(name="marche", type="boolean")
      */
     private $marche;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="visites", type="string", length=255)
+     * @ORM\Column(name="visites", type="boolean")
      */
     private $visites;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sport_eau", type="string", length=255)
+     * @ORM\Column(name="sport_eau", type="boolean")
      */
     private $sportEau;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arc", type="string", length=255)
+     * @ORM\Column(name="arc", type="boolean")
      */
     private $arc;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="air", type="string", length=255)
+     * @ORM\Column(name="air", type="boolean")
      */
     private $air;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sable", type="string", length=255)
+     * @ORM\Column(name="sable", type="boolean")
      */
     private $sable;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="quad", type="string", length=255)
+     * @ORM\Column(name="quad", type="boolean")
      */
     private $quad;
 

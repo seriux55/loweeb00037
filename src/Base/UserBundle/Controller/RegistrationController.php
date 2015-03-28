@@ -44,6 +44,12 @@ class RegistrationController extends BaseController
             $session->set('booking', $id);
         }
         
+        $redirect = false;
+        //$red = $request->request->get('red');
+        if (null !== $request->request->get('red') ) {
+            $redirect = true;
+        }
+        
         $form = $formFactory->createForm();
         $form->setData($user);
 
@@ -91,14 +97,20 @@ class RegistrationController extends BaseController
             return $response;
             */
         }
-        if ($id == '0'){
-            $response = $this->render('FOSUserBundle:Registration:register.html.twig', array(
-                'form'      => $form->createView(),
-            ));
-        }else{
+        if ($id != '0'){
             $response = $this->render('FOSUserBundle:Registration:register_booking.html.twig', array(
                 'form'      => $form->createView(),
                 'id'        => $id,
+            ));
+        }elseif ($redirect == true){
+            $response = $this->render('FOSUserBundle:Registration:register_booking.html.twig', array(
+                'form'      => $form->createView(),
+                'id'        => $request->request->get('red'),
+                //'errors'    => $error, // REVOIR !!!!!!!!!!
+            ));
+        }elseif ($id == '0'){
+            $response = $this->render('FOSUserBundle:Registration:register.html.twig', array(
+                'form'      => $form->createView(),
             ));
         }
         

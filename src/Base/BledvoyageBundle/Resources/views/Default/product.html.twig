@@ -11,7 +11,7 @@
     <!--Photo-->
     <div class="sectionni">
         <div class="photoi">
-            <img src="{{ asset('upload/img/' ~ data.sortie.photo3) }}" alt="Image"/>
+            <img src="{{ asset(data.sortie.picture3.webPath) }}" alt="{{ data.sortie.picture3.alt }}" />
         </div>
     </div>
     <!--FinPhoto-->
@@ -32,7 +32,7 @@
                             <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}">
                             <div class="debhead">
                                 <div class="debbodya">
-                                    <h6>Tipaza</h6>
+                                    <h6>{{ data.sortie.localisation }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="debhead">
                                 <div class="debbody">
                                     <h6>
-                                    15											
+                                    {{ data.sortie.maxPersonne }}											
                                     </h6>
                                     <p>Personnes</p>
                                 </div>
@@ -51,7 +51,7 @@
                             <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/prix.png') }}">
                             <div class="debhead">
                                 <div class="debbody">
-                                    <h6>14900</h6>
+                                    <h6>{{ data.sortie.tarif }}</h6>
                                     <p>Dinars</p>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                 <!-- FinAstucce -->
                 <div class="mr2i">
                     <h5>Catégorie</h5>
-                    <p>                                                                                                                                                                                                                                   <img alt="Kayak" src="../image/op/kayak.png">								
+                    <p>
                         {% if data.roller == 1 %}       <img alt="Roller"       src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
                         {% if data.equitation == 1 %}   <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
                         {% if data.fitness == 1 %}      <img alt="Fitness"      src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
@@ -210,9 +210,9 @@
                 </div>
                 <div class="intro4">
                     <div class="photoss">
-                        <img src="{{ asset('upload/img/' ~ data.sortie.photo2) }}" alt="Image"/>
-                        <img src="{{ asset('upload/img/' ~ data.sortie.photo3) }}" alt="Image"/>
-                        <img src="{{ asset('upload/img/' ~ data.sortie.photo4) }}" alt="Image"/>
+                        <img src="{{ asset(data.sortie.picture2.webPath) }}" alt="{{ data.sortie.picture2.alt }}" />
+                        <img src="{{ asset(data.sortie.picture3.webPath) }}" alt="{{ data.sortie.picture3.alt }}" />
+                        <img src="{{ asset(data.sortie.picture4.webPath) }}" alt="{{ data.sortie.picture4.alt }}" />
                     </div>
                 </div>
             </div>

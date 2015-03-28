@@ -5,6 +5,9 @@ namespace Base\BledvoyageBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+use Base\BledvoyageBundle\Form\Type\PictureType;
 
 class SortieType extends AbstractType
 {
@@ -15,39 +18,54 @@ class SortieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('descriptif')
-            ->add('conditions')
             ->add('localisation')
-            ->add('tarif')
-            ->add('maxPersonne')
-            ->add('dateDebut')
+            ->add('titre')
+            ->add('descriptif', 'textarea')
+            ->add('conditions', 'textarea')
+            ->add('tarif', 'text')
+            ->add('maxPersonne', 'text')
+            ->add('dateDebut', 'date', array(
+                    'widget' => 'single_text',
+                    'input' => 'datetime',
+                    'format' => 'dd/MM/yyyy',
+                    'attr' => array('class' => 'datepicker'),
+                )
+            )
             ->add('heureDebut')
-            ->add('dateFin')
+            ->add('dateFin', 'date', array(
+                    'widget' => 'single_text',
+                    'input' => 'datetime',
+                    'format' => 'dd/MM/yyyy',
+                    'attr' => array('class' => 'datepicker'),
+                )
+            )
             ->add('heureFin')
-            ->add('video')
-            ->add('photo1')
-            ->add('photo2')
-            ->add('photo3')
-            ->add('photo4')
-            ->add('valider')
-            ->add('charge')
-            ->add('acces')
-            ->add('echeance')
-            ->add('tarifEcheance')
-            ->add('commission')
-            ->add('annuler')
-            ->add('tarifEtud')
-            ->add('promoClient')
-            ->add('promoPartenaire')
-            ->add('astuce')
-            ->add('pub')
-            ->add('close')
-            ->add('ip')
-            ->add('dateTime')
-            ->add('user')
-            ->add('categorie')
+            ->add('picture1', new PictureType())
+            ->add('picture2', new PictureType())
+            ->add('picture3', new PictureType())
+            ->add('picture4', new PictureType())
         ;
+        
+        /*
+        // On ajoute une fonction qui va écouter l'évènement PRE_SET_DATA
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function(FormEvent $event) {
+                // On récupère notre objet Advert sous-jacent
+                $sortie = $event->getData();
+
+                if (null === $sortie) {
+                  return;
+                }
+
+                if (!$sortie->getPublished() || null === $sortie->getId()) {
+                    $event->getForm()->add('published', 'checkbox', array('required' => false));
+                } else {
+                    $event->getForm()->remove('published');
+                }
+            }
+        );
+        */
     }
     
     /**

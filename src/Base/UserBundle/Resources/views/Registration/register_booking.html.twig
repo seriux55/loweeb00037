@@ -53,7 +53,8 @@
                 {{ form_rest(form) }}
                 <div class="mr2">
                     <div class="mr6">
-                        <input type="hidden" name="_target_path" value="/booking/{{ id }}" />
+                        <input type="hidden" name="_target_path"  value="/booking/{{ id }}" />
+                        <input type="hidden" name="red" value="{{ id }}" />
                         <input class="trouvezzz" type="submit" value="{{ 'registration.submit'|trans }}" />
                     </div>
                 </div>

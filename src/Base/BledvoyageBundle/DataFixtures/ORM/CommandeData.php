@@ -248,6 +248,6 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
     
     public function getOrder()
     {
-        return 9; // l'ordre dans lequel les fichiers sont chargés
+        return 10; // l'ordre dans lequel les fichiers sont chargés
     }
 }

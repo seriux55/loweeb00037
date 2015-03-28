@@ -61,6 +61,6 @@ Envoyer le chèque à :
     
     public function getOrder()
     {
-        return 8; // l'ordre dans lequel les fichiers sont chargés
+        return 9; // l'ordre dans lequel les fichiers sont chargés
     }
 }
