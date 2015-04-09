@@ -118,3 +118,13 @@ bledvoyage_admin_reservation_acompte:
 bledvoyage_admin_statisqtique:
     path:     manager/statistic
     defaults: { _controller: BaseBledvoyageBundle:Admin:statistic }
+
+bledvoyage_admin_stat_year:
+    path:     manager/statistic/{year}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:statisticMois }
+    requirements:
+        year: \d+
+
+bledvoyage_admin_invitation:
+    path:     manager/invitation
+    defaults: { _controller: BaseBledvoyageBundle:Admin:invitation }

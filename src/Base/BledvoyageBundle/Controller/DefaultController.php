@@ -77,12 +77,78 @@ class DefaultController extends Controller
                    ->orderBy('a.id','DESC')
                    ->getQuery()
                    ->getResult();
+        $avis = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:AvisSortie')
+                ->createQueryBuilder('a')
+                ->addSelect('b')
+                ->leftJoin('a.booking', 'b')
+                ->addSelect('c')
+                ->leftJoin('b.user', 'c')
+                ->where('b.sortie = :id')
+                ->setParameter('id', $id)
+                ->orderBy('a.dateTime','DESC')
+                ->getQuery()
+                ->getResult();
+        switch(date('N')){
+            case 7:
+                $debut = date('Y-m-d'); 
+                $fin   = date('Y-m-d', strtotime(date('Y-m-d').' + 6 DAY'));
+                break;
+            case 1:
+                $debut = date('Y-m-d', strtotime(date('Y-m-d').' - 1 DAY'));
+                $fin   = date('Y-m-d', strtotime(date('Y-m-d').' + 5 DAY'));
+                break;
+            case 2:
+                $debut = date('Y-m-d', strtotime(date('Y-m-d').' - 2 DAY'));
+                $fin   = date('Y-m-d', strtotime(date('Y-m-d').' + 4 DAY'));
+                break;
+            case 3:
+                $debut = date('Y-m-d', strtotime(date('Y-m-d').' - 3 DAY')); 
+                $fin   = date('Y-m-d', strtotime(date('Y-m-d').' + 3 DAY'));
+                break;
+            case 4:
+                $debut = date('Y-m-d', strtotime(date('Y-m-d').' - 4 DAY'));
+                $fin   = date('Y-m-d', strtotime(date('Y-m-d').' + 2 DAY'));
+                break;
+            case 5:
+                $debut = date('Y-m-d', strtotime(date('Y-m-d').' - 5 DAY'));
+                $fin   = date('Y-m-d', strtotime(date('Y-m-d').' + 1 DAY'));
+                break;
+            case 6:
+                $debut = date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY'));
+                $fin   = date('Y-m-d');
+                break;
+        }
+        $participant = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                ->createQueryBuilder('a')
+                ->addSelect('b')
+                ->leftJoin('a.user', 'b')
+                ->where('a.sortie = :id AND a.dateConfirmer >= :debut AND a.dateConfirmer <= :fin')
+                ->setParameters(array(
+                    'id'    => $id,
+                    'debut' => $debut,
+                    'fin'   => $fin,
+                ))
+                ->orderBy('a.dateTime','DESC')
+                ->getQuery()
+                ->getResult();
         foreach ($product as $data) {
             $titre = $data->getSortie()->getTitre();
         }
+        $nbrAvis = 0;
+        foreach ($avis as $data) {
+            $nbrAvis++;
+        }
+        $nbrParticipant = 0;
+        foreach ($participant as $data) {
+            $nbrParticipant++;
+        }
         $response = $this->render('BaseBledvoyageBundle:Default:product.html.twig', array(
-            'product'   => $product,
-            'titre'     => $titre,
+            'product'           => $product,
+            'titre'             => $titre,
+            'avis'              => $avis,
+            'nbrAvis'           => $nbrAvis,
+            'nbrParticipant'    => $nbrParticipant,
+            'participant'       => $participant,
         ));
         return $response;
     }
@@ -172,25 +238,6 @@ class DefaultController extends Controller
                 'a' => $promo,
             ));
         }
-        /*
-        $booking = new Booking();
-        $form = $this->createForm(new BookingType($id, $dateDebut), $booking);
-        $request = $this->get('request');
-        if ($request->getMethod() == 'POST') {
-            $form->bind($request);
-            if ($form->isValid()) {
-                $frToDatetime = $this->container->get('FrToDatetime');
-                $booking->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id));
-                $booking->setUser($this->get('security.context')->getToken()->getUser());
-                $booking->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateResever'))));
-                $booking->setIp($this->getRequest()->getClientIp());
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($booking);
-                $em->flush();
-                return $this->redirect($this->generateUrl('base_bledvoyage_homepage'));
-            }
-        }
-        */
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
             'product'   => $product,
             'booking'   => $id,

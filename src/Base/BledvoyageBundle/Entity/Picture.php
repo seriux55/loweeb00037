@@ -186,6 +186,9 @@ class Picture
             case 'jpeg':
                 $source = imagecreatefromjpeg($this->file);
                 break;
+            case 'jpg':
+                $source = imagecreatefromjpeg($this->file);
+                break;
             case 'gif':
                 $source = imagecreatefromgif($this->file);
                 break;

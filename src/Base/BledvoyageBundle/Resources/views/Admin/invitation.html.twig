@@ -1,0 +1,116 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Invitation
+    </h2>
+</div>
+<div class="bloc_page_body3">
+    <section>
+        <div>
+            <div class="sectiar">
+                <h2>Information sur l'invitation</h2>
+            </div>
+            <div class="sectiono">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <label>Nom</label>
+                            <input class="ouardep" type="text" name="nom" />
+                        </div>
+                        <div class="mr4u">
+                            <label>Prenom</label>
+                            <input class="ouardep" type="text" name="prenom" />
+                        </div>
+                    </div>
+                    <div class="mr7">
+                        <div class="mr4u">
+                            <label>Adresse mail</label>
+                            <input class="ouardep" type="text" name="mail" />
+                        </div>
+                        <div class="mr4u">
+                            <label>Numéro de téléphone</label>
+                            <input class="ouardep" type="text" name="tel" />
+                        </div>
+                        <div class="mr4u">
+                            <label>Nombre de place</label>
+                            <input class="ouardep" type="text" name="nombre" />
+                        </div>
+                        <select class="ouardep" name="sortie">
+                            <option value="1">Quad avanture</option> 
+                            <option value="2" selected>Décolage immédiat</option>
+                        </select>
+                        <div class="mr4u">
+                            <label>Porcentage de la réduction</label>
+                            <input class="ouardep" type="text" name="reduction" />
+                        </div>
+                        <div class="mr4u">
+                            <label>La date de la sortie (2 mois de validité si c'est vide)</label>
+                            <input class="datepicker" type="text" name="dateSortie" />
+                        </div>
+                        <div class="mr4u">
+                            <label>Message personnalisé</label>
+                            <input class="ouardep" type="text" name="nombre" />
+                        </div>
+                        <div class="mr4u">
+                            <label>Nom de l'entreprise</label>
+                            <input class="ouardep" type="text" name="entreprise" />
+                        </div>
+                    </div>
+                    <p>Il faut généré un code</p>
+                    <div class="mr6">
+                        <input class="cherchez" name="login" type="submit" value="Valider"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('bledvoyage_admin') }}">
+                Revenir au tableau
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+jQuery(function($){
+    $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin',
+        'Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+        dayNamesMin: ['D','L','M','M','J','V','S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 7,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+    $( ".datepicker" ).datepicker( $.datepicker.regional[ "fr" ] );
+});
+$(function() {
+    $('input.datepicker').datepicker();
+});
+</script>
+{% endblock %}

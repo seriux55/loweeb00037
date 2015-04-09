@@ -142,7 +142,8 @@
                         <p>
                             Salut, 
                             Nous sommes Amar, Mohamed et lakroum, des passionnés de la nature, de la plongée et d’aventure et moniteurs expérimentés. Nous nous sommes peut-etre rencontrés lors de nos sorties bateau, plongée, rando, ... a Tipaza.
-                            Nous nous sommes unis proposer une offre « week end détente » tout compris : activités, hébergement, balades, ftor et shor, ... Nous avons pensé a ceux et celle qui habitent loin de Tipaza, Oran, Sidi bel abbes, Canstantine,... Qui nous contactent souvent pour nous demander des activités avec hébergement.  C’est aussi le deal idéal pour ceux et celles qui souhaitent se ressourcer et fuir la ville, le bruit, la pollution, le stress quotidien. Nous serons ravis de vous accueillir et de partager nos passions avec vous, le temps d’un week end a Tipaza. Marhba bikoum !								</p>
+                            Nous nous sommes unis proposer une offre « week end détente » tout compris : activités, hébergement, balades, ftor et shor, ... Nous avons pensé a ceux et celle qui habitent loin de Tipaza, Oran, Sidi bel abbes, Canstantine,... Qui nous contactent souvent pour nous demander des activités avec hébergement.  C’est aussi le deal idéal pour ceux et celles qui souhaitent se ressourcer et fuir la ville, le bruit, la pollution, le stress quotidien. Nous serons ravis de vous accueillir et de partager nos passions avec vous, le temps d’un week end a Tipaza. Marhba bikoum !
+                        </p>
                     </div>
                 </div>
             </div>
@@ -152,8 +153,29 @@
         </div>
     </div>	
     <!--FinLeProjet-->
-    <!-- video -->	
+    {% if data.sortie.video is not empty %}
+    <!-- video -->
+    <div id="videos" style="display:block;">					
+        <div class="sectiar">
+            <h2>En vidéo</h2> 
+        </div>
+        <div class="sectiono"> 
+            <div class="mr1i">
+                <div class="mr2i">
+                    <h4>Vidéo</h4>
+                </div>
+                <div class="intro4">
+                    <iframe width="620" height="349" src="{{ data.sortie.video[:24] ~ 'embed/' ~ data.sortie.video[32:] ~ '?rel=0' }}" allowfullscreen>
+                    </iframe>
+                </div> 
+            </div>
+            <div class="casoute">
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+            </div>				
+        </div>
+    </div>	
     <!-- FinVideo -->
+    {% endif %}
     <!-- LeProjet -->					
     <div id="conditions" style="display:block;">					
         <div class="sectiar">
@@ -224,8 +246,82 @@
     <!--FinLeProjet-->	
 </div>
 <!-- FinSortie -->
+{% if nbrAvis != 0 %}
+<!-- Avis -->
+<div id="avis" style="display:block;">					
+    <div class="sectiar">
+        <h2>Avis</h2> 
+    </div>
+    <div class="sectiono"> 
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Vos avis</h4>
+            </div>
+            <div class="mr2i">
+                <ul class="coment">
+                    {% for data in avis %}
+                    <li>
+                        <img class="avli" src="{{ asset('bundles/basebledvoyage/images/interface/avis.png') }}" alt="avis"/>
+                        <div class="headcom">
+                            <h3>{{ data.booking.user.secondename }}</h3>
+                            <p>{{ data.dateTime|date('d/m/Y') }} à {{ data.dateTime|date('h:i') }}</p>
+                            <h4>
+                                {{ data.avis }}
+                            </h4>
+                        </div>
+                        <div class="emotion">
+                            <div class="tion">
+                                {% if data.emotion == '1' %}
+                                <img class="avlo" src="{{ asset('bundles/basebledvoyage/images/avis/bien.png') }}" alt="bien"/>
+                                {% elseif data.emotion == '2' %}
+                                <img class="avlo" src="{{ asset('bundles/basebledvoyage/images/avis/cava.png') }}" alt="cava"/>
+                                {% elseif data.emotion == '3' %}
+                                <img class="avlo" src="{{ asset('bundles/basebledvoyage/images/avis/decu.png') }}" alt="decu"/>
+                                {% endif %}
+                            </div>				
+                        </div>					
+                    </li>
+                    {% endfor %}
+                </ul> 
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FinAvis -->
+{% endif %}
+<!-- participant -->
+{% if nbrParticipant > 0 %}
+<div id="participant" style="display:block;">					
+    <div class="sectiar">
+        <h2>Les participants</h2> 
+    </div>
+    <div class="sectiono"> 
+        <div class="mr1i">
+            <div class="mr2i">
+                <h4>Les participants de la semaine</h4>
+            </div>
+            <div class="mr2i">
+                <ul class="coment">
+                    {% for data in participant %}
+                    <li>
+                        <img class="avli" src="{{ asset('bundles/basebledvoyage/images/interface/avis.png') }}" alt="avis"/>
+                        <div class="headcom">
+                            <h3>{{ data.user.secondename }}</h3>
+                            <h4>
+                                {{ data.nombre }} place(s)
+                            </h4>
+                        </div>				
+                    </li>
+                    {% endfor %}
+                </ul> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- Fin participant -->
 <!-- Partage -->
-<div id="conditions" style="display:block;">					
+<div id="partage" style="display:block;">					
     <div class="sectiar">
         <h2>Réseaux Sociaux</h2> 
     </div>
@@ -285,7 +381,7 @@
         </div>
     </div>
 </div>
-<!--FinPartage-->
+<!-- FinPartage -->
 <div class="plusrc">
     <p>
         <a href="{{ path('base_bledvoyage_homepage') }}">Cliquez ici pour retourner à la liste des sorties...</a>

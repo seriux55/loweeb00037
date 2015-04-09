@@ -23,6 +23,7 @@ class Booking
         $this->creneau          = "";
         $this->participation    = "";
         $this->facture          = "0";
+        $this->annuler          = "0";
         $this->acompte          = "0";
         $this->mandat           = "0";
         $this->cheque           = "0";
@@ -91,6 +92,13 @@ class Booking
      * @ORM\Column(name="confirmer", type="string", length=255, options={"comment" = "0:non, 1:oui"})
      */
     private $confirmer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="annuler", type="string", length=255, options={"comment" = "0:non, 1:oui"})
+     */
+    private $annuler;
 
     /**
      * @var string
@@ -326,6 +334,29 @@ class Booking
     public function getConfirmer()
     {
         return $this->confirmer;
+    }
+
+    /**
+     * Set annuler
+     *
+     * @param string $annuler
+     * @return Booking
+     */
+    public function setAnnuler($annuler)
+    {
+        $this->annuler = $annuler;
+
+        return $this;
+    }
+
+    /**
+     * Get annuler
+     *
+     * @return string 
+     */
+    public function getAnnuler()
+    {
+        return $this->annuler;
     }
 
     /**

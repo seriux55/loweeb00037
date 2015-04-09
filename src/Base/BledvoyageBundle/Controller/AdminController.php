@@ -549,6 +549,400 @@ class AdminController extends Controller
     
     public function statisticAction()
     {
+        $year  = date('Y');
+        $month = date('m');
+        
+        $commandes = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                   ->createQueryBuilder('a')
+                   ->where('a.dateTime >= :date')
+                   ->setParameter('date', date('Y-m-d', strtotime($year.'-01-01')))
+                   ->getQuery()
+                   ->getResult();
+        $reservations = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ->createQueryBuilder('a')
+                   ->where('a.dateTime >= :date')
+                   ->setParameter('date', date('Y-m-d', strtotime($year.'-01-01')))
+                   ->getQuery()
+                   ->getResult();
+        
+        /*
+        $ticket = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
+                   ->createQueryBuilder('a')
+                   ->where('a.dateTime >= :date')
+                   ->setParameter('date', date('Y-m-d', strtotime($year.'-01-01')))
+                   ->getQuery()
+                   ->getResult();
+        */
+        
+        for($i=1; $i<=$month; $i++){
+            $dte1[$i]  = $year.'-'.$i.'-01';
+            $dte2[$i]  = $year.'-'.($i+1).'-01';
+            $date1[$i] = date("Y-m-d", strtotime($dte1[$i]));
+            $date2[$i] = date("Y-m-d", strtotime($dte2[$i]));
+            // les reservations
+            $reservation[$i] = 0;
+            foreach($reservations as $data){
+                $datetime = $data->getDateTime()->format('Y-m-d');
+                if (date($datetime) >= date($date1[$i]) && date($datetime) < date($date2[$i])){
+                    $reservation[$i] = $reservation[$i] + 1;
+                }
+            }
+            // les commandes
+            $commande[$i] = 0;
+            foreach($commandes as $data){
+                $datetime = $data->getDateTime()->format('Y-m-d');
+                if (date($datetime) >= date($date1[$i]) && date($datetime) < date($date2[$i])){
+                    $commande[$i] = $commande[$i] + 1;
+                }
+            }
+        }
+        $dataR = $dataC = array();
+        for($i=1; $i<=$month; $i++){
+            $dataR[]  = $reservation[$i];
+            $dataC[]  = $commande[$i];
+            switch ($i){
+                case  1: $dates[] = 'Janvier';   break;
+                case  2: $dates[] = 'Février';   break;
+                case  3: $dates[] = 'Mars';      break;
+                case  4: $dates[] = 'Avril';     break;
+                case  5: $dates[] = 'Maï';       break;
+                case  6: $dates[] = 'Juin';      break;
+                case  7: $dates[] = 'Juillet';   break;
+                case  8: $dates[] = 'Août';      break;
+                case  9: $dates[] = 'Septembre'; break;
+                case 10: $dates[] = 'Octobre';   break;
+                case 11: $dates[] = 'Novembre';  break;
+                case 12: $dates[] = 'Décembre';  break;
+            }
+        }
+        $sellsHistory = array(
+            array(
+                "name" => "Total des reservations", 
+                "data" => $dataR,
+            ),
+            array(
+                "name" => "Total des commandes", 
+                "data" => $dataC,
+            ),
+        );
+        
+        /*
+        $reservation1 = $reservation2 = $reservation3 = $reservation4 = $reservation5 = $reservation6 = $reservation7 = 0;
+        $commande1 = $commande2 = $commande3 = $commande4 = $commande5 = $commande6 = $commande7 = 0;
+        $ticket1 = $ticket2 = $ticket3 = $ticket4 = $ticket5 = $ticket6 = $ticket7 = 0;
+        
+        // Chart
+        $sellsHistory = array(
+            array(
+                "name" => "Total des reservations", 
+                "data" => array($reservation1, $reservation2, $reservation3, $reservation4, $reservation5, $reservation6, $reservation7)
+            ),
+            array(
+                "name" => "Total des commandes", 
+                "data" => array($commande1, $commande2, $commande3, $commande4, $commande5, $commande6, $commande7)
+            ),
+            array(
+                "name" => "Tickets vendu", 
+                "data" => array($ticket1, $ticket2, $ticket3, $ticket4, $ticket5, $ticket6, $ticket7)
+            ),
+        );
+        */
+        //$dates  = array($date1, $date2, '$date3', '$date4', '$date5', '$date6', '$date7');
+        $ob     = new Highchart();
+        // ID de l'élement de DOM que vous utilisez comme conteneur
+        $ob->chart->renderTo('linechart');  
+        $ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+        $ob->chart->type('column');
+        $ob->yAxis->title(array('text' => "La quantité"));
+        $ob->xAxis->title(array('text' => "La date"));
+        $ob->xAxis->categories($dates);
+        $ob->series($sellsHistory);
+        return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', array(
+            'chart' => $ob,
+        )); 
+    }
+    
+    public function statisticMoisAction($year)
+    {
+        $dateFromNumberWeek = $this->container->get('dateFromNumberWeek');
+        $toTwoDate = $dateFromNumberWeek->toTwoDate(1, 2015);
+        $dimanche  = $toTwoDate[0];
+        $samedi    = $toTwoDate[1];
+        
+        $year = '20'.$year;
+        if ($year == date('Y')){
+            $month = date('m');
+            $dateB = date('Y-m-d');
+        }else{
+            $month = 12;
+            $dateB = date('Y-m-d', strtotime($year.'-12-31'));
+        }
+        
+        $commandes = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.categorieTicket', 'b')
+                   ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
+                   ->setParameters(array(
+                       'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
+                       'dateB' => $dateB,
+                   ))
+                   ->getQuery()
+                   ->getResult();
+        $reservations = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.sortie', 'b')
+                   ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
+                   ->setParameters(array(
+                       'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
+                       'dateB' => $dateB,
+                   ))
+                   ->getQuery()
+                   ->getResult();
+        $operateurs = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Operateur')
+                    ->createQueryBuilder('a')
+                    ->addSelect('b')
+                    ->leftJoin('a.user', 'b')
+                    ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
+                    ->setParameters(array(
+                       'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
+                       'dateB' => $dateB,
+                    ))
+                    ->getQuery()
+                    ->getResult();
+        
+        $nm = 0;
+        for($i=1; $i<=$month; $i++){
+            $dte1[$i]  = $year.'-'.$i.'-01';
+            $dte2[$i]  = $year.'-'.($i+1).'-01';
+            $date1[$i] = date("Y-m-d", strtotime($dte1[$i]));
+            $date2[$i] = date("Y-m-d", strtotime($dte2[$i]));
+            // Les reservations
+            $reservation[$i] = $confirmationR[$i] = $avis[$i] = $annulationR[$i] = $receteR[$i] = 0;
+            foreach($reservations as $data){
+                $datetime = $data->getDateTime()->format('Y-m-d');
+                if (date($datetime) >= date($date1[$i]) && date($datetime) < date($date2[$i])){
+                    $reservation[$i] = $reservation[$i] + 1;
+                    if ($data->getConfirmer() === '1'){
+                        $confirmationR[$i] = $confirmationR[$i] + 1;
+                    }
+                    if ($data->getAvis() === '1'){
+                        $avis[$i] = $avis[$i] + 1;
+                        $receteR[$i] = $receteR[$i] + $data->getNombre() * $data->getSortie()->getTarif();
+                    }elseif ($data->getAvis() === '2'){
+                        $receteR[$i] = $receteR[$i] + $data->getNombre() * $data->getSortie()->getTarif();
+                    }
+                    if ($data->getAnnuler() === '1'){
+                        $annulationR[$i] = $annulationR[$i] + 1;
+                    }
+                }
+            }
+            // Les commandes
+            $commande[$i] = $confirmationC[$i] = $facture[$i] = $annulationC[$i] = $receteC[$i] = 0;
+            foreach($commandes as $data){
+                $datetime = $data->getDateTime()->format('Y-m-d');
+                if (date($datetime) >= date($date1[$i]) && date($datetime) < date($date2[$i])){
+                    $commande[$i] = $commande[$i] + 1;
+                    if ($data->getConfirmer() === '1'){
+                        $confirmationC[$i] = $confirmationC[$i] + 1;
+                    }
+                    if ($data->getFacture() === '1'){
+                        $facture[$i] = $facture[$i] + 1;
+                        $receteC[$i] = $receteC[$i] + $data->getNombre() * $data->getCategorieTicket()->getTarif();
+                    }
+                    if ($data->getAnnuler() === '1'){
+                        $annulationC[$i] = $annulationC[$i] + 1;
+                    }
+                }
+            }
+            // Les operateurs
+            $m = array();
+            foreach($operateurs as $data){
+                if(!in_array($data->getUser()->getEmail(), $m)){
+                    $m[] = $data->getUser()->getEmail();
+                }
+                //$m[] = $data->getUser()->getEmail();
+                $nm = count($m);
+                $datetime = $data->getDateTime()->format('Y-m-d');
+                //$note[$i] = $confirmer[$i] = $acompte[$i] = $facture[$i] = $avis[$i] = array();
+                if (\date($datetime) >= \date($date1[$i]) && \date($datetime) < \date($date2[$i])){
+                    for($j=1; $j<=$nm; $j++){
+                        $note[$i][$j] = $confirmer[$i][$j] = $acompte[$i][$j] = $facture[$i][$j] = $avis[$i][$j] = 0;
+                        switch($data->getAction()){
+                            case 1: $note[$i][$j]      = $note[$i][$j] + 1;      default;
+                            case 2: $confirmer[$i][$j] = $confirmer[$i][$j] + 1; default;
+                            case 3: $acompte[$i][$j]   = $acompte[$i][$j] + 1;   default;
+                            case 4: $facture[$i][$j]   = $facture[$i][$j] + 1;   default;
+                            case 5: $avis[$i][$j]      = $avis[$i][$j] + 1;      default;
+                        }
+                    }
+                }
+            }
+        }
+        $dataR = $dataC = $confirmerR = $avisR = $annulerR = $confirmerC = $factureC = $annulerC = $recetesR = $recetesC = $noteO = $confirmerO = $acompteO = $factureO = $avisO = array();
+        for($i=1; $i<=$month; $i++){
+            $dataR[]      = $reservation[$i];
+            $confirmerR[] = $confirmationR[$i];
+            $avisR[]      = $avis[$i];
+            $annulerR[]   = $annulationR[$i];
+            
+            $dataC[]      = $commande[$i];
+            $confirmerC[] = $confirmationC[$i];
+            $factureC[]   = $facture[$i];
+            $annulerC[]   = $annulationC[$i];
+            
+            $recetesR[]   = $receteR[$i];
+            $recetesC[]   = $receteC[$i];
+            
+            for($j=1; $j<=$nm; $j++){
+                $noteO[$j] = $confirmerO[$j] = $acompteO[$j] = $factureO[$j] = $avisO[$j] = 0;
+                $noteO[$j]      = $note[$i][$j];
+                $confirmerO[$j] = $confirmer[$i][$j];
+                $acompteO[$j]   = $acompte[$i][$j];
+                $factureO[$j]   = $facture[$i][$j];
+                $avisO[$j]      = $avis[$i][$j];
+            }
+            
+            switch ($i){
+                case  1: $dates[] = 'Janvier';   break;
+                case  2: $dates[] = 'Février';   break;
+                case  3: $dates[] = 'Mars';      break;
+                case  4: $dates[] = 'Avril';     break;
+                case  5: $dates[] = 'Maï';       break;
+                case  6: $dates[] = 'Juin';      break;
+                case  7: $dates[] = 'Juillet';   break;
+                case  8: $dates[] = 'Août';      break;
+                case  9: $dates[] = 'Septembre'; break;
+                case 10: $dates[] = 'Octobre';   break;
+                case 11: $dates[] = 'Novembre';  break;
+                case 12: $dates[] = 'Décembre';  break;
+            }
+        }
+        $sellsHistory1 = array(
+            array(
+                "name" => "Réservations", 
+                "data" => $dataR,
+            ),
+            array(
+                "name" => "Confirmations", 
+                "data" => $confirmerR,
+            ),
+            array(
+                "name" => "Avis", 
+                "data" => $avisR,
+            ),
+            array(
+                "name" => "Annulations", 
+                "data" => $annulerR,
+            ),
+        );
+        $sellsHistory2 = array(
+            array(
+                "name" => "Commandes", 
+                "data" => $dataC,
+            ),
+            array(
+                "name" => "Confirmations", 
+                "data" => $confirmerC,
+            ),
+            array(
+                "name" => "Factures", 
+                "data" => $factureC,
+            ),
+            array(
+                "name" => "Annulations", 
+                "data" => $annulerC,
+            ),
+        );
+        $sellsHistory3 = array(
+            array(
+                "name" => "Réservations", 
+                "data" => $recetesR,
+            ),
+            array(
+                "name" => "Tickets", 
+                "data" => $recetesC,
+            ),
+        );
+        for($j=1; $j<=$nm; $j++){
+            
+        }
+        $sellsHistory4 = array(
+            array(
+                "name" => "Notes", 
+                "data" => $noteO,
+            ),
+            array(
+                "name" => "Confirmers", 
+                "data" => $confirmerO,
+            ),
+            array(
+                "name" => "Acomptes", 
+                "data" => $acompteO,
+            ),
+            array(
+                "name" => "Factures", 
+                "data" => $factureO,
+            ),
+            array(
+                "name" => "Avis", 
+                "data" => $avisO,
+            ),
+        );
+        
+        //$dates  = array($date1, $date2, '$date3', '$date4', '$date5', '$date6', '$date7');
+        $ob1 = new Highchart();
+        $ob1->chart->renderTo('linechart1'); // ID de l'élement de DOM que vous utilisez comme conteneur
+        //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+        $ob1->title->text('Les réservations');
+        $ob1->chart->type('column');
+        $ob1->yAxis->title(array('text' => "La quantité"));
+        $ob1->xAxis->title(array('text' => "La date"));
+        $ob1->xAxis->categories($dates);
+        $ob1->series($sellsHistory1);
+        
+        $ob2 = new Highchart();
+        $ob2->chart->renderTo('linechart2'); // ID de l'élement de DOM que vous utilisez comme conteneur
+        //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+        $ob2->title->text('Les commandes');
+        $ob2->chart->type('column');
+        $ob2->yAxis->title(array('text' => "La quantité"));
+        $ob2->xAxis->title(array('text' => "La date"));
+        $ob2->xAxis->categories($dates);
+        $ob2->series($sellsHistory2);
+        
+        $ob3 = new Highchart();
+        $ob3->chart->renderTo('linechart3'); // ID de l'élement de DOM que vous utilisez comme conteneur
+        //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+        $ob3->title->text('La recette');
+        $ob3->chart->type('column');
+        $ob3->yAxis->title(array('text' => "La recette (dinars)"));
+        $ob3->xAxis->title(array('text' => "La date"));
+        $ob3->xAxis->categories($dates);
+        $ob3->series($sellsHistory3);
+        
+        $ob4 = new Highchart();
+        $ob4->chart->renderTo('linechart4'); // ID de l'élement de DOM que vous utilisez comme conteneur
+        //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+        $ob4->title->text('Les operateurs');
+        $ob4->chart->type('column');
+        $ob4->yAxis->title(array('text' => "Requêtes effectués"));
+        $ob4->xAxis->title(array('text' => "La date"));
+        $ob4->xAxis->categories($dates);
+        $ob4->series($sellsHistory4);
+        
+        return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', array(
+            'chart1' => $ob1,
+            'chart2' => $ob2,
+            'chart3' => $ob3,
+            'chart4' => $ob4,
+            'm'      => $m,
+        )); 
+    }
+    
+    public function statisticsAction()
+    {
         $date1 = date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY'));
         $date2 = date('Y-m-d', strtotime(date('Y-m-d').' - 5 DAY'));
         $date3 = date('Y-m-d', strtotime(date('Y-m-d').' - 4 DAY'));
@@ -662,5 +1056,11 @@ class AdminController extends Controller
         return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', array(
             'chart' => $ob,
         )); 
+    }
+    
+    public function invitationAction()
+    {
+        
+        return $this->render('BaseBledvoyageBundle:Admin:invitation.html.twig');
     }
 }

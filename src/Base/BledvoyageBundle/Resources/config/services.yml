@@ -4,3 +4,6 @@ parameters:
 services:
     FrToDatetime:
         class: Base\bledvoyageBundle\Service\Date\FrToDatetime
+
+    dateFromNumberWeek:
+        class: Base\bledvoyageBundle\Service\Date\dateFromNumberWeek

@@ -9,10 +9,29 @@
     <h1>Statistiques</h1>
     <section>
         <script type="text/javascript">
-            {{ chart(chart) }}
+            {{ chart(chart1) }}
         </script>
-        <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+        <div id="linechart1" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
     </section>
+    <section>
+        <script type="text/javascript">
+            {{ chart(chart2) }}
+        </script>
+        <div id="linechart2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    </section>
+    <section>
+        <script type="text/javascript">
+            {{ chart(chart3) }}
+        </script>
+        <div id="linechart3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    </section>
+    <section>
+        <script type="text/javascript">
+            {{ chart(chart4) }}
+        </script>
+        <div id="linechart4" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    </section>
+    {{ dump(m) }}
 {% endblock %}
 
 {% block jquery %}{% endblock %}
