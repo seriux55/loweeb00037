@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Base\BledvoyageBundle\Entity\Booking;
 use Base\BledvoyageBundle\Entity\Commande;
 use Base\BledvoyageBundle\Entity\AvisSortie;
-use Base\BledvoyageBundle\Entity\Sortie;
+use Base\BledvoyageBundle\Entity\Contact;
 use Base\BledvoyageBundle\Entity\CategorieSortie;
 use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
 use Base\BledvoyageBundle\Entity\Picture;
@@ -25,7 +25,7 @@ class DefaultController extends Controller
                    ->leftJoin('b.picture1', 'c')
                    ->where('b.valider = :valider')
                    ->setParameter('valider', '1')
-                   ->orderBy('a.id','DESC')
+                   ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
         $categorie = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Categorie')
@@ -68,6 +68,8 @@ class DefaultController extends Controller
                    ->leftJoin('b.picture3', 'e')
                    ->addSelect('f')
                    ->leftJoin('b.picture4', 'f')
+                   ->addSelect('g')
+                   ->leftJoin('b.user', 'g')
                    ->where('b.valider = :valider AND b.id = :id')
                    ->setParameters(
                         array(
@@ -140,7 +142,7 @@ class DefaultController extends Controller
         }
         $nbrParticipant = 0;
         foreach ($participant as $data) {
-            $nbrParticipant++;
+            $nbrParticipant = $nbrParticipant + $data->getNombre();
         }
         $response = $this->render('BaseBledvoyageBundle:Default:product.html.twig', array(
             'product'           => $product,
@@ -357,6 +359,21 @@ class DefaultController extends Controller
                  //->headers->set('Content-disposition', 'filename='. $fichier)
                 ;
         return $response;
+    }
+    
+    public function contactAction(Request $request){
+        
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $contact = new Contact();
+            $contact->setUser($this->get('security.context')->getToken()->getUser())
+                    ->setType($request->get('type'))
+                    ->setMessage($request->get('message'))
+                    ->setIp($this->getRequest()->getClientIp());
+            $em->persist($contact);
+            $em->flush();
+        }
+        return $this->render('BaseBledvoyageBundle:Default:contact.html.twig');
     }
     
     public function suggestAction(Request $request)

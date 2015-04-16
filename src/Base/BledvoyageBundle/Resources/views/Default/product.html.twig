@@ -11,7 +11,9 @@
     <!--Photo-->
     <div class="sectionni">
         <div class="photoi">
-            <img src="{{ asset(data.sortie.picture3.webPath) }}" alt="{{ data.sortie.picture3.alt }}" />
+            {% if data.sortie.picture4 != null %}
+            <img src="{{ asset(data.sortie.picture4.webPath) }}" alt="{{ data.sortie.picture4.alt }}" />
+            {% endif %}
         </div>
     </div>
     <!--FinPhoto-->
@@ -135,14 +137,14 @@
                 <div class="mr2i">
                     <h5>Quelques mots sur l'organisateur</h5>
                     <div class="pholui">
-                        <img src="../depot/uploads/mansor.png" alt="Image"/>
+                        <img src="{{ asset(data.sortie.user.picture.webPath) }}" alt="{{ data.sortie.user.picture.alt }}" />
                     </div>
                     <div class="texlui">
-                        <h6>Amar, Mohamed et lakroum</h6>
+                        <h6>{{ data.sortie.user.secondename }}</h6>
                         <p>
-                            Salut, 
-                            Nous sommes Amar, Mohamed et lakroum, des passionnés de la nature, de la plongée et d’aventure et moniteurs expérimentés. Nous nous sommes peut-etre rencontrés lors de nos sorties bateau, plongée, rando, ... a Tipaza.
-                            Nous nous sommes unis proposer une offre « week end détente » tout compris : activités, hébergement, balades, ftor et shor, ... Nous avons pensé a ceux et celle qui habitent loin de Tipaza, Oran, Sidi bel abbes, Canstantine,... Qui nous contactent souvent pour nous demander des activités avec hébergement.  C’est aussi le deal idéal pour ceux et celles qui souhaitent se ressourcer et fuir la ville, le bruit, la pollution, le stress quotidien. Nous serons ravis de vous accueillir et de partager nos passions avec vous, le temps d’un week end a Tipaza. Marhba bikoum !
+                            {% if data.sortie.user.apropos != null %}
+                            {{ data.sortie.user.apropos }}
+                            {% endif %}
                         </p>
                     </div>
                 </div>
@@ -151,7 +153,7 @@
                 <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
             </div>
         </div>
-    </div>	
+    </div>
     <!--FinLeProjet-->
     {% if data.sortie.video is not empty %}
     <!-- video -->
@@ -196,7 +198,7 @@
                 <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
             </div>
         </div>
-    </div>	
+    </div>
     <!-- FinProjet -->
     <!--FinAide-->	
     <div id="photos" style="display:block;">					
@@ -232,9 +234,9 @@
                 </div>
                 <div class="intro4">
                     <div class="photoss">
-                        <img src="{{ asset(data.sortie.picture2.webPath) }}" alt="{{ data.sortie.picture2.alt }}" />
-                        <img src="{{ asset(data.sortie.picture3.webPath) }}" alt="{{ data.sortie.picture3.alt }}" />
-                        <img src="{{ asset(data.sortie.picture4.webPath) }}" alt="{{ data.sortie.picture4.alt }}" />
+                        {% if data.sortie.picture2 != null %}<img src="{{ asset(data.sortie.picture2.webPath) }}" alt="{{ data.sortie.picture2.alt }}" />{% endif %}
+                        {% if data.sortie.picture3 != null %}<img src="{{ asset(data.sortie.picture3.webPath) }}" alt="{{ data.sortie.picture3.alt }}" />{% endif %}
+                        {% if data.sortie.picture4 != null %}<img src="{{ asset(data.sortie.picture4.webPath) }}" alt="{{ data.sortie.picture4.alt }}" />{% endif %}
                     </div>
                 </div>
             </div>
@@ -255,7 +257,7 @@
     <div class="sectiono"> 
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Vos avis</h4>
+                <h4>Il y a {{ nbrAvis }} avis</h4>
             </div>
             <div class="mr2i">
                 <ul class="coment">
@@ -298,7 +300,7 @@
     <div class="sectiono"> 
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Les participants de la semaine</h4>
+                <h4>Il y a {{ nbrParticipant }} participant(s) cette semaine</h4>
             </div>
             <div class="mr2i">
                 <ul class="coment">

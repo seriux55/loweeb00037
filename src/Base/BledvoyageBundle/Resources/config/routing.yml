@@ -12,7 +12,7 @@ sortie_nroho:
     prefix:   api
 
 bledvoyage_product:
-    path:     /product/{id}/{slug}
+    path:     /{id}/{slug}
     defaults: { _controller: BaseBledvoyageBundle:Default:product }
     requirements:
         id:   \d+
@@ -48,6 +48,10 @@ bledvoyage_avis:
 bledvoyage_suggest:
     path:     /suggest
     defaults: { _controller: BaseBledvoyageBundle:Default:suggest }
+    
+bledvoyage_contact:
+    path:     /contact
+    defaults: { _controller: BaseBledvoyageBundle:Default:contact }
 
 bledvoyage_teambuilding:
     path:     /teambuilding
@@ -117,7 +121,7 @@ bledvoyage_admin_reservation_acompte:
 
 bledvoyage_admin_statisqtique:
     path:     manager/statistic
-    defaults: { _controller: BaseBledvoyageBundle:Admin:statistic }
+    defaults: { _controller: BaseBledvoyageBundle:Admin:statisticMois }
 
 bledvoyage_admin_stat_year:
     path:     manager/statistic/{year}

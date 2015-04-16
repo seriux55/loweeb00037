@@ -35,33 +35,26 @@
     </h2>
 </div>
 <div class="bloc_page_body3">
-
-    <!--
-    <div class="resrcbare">
-            <?php
-            $reponse = $bdd->query('SELECT SUM(validation) AS total FROM sortie');
-            $donnees = $reponse->fetch();
-            echo "<p>".$donnees['total']." sorties</p>";
-            $reponse->closeCursor();
-            ?>
-    </div>
-    -->
     {% for data in product %}
     <section>
         <div class="conte">
             <div class="rc">
                 <div class="photorc">
+                    {% if data.sortie.picture1 != null %}
                     <img src="{{ asset(data.sortie.picture1.webPath) }}" alt="{{ data.sortie.picture1.alt }}" />
+                    {% endif %}
                 </div>
                 <div class="desrc">
                     <article>
                         <h1>{{ data.sortie.titre }}</h1>
                         <h3>
-                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  AU <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
+                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  AU <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateFin|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
                         </h3>
+                        <!--
                         <h3>
                             <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Le 2015-10-19 |  <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}"> {{ data.sortie.heureDebut }} - {{ data.sortie.heureFin }}
                         </h3>
+                        -->
                         <div class="loc">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}" alt="Image"/>
                             <h2>{{ data.sortie.localisation }}</h2>
@@ -123,9 +116,9 @@
     <!--
     <div class="plusrc">
         <p>
-        <a href="http://www.bledvoyage.com">
-        Revenir au site bledvoyage.com
-        </a>
+            <a href="http://www.bledvoyage.com">
+                Revenir au site bledvoyage.com
+            </a>
         </p>
     </div>
     -->

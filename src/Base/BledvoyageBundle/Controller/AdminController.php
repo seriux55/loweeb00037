@@ -3,9 +3,11 @@
 namespace Base\BledvoyageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Swift_Attachment;
 use Base\BledvoyageBundle\Entity\Ticket;
 use Base\BledvoyageBundle\Entity\Operateur;
+use Base\BledvoyageBundle\Entity\Invitation;
 use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class AdminController extends Controller
@@ -258,6 +260,7 @@ class AdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $paiement = $em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode($request->get('paiement'));
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
+            $user     = $this->get('security.context')->getToken()->getUser();
             $commande->setPaiement($paiement)
                      ->setNombre($request->get('nombre'))
                      ->setEntreprise($request->get('entreprise'))
@@ -265,6 +268,8 @@ class AdminController extends Controller
                      ->setTextPerso($request->get('textPerso'))
                      ->setFacture('1')
                      ->getUser()->setEmail($request->get('email'));
+            $user->setNomEntreprise($request->get('entreprise'))
+                 ->setAdresseEntreprise($request->get('adresse'));
             $em->persist($commande);
             $ticket  = new Ticket();
             $dateFin = date('Y-m-d', strtotime($commande->getCategorieTicket()->getDuree()));
@@ -273,7 +278,7 @@ class AdminController extends Controller
                    ->setIp($this->getRequest()->getClientIp());
             $em->persist($ticket);
             $operateur = new Operateur();
-            $operateur->setUser($this->get('security.context')->getToken()->getUser())
+            $operateur->setUser($user)
                       ->setCommande($commande)
                       ->setAction('4')
                       ->setIp($this->getRequest()->getClientIp());
@@ -662,7 +667,7 @@ class AdminController extends Controller
         )); 
     }
     
-    public function statisticMoisAction($year)
+    public function statisticMoisAction($year = 15)
     {
         $dateFromNumberWeek = $this->container->get('dateFromNumberWeek');
         $toTwoDate = $dateFromNumberWeek->toTwoDate(1, 2015);
@@ -1058,9 +1063,87 @@ class AdminController extends Controller
         )); 
     }
     
-    public function invitationAction()
+    public function invitationAction(Request $request)
     {
+        $sortie = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
+                ->createQueryBuilder('a')
+                ->where('a.valider = :valider')
+                ->setParameter('valider', '1')
+                ->orderBy('a.id','ASC')
+                ->getQuery()
+                ->getResult();
+        if ($request->getMethod() == 'POST') {
+            $em           = $this->getDoctrine()->getManager();
+            $frToDatetime = $this->container->get('FrToDatetime');
+            $sortie = $em->getRepository('BaseBledvoyageBundle:Sortie')->find($request->get('sortie'));
+            $invitation   = new Invitation();
+            $invitation->setNom($request->get('nom'))
+                       ->setUser($this->get('security.context')->getToken()->getUser())
+                       ->setSortie($sortie)
+                       ->setPrenom($request->get('prenom'))
+                       ->setMail($request->get('mail'))
+                       ->setEntreprise($request->get('entreprise'))
+                       ->setTelephone($request->get('tel'))
+                       ->setNombre($request->get('nombre'))
+                       ->setPourcentage($request->get('pourcentage'))
+                       ->setTextPerso($request->get('textPerso'))
+                       ->setIp($request->getClientIp());
+            if (null != $request->get('dateSortie')){
+                $invitation->setDateSortie(new \DateTime($frToDatetime->toDatetime($request->get('dateSortie'))));
+            }
+            /*
+            else{
+                $invitation->setDateSortie(new \DateTime('0000-00-00'));
+                $dateFin  = "Valable jusqu'au ".date("d/m/Y", strtotime("+ 2 month"));
+                $dateMail = date("d/m/Y", strtotime("+ 2 month"));
+            }
+            */
+            $em->persist($invitation);
+            $em->flush();
+            
+            if ($invitation->getDateSortie() == "0000-00-00"){
+                $dateFin  = "Valable jusqu'au ".date("d/m/Y", strtotime("+ 2 month"));
+                $dateMail = date("d/m/Y", strtotime("+ 2 month"));
+            }else{
+                $dateFin  = "Valable pour le ".$request->get('dateSortie');
+                $dateMail = "Valable pour le ".$request->get('dateSortie');
+            }
+            
+            $ticketPdf = $this->renderView('BaseBledvoyageBundle:Mail:admin_invitation_vip.pdf.twig', array(
+                'product' => array(
+                    'image'         => $invitation->getImage(),
+                    'textPerso'     => $request->get('textPerso'),
+                    'sortie'        => $invitation->getSortie()->getTitre(),
+                    'code'          => $invitation->getCode(),
+                    'dateFin'       => $dateFin,
+                )
+            ));
+            $pdf_1 = new \HTML2PDF('P','A4','fr');
+            $pdf_1->pdf->SetDisplayMode('real');
+            $pdf_1->writeHTML($ticketPdf);
+            $content_1 = $pdf_1->Output('Ticket.pdf', true);
+            $message = \Swift_Message::newInstance()
+                ->setSubject('test Votre ticket cadeau, bledvoyage.com, invitation')
+                ->setFrom('contact@bledvoyage.com')
+                ->setTo('nadir.allam@bledvoyage.com')
+                ->setBody($this->renderView('BaseBledvoyageBundle:Mail:admin_invitation_vip.html.twig', array(
+                    'product' => array(
+                        'sortie'        => $sortie->getTitre(),
+                        'prenom'        => $invitation->getPrenom(),
+                        'nom'           => $invitation->getNom(),
+                        'tel'           => $invitation->getTelephone(),
+                        'email'         => $invitation->getMail(),
+                        'nombre'        => $invitation->getNombre(),
+                        'dateSortie'    => $dateMail,
+                    )
+                )))
+                ->attach(Swift_Attachment::newInstance($content_1, 'Ticket.pdf', 'application/pdf'))
+            ;
+            $this->get('mailer')->send($message);
+        }
         
-        return $this->render('BaseBledvoyageBundle:Admin:invitation.html.twig');
+        return $this->render('BaseBledvoyageBundle:Admin:invitation.html.twig', array(
+            'sortie' => $sortie,
+        ));
     }
 }

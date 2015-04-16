@@ -3,35 +3,41 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="//code.highcharts.com/4.0.1/highcharts.js"></script>
-    <script src="//code.highcharts.com/4.0.1/modules/exporting.js"></script>
-    <h1>Statistiques</h1>
-    <section>
-        <script type="text/javascript">
-            {{ chart(chart1) }}
-        </script>
-        <div id="linechart1" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-    </section>
-    <section>
-        <script type="text/javascript">
-            {{ chart(chart2) }}
-        </script>
-        <div id="linechart2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-    </section>
-    <section>
-        <script type="text/javascript">
-            {{ chart(chart3) }}
-        </script>
-        <div id="linechart3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-    </section>
-    <section>
-        <script type="text/javascript">
-            {{ chart(chart4) }}
-        </script>
-        <div id="linechart4" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-    </section>
-    {# dump(m) #}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.highcharts.com/4.0.1/highcharts.js"></script>
+<script src="//code.highcharts.com/4.0.1/modules/exporting.js"></script>
+<div class="bloc_page_body222">
+    <h2>
+        Statistiques
+    </h2>
+</div>
+<section>
+    <script type="text/javascript">
+        {{ chart(chart1) }}
+    </script>
+    <div id="linechart1" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+</section>
+<section>
+    <script type="text/javascript">
+        {{ chart(chart2) }}
+    </script>
+    <div id="linechart2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+</section>
+{#
+<section>
+    <script type="text/javascript">
+        {{ chart(chart3) }}
+    </script>
+    <div id="linechart3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+</section>
+<section>
+    <script type="text/javascript">
+        {{ chart(chart4) }}
+    </script>
+    <div id="linechart4" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+</section>
+#}
+{# dump(m) #}
 {% endblock %}
 
 {% block jquery %}{% endblock %}

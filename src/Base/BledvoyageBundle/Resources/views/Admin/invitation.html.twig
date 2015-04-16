@@ -27,30 +27,49 @@
                             <input class="ouardep" type="text" name="nom" />
                         </div>
                         <div class="mr4u">
-                            <label>Prenom</label>
+                            <label>Prénom</label>
                             <input class="ouardep" type="text" name="prenom" />
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
+                            <label>Nom de l'entreprise</label>
+                            <input class="ouardep" type="text" name="entreprise" />
+                        </div>
+                        <div class="mr4u">
                             <label>Adresse mail</label>
-                            <input class="ouardep" type="text" name="mail" />
+                            <input class="ouardep" type="email" name="mail" />
                         </div>
                         <div class="mr4u">
                             <label>Numéro de téléphone</label>
-                            <input class="ouardep" type="text" name="tel" />
+                            <input class="ouardep" type="tel" name="tel" />
                         </div>
                         <div class="mr4u">
                             <label>Nombre de place</label>
                             <input class="ouardep" type="text" name="nombre" />
                         </div>
-                        <select class="ouardep" name="sortie">
-                            <option value="1">Quad avanture</option> 
-                            <option value="2" selected>Décolage immédiat</option>
-                        </select>
+                        <div class="mr4u">
+                            <label>Le type de sortie</label>
+                            <select class="ouardep" name="sortie">
+                                {% for data in sortie %}
+                                <option value="{{ data.id }}">{{ data.titre }}</option> 
+                                {% endfor %}
+                            </select>
+                        </div>
                         <div class="mr4u">
                             <label>Porcentage de la réduction</label>
-                            <input class="ouardep" type="text" name="reduction" />
+                            <select class="ouardep" name="pourcentage">
+                                <option value="10">10%</option>
+                                <option value="20">20%</option>
+                                <option value="30">30%</option>
+                                <option value="40">40%</option> 
+                                <option value="50" selected>50%</option>
+                                <option value="60">60%</option> 
+                                <option value="70">70%</option>
+                                <option value="80">80%</option> 
+                                <option value="90">90%</option> 
+                                <option value="100">Gratuit</option>
+                            </select>
                         </div>
                         <div class="mr4u">
                             <label>La date de la sortie (2 mois de validité si c'est vide)</label>
@@ -58,14 +77,9 @@
                         </div>
                         <div class="mr4u">
                             <label>Message personnalisé</label>
-                            <input class="ouardep" type="text" name="nombre" />
-                        </div>
-                        <div class="mr4u">
-                            <label>Nom de l'entreprise</label>
-                            <input class="ouardep" type="text" name="entreprise" />
+                            <textarea name="textPerso" class="ouardep"></textarea>
                         </div>
                     </div>
-                    <p>Il faut généré un code</p>
                     <div class="mr6">
                         <input class="cherchez" name="login" type="submit" value="Valider"/>
                     </div>

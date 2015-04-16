@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div class="bloc_page_body222">
+    <h2>
+        Contact 
+    </h2>
+</div>	
+<div class="bloc_page_3">
+    <div>					
+        <div class="sectiar">
+            <h2>Contact</h2> 
+        </div>
+        <div class="sectiono"> 
+            <div class="mr1i">
+                <div class="mr2i">
+                    <h4>Contactez-nous !</h4>
+                </div>
+                <form method="post">
+                    <div class="mr7">
+                        <div class="mr3">
+                            <select class="ouardepp" name="type">
+                                <option value="1">Contact</option>
+                                <option value="2">Plainte</option>
+                                <option value="3">Autre</option>
+                            </select>
+                            <label>Votre message</label>
+                            <textarea class="ouardepp" name="message"></textarea>
+                        </div>
+                        <input class="trouvezi" type="submit" value="Envoyer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

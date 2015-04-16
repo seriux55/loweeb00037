@@ -11,51 +11,51 @@
             <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
                 {{ form_errors(form) }}
                 <div>
-                    {{ form_label(form.gender, " ") }}
+                    <label>{{ form_label(form.gender, " ") }}</label>
                     {{ form_errors(form.gender) }}
                     {{ form_widget(form.gender) }}
                 </div>
                 <div>
-                    {{ form_label(form.firstname, "Nom") }}
+                    <label>{{ form_label(form.firstname, "Nom") }}</label>
                     {{ form_errors(form.firstname) }}
-                    {{ form_widget(form.firstname) }}
+                    {{ form_widget(form.firstname, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>
                 <div>
-                    {{ form_label(form.secondename, "Prénom") }}
+                    <label>{{ form_label(form.secondename, "Prénom") }}</label>
                     {{ form_errors(form.secondename) }}
-                    {{ form_widget(form.secondename) }}
+                    {{ form_widget(form.secondename, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>
                 <div>
-                    {{ form_label(form.born, "Année de naissance") }}
+                    <label>{{ form_label(form.born, "Année de naissance") }}</label>
                     {{ form_errors(form.born) }}
-                    {{ form_widget(form.born) }}
+                    {{ form_widget(form.born, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>
                 <div>
-                    {{ form_label(form.phone, "Téléphone") }}
+                    <label>{{ form_label(form.phone, "Téléphone") }}</label>
                     {{ form_errors(form.phone) }}
-                    {{ form_widget(form.phone) }}
+                    {{ form_widget(form.phone, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>
                 <div>
-                    {{ form_label(form.email, "Adresse mail") }}
+                    <label>{{ form_label(form.email, "Adresse mail") }}</label>
                     {{ form_errors(form.email) }}
-                    {{ form_widget(form.email) }}
+                    {{ form_widget(form.email, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>
                 <div>
-                    {{ form_label(form.plainPassword.first, "Mot de passe ") }}
+                    <label>{{ form_label(form.plainPassword.first, "Mot de passe ") }}</label>
                     {{ form_errors(form.plainPassword.first) }}
-                    {{ form_widget(form.plainPassword.first) }}
+                    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>
                 <div>
-                    {{ form_label(form.plainPassword.second, "Confirmez le mot de passe ") }}
+                    <label>{{ form_label(form.plainPassword.second, "Confirmez le mot de passe ") }}</label>
                     {{ form_errors(form.plainPassword.second) }}
-                    {{ form_widget(form.plainPassword.second) }}
+                    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'ouardepp'} }) }}
                 </div>                   
                 {{ form_rest(form) }}
                 <div class="mr2">
                     <div class="mr6">
                         <input type="hidden" name="_target_path"  value="/booking/{{ id }}" />
                         <input type="hidden" name="red" value="{{ id }}" />
-                        <input class="trouvezzz" type="submit" value="{{ 'registration.submit'|trans }}" />
+                        <input class="trouvezi" type="submit" value="{{ 'registration.submit'|trans }}" />
                     </div>
                 </div>
             </form>

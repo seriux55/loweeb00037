@@ -19,7 +19,10 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->deposit = new \Datetime();
+        $this->deposit          = new \Datetime();
+        $this->vip              = "0";
+        $this->nbrReservation   = "0";
+        $this->nbrParticipation = "0";
     }
     
     /**
@@ -28,6 +31,12 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Base\BledvoyageBundle\Entity\Picture", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $picture;
     
     /**
      * @var integer
@@ -51,6 +60,20 @@ class User extends BaseUser
     private $secondename;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_entreprise", type="string", length=255, nullable=true)
+     */
+    private $nomEntreprise;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse_entreprise", type="string", length=511, nullable=true)
+     */
+    private $adresseEntreprise;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="born", type="integer")
@@ -70,6 +93,27 @@ class User extends BaseUser
      * @ORM\Column(name="apropos", type="string", length=511, nullable=true)
      */
     private $apropos;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="VIP", type="string", length=255)
+     */
+    private $vip;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_reservation", type="integer", nullable=true)
+     */
+    private $nbrReservation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_participation", type="integer", nullable=true)
+     */
+    private $nbrParticipation;
 
     /**
      * @var string
@@ -94,6 +138,29 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * Set picture
+     *
+     * @param \Base\BledvoyageBundle\Entity\Picture $picture
+     * @return User
+     */
+    public function setPicture(\Base\BledvoyageBundle\Entity\Picture $picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \Base\BledvoyageBundle\Entity\Picture
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
     
     /**
      * Faire que le pseudo egal a l'adresse mail
@@ -105,7 +172,6 @@ class User extends BaseUser
         parent::setEmail($email);
         $this->setUsername($email);
     }
-    
 
     /**
      * Set gender
@@ -177,6 +243,52 @@ class User extends BaseUser
     }
 
     /**
+     * Set nomEntreprise
+     *
+     * @param string $nomEntreprise
+     * @return User
+     */
+    public function setNomEntreprise($nomEntreprise)
+    {
+        $this->nomEntreprise = $nomEntreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get nomEntreprise
+     *
+     * @return string 
+     */
+    public function getNomEntreprise()
+    {
+        return $this->nomEntreprise;
+    }
+
+    /**
+     * Set adresseEntreprise
+     *
+     * @param string $adresseEntreprise
+     * @return User
+     */
+    public function setAdresseEntreprise($adresseEntreprise)
+    {
+        $this->adresseEntreprise = $adresseEntreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseEntreprise
+     *
+     * @return string 
+     */
+    public function getAdresseEntreprise()
+    {
+        return $this->adresseEntreprise;
+    }
+
+    /**
      * Set born
      *
      * @param integer $born
@@ -243,6 +355,76 @@ class User extends BaseUser
     public function getApropos()
     {
         return $this->apropos;
+    }
+    
+
+    /**
+     * Set vip
+     *
+     * @param string $vip
+     * @return User
+     */
+    public function setVip($vip)
+    {
+        $this->vip = $vip;
+
+        return $this;
+    }
+
+    /**
+     * Get vip
+     *
+     * @return string 
+     */
+    public function getVip()
+    {
+        return $this->vip;
+    }
+    
+    /**
+     * Set nbrReservation
+     *
+     * @param integer $nbrReservation
+     * @return User
+     */
+    public function setNbrReservation($nbrReservation)
+    {
+        $this->nbrReservation = $nbrReservation;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrReservation
+     *
+     * @return integer 
+     */
+    public function getNbrResrvation()
+    {
+        return $this->nbrReservation;
+    }
+    
+    /**
+     * Set nbrParticipation
+     *
+     * @param integer $nbrParticipation
+     * @return User
+     */
+    public function setNbrParticipation($nbrParticipation)
+    {
+        $this->nbrParticipation = $nbrParticipation;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrParticipation
+     *
+     * @return integer 
+     */
+    public function getNbrParticipation()
+    {
+        return $this->nbrParticipation;
     }
 
     /**
