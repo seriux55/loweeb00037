@@ -6,4 +6,4 @@ services:
         class: Base\BledvoyageBundle\Service\DateFunction\FrToDatetime
 
     dateFromNumberWeek:
-        class: Base\BledvoyageBundle\Service\DateFunction\dateFromNumberWeek
+        class: Base\BledvoyageBundle\Service\DateFunction\DateFromNumberWeek
