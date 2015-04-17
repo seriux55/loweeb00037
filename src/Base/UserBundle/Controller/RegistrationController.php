@@ -38,7 +38,7 @@ class RegistrationController extends BaseController
             return $event->getResponse();
         }
 
-        $session = new Session();
+        $session = $request->getSession();
 
         if($id != '0'){
             $session->set('booking', $id);

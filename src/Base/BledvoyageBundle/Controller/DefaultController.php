@@ -322,7 +322,7 @@ class DefaultController extends Controller
             $em->persist($commande);
             $em->flush();
             $message = \Swift_Message::newInstance()
-                ->setSubject('Hello Email') //Votre commande chez bledvoyage.com
+                ->setSubject('Votre commande chez bledvoyage.com') //Votre commande chez bledvoyage.com
                 ->setFrom('contact@bledvoyage.com')
                 ->setTo('nadir.allam@bledvoyage.com')
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:user_commande.txt.twig', array(

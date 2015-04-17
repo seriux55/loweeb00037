@@ -1,8 +1,8 @@
 <?php
 
-namespace Base\BledvoyageBundle\Service\Date;
+namespace Base\BledvoyageBundle\Service\DateFunction;
 
-class dateFromNumberWeek {
+class DateFromNumberWeek {
     
     /**
      * Renvoi les dates de debut et de fin de semaine

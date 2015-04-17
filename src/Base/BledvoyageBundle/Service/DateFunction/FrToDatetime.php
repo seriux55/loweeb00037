@@ -1,6 +1,6 @@
 <?php
 
-namespace Base\BledvoyageBundle\Service\Date;
+namespace Base\BledvoyageBundle\Service\DateFunction;
 
 class FrToDatetime {
     
