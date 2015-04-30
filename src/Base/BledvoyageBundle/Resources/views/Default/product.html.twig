@@ -26,8 +26,8 @@
                         {{ data.sortie.titre }}
                     </h3>
                     <h4>
-                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2014-10-01 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">16h00 AU 
-                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-08-31 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">12h00.
+                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }} AU 
+                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateFin|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}.
                     </h4>
                     <div class="detroi">
                         <div class="deb">
@@ -137,7 +137,11 @@
                 <div class="mr2i">
                     <h5>Quelques mots sur l'organisateur</h5>
                     <div class="pholui">
+                        {% if data.sortie.user.picture != null %}
                         <img src="{{ asset(data.sortie.user.picture.webPath) }}" alt="{{ data.sortie.user.picture.alt }}" />
+                        {% elseif data.sortie.picture1 != null %}
+                        <img src="{{ asset(data.sortie.picture1.webPath) }}" alt="{{ data.sortie.picture1.alt }}" />
+                        {% endif %}
                     </div>
                     <div class="texlui">
                         <h6>{{ data.sortie.user.secondename }}</h6>
@@ -308,7 +312,7 @@
                     <li>
                         <img class="avli" src="{{ asset('bundles/basebledvoyage/images/interface/avis.png') }}" alt="avis"/>
                         <div class="headcom">
-                            <h3>{{ data.user.secondename }}</h3>
+                            <h3>{{ data.user.secondename|title }}</h3>
                             <h4>
                                 {{ data.nombre }} place(s)
                             </h4>

@@ -157,6 +157,15 @@ class DefaultController extends Controller
     
     public function bookingAction(Request $request, $id)
     {
+        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+        $formFactory = $this->get('fos_user.registration.form.factory');
+        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        $form = $formFactory->createForm();
+        $user = $userManager->createUser();
+        $form->setData($user);
+        $form->handleRequest($request);
+        
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
                    ->createQueryBuilder('a')
                    ->where('a.sortie = :id')
@@ -243,6 +252,7 @@ class DefaultController extends Controller
         $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
             'product'   => $product,
             'booking'   => $id,
+            'form'      => $form,
         ));
         return $response;
     }

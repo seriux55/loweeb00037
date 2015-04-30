@@ -6,19 +6,19 @@
 
 {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 {{ render(controller('BaseUserBundle:Security:login', { 'id' : 1, 'booking' : booking } )) }}
-{{ render(controller('BaseUserBundle:Registration:register', { 'id' : booking } )) }}
+{{ render(controller('BaseUserBundle:Registration:register', { 'id' : booking, 'form' : form } )) }}
 {% else %}
 
 <div class="bloc_page_body222">
     <h2>
         Réservation 
     </h2>
-</div>	
+</div>
 <div class="bloc_page_body3">
     <section>
         <div class="infoparcourss">
             <div class="info_parcours">
-                <p class="pgras1">Recapitulatif et réservation</p>
+                <p class="pgras1">Récapitulatif et réservation</p>
                 <div class="rectangle1">
                 </div>
             </div>

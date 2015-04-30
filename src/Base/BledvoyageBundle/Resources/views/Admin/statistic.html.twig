@@ -10,6 +10,7 @@
     <h2>
         Statistiques
     </h2>
+    <h3><a href="{{ path('bledvoyage_admin_stat_year', { 'year': 14  }) }}">2014</a> <a href="{{ path('bledvoyage_admin_stat_year', { 'year': 15  }) }}">2015</a></h3>
 </div>
 <section>
     <script type="text/javascript">
@@ -23,20 +24,22 @@
     </script>
     <div id="linechart2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 </section>
-{#
+{% if m > 0 and m <2 %}
 <section>
     <script type="text/javascript">
-        {{ chart(chart3) }}
+        {{ chart(chart41) }}
     </script>
-    <div id="linechart3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    <div id="linechart41" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 </section>
+{% endif %}
+{% if m > 0 and m <3 %}
 <section>
     <script type="text/javascript">
-        {{ chart(chart4) }}
+        {{ chart(chart42) }}
     </script>
-    <div id="linechart4" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    <div id="linechart42" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 </section>
-#}
+{% endif %}
 {# dump(m) #}
 {% endblock %}
 

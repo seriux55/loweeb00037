@@ -63,6 +63,7 @@ class AdminController extends Controller
                 'confirmer'     => $data->getConfirmer(),
                 'acompte'       => $data->getAcompte(),
                 'note'          => $data->getNote(),
+                'ticketPromo'   => $data->getTicketPromo(),
             );
             $number++;
         }
@@ -718,22 +719,39 @@ class AdminController extends Controller
                     ->getResult();
         
         $nm = 0;
+        $m = array();
+        foreach($operateurs as $data){
+            if(!in_array($data->getUser()->getEmail(), $m)){
+                $m[] = $data->getUser()->getEmail();
+            }
+            $nm = count($m);
+        }
+        // initialisation for($j=1; $j<=$nm; $j++){
+        for($i=1; $i<=$month; $i++){
+            $reservation[$i] = $confirmationR[$i] = $avisR[$i] = $annulationR[$i] = $receteR[$i] = 0;
+            $commande[$i] = $confirmationC[$i] = $facture[$i] = $annulationC[$i] = $receteC[$i] = 0;
+            $dataR = $dataC = $confirmerR = $avisRR = $annulerR = $confirmerC = $factureC = $annulerC = $recetesR = $recetesC = $noteO = $confirmerO = $acompteO = $factureO = $avisO = array();
+            for($j=1; $j<=$nm; $j++){
+                $note[$i][$j] = $confirmer[$i][$j] = $acompte[$i][$j] = $factureO[$i][$j] = $avisO[$i][$j] = 0;
+                $noteO[$j] = $confirmerO[$j] = $acompteO[$j] = $factureOO[$j] = $avisOO[$j] = array();
+            }
+        }
         for($i=1; $i<=$month; $i++){
             $dte1[$i]  = $year.'-'.$i.'-01';
-            $dte2[$i]  = $year.'-'.($i+1).'-01';
+            $dte2[$i]  = $year.'-'.$i.'-31';
             $date1[$i] = date("Y-m-d", strtotime($dte1[$i]));
             $date2[$i] = date("Y-m-d", strtotime($dte2[$i]));
             // Les reservations
-            $reservation[$i] = $confirmationR[$i] = $avis[$i] = $annulationR[$i] = $receteR[$i] = 0;
+            
             foreach($reservations as $data){
                 $datetime = $data->getDateTime()->format('Y-m-d');
-                if (date($datetime) >= date($date1[$i]) && date($datetime) < date($date2[$i])){
+                if (date($datetime) >= date($date1[$i]) && date($datetime) <= date($date2[$i])){
                     $reservation[$i] = $reservation[$i] + 1;
                     if ($data->getConfirmer() === '1'){
                         $confirmationR[$i] = $confirmationR[$i] + 1;
                     }
                     if ($data->getAvis() === '1'){
-                        $avis[$i] = $avis[$i] + 1;
+                        $avisR[$i] = $avisR[$i] + 1;
                         $receteR[$i] = $receteR[$i] + $data->getNombre() * $data->getSortie()->getTarif();
                     }elseif ($data->getAvis() === '2'){
                         $receteR[$i] = $receteR[$i] + $data->getNombre() * $data->getSortie()->getTarif();
@@ -744,10 +762,10 @@ class AdminController extends Controller
                 }
             }
             // Les commandes
-            $commande[$i] = $confirmationC[$i] = $facture[$i] = $annulationC[$i] = $receteC[$i] = 0;
+            
             foreach($commandes as $data){
                 $datetime = $data->getDateTime()->format('Y-m-d');
-                if (date($datetime) >= date($date1[$i]) && date($datetime) < date($date2[$i])){
+                if (date($datetime) >= date($date1[$i]) && date($datetime) <= date($date2[$i])){
                     $commande[$i] = $commande[$i] + 1;
                     if ($data->getConfirmer() === '1'){
                         $confirmationC[$i] = $confirmationC[$i] + 1;
@@ -762,34 +780,26 @@ class AdminController extends Controller
                 }
             }
             // Les operateurs
-            $m = array();
             foreach($operateurs as $data){
-                if(!in_array($data->getUser()->getEmail(), $m)){
-                    $m[] = $data->getUser()->getEmail();
-                }
-                //$m[] = $data->getUser()->getEmail();
-                $nm = count($m);
                 $datetime = $data->getDateTime()->format('Y-m-d');
                 //$note[$i] = $confirmer[$i] = $acompte[$i] = $facture[$i] = $avis[$i] = array();
-                if (\date($datetime) >= \date($date1[$i]) && \date($datetime) < \date($date2[$i])){
+                if (date($datetime) >= date($date1[$i]) && date($datetime) <= date($date2[$i])){
                     for($j=1; $j<=$nm; $j++){
-                        $note[$i][$j] = $confirmer[$i][$j] = $acompte[$i][$j] = $facture[$i][$j] = $avis[$i][$j] = 0;
                         switch($data->getAction()){
                             case 1: $note[$i][$j]      = $note[$i][$j] + 1;      default;
                             case 2: $confirmer[$i][$j] = $confirmer[$i][$j] + 1; default;
                             case 3: $acompte[$i][$j]   = $acompte[$i][$j] + 1;   default;
-                            case 4: $facture[$i][$j]   = $facture[$i][$j] + 1;   default;
-                            case 5: $avis[$i][$j]      = $avis[$i][$j] + 1;      default;
+                            case 4: @$factureO[$i][$j]  = @$factureO[$i][$j] + 1;  default;
+                            case 5: @$avisO[$i][$j]     = @$avisO[$i][$j] + 1;     default;
                         }
                     }
                 }
             }
         }
-        $dataR = $dataC = $confirmerR = $avisR = $annulerR = $confirmerC = $factureC = $annulerC = $recetesR = $recetesC = $noteO = $confirmerO = $acompteO = $factureO = $avisO = array();
         for($i=1; $i<=$month; $i++){
             $dataR[]      = $reservation[$i];
             $confirmerR[] = $confirmationR[$i];
-            $avisR[]      = $avis[$i];
+            $avisRR[]      = $avisR[$i];
             $annulerR[]   = $annulationR[$i];
             
             $dataC[]      = $commande[$i];
@@ -801,12 +811,11 @@ class AdminController extends Controller
             $recetesC[]   = $receteC[$i];
             
             for($j=1; $j<=$nm; $j++){
-                $noteO[$j] = $confirmerO[$j] = $acompteO[$j] = $factureO[$j] = $avisO[$j] = 0;
-                $noteO[$j]      = $note[$i][$j];
-                $confirmerO[$j] = $confirmer[$i][$j];
-                $acompteO[$j]   = $acompte[$i][$j];
-                $factureO[$j]   = $facture[$i][$j];
-                $avisO[$j]      = $avis[$i][$j];
+                $noteO[$j][]      = $note[$i][$j];
+                $confirmerO[$j][] = $confirmer[$i][$j];
+                $acompteO[$j][]   = $acompte[$i][$j];
+                //$factureOO[$j][]  = $factureO[$i][$j];
+                //$avisOO[$j][]     = $avisO[$i][$j];
             }
             
             switch ($i){
@@ -835,7 +844,7 @@ class AdminController extends Controller
             ),
             array(
                 "name" => "Avis", 
-                "data" => $avisR,
+                "data" => $avisRR,
             ),
             array(
                 "name" => "Annulations", 
@@ -860,6 +869,7 @@ class AdminController extends Controller
                 "data" => $annulerC,
             ),
         );
+        /*
         $sellsHistory3 = array(
             array(
                 "name" => "Réservations", 
@@ -870,31 +880,35 @@ class AdminController extends Controller
                 "data" => $recetesC,
             ),
         );
+        */
         for($j=1; $j<=$nm; $j++){
             
+            $sellsHistory4[$j] = array(
+                
+                array(
+                    "name" => "Notes", 
+                    "data" => $noteO[$j],
+                ),
+                array(
+                    "name" => "Confirmers", 
+                    "data" => $confirmerO[$j],
+                ),
+                array(
+                    "name" => "Acomptes", 
+                    "data" => $acompteO[$j],
+                ),
+                
+                array(
+                    "name" => "Factures", 
+                    "data" => $factureOO[$j],
+                ),
+                array(
+                    "name" => "Avis", 
+                    "data" => $avisOO[$j],
+                ),
+            );
         }
-        $sellsHistory4 = array(
-            array(
-                "name" => "Notes", 
-                "data" => $noteO,
-            ),
-            array(
-                "name" => "Confirmers", 
-                "data" => $confirmerO,
-            ),
-            array(
-                "name" => "Acomptes", 
-                "data" => $acompteO,
-            ),
-            array(
-                "name" => "Factures", 
-                "data" => $factureO,
-            ),
-            array(
-                "name" => "Avis", 
-                "data" => $avisO,
-            ),
-        );
+        
         
         //$dates  = array($date1, $date2, '$date3', '$date4', '$date5', '$date6', '$date7');
         $ob1 = new Highchart();
@@ -917,6 +931,7 @@ class AdminController extends Controller
         $ob2->xAxis->categories($dates);
         $ob2->series($sellsHistory2);
         
+        /*
         $ob3 = new Highchart();
         $ob3->chart->renderTo('linechart3'); // ID de l'élement de DOM que vous utilisez comme conteneur
         //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
@@ -926,24 +941,45 @@ class AdminController extends Controller
         $ob3->xAxis->title(array('text' => "La date"));
         $ob3->xAxis->categories($dates);
         $ob3->series($sellsHistory3);
+        */
         
-        $ob4 = new Highchart();
-        $ob4->chart->renderTo('linechart4'); // ID de l'élement de DOM que vous utilisez comme conteneur
-        //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
-        $ob4->title->text('Les operateurs');
-        $ob4->chart->type('column');
-        $ob4->yAxis->title(array('text' => "Requêtes effectués"));
-        $ob4->xAxis->title(array('text' => "La date"));
-        $ob4->xAxis->categories($dates);
-        $ob4->series($sellsHistory4);
+        for($j=1; $j<=$nm; $j++){
+            
+            $linechart = 'linechart4'.$j;
+            $ob4[$j] = new Highchart();
+            $ob4[$j]->chart->renderTo($linechart); // ID de l'élement de DOM que vous utilisez comme conteneur
+            //$ob->title->text('Du '.date('d/m/Y', strtotime(date('Y-m-d').' - 6 DAY')).' au '.date('d/m/Y'));
+            $ob4[$j]->title->text($m[$j-1]);
+            $ob4[$j]->chart->type('column');
+            $ob4[$j]->yAxis->title(array('text' => "Requêtes effectuées"));
+            $ob4[$j]->xAxis->title(array('text' => "La date"));
+            $ob4[$j]->xAxis->categories($dates);
+            $ob4[$j]->series($sellsHistory4[$j]);
+        }
         
-        return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', array(
-            'chart1' => $ob1,
-            'chart2' => $ob2,
-            'chart3' => $ob3,
-            'chart4' => $ob4,
-            'm'      => $m,
-        )); 
+        $charts = array();
+        for($j=1; $j<=$nm; $j++){
+            $charts[] = $ob4[$j];
+        }
+        
+        $azerty = array();
+        $azertyy['chart1'] = $ob1;
+        $azertyy['chart2'] = $ob2;
+        for($j=1; $j<=$nm; $j++){
+            $azerty[] = $ob4[$j];
+        }
+        foreach ($azerty as $key => $value) {
+            for($j=0; $j<$nm; $j++){
+                if($key == $j){
+                    $g = $j+1;
+                    $k = 'chart4'.$g;
+                    $azertyy[$k] = $value;
+                }
+            }
+        }
+        $azertyy['m'] = $nm;
+        
+        return $this->render('BaseBledvoyageBundle:Admin:statistic.html.twig', $azertyy); 
     }
     
     public function statisticsAction()

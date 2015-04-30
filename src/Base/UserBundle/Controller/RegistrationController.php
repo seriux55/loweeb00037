@@ -103,9 +103,9 @@ class RegistrationController extends BaseController
                 'id'        => $id,
             ));
         }elseif ($redirect == true){
-            $response = $this->render('FOSUserBundle:Registration:register_booking.html.twig', array(
+            $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
                 'form'      => $form->createView(),
-                'id'        => $request->request->get('red'),
+                'booking'        => $request->request->get('red'),
                 //'errors'    => $error, // REVOIR !!!!!!!!!!
             ));
         }elseif ($id == '0'){

@@ -34,41 +34,28 @@
         {% set i = false %}
         {% for data in product %}
         {% if i == 0 %}
-        {% if data.sortie.categorie.nom != 'formation' %}Les sorties{% else %}Les formations{% endif %}
+        {% if data.sortie.categorie.nom != 'formation' %}{{ data.sortie.categorie.nom|title }}{% else %}Les formations{% endif %}
         {% set i = true %}
         {% endif %}
         {% endfor %}
     </h2>
 </div>
 <div class="bloc_page_body3">
-
-    <!--
-    <div class="resrcbare">
-            <?php
-            $reponse = $bdd->query('SELECT SUM(validation) AS total FROM sortie');
-            $donnees = $reponse->fetch();
-            echo "<p>".$donnees['total']." sorties</p>";
-            $reponse->closeCursor();
-            ?>
-    </div>
-    -->
-
     {% for data in product %}
     {% if data.sortie.close == 0 %}
     <section>
         <div class="conte">
             <div class="rc">
                 <div class="photorc">
+                    {% if data.sortie.picture1 != null %}
                     <img src="{{ asset(data.sortie.picture1.webPath) }}" alt="{{ data.sortie.picture1.alt }}" />
+                    {% endif %}
                 </div>
                 <div class="desrc">
                     <article>
                         <h1>{{ data.sortie.titre }}</h1>
                         <h3>
-                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  AU <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> 2015-10-19 <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
-                        </h3>
-                        <h3>
-                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> Le 2015-10-19 |  <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}"> {{ data.sortie.heureDebut }} - {{ data.sortie.heureFin }}
+                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  AU <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateFin|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
                         </h3>
                         <div class="loc">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}" alt="Image"/>
@@ -114,27 +101,21 @@
                     <div class="detprod">
                         <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id, 'slug':data.sortie.slug }) }}">Détail</a>
                     </div>
+                    {% if data.sortie.close == 0 %}
                     <div class="resrc">
                         <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
                     </div>
+                    {% elseif data.sortie.close == 1 %}
                     <div class="complet">
                         Complet
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </section>
     {% endif %}
     {% endfor %}
-    <!--
-    <div class="plusrc">
-        <p>
-        <a href="http://www.bledvoyage.com">
-        Revenir au site bledvoyage.com
-        </a>
-        </p>
-    </div>
-    -->
 </div>
 <!-- // debut de la petite pub -->
 <div class="sectiono">
