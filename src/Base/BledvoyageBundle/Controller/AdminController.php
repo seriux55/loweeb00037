@@ -64,6 +64,7 @@ class AdminController extends Controller
                 'acompte'       => $data->getAcompte(),
                 'note'          => $data->getNote(),
                 'ticketPromo'   => $data->getTicketPromo(),
+                'vip'           => $data->getUser()->getVip(),
             );
             $number++;
         }
@@ -174,7 +175,7 @@ class AdminController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Confirmation de commande') //Confirmation de reservation, bledvoyage.com
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo('nadir.allam@bledvoyage.com')
+                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_confirmer.txt.twig', array(
                     'product' => array(
                         'prenom'        => $commande->getUser()->getSecondename(),
@@ -328,7 +329,7 @@ class AdminController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Votre ticket cadeau, bledvoyage.com')
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo('nadir.allam@gmail.com')
+                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_facturer.html.twig', array(
                     'product' => array(
                         'id'            => $commande->getId(),
@@ -446,7 +447,7 @@ class AdminController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Confirmation de reservation, bledvoyage.com')
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo('nadir.allam@bledvoyage.com')
+                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:reservation_confirmer.txt.twig', array(
                     'product' => array(
                         'prenom'        => $booking->getUser()->getSecondename(),
@@ -504,7 +505,7 @@ class AdminController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Votre sortie, bledvoyage.com')
                 ->setFrom('contact@nroho.com')
-                ->setTo('nadir.allam@bledvoyage.com')
+                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:reservation_avis.txt.twig', array(
                     'product' => array(
                         'id'            => $booking->getId(),
@@ -527,6 +528,32 @@ class AdminController extends Controller
         return $this->render('BaseBledvoyageBundle:Admin:reservation_avis.html.twig', array(
             'product' => $product,
             'total'   => $total,
+        ));    
+    }
+    
+    public function reservationVipAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.sortie', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('a.user', 'c')
+                   ->where('a.id = :id')
+                   ->setParameter('id', $id)
+                   ->getQuery()
+                   ->getResult();
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $product = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
+            $product->getUser()->setVip('1');
+            $em->persist($product);
+            $em->flush();
+            return $this->forward('BaseBledvoyageBundle:Confirmation:avisReservation');
+        }
+        return $this->render('BaseBledvoyageBundle:Admin:reservation_vip.html.twig', array(
+            'product' => $product,
         ));    
     }
     
@@ -1161,7 +1188,7 @@ class AdminController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Votre ticket cadeau, bledvoyage.com, invitation')
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo('nadir.allam@bledvoyage.com')
+                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:admin_invitation_vip.html.twig', array(
                     'product' => array(
                         'sortie'        => $sortie->getTitre(),

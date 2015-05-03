@@ -1,0 +1,41 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+{% for data in product %}
+<div class="bloc_page_body222">
+    <h2>
+        VIP 
+    </h2>
+</div>	
+<div class="bloc_page_body3">
+    <section class="suito">
+        <article>
+            <h1>Membre VIP.</h1>
+            <br />
+            <h3>Prénom Nom : {{ data.user.secondename }} {{ data.user.firstname }}.</h3>
+            <h3>Téléphone : {{ data.user.phone }}.</h3>
+            <h3>E-mail : {{ data.user.email }}.</h3>
+        </article>
+        <div class="forpar">
+            <form method="post">
+                <div class="mr6">
+                    <input class="cherchez" name="login" type="submit" value="Envoyer" />
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="plusrc">
+        <p>
+            <a href="{{ path('bledvoyage_admin') }}">
+                Revenir au tableau de bord
+            </a>
+        </p>
+
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block jquery %}{% endblock %}

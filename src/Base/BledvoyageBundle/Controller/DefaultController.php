@@ -334,7 +334,7 @@ class DefaultController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('Votre commande chez bledvoyage.com') //Votre commande chez bledvoyage.com
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo('nadir.allam@bledvoyage.com')
+                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:user_commande.txt.twig', array(
                     'product' => $commande)
                 ));

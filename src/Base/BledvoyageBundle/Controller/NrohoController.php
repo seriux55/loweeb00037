@@ -3,7 +3,7 @@
 namespace Base\BledvoyageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+//use Symfony\Component\HttpFoundation\Request;
 
 class NrohoController extends Controller
 {
@@ -16,7 +16,6 @@ class NrohoController extends Controller
                    ->orderBy('a.id','DESC')
                    ->getQuery()
                    ->getResult();
-        
         return $product;
     }
     
@@ -25,6 +24,7 @@ class NrohoController extends Controller
      * @var Request $request
      * @return View|array
      */
+    /*
     public function cpostSortieAction(Request $request)
     {
         $entity = new Organisation();
@@ -49,6 +49,7 @@ class NrohoController extends Controller
             'form' => $form,
         );
     }
+    */
     
     /**
      * Put action
@@ -56,6 +57,7 @@ class NrohoController extends Controller
      * @var integer $id Id of the entity
      * @return View|array
      */
+    /*
     public function putSortieAction(Request $request, $id)
     {
         $entity = $this->getEntity($id);
@@ -74,12 +76,14 @@ class NrohoController extends Controller
             'form' => $form,
         );
     }
+    */
     
     /**
      * Delete action
      * @var integer $id Id of the entity
      * @return View
      */
+    /*
     public function deleteSortieAction($id)
     {
         $entity = $this->getEntity($id);
@@ -90,4 +94,5 @@ class NrohoController extends Controller
 
         return $this->view(null, Codes::HTTP_NO_CONTENT);
     }
+    */
 }
