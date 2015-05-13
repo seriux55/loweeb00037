@@ -217,6 +217,23 @@ function moins(){
     if(c2.length>0){c.removeChild(c2[c2.length-1])}
     if(c2.length===0){document.getElementById('sup').style.display='none'};
 }
+
+// safari
+/*
+var forms = document.getElementsByTagName('form');
+for (var i = 0; i < forms.length; i++) {
+    forms[i].noValidate = true;
+
+    forms[i].addEventListener('submit', function(event) {
+        //Prevent submission if checkValidity on the form returns false.
+        if (!event.target.checkValidity()) {
+            event.preventDefault();
+            //Implement you own means of displaying error messages to the user here.
+            alert('Tous les champs sont obligatoire')
+        }
+    }, false);
+}
+*/
 </script>
 <!--
 <script type="text/javascript">

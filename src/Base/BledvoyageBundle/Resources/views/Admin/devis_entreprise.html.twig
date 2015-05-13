@@ -1,0 +1,66 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Devis
+    </h2>
+</div>
+
+{#
+<section>
+    <h2>Choisir les sorties et le tarif de chaque sortie</h2>
+    <form method="post">
+        
+        <label>Le nombre de personne</label>
+        <input type="text" name="nombre" required/>
+        {% for data in sorties %}
+        <div>
+            <input type="checkbox" name="sortie{{ data.id }}" value="1" />
+            <p>{{ data.titre }}</p>
+            <label>Tarif par personne</label>
+            <input type="text" name="tarif{{ data.id }}" />
+        </div>
+        {% endfor %}
+        <input type="submit" value="Envoyer" />
+    </form>
+</section>
+#}
+
+<section>
+<form method="post">
+    <div style="text-align:center">
+        <p>Le nombre de participant</p>
+        <input type="number" class="ouardep" name="nombre" placeholder="20" required/>
+    </div>
+    <table>
+        <caption>
+            <p><strong> Liste des sorties</strong> Cochez la sortie et indiquez le tarif correspondant.</p>
+        </caption>
+        <thead>
+            <tr>
+                <th>Selectionner</th>
+                <th>Le titre de la sortie</th>
+                <th>Tarif par personne</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in sorties %}
+            <tr>
+                <td><input type="checkbox" name="sortie{{ data.id }}" value="1" /></td>
+                <td>{{ data.titre }}</td>
+                <td><input type="number" class="ouardep" name="tarif{{ data.id }}" placeholder="2900" /></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align:center">
+        <input type="submit" class="cherchez" value="Envoyer" />
+    </div>
+</form>
+</section>   
+{% endblock %}
+
+{% block jquery %}{% endblock %}

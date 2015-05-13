@@ -125,9 +125,44 @@ class AdminController extends Controller
     
     public function reservationAction()
     {
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ->createQueryBuilder('a')
+                   ->addSelect('b')
+                   ->leftJoin('a.user', 'b')
+                   ->addSelect('c')
+                   ->leftJoin('a.sortie', 'c')
+                   ->where('a.confirmer = 1')
+                   ->orderBy('a.id','ASC')
+                   ->getQuery()
+                   ->getResult();
+        
+        $d = $resa = array();
+        foreach ($product as $data) {
+            if(!in_array($data->getSortie()->getId(), $d)){
+                $sorties[] = $data->getSortie();
+                $d[] = $data->getSortie()->getId();
+            }
+        }
+        $nbrReservation = $nbrPlace = 0;
+        foreach ($d as $value) {
+            foreach ($product as $data){
+                if($data->getSortie()->getId() == $value){
+                    
+                    // Ça ne veut rien dire **************
+                    $nbrPlace = $nbrPlace + $data->getNombre();
+                    $resa[] = array(
+                        'id'                => $data->getSortie()->getId(),
+                        'nbrReservation'    => $nbrReservation++,
+                        'nbrPlace'          => $nbrPlace,
+                    );
+                }
+            }
+        }
         
         return $this->render('BaseBledvoyageBundle:Admin:reservation.html.twig', array(
-                // ...
+            'product'   => $product,
+            'sortie'    => $sorties,
+            'resa'      => $resa,
         ));    
     }
     
@@ -1207,6 +1242,51 @@ class AdminController extends Controller
         
         return $this->render('BaseBledvoyageBundle:Admin:invitation.html.twig', array(
             'sortie' => $sortie,
+        ));
+    }
+    
+    public function devisEntrepriseAction(Request $request){
+        
+        $sorties = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
+                ->createQueryBuilder('a')
+                ->where('a.valider = :valider')
+                ->setParameter('valider', '1')
+                ->orderBy('a.id','ASC')
+                ->getQuery()
+                ->getResult();
+        $total = 0;
+        if ($request->getMethod() == 'POST') {
+            foreach ($sorties as $data) {
+                if($request->get('sortie'.$data->getId()) == "1"){
+                    $total = $total + ( $request->get('nombre') * $request->get('tarif'.$data->getId()) );
+                    $sortie[] = array(
+                        'titre' => $data->getTitre(),
+                        'tarif' => ( $request->get('nombre') * $request->get('tarif'.$data->getId()) ),
+                    );
+                }
+            }
+            $devisPdf = $this->render('BaseBledvoyageBundle:Mail:devis_entreprise.pdf.twig', array(
+                'sorties'   => $sortie,
+                'total'     => $total,
+            ));
+            $pdf_1 = new \HTML2PDF('P','A4','fr');
+            $pdf_1->pdf->SetDisplayMode('real');
+            $pdf_1->writeHTML($devisPdf);
+            $content_1 = $pdf_1->Output('Ticket.pdf', true);
+            $message = \Swift_Message::newInstance()
+                ->setSubject('test Votre ticket cadeau, bledvoyage.com, devis')
+                ->setFrom('contact@bledvoyage.com')
+                ->setTo(array('nadir.allam@bledvoyage.com'))
+                ->setBody('Bonjour le devis')
+                ->attach(Swift_Attachment::newInstance($content_1, 'devis_bledvoyage.pdf', 'application/pdf'))
+            ;
+            $this->get('mailer')->send($message);
+            return $devisPdf;
+        }
+        
+        return $this->render('BaseBledvoyageBundle:Admin:devis_entreprise.html.twig', array(
+            'sorties'   => $sorties,
+            'total'     => $total,
         ));
     }
 }

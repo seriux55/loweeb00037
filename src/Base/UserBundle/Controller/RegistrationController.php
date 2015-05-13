@@ -98,7 +98,7 @@ class RegistrationController extends BaseController
             */
         }
         if ($id != '0'){
-            $response = $this->render('FOSUserBundle:Registration:register_booking.html.twig', array(
+            $response = $this->render('BaseUserBundle:Registration:register_booking.html.twig', array(
                 'form'      => $form->createView(),
                 'id'        => $id,
             ));

@@ -20,7 +20,65 @@
         <p> Nombres de places réservés = 1007</p>
     </div>
 </section>
-<div class=".bloc_page_body3">
+    
+
+<div class="bloc_page_body3">
+    {% for data in sortie %}
+    <section>
+        <div class="avisor">
+            <h3>Sortie : {{ data.titre }}</h3> 
+            <h4><img src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}" alt="Image"> Du {{ data.dateDebut|date('d/m/Y') }} AU {{ data.dateFin|date('d/m/Y') }} | <img src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}" alt="Image">  {{ data.heureDebut }} - {{ data.heureFin }}.</h4>
+            <p>
+                Tarif : {{ data.tarif }} Da/per
+            </p>
+            <p>Réservations : {% for d in resa %}{% if d.id == data.id %}{{ d.nbrReservation }}{% endif %}{% endfor %} </p>
+            <p>Places : 3 </p>
+        </div>
+        <div class="avison">
+            <ul class="resu">
+                <li class="resuhe">
+                    <div class="resudate">
+                        <h1>14/02/2015</h1>
+                    </div>
+                    <strong>TOTAL :  3 résa, 3 places</strong><table>
+                        <thead>
+                            <tr>
+                                <th class="numero">Ligne</th>
+                                <th>Résa</th>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Tél.</th>
+                                <th>Place</th>
+                                <th>Créneau</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set i = 1 %}
+                            {% for dataB in product %}
+                            {% if dataB.sortie.id == data.id %}
+                            <tr>
+                                <td class="numero">{{ i }}</td>
+                                <td>{{ dataB.id }}</td>
+                                <td>{{ dataB.user.secondename }}</td>
+                                <td>{{ dataB.user.firstname }}</td>
+                                <td>{{ dataB.user.phone }}</td>
+                                <td>{{ dataB.nombre }}</td>
+                                <td>{{ dataB.creneau }}</td>
+                            </tr>
+                            {% set i = i + 1 %}
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </section>
+    {% endfor %}
+</div>
+
+
+<div class="bloc_page_body3">
     <script>
     jQuery(document).ready(function(){
         $("#boutonplus52").on("click", function(){

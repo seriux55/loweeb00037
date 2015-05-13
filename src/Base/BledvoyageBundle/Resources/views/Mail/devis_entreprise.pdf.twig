@@ -1,0 +1,20 @@
+
+
+<table>
+    <p><strong> Liste des sorties</strong> Vous avez le détail suivant.</p>
+    <thead>
+        <tr>
+            <th>Le titre de la sortie</th>
+            <th>Tarif</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in sorties %}
+        <tr>
+            <td>{{ data.titre }}</td>
+            <td>{{ data.tarif }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>Total : {{ total }}</p>
