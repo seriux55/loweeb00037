@@ -142,3 +142,7 @@ bledvoyage_admin_invitation:
 bledvoyage_admin_devis_entreprise:
     path:     manager/devis
     defaults: { _controller: BaseBledvoyageBundle:Admin:devisEntreprise }
+
+bledvoyage_admin_devis_entreprise:
+    path:     a
+    defaults: { _controller: BaseBledvoyageBundle:Default:a }

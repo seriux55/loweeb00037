@@ -5,10 +5,72 @@
 {% block body %}
 
 {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-{{ render(controller('BaseUserBundle:Security:login', { 'id' : 1, 'booking' : booking } )) }}
-{{ render(controller('BaseUserBundle:Registration:register', { 'id' : booking, 'form' : form } )) }}
-{% else %}
+<div>{{ render(controller('BaseUserBundle:Security:login', { 'id' : 1, 'booking' : booking } )) }}</div>
+{% trans_default_domain 'FOSUserBundle' %}
 
+<div id="inscription" class="bloc_page_body222">
+    <h2>
+        Inscription 
+    </h2>
+</div>
+<div class="bloc_page_body3">
+    <section> 
+        <div class="forpar">
+            <form {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                {{ form_errors(form) }}
+                <div>
+                    <label>{{ form_label(form.gender, " ") }}</label>
+                    {{ form_errors(form.gender) }}
+                    {{ form_widget(form.gender) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.firstname, "Nom") }}</label>
+                    {{ form_errors(form.firstname) }}
+                    {{ form_widget(form.firstname, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.secondename, "Prénom") }}</label>
+                    {{ form_errors(form.secondename) }}
+                    {{ form_widget(form.secondename, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.born, "Année de naissance") }}</label>
+                    {{ form_errors(form.born) }}
+                    {{ form_widget(form.born, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.phone, "Téléphone") }}</label>
+                    {{ form_errors(form.phone) }}
+                    {{ form_widget(form.phone, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.email, "Adresse mail") }}</label>
+                    {{ form_errors(form.email) }}
+                    {{ form_widget(form.email, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.plainPassword.first, "Mot de passe ") }}</label>
+                    {{ form_errors(form.plainPassword.first) }}
+                    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>
+                <div>
+                    <label>{{ form_label(form.plainPassword.second, "Confirmez le mot de passe ") }}</label>
+                    {{ form_errors(form.plainPassword.second) }}
+                    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'ouardepp'} }) }}
+                </div>                   
+                {{ form_rest(form) }}
+                <div class="mr2">
+                    <div class="mr6">
+                        <input type="hidden" name="_target_path"  value="/booking/{{ booking }}" />
+                        <input type="hidden" name="red" value="{{ booking }}" />
+                        <input class="trouvezi" type="submit" value="{{ 'registration.submit'|trans }}" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+{% else %}
 <div class="bloc_page_body222">
     <h2>
         Réservation 

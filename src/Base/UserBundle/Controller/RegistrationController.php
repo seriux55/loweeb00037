@@ -175,13 +175,18 @@ class RegistrationController extends BaseController
      */
     public function confirmedAction()
     {
+        $session = new Session();
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
+        
+        return $this->redirect($session->get('back'));
+        /*
         return $this->render('FOSUserBundle:Registration:confirmed.html.twig', array(
             'user' => $user,
         ));
+        */
     }
     
     private function authenticateUser(UserInterface $user)

@@ -100,7 +100,7 @@ sensio_framework_extra:
 
 # FOS REST Configuration
 fos_rest:
-    param_fetcher_listener: true
+    #param_fetcher_listener: true
     body_listener: true
     format_listener: true
     view:

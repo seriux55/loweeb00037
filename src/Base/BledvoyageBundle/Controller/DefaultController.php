@@ -5,6 +5,7 @@ namespace Base\BledvoyageBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Base\BledvoyageBundle\Entity\Booking;
 use Base\BledvoyageBundle\Entity\Commande;
 use Base\BledvoyageBundle\Entity\AvisSortie;
@@ -12,6 +13,15 @@ use Base\BledvoyageBundle\Entity\Contact;
 use Base\BledvoyageBundle\Entity\CategorieSortie;
 use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
 use Base\BledvoyageBundle\Entity\Picture;
+
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use FOS\UserBundle\Model\UserInterface;
 
 class DefaultController extends Controller
 {
@@ -157,103 +167,146 @@ class DefaultController extends Controller
     
     public function bookingAction(Request $request, $id)
     {
-        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
-        $formFactory = $this->get('fos_user.registration.form.factory');
-        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
-        $userManager = $this->get('fos_user.user_manager');
-        $form = $formFactory->createForm();
-        $user = $userManager->createUser();
-        $form->setData($user);
-        $form->handleRequest($request);
-        
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
-                   ->createQueryBuilder('a')
-                   ->where('a.sortie = :id')
-                   ->setParameter('id', $id)
-                   ->getQuery()
-                   ->getResult();
-        $dateDebut = array();
-        foreach($product as $value){
-            $dateDebut[] = array($value->getDateDebut()->format('Y-m-d') => $value->getDateDebut()->format('d/m/Y'));
-        }
-        if ($request->getMethod() == 'POST') {
-            $frToDatetime = $this->container->get('FrToDatetime');
-            $post = $request->request->all();
-            foreach ( $post as $key => $val )
-            {
-                if(substr($key, 0, 5) == "promo"){
-                    $a[] = substr($key, 5);
-                }
+        $session = new Session();
+        $session->set('back', $request->server->get('PHP_SELF'));
+        // if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
+            
+        //}else{
+        $role = $this->get('security.context');
+        if($role->isGranted('ROLE_USER') || $role->isGranted('ROLE_MODERATEUR') || $role->isGranted('ROLE_ADMIN')){
+            $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:DateSortie')
+                    ->createQueryBuilder('a')
+                    ->where('a.sortie = :id')
+                    ->setParameter('id', $id)
+                    ->getQuery()
+                    ->getResult();
+            $dateDebut = array();
+            foreach($product as $value){
+                $dateDebut[] = array($value->getDateDebut()->format('Y-m-d') => $value->getDateDebut()->format('d/m/Y'));
             }
-            $invalide = $nbr_promo = max($a);
-            $where = $code = $text = '';
-            $nombre = $request->get('nombre');
-            for($i=0;$i<=$nbr_promo;$i++){
-                if($i == 0){ 
-                    $where .= "a.code = '".addslashes($request->get('promo'.$i))."'";
-                    $code  .= $request->get('promo'.$i);
-                }else{
-                    $where .= " OR a.code = '".addslashes($request->get('promo'.$i))."'";
-                    $code  .= ', '.$request->get('promo'.$i);
+            if ($request->getMethod() == 'POST') {
+                $frToDatetime = $this->container->get('FrToDatetime');
+                $post = $request->request->all();
+                foreach ( $post as $key => $val )
+                {
+                    if(substr($key, 0, 5) == "promo"){
+                        $a[] = substr($key, 5);
+                    }
                 }
-            }
-            $promo = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.commande', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('b.categorieTicket', 'c')
-                   ->where($where)
-                   ->getQuery()
-                   ->getResult();
-            foreach($promo as $value){
-                $reste = $value->getCommande()->getCategorieTicket()->getNombreActivite() - $value->getUsed();
-                if($value->getClose() == '1'){
-                    $text .= ', utilisé';
-                }else if($value->getDateFin()->format('Y-m-d') < \date('Y-m-d')){
-                    $text .= ', expiré';
-                }else if($nombre != 0 && $reste > 0 && $reste >  $nombre){
-                    // li bqa kter men wech rahi tdemandi
-                    // il paye rien
-                    $used = $value->getUsed() + $nombre;
-                    // update
-                    $nombre = 0;
-                }else if($nombre != 0 && $reste > 0 && $reste == $nombre){
-                    // li bqa kima wech rahi tdemandi
-                    // il paye rien
-                    $used = $value->getUsed() + $nombre;
-                    // update
-                    $nombre = 0;
-                }else if($nombre != 0 && $reste > 0 && $reste <  $nombre){
-                    // li bqa qel men wach rahi tdemandi
-                    // il paye la difference
-                    $used = $value->getUsed() + $reste;
-                    $nombre = $nombre - $reste;
-                }else if($nombre != 0 && $reste <= 0){
-                    // il ne lui reste plus de place
-                    $text .= ', utilisé';
+                $invalide = $nbr_promo = max($a);
+                $where = $code = $text = '';
+                $nombre = $request->get('nombre');
+                for($i=0;$i<=$nbr_promo;$i++){
+                    if($i == 0){ 
+                        $where .= "a.code = '".addslashes($request->get('promo'.$i))."'";
+                        $code  .= $request->get('promo'.$i);
+                    }else{
+                        $where .= " OR a.code = '".addslashes($request->get('promo'.$i))."'";
+                        $code  .= ', '.$request->get('promo'.$i);
+                    }
                 }
-                $invalide--;
+                $promo = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
+                       ->createQueryBuilder('a')
+                       ->addSelect('b')
+                       ->leftJoin('a.commande', 'b')
+                       ->addSelect('c')
+                       ->leftJoin('b.categorieTicket', 'c')
+                       ->where($where)
+                       ->getQuery()
+                       ->getResult();
+                foreach($promo as $value){
+                    $reste = $value->getCommande()->getCategorieTicket()->getNombreActivite() - $value->getUsed();
+                    if($value->getClose() == '1'){
+                        $text .= ', utilisé';
+                    }else if($value->getDateFin()->format('Y-m-d') < \date('Y-m-d')){
+                        $text .= ', expiré';
+                    }else if($nombre != 0 && $reste > 0 && $reste >  $nombre){
+                        // li bqa kter men wech rahi tdemandi
+                        // il paye rien
+                        $used = $value->getUsed() + $nombre;
+                        // update
+                        $nombre = 0;
+                    }else if($nombre != 0 && $reste > 0 && $reste == $nombre){
+                        // li bqa kima wech rahi tdemandi
+                        // il paye rien
+                        $used = $value->getUsed() + $nombre;
+                        // update
+                        $nombre = 0;
+                    }else if($nombre != 0 && $reste > 0 && $reste <  $nombre){
+                        // li bqa qel men wach rahi tdemandi
+                        // il paye la difference
+                        $used = $value->getUsed() + $reste;
+                        $nombre = $nombre - $reste;
+                    }else if($nombre != 0 && $reste <= 0){
+                        // il ne lui reste plus de place
+                        $text .= ', utilisé';
+                    }
+                    $invalide--;
+                }
+                $booking = new Booking();
+                $booking->setUser($this->get('security.context')->getToken()->getUser())
+                        ->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id))
+                        ->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateReserver'))))
+                        ->setNombre($request->get('nombre'))
+                        ->setPromo($code)
+                        ->setIp($this->getRequest()->getClientIp());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($booking);
+                $em->flush();
+                return $this->render('BaseBledvoyageBundle:Confirmation:user_reservation.html.twig', array(
+                    'a' => $promo,
+                ));
             }
-            $booking = new Booking();
-            $booking->setUser($this->get('security.context')->getToken()->getUser())
-                    ->setSortie($this->getDoctrine()->getManager()->getRepository('BaseBledvoyageBundle:Sortie')->find($id))
-                    ->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateReserver'))))
-                    ->setNombre($request->get('nombre'))
-                    ->setPromo($code)
-                    ->setIp($this->getRequest()->getClientIp());
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($booking);
-            $em->flush();
-            return $this->render('BaseBledvoyageBundle:Confirmation:user_reservation.html.twig', array(
-                'a' => $promo,
+            $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
+                'product'   => $product,
+                'booking'   => $id,
+                'bibi'      => '1',
+            ));
+        }else{
+            /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+            $formFactory = $this->get('fos_user.registration.form.factory');
+            /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+            $userManager = $this->get('fos_user.user_manager');
+            /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+            $dispatcher = $this->get('event_dispatcher');
+
+            $user = $userManager->createUser();
+            $user->setEnabled(true);
+            $user->setIp($this->getRequest()->getClientIp());
+
+            $event = new GetResponseUserEvent($user, $request);
+            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+            if (null !== $event->getResponse()) {
+                return $event->getResponse();
+            }
+
+            $form = $formFactory->createForm();
+            $form->setData($user);
+
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $event = new FormEvent($form, $request);
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+                $userManager->updateUser($user);
+
+                if (null === $response = $event->getResponse()) {
+                    $url = $this->generateUrl('fos_user_registration_confirmed');
+                    $response = new RedirectResponse($url);
+                }
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                return $response;
+            }
+            $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
+                'form'      => $form->createView(),
+                'booking'   => $id,
+                'bibi'      => '0',
             ));
         }
-        $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
-            'product'   => $product,
-            'booking'   => $id,
-            'form'      => $form,
-        ));
         return $response;
     }
     
@@ -312,6 +365,8 @@ class DefaultController extends Controller
     
     public function promotionTypeAction(Request $request, $id)
     {
+        $session = new Session();
+        $session->set('back', $request->server->get('PHP_SELF'));
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')
                    ->createQueryBuilder('a')
                    ->where('a.id = :id')
@@ -371,7 +426,8 @@ class DefaultController extends Controller
         return $response;
     }
     
-    public function contactAction(Request $request){
+    public function contactAction(Request $request)
+    {
         
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
@@ -388,6 +444,8 @@ class DefaultController extends Controller
     
     public function suggestAction(Request $request)
     {
+        $session = new Session();
+        $session->set('back', $request->server->get('PHP_SELF'));
         $sortie = new CategorieSortie();
         $form = $this->createForm(new CategorieSortieType(), $sortie);
         
