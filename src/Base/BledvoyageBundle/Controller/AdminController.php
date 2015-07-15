@@ -22,7 +22,7 @@ class AdminController extends Controller
                    ->leftJoin('a.user', 'c')
                    ->where('b.valider = :valider')
                    ->setParameter('valider', '1')
-                   ->orderBy('a.id','ASC')
+                   ->orderBy('a.id','DESC')
                    ->getQuery()
                    ->getResult();
         $d = array();
@@ -82,7 +82,7 @@ class AdminController extends Controller
                    ->leftJoin('a.user', 'b')
                    ->addSelect('c')
                    ->leftJoin('a.categorieTicket', 'c')
-                   ->orderBy('a.id','ASC')
+                   ->orderBy('a.id','DESC')
                    ->getQuery()
                    ->getResult();
         $d = array();

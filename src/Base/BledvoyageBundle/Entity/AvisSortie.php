@@ -180,4 +180,20 @@ class AvisSortie
     {
         return $this->booking;
     }
+    
+    public function getAvisSortie($em, $id)
+    {
+        $avis = $em->getRepository('BaseBledvoyageBundle:AvisSortie')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.booking', 'b')
+            ->addSelect('c')
+            ->leftJoin('b.user', 'c')
+            ->where('b.sortie = :id')
+            ->setParameter('id', $id)
+            ->orderBy('a.dateTime','DESC')
+            ->getQuery()
+            ->getResult();
+        return $avis;
+    }
 }

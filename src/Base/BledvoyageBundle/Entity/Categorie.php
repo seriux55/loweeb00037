@@ -181,4 +181,23 @@ class Categorie
     {
         return $this->dateTime;
     }
+    
+    public function getCategorie($em)
+    {
+        $categorie = $em->getRepository('BaseBledvoyageBundle:Categorie')
+            ->createQueryBuilder('a')
+            ->where('a.nom = :nom1 OR a.nom = :nom2 OR a.nom = :nom3 OR a.nom = :nom4 OR a.nom = :nom5 OR a.nom = :nom6')
+            ->setParameters(array(
+                     'nom1' => 'montagne',
+                     'nom2' => 'sable',
+                     'nom3' => 'air',
+                     'nom4' => 'terre',
+                     'nom5' => 'mer',
+                     'nom6' => 'formation',
+                ))
+            ->orderBy('a.id','ASC')
+            ->getQuery()
+            ->getResult();
+        return $categorie;
+    }
 }

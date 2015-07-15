@@ -1199,4 +1199,48 @@ class Sortie
     {
         return $this->dateTime;
     }
+    
+    public function getProduct($em, $id)
+    {
+        $product = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.sortie', 'b')
+            ->addSelect('c')
+            ->leftJoin('b.picture1', 'c')
+            ->addSelect('d')
+            ->leftJoin('b.picture2', 'd')
+            ->addSelect('e')
+            ->leftJoin('b.picture3', 'e')
+            ->addSelect('f')
+            ->leftJoin('b.picture4', 'f')
+            ->addSelect('g')
+            ->leftJoin('b.user', 'g')
+            ->where('b.valider = :valider AND b.id = :id')
+            ->setParameters(
+                 array(
+                     'valider'    => '1',
+                     'id'         => $id,
+                 ))
+            ->orderBy('a.id','DESC')
+            ->getQuery()
+            ->getResult();
+        return $product;
+    }
+    
+    public function getSorties($em)
+    {
+        $sorties = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.sortie', 'b')
+            ->addSelect('c')
+            ->leftJoin('b.picture1', 'c')
+            ->where('b.valider = :valider')
+            ->setParameter('valider', '1')
+            ->orderBy('a.id','ASC')
+            ->getQuery()
+            ->getResult();
+        return $sorties;
+    }
 }

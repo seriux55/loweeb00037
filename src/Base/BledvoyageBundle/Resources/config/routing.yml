@@ -18,7 +18,7 @@ bledvoyage_product:
         id:   \d+
 
 bledvoyage_booking:
-    path:     /booking/{id}
+    path:     /{id}/booking
     defaults: { _controller: BaseBledvoyageBundle:Default:booking }
     requirements:
         id:   \d+
@@ -142,7 +142,3 @@ bledvoyage_admin_invitation:
 bledvoyage_admin_devis_entreprise:
     path:     manager/devis
     defaults: { _controller: BaseBledvoyageBundle:Admin:devisEntreprise }
-
-bledvoyage_admin_devis_entreprise:
-    path:     a
-    defaults: { _controller: BaseBledvoyageBundle:Default:a }

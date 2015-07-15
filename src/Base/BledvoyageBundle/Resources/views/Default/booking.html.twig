@@ -1,5 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+{% endblock %}
+
 {% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
@@ -149,7 +154,7 @@
                     </h2>
                     <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
                 </div>
-                <div class="dates">
+                <div class="dates" id="personne">
                     {% set date = 0 %}
                     {% for data in product %}
                     {% if data.dateFin|date('Y-m-d') > 'now'|date('Y-m-d') %}
@@ -193,7 +198,10 @@
                         {% endif %}
                     {% endif %}
                     {% endfor %}
-                </div>	
+                </div>
+                <div class="dates" id="groupe" style="display:none;">
+                    <input type= "text" name="dateReserverGroupe" class="datepicker" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!">
+                </div>
                 <div class="dates">
                     <h2>
                         Avez vous un code promotion ?
@@ -296,6 +304,35 @@ for (var i = 0; i < forms.length; i++) {
     }, false);
 }
 */
+</script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<script>
+jQuery(function($){
+    $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin',
+        'Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+        dayNamesMin: ['D','L','M','M','J','V','S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 7,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+    $( ".datepicker" ).datepicker( $.datepicker.regional[ "fr" ] );
+});
+$(function() {
+    $('input.datepicker').datepicker();
+});
 </script>
 <!--
 <script type="text/javascript">

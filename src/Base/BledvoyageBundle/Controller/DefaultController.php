@@ -12,7 +12,8 @@ use Base\BledvoyageBundle\Entity\AvisSortie;
 use Base\BledvoyageBundle\Entity\Contact;
 use Base\BledvoyageBundle\Entity\CategorieSortie;
 use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
-use Base\BledvoyageBundle\Entity\Picture;
+use Base\BledvoyageBundle\Entity\Sortie;
+use Base\BledvoyageBundle\Entity\Categorie;
 
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
@@ -27,31 +28,11 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieSortie')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('b.picture1', 'c')
-                   ->where('b.valider = :valider')
-                   ->setParameter('valider', '1')
-                   ->orderBy('a.id','ASC')
-                   ->getQuery()
-                   ->getResult();
-        $categorie = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Categorie')
-                   ->createQueryBuilder('a')
-                   ->where('a.nom = :nom1 OR a.nom = :nom2 OR a.nom = :nom3 OR a.nom = :nom4 OR a.nom = :nom5 OR a.nom = :nom6')
-                   ->setParameters(array(
-                            'nom1' => 'montagne',
-                            'nom2' => 'sable',
-                            'nom3' => 'air',
-                            'nom4' => 'terre',
-                            'nom5' => 'mer',
-                            'nom6' => 'formation',
-                       ))
-                   ->orderBy('a.id','ASC')
-                   ->getQuery()
-                   ->getResult();
+        $em         = $this->getDoctrine();
+        $sortie     = new Sortie();
+        $product    = $sortie->getSorties($em);
+        $categories = new Categorie();
+        $categorie  = $categories->getCategorie($em);
         foreach ($categorie as $data)
         {
             if($data->getNom() == 'formation'){ $formation = $data->getId(); }
@@ -66,40 +47,11 @@ class DefaultController extends Controller
     
     public function productAction($id)
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieSortie')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('b.picture1', 'c')
-                   ->addSelect('d')
-                   ->leftJoin('b.picture2', 'd')
-                   ->addSelect('e')
-                   ->leftJoin('b.picture3', 'e')
-                   ->addSelect('f')
-                   ->leftJoin('b.picture4', 'f')
-                   ->addSelect('g')
-                   ->leftJoin('b.user', 'g')
-                   ->where('b.valider = :valider AND b.id = :id')
-                   ->setParameters(
-                        array(
-                            'valider'    => '1',
-                            'id'         => $id,
-                        ))
-                   ->orderBy('a.id','DESC')
-                   ->getQuery()
-                   ->getResult();
-        $avis = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:AvisSortie')
-                ->createQueryBuilder('a')
-                ->addSelect('b')
-                ->leftJoin('a.booking', 'b')
-                ->addSelect('c')
-                ->leftJoin('b.user', 'c')
-                ->where('b.sortie = :id')
-                ->setParameter('id', $id)
-                ->orderBy('a.dateTime','DESC')
-                ->getQuery()
-                ->getResult();
+        $em         = $this->getDoctrine();
+        $sortie     = new Sortie();
+        $product    = $sortie->getProduct($em, $id);
+        $avisSortie = new AvisSortie;
+        $avis       = $avisSortie->getAvisSortie($em, $id);
         switch(date('N')){
             case 7:
                 $debut = date('Y-m-d'); 
@@ -131,18 +83,18 @@ class DefaultController extends Controller
                 break;
         }
         $participant = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
-                ->createQueryBuilder('a')
-                ->addSelect('b')
-                ->leftJoin('a.user', 'b')
-                ->where('a.sortie = :id AND a.dateConfirmer >= :debut AND a.dateConfirmer <= :fin')
-                ->setParameters(array(
-                    'id'    => $id,
-                    'debut' => $debut,
-                    'fin'   => $fin,
-                ))
-                ->orderBy('a.dateTime','DESC')
-                ->getQuery()
-                ->getResult();
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.user', 'b')
+            ->where('a.sortie = :id AND a.dateConfirmer >= :debut AND a.dateConfirmer <= :fin')
+            ->setParameters(array(
+                'id'    => $id,
+                'debut' => $debut,
+                'fin'   => $fin,
+            ))
+            ->orderBy('a.dateTime','DESC')
+            ->getQuery()
+            ->getResult();
         foreach ($product as $data) {
             $titre = $data->getSortie()->getTitre();
         }
@@ -167,7 +119,7 @@ class DefaultController extends Controller
     
     public function bookingAction(Request $request, $id)
     {
-        $session = new Session();
+        $session = $request->getSession();
         $session->set('back', $request->server->get('PHP_SELF'));
         // if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
             
@@ -189,7 +141,7 @@ class DefaultController extends Controller
                 $post = $request->request->all();
                 foreach ( $post as $key => $val )
                 {
-                    if(substr($key, 0, 5) == "promo"){
+                    if(substr($key, 0, 5) === "promo"){
                         $a[] = substr($key, 5);
                     }
                 }
@@ -197,7 +149,7 @@ class DefaultController extends Controller
                 $where = $code = $text = '';
                 $nombre = $request->get('nombre');
                 for($i=0;$i<=$nbr_promo;$i++){
-                    if($i == 0){ 
+                    if($i === 0){ 
                         $where .= "a.code = '".addslashes($request->get('promo'.$i))."'";
                         $code  .= $request->get('promo'.$i);
                     }else{
@@ -216,7 +168,7 @@ class DefaultController extends Controller
                        ->getResult();
                 foreach($promo as $value){
                     $reste = $value->getCommande()->getCategorieTicket()->getNombreActivite() - $value->getUsed();
-                    if($value->getClose() == '1'){
+                    if($value->getClose() === '1'){
                         $text .= ', utilisé';
                     }else if($value->getDateFin()->format('Y-m-d') < \date('Y-m-d')){
                         $text .= ', expiré';
@@ -226,18 +178,18 @@ class DefaultController extends Controller
                         $used = $value->getUsed() + $nombre;
                         // update
                         $nombre = 0;
-                    }else if($nombre != 0 && $reste > 0 && $reste == $nombre){
+                    }else if($nombre !== 0 && $reste > 0 && $reste === $nombre){
                         // li bqa kima wech rahi tdemandi
                         // il paye rien
                         $used = $value->getUsed() + $nombre;
                         // update
                         $nombre = 0;
-                    }else if($nombre != 0 && $reste > 0 && $reste <  $nombre){
+                    }else if($nombre !== 0 && $reste > 0 && $reste <  $nombre){
                         // li bqa qel men wach rahi tdemandi
                         // il paye la difference
                         $used = $value->getUsed() + $reste;
                         $nombre = $nombre - $reste;
-                    }else if($nombre != 0 && $reste <= 0){
+                    }else if($nombre !== 0 && $reste <= 0){
                         // il ne lui reste plus de place
                         $text .= ', utilisé';
                     }
@@ -365,7 +317,7 @@ class DefaultController extends Controller
     
     public function promotionTypeAction(Request $request, $id)
     {
-        $session = new Session();
+        $session = $request->getSession();
         $session->set('back', $request->server->get('PHP_SELF'));
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')
                    ->createQueryBuilder('a')
@@ -444,7 +396,7 @@ class DefaultController extends Controller
     
     public function suggestAction(Request $request)
     {
-        $session = new Session();
+        $session = $request->getSession();
         $session->set('back', $request->server->get('PHP_SELF'));
         $sortie = new CategorieSortie();
         $form = $this->createForm(new CategorieSortieType(), $sortie);
