@@ -15,16 +15,14 @@ class Booking
     public function __construct() {
         $this->dateTime         = new \DateTime('now');
         $this->dateConfirmer    = new \DateTime('0000-00-00');
-        $this->confirmer        = "0";
-        $this->avis             = "0";
         $this->dateRdv          = new \DateTime('0000-00-00');
         $this->note             = "";
         $this->promo            = "";
+        $this->avis             = "0";
+        $this->acompte          = "0";
         $this->creneau          = "";
         $this->participation    = "";
-        $this->facture          = "0";
         $this->annuler          = "0";
-        $this->acompte          = "0";
         $this->mandat           = "0";
         $this->cheque           = "0";
         $this->virement         = "0";
@@ -87,11 +85,9 @@ class Booking
     private $promo;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="confirmer", type="string", length=255, options={"comment" = "0:non, 1:oui"})
+     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User", cascade={"persist"})
      */
-    private $confirmer;
+    private $confirmer_user;
 
     /**
      * @var string
@@ -101,9 +97,14 @@ class Booking
     private $annuler;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User", cascade={"persist"})
+     */
+    private $note_user;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="note", type="string", length=255)
+     * @ORM\Column(name="note", type="string", length=511)
      */
     private $note;
 
@@ -115,9 +116,14 @@ class Booking
     private $creneau;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User", cascade={"persist"})
+     */
+    private $avis_user;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="avis", type="string", length=255, options={"comment" = "0:non, 1:oui, 2:en attente"})
+     * @ORM\Column(name="avis", type="string", length=255, options={"comment" = "0:non, 1:oui, 2:attente"})
      */
     private $avis;
 
@@ -129,11 +135,14 @@ class Booking
     private $participation;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="facture", type="string", length=255, options={"comment" = "0:non, 1:oui"})
+     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User", cascade={"persist"})
      */
-    private $facture;
+    private $facture_user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User", cascade={"persist"})
+     */
+    private $acompte_user;
 
     /**
      * @var string
@@ -314,26 +323,26 @@ class Booking
     }
 
     /**
-     * Set confirmer
+     * Set confirmer_user
      *
-     * @param string $confirmer
+     * @param \Base\UserBundle\Entity\User $confirmer_user
      * @return Booking
      */
-    public function setConfirmer($confirmer)
+    public function setConfirmer_user(\Base\UserBundle\Entity\User $confirmer_user)
     {
-        $this->confirmer = $confirmer;
+        $this->confirmer_user = $confirmer_user;
 
         return $this;
     }
 
     /**
-     * Get confirmer
+     * Get confirmer_user
      *
-     * @return string 
+     * @return \Base\UserBundle\Entity\User
      */
-    public function getConfirmer()
+    public function getConfirmer_user()
     {
-        return $this->confirmer;
+        return $this->confirmer_user;
     }
 
     /**
@@ -357,6 +366,29 @@ class Booking
     public function getAnnuler()
     {
         return $this->annuler;
+    }
+
+    /**
+     * Set avis_user
+     *
+     * @param \Base\UserBundle\Entity\User $avis_user
+     * @return Booking
+     */
+    public function setAvis_user(\Base\UserBundle\Entity\User $avis_user)
+    {
+        $this->avis_user = $avis_user;
+
+        return $this;
+    }
+
+    /**
+     * Get avis_user
+     *
+     * @return \Base\UserBundle\Entity\User
+     */
+    public function getAvis_user()
+    {
+        return $this->avis_user;
     }
 
     /**
@@ -406,6 +438,29 @@ class Booking
     }
 
     /**
+     * Set note_user
+     *
+     * @param \Base\UserBundle\Entity\User $note_user
+     * @return Booking
+     */
+    public function setNote_user(\Base\UserBundle\Entity\User $note_user)
+    {
+        $this->note_user = $note_user;
+
+        return $this;
+    }
+
+    /**
+     * Get note_user
+     *
+     * @return \Base\UserBundle\Entity\User
+     */
+    public function getNote_user()
+    {
+        return $this->note_user;
+    }
+
+    /**
      * Set note
      *
      * @param string $note
@@ -429,26 +484,49 @@ class Booking
     }
 
     /**
-     * Set facture
+     * Set facture_user
      *
-     * @param string $facture
+     * @param \Base\UserBundle\Entity\User $facture_user
      * @return Booking
      */
-    public function setFacture($facture)
+    public function setFacture_user(\Base\UserBundle\Entity\User $facture_user)
     {
-        $this->facture = $facture;
+        $this->facture_user = $facture_user;
 
         return $this;
     }
 
     /**
-     * Get facture
+     * Get facture_user
      *
-     * @return string 
+     * @return \Base\UserBundle\Entity\User
      */
-    public function getFacture()
+    public function getFacture_user()
     {
-        return $this->facture;
+        return $this->facture_user;
+    }
+
+    /**
+     * Set acompte_user
+     *
+     * @param \Base\UserBundle\Entity\User $acompte_user
+     * @return Booking
+     */
+    public function setAcompte_user(\Base\UserBundle\Entity\User $acompte_user)
+    {
+        $this->acompte_user = $acompte_user;
+
+        return $this;
+    }
+
+    /**
+     * Get acompte_user
+     *
+     * @return \Base\UserBundle\Entity\User
+     */
+    public function getAcompte_user()
+    {
+        return $this->acompte_user;
     }
 
     /**

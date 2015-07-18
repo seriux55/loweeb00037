@@ -44,27 +44,29 @@ class AdminController extends Controller
                 $d[] = $data->getSortie()->getTitre();
             }
             $reservation[] = array(
-                'number'        => $number,
-                'id'            => $data->getId(),
-                'sortie'        => $data->getSortie()->getId(),
-                'nom'           => $data->getUser()->getFirstname(),
-                'prenom'        => $data->getUser()->getSecondename(),
-                'tel'           => $data->getUser()->getPhone(),
-                'dateTime'      => $data->getDateTime(),
-                'place'         => $data->getNombre(),
-                'dateReserver'  => $data->getDateReserver(),
-                'dateConfirmer' => $data->getDateConfirmer(),
-                'promo'         => $data->getPromoApayer(),
-                'formation'     => $data->getLieuFormation(),
-                'DateRdv'       => $data->getDateRdv(),
-                'HeureRdv'      => $data->getHeureRdv(),
-                'lieuRdv'       => $data->getLieuRdv(),
-                'avis'          => $data->getAvis(),
-                'confirmer'     => $data->getConfirmer(),
-                'acompte'       => $data->getAcompte(),
-                'note'          => $data->getNote(),
-                'ticketPromo'   => $data->getTicketPromo(),
-                'vip'           => $data->getUser()->getVip(),
+                'number'            => $number,
+                'id'                => $data->getId(),
+                'sortie'            => $data->getSortie()->getId(),
+                'nom'               => $data->getUser()->getFirstname(),
+                'prenom'            => $data->getUser()->getSecondename(),
+                'tel'               => $data->getUser()->getPhone(),
+                'dateTime'          => $data->getDateTime(),
+                'place'             => $data->getNombre(),
+                'dateReserver'      => $data->getDateReserver(),
+                'dateConfirmer'     => $data->getDateConfirmer(),
+                'promo'             => $data->getPromoApayer(),
+                'formation'         => $data->getLieuFormation(),
+                'DateRdv'           => $data->getDateRdv(),
+                'HeureRdv'          => $data->getHeureRdv(),
+                'lieuRdv'           => $data->getLieuRdv(),
+                'avis'              => $data->getAvis(),
+                'confirmer'         => $data->getConfirmer_user(),
+                'acompte'           => $data->getAcompte_user(),
+                'avisUser'          => $data->getAvis_user(),
+                'noteUser'          => $data->getNote_user(),
+                'note'              => $data->getNote(),
+                'ticketPromo'       => $data->getTicketPromo(),
+                'vip'               => $data->getUser()->getVip(),
             );
             $number++;
         }
@@ -420,6 +422,7 @@ class AdminController extends Controller
             }else{
                 $booking->setNote($notearea);
             }
+            $booking->setNote_user($this->get('security.context')->getToken()->getUser());
             $em->persist($booking);
             $operateur = new Operateur();
             $operateur->setUser($this->get('security.context')->getToken()->getUser())
@@ -455,8 +458,8 @@ class AdminController extends Controller
             $booking->setNombre($request->get('nombre'))
                     ->setDateConfirmer(new \DateTime($frToDatetime->toDatetime($request->get('dateConfirmer'))))
                     ->setCreneau($request->get('creneau'))
-                    ->setConfirmer('1')
                     ->getUser()->setEmail($request->get('email'));
+            $booking->setConfirmer_user($this->get('security.context')->getToken()->getUser());
             $date1  = $request->get('date1');
             $heure1 = $request->get('heure1');
             $date2  = $request->get('date2');
@@ -529,6 +532,7 @@ class AdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $booking = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
             $booking->setAvis('2');
+            $booking->setAvis_user($this->get('security.context')->getToken()->getUser());
             $em->persist($booking);
             $operateur = new Operateur;
             $operateur->setUser($this->get('security.context')->getToken()->getUser())
@@ -566,6 +570,7 @@ class AdminController extends Controller
         ));    
     }
     
+    /*
     public function reservationVipAction($id)
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
@@ -591,6 +596,7 @@ class AdminController extends Controller
             'product' => $product,
         ));    
     }
+    */
     
     public function reservationAcompteAction($id)
     {
@@ -608,7 +614,16 @@ class AdminController extends Controller
         {
             $total = $data->getSortie()->getTarif() * $data->getNombre();
         }
-        
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $product = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
+            if(!empty($request->get('acompte'))) $product->setAcompte($request->get('acompte'));
+            $product->setAcompte_user($this->get('security.context')->getToken()->getUser());
+            $em->persist($product);
+            $em->flush();
+            return $this->forward('BaseBledvoyageBundle:Confirmation:acompteReservation');
+        }
         return $this->render('BaseBledvoyageBundle:Admin:reservation_acompte.html.twig', array(
             'product' => $product,
             'total'   => $total,

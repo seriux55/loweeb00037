@@ -40,7 +40,7 @@ class DefaultController extends Controller
         $response = $this->render('BaseBledvoyageBundle:Default:index.html.twig', array(
             'product'       => $product,
             'categorie'     => $categorie,
-            'formation'     => $formation,
+            //'formation'     => $formation,
         ));
         return $response;
     }

@@ -23,7 +23,7 @@ class UserData extends AbstractFixture implements FixtureInterface, ContainerAwa
     {
         $user1 = new User();
         $user1->setBorn(1991);
-        $user1->setEmail('seriux55@hotmail.com');
+        $user1->setEmail('nadir.allam@bledvoyage.com');
         $user1->setFirstname('ALLAM');
         $user1->setGender(1);
         $user1->setPhone('0601020304');
@@ -36,7 +36,7 @@ class UserData extends AbstractFixture implements FixtureInterface, ContainerAwa
         
         $user2 = new User();
         $user2->setBorn(1984);
-        $user2->setEmail('karim.man@live.fr');
+        $user2->setEmail('karim.mansoura@bledvoyage.com');
         $user2->setFirstname('Mansoura');
         $user2->setGender(1);
         $user2->setPhone('0601020304');
@@ -49,26 +49,28 @@ class UserData extends AbstractFixture implements FixtureInterface, ContainerAwa
         
         $user3 = new User();
         $user3->setBorn(1990);
-        $user3->setEmail('karim.man1@live.fr');
-        $user3->setFirstname('Tikarouchine');
-        $user3->setGender(1);
+        $user3->setEmail('soumia.m@bledvoyage.com');
+        $user3->setFirstname('Mansor');
+        $user3->setGender(0);
         $user3->setPhone('0601020304');
-        $user3->setSecondename('Mohamed');
+        $user3->setSecondename('Soumia');
         $user3->setIp('127.0.0.1');
         $user3->setEnabled('1');
+        $user3->setRoles(array('ROLE_MODERATEUR'));
         $user3->setApropos("Je suis Mohamed, j'habite Tipaza, native de la région et amoureux de la nature, j'accompagne des touristes depuis plusieurs année dans cette magnifique région. Je serai tres ravi de vous faire découvrir la beauté et le patrimoine du Mont Chenoua. ");
         $user3->setPassword($this->container->get('security.encoder_factory')->getEncoder($user3)->encodePassword('aaaaaa', $user3->getSalt()));
         $manager->persist($user3);
         
         $user4 = new User();
         $user4->setBorn(1984);
-        $user4->setEmail('karim.man2@live.fr');
-        $user4->setFirstname('Amar');
+        $user4->setEmail('amina.k@bledvoyage.com');
+        $user4->setFirstname('K');
         $user4->setGender(0);
         $user4->setPhone('0601020304');
-        $user4->setSecondename('Amar');
+        $user4->setSecondename('Amina');
         $user4->setIp('127.0.0.1');
         $user4->setEnabled('1');
+        $user4->setRoles(array('ROLE_MODERATEUR'));
         $user4->setApropos("Salut tout le monde, 
 Je suis Amar, j'habite Alger, je suis un amoureux de la plongée sous-marine, je donne des cours de plongée aux nouveaux plongeurs, ainsi qu'aux expérimentés depuis des années, dans la région de Tipaza. 
 Je suis aujourd'hui moniteur professionnel, (3 étoiles cmas). Je serai tres ravi de partager ma passion avec vous et de vous faire découvrir la beautÃ© la plongée, d'explorer ensemble les fonds sous-marins de quelques régions de Tipaza et de son patrimoine exceptionne");
@@ -77,13 +79,14 @@ Je suis aujourd'hui moniteur professionnel, (3 étoiles cmas). Je serai tres rav
         
         $user5 = new User();
         $user5->setBorn(1980);
-        $user5->setEmail('karim.man3@live.fr');
-        $user5->setFirstname('Mansor');
+        $user5->setEmail('tina.b@bledvoyage.com');
+        $user5->setFirstname('B');
         $user5->setGender(0);
         $user5->setPhone('0601020304');
-        $user5->setSecondename('Mansor');
+        $user5->setSecondename('Tina');
         $user5->setIp('127.0.0.1');
         $user5->setEnabled('1');
+        $user5->setRoles(array('ROLE_MODERATEUR'));
         $user5->setPicture($this->getReference('picture65'));
         $user5->setApropos("Salut, 
 Je suis Mansor, j'habite Tipaza, Je navigue en Mer depuis des années. Je suis un amoureux de la nature. j'organise des sorties et croisiere en Mer pour faire découvrir la beauté de des cotes de Tipaza.

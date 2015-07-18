@@ -114,14 +114,13 @@
                             <th>Confirmation</th>
                             <th>Accompte</th>
                             <th>Avis</th>
-                            {% if is_granted("ROLE_ADMIN") %}<th>VIP</th>{% endif %}
                         </tr>
                     </thead>
                     <tbody>
                         {% set i = 1 %}
                         {% for dataR in reservation %}
                             {% if dataR.sortie == data.id %}
-                                {%     if dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 0 and dataR.avis == 1 %}
+                                {%     if dataR.tel is not empty and dataR.confirmer is not null and dataR.acompte is null and dataR.avis == 1 %}
                                     <tr class="spetela">
                                         <td class="numero">{{ i }}</td>
                                         <td class="okao"><img class="oka" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">{{ dataR.id }}</td>
@@ -137,19 +136,12 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
-                                        <td><a class="buttona"   target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
-                                        <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
-                                        <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
+                                        <td><a class="buttona"   target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a>{{ dataR.confirmer.secondename }}</td>
+                                        <td><div class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
+                                        <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> Avis</a>{{ dataR.avisUser.secondename }}</td>                          
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 0 and dataR.avis == 2 %}
+                                {% elseif dataR.tel is not empty and dataR.confirmer is not null and dataR.acompte is null and dataR.avis == 2 %}
                                     <tr>
                                         <td class="numero">{{ i }}</td>
                                         <td>{{ dataR.id }}</td>
@@ -165,19 +157,12 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
-                                        <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- bottona -> bottono -->
-                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a>{{ dataR.confirmer.secondename }}</td>
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- bottona -> bottono -->
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a>{{ dataR.avisUser.secondename }}</td>                                  
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 1 %}
+                                {% elseif dataR.tel is not empty and dataR.confirmer is not null and dataR.acompte is not null and dataR.avis == 1 %}
                                     <tr class="spetela">
                                         <td class="numero">{{ i }}</td>
                                         <td class="okao"><img class="oka" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">{{ dataR.id }}</td>
@@ -193,19 +178,12 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
-                                        <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a></td> <!-- bottona -> bottono -->
-                                        <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Avis</a></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a>{{ dataR.confirmer.secondename }}</td>
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a>{{ dataR.acompte.secondename }}</td> <!-- bottona -> bottono -->
+                                        <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Avis</a>{{ dataR.avisUser.secondename }}</td>                                      
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 2 %}    
+                                {% elseif dataR.tel is not empty and dataR.confirmer is not null and dataR.acompte is not null and dataR.avis == 2 %}    
                                     <tr>
                                         <td class="numero">{{ i }}</td>
                                         <td>{{ dataR.id }}</td>
@@ -221,19 +199,12 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
-                                        <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a></td> <!-- bottona -> bottono -->
-                                        <td><a class="buttona">Avis</a></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a>{{ dataR.confirmer.secondename }}</td>
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a>{{ dataR.acompte.secondename }}</td> <!-- bottona -> bottono -->
+                                        <td><a class="buttona">Avis</a>{{ dataR.avisUser.secondename }}</td>                                     
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 1 and dataR.avis == 0 %}
+                                {% elseif dataR.tel is not empty and dataR.confirmer is not null and dataR.acompte is not null and dataR.avis == 0 %}
                                     <tr>
                                         <td class="numero">{{ i }}</td>
                                         <td> {{ dataR.id }}</td>
@@ -249,19 +220,12 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
-                                        <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a></td> <!-- bottona -> bottono -->
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a>{{ dataR.confirmer.secondename }}</td>
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Accompte</a>{{ dataR.acompte.secondename }}</td> <!-- bottona -> bottono -->
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>                                  
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer == 1 and dataR.acompte == 0 and dataR.avis == 0 %}
+                                {% elseif dataR.tel is not empty and dataR.confirmer is not null and dataR.acompte is null and dataR.avis == 0 %}
                                     <tr>
                                         <td class="numero">{{ i }}</td>
                                         <td>{{ dataR.id }}</td>
@@ -277,19 +241,12 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
-                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a></td>
-                                        <td><a class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- botton -> bottono -->
-                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
+                                        <td><a class="buttona" target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}">Confirmé</a>{{ dataR.confirmer.secondename }}</td>
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</a></td> <!-- botton -> bottono -->
+                                        <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>                                      
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer == 0 and dataR.acompte == 0 and dataR.avis == 0 %}
+                                {% elseif dataR.tel is not empty and dataR.confirmer is null and dataR.acompte is null and dataR.avis == 0 %}
                                     <tr>
                                         <td class="numero">{{ i }}</td>
                                         <td>{{ dataR.id }}</td>
@@ -305,17 +262,10 @@
                                         <td></td>
                                         <td></td>
                                         <td class="couleur">{{ dataR.note }}</td>
-                                        <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a></td>
+                                        <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_note', { 'id' : dataR.id }) }}">Note</a>{% if dataR.note is not empty %}{{ dataR.noteUser.secondename }}{% endif %}</td>
                                         <td><a class="button"    target="_blank" href="{{ path('bledvoyage_admin_reservation_confirmer', { 'id' : dataR.id }) }}">Confirmer</a></td>
                                         <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Accompte</div></td>
-                                        <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</div></td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            {% if dataR.vip == 1 %}
-                                            <td><a class="buttona"><img class="oko" alt="ok" src="{{ asset('bundles/basebledvoyage/images/admin/ok.png') }}"> VIP</a>
-                                            {% elseif dataR.vip == 0 %}
-                                            <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_vip', { 'id' : dataR.id }) }}">VIP</a></td>
-                                            {% endif %}
-                                        {% endif %}
+                                        <td><div class="buttono" target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</div></td>                   
                                     </tr>
                                 {% else %}
                                     <tr class="spetel">
@@ -336,10 +286,7 @@
                                         <td>--</td>
                                         <td>--</td>
                                         <td>--</td>
-                                        <td>--</td>
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            <td>--</td>
-                                        {% endif %}
+                                        <td>--</td>      
                                     </tr>
                                 {% endif %}
                                 {% set i = i + 1 %}
