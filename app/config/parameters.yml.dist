@@ -6,12 +6,12 @@ parameters:
     database_user:     root
     database_password: root
 
-    mailer_transport:  smtp
-    mailer_auth_mode:  login
-    mailer_host:       smtp.lesite.com
-    mailer_port:       587
-    mailer_user:       contact@lesite.com
-    mailer_password:   1234
+    #mailer_transport:  smtp
+    #mailer_auth_mode:  login
+    #mailer_host:       smtp.lesite.com
+    #mailer_port:       587
+    #mailer_user:       contact@lesite.com
+    #mailer_password:   1234
 
     locale:            fr
     secret:            82763HJBS872387SKJQB9875
