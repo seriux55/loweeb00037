@@ -21,14 +21,15 @@
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
                         <a href="{{ path('bledvoyage_admin') }}">Tableau de bord</a>
-                        <a href="{{ path('bledvoyage_admin_commande') }}">Commandes</a>
                         <a href="{{ path('bledvoyage_admin_reservation') }}">Réservations</a>
+                        <a href="{{ path('bledvoyage_admin_commande') }}">Commandes</a>
+                        <a href="{{ path('bledvoyage_admin_listes') }}">Listes</a>
                         {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('bledvoyage_admin_invitation') }}">Invitation</a>
                         <a href="{{ path('bledvoyage_admin_statisqtique') }}">Statistique</a>
                         <a href="{{ path('bledvoyage_admin_devis_entreprise') }}">Devis</a>
                         {% endif %}
-                        <a href="{{ path('bledvoyage_admin_present') }}">Présents</a>
+                        <!-- <a href="{{ path('bledvoyage_admin_present') }}">Présents</a> -->
                         {% if not is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('base_bledvoyage_homepage') }}">Les sorties</a>
                         {% endif %}

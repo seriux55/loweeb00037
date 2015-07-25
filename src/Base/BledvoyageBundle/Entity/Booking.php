@@ -328,7 +328,7 @@ class Booking
      * @param \Base\UserBundle\Entity\User $confirmer_user
      * @return Booking
      */
-    public function setConfirmer_user(\Base\UserBundle\Entity\User $confirmer_user)
+    public function setConfirmer_user(\Base\UserBundle\Entity\User $confirmer_user = null)
     {
         $this->confirmer_user = $confirmer_user;
 

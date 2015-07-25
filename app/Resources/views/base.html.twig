@@ -21,7 +21,7 @@
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
                         {% if not is_granted("ROLE_USER") %}<a href="{{ path('fos_user_security_login') }}">Login</a>{% else %}<a href="{{ path('fos_user_security_logout') }}">Logout</a>{% endif %}
-                        {% if is_granted("ROLE_MODERATEUR") or is_granted("ROLE_ADMIN") %}<a href="{{ path('bledvoyage_admin') }}">Manager</a>{% endif %}
+                        {% if is_granted("ROLE_MODERATEUR") or is_granted("ROLE_ADMIN") or is_granted("ROLE_MONITEUR") %}<a href="{{ path('bledvoyage_admin') }}">Manager</a>{% endif %}
                         <a href="{{ path('bledvoyage_promotion') }}">Promotion</a>
                         <a href="{{ path('bledvoyage_teambuilding') }}">Entreprise</a>
                         {% block formation %}{% endblock %}

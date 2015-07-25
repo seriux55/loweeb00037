@@ -1,0 +1,163 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Tableau de Bord
+    </h2>
+</div>		
+<section>
+    <div class="avisor">
+        <h3>31 sorties</h3>
+        <p> Nombres de réservations total = 368</p>				
+        <p> Nombres de places réservés = 1007</p>
+    </div>
+</section>
+    
+
+<div class="bloc_page_body3">
+    {% for data in sortie %}
+    <section>
+        <div class="avisor">
+            <h3>Sortie : {{ data.titre }}</h3> 
+            <h4><img src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}" alt="Image"> Du {{ data.dateDebut|date('d/m/Y') }} AU {{ data.dateFin|date('d/m/Y') }} | <img src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}" alt="Image">  {{ data.heureDebut }} - {{ data.heureFin }}.</h4>
+            <p>
+                Tarif : {{ data.tarif }} Da/per
+            </p>
+            <p>Réservations : {% for d in resa %}{% if d.id == data.id %}{{ d.nbrReservation }}{% endif %}{% endfor %} </p>
+            <p>Places : 3 </p>
+        </div>
+        <div class="avison">
+            <ul class="resu">
+                <li class="resuhe">
+                    <div class="resudate">
+                        <h1>14/02/2015</h1>
+                    </div>
+                    <strong>TOTAL :  3 résa, 3 places</strong><table>
+                        <thead>
+                            <tr>
+                                <th class="numero">Ligne</th>
+                                <th>Résa</th>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Tél.</th>
+                                <th>Place</th>
+                                <th>Créneau</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set i = 1 %}
+                            {% for dataB in product %}
+                            {% if dataB.sortie.id == data.id %}
+                            <tr>
+                                <td class="numero">{{ i }}</td>
+                                <td>{{ dataB.id }}</td>
+                                <td>{{ dataB.user.secondename }}</td>
+                                <td>{{ dataB.user.firstname }}</td>
+                                <td>{{ dataB.user.phone }}</td>
+                                <td>{{ dataB.nombre }}</td>
+                                <td>{{ dataB.creneau }}</td>
+                                <td>{{ dataB.note }}</td>
+                            </tr>
+                            {% set i = i + 1 %}
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </section>
+    {% endfor %}
+</div>
+
+
+<div class="bloc_page_body3">
+    <script>
+    jQuery(document).ready(function(){
+        $("#boutonplus52").on("click", function(){
+            $("#boutonplus52").hide();
+            $("#boutonmoins52").show();
+            $("#plus52").slideDown();
+            return false;
+        });
+        $("#boutonmoins52").on("click", function(){
+            $("#boutonmoins52").hide();
+            $("#boutonplus52").show();
+            $("#plus52").slideUp();
+            return false;
+        });
+    });
+    </script>
+    <section>
+        <div class="avisor">
+            <h3>Sortie : Formation &amp; Stage Parapente  // Oran, Blida, Tipaza, Alger, Bouira, Setif</h3> 
+            <h4><img src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}" alt="Image"> Du 02/01/2015 AU 30/04/2015 | <img src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}" alt="Image">  09h00 - 17h00.</h4>
+            <p>
+                Tarif : 49000 Da/per
+            </p>
+            <p>Réservations : 3 </p>
+            <p>Places : 3 </p>
+        </div>
+        <div class="avison">
+            <ul class="resu">
+                <li class="resuhe">
+                    <div class="resudate">
+                        <h1>14/02/2015</h1>
+                    </div>
+                    <strong>TOTAL :  3 résa, 3 places</strong><table>
+                        <thead>
+                            <tr>
+                                <th class="numero">Ligne</th>
+                                <th>Résa</th>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Tél.</th>
+                                <th>Place</th>
+                                <th>Créneau</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="numero">1</td>
+                                <td>1449</td>
+                                <td>Redouane</td>
+                                <td>Mahfoud</td>
+                                <td>0667329251</td>
+                                <td>1</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="numero">2</td>
+                                <td>1468</td>
+                                <td>Mohamed Akli</td>
+                                <td>Djemai</td>
+                                <td>0560046863</td>
+                                <td>1</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="numero">3</td>
+                                <td>1551</td>
+                                <td>FATAH</td>
+                                <td>BOUROUIS</td>
+                                <td>0771643773</td>
+                                <td>1</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}

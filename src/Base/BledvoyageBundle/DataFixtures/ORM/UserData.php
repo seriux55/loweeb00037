@@ -119,6 +119,7 @@ Nous nous sommes unis proposer une offre « week end détente » tout compris : 
         $user7->setSecondename('El Hadi');
         $user7->setIp('127.0.0.1');
         $user7->setEnabled('1');
+        $user5->setRoles(array('ROLE_MONITEUR'));
         $user7->setPicture($this->getReference('picture68'));
         $user7->setPassword($this->container->get('security.encoder_factory')->getEncoder($user7)->encodePassword('aaaaaa', $user7->getSalt()));
         $manager->persist($user7);
@@ -131,7 +132,7 @@ Nous nous sommes unis proposer une offre « week end détente » tout compris : 
         $user8->setPhone('0601020304');
         $user8->setSecondename('Chahira');
         $user8->setIp('127.0.0.1');
-        $user8->setEnabled('1');
+        $user8->setEnabled('0');
         $user8->setPicture($this->getReference('picture67'));
         $user8->setPassword($this->container->get('security.encoder_factory')->getEncoder($user8)->encodePassword('aaaaaa', $user8->getSalt()));
         $manager->persist($user8);
@@ -144,7 +145,8 @@ Nous nous sommes unis proposer une offre « week end détente » tout compris : 
         $user9->setPhone('0601020304');
         $user9->setSecondename('Slimane');
         $user9->setIp('127.0.0.1');
-        $user9->setEnabled('0');
+        $user9->setEnabled('1');
+        $user5->setRoles(array('ROLE_MONITEUR'));
         $user9->setPicture($this->getReference('picture63'));
         $user9->setApropos("Je suis Slimane, j’habite Chenoua plage, Tipaza. Je suis médecin de profession. Amoureux de la nature, je passe mon temps libre entre montagne et Mer, en compagnie de ma petite famille et mes chiens. Je serai tres ravi de vous faire découvrir la beauté et le patrimoine du Mont Chenoua.");
         $user9->setPassword($this->container->get('security.encoder_factory')->getEncoder($user9)->encodePassword('aaaaaa', $user9->getSalt()));

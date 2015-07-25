@@ -1,0 +1,60 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Tableau de Bord
+    </h2>
+</div>		
+<section>
+    <div class="avisor">
+        <form method="post">
+            <h3>Ecrire un statut</h3>
+            <textarea name="statut"></textarea><br />
+            {% for data in shift %}
+            <input type="checkbox" name="destinataire[]" value="{{ data.id }}">{{ data.name }}
+            {% endfor %}
+            <input type="submit" name="poster" value="valider">
+        </form>
+    </div>
+</section>
+    
+{% set conc = false %}
+<div class="bloc_page_body3">
+    {% for data in statut %}
+    <section>
+        <div class="avisor">
+            {% if is_granted("ROLE_ADMIN") %}<div><a href="{{ path('bledvoyage_admin_del_statut', { 'id' : data.id } ) }}">x</a></div>{% endif %}
+            <form method="post">
+                <h4>{{ data.user.secondename }}</h4>
+                <p>{{ data.statut }}</p>
+                <p>Destinataire :{% for user in data.users %} - {{ user.secondename }}{% if user.id == app.user.id %}{% set conc = true %}{% endif %}{% endfor %}
+                <h3>{% if data.etat == 1 %}Traité{% elseif data.etat == 2 %}En attente{% elseif data.etat == 3 %}En cours{% elseif data.etat == 0 %}Annulé{% endif %}</h3>
+                <input type="hidden" name="statutId" value="{{ data.id }}">
+                {% if conc == true or is_granted("ROLE_ADMIN") and data.etat != 1 %}
+                <input type="submit" name="etat" value="Fait">
+                <input type="submit" name="etat" value="En attente">
+                <input type="submit" name="etat" value="En cours">
+                <input type="submit" name="etat" value="Annuler"><br />
+                {% set conc = false %}
+                {% endif %}
+                {% for d in comment %}
+                    {% if d.adminStatut.id == data.id %}
+                        <p><b>{{ d.user.secondename }}</b> : {{ d.comment }}</p>
+                    {% endif %}
+                {% endfor %}
+                <textarea name="commentaire"></textarea>
+                <input type="submit" name="comment" value="commenter">
+            </form>
+        </div>
+    </section>
+    {% endfor %}
+</div>  
+{% endblock %}

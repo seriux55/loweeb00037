@@ -18,7 +18,7 @@ bledvoyage_product:
         id:   \d+
 
 bledvoyage_booking:
-    path:     /{id}/booking
+    path:     /booking/{id}
     defaults: { _controller: BaseBledvoyageBundle:Default:booking }
     requirements:
         id:   \d+
@@ -63,15 +63,25 @@ bledvoyage_teambuilding_pdf:
 
 bledvoyage_admin:
     path:     manager
-    defaults: { _controller: BaseBledvoyageBundle:Admin:index }
+    defaults: { _controller: BaseBledvoyageBundle:MurAdmin:index }
+
+bledvoyage_admin_del_statut:
+    path:     manager/del/{id}
+    defaults: { _controller: BaseBledvoyageBundle:MurAdmin:delStatut }
+    requirements:
+        id:   \d+
+    
+bledvoyage_admin_reservation:
+    path:     manager/reservation
+    defaults: { _controller: BaseBledvoyageBundle:Admin:reservation }
 
 bledvoyage_admin_commande:
     path:     manager/commande
     defaults: { _controller: BaseBledvoyageBundle:Admin:commande }
 
-bledvoyage_admin_reservation:
-    path:     manager/reservation
-    defaults: { _controller: BaseBledvoyageBundle:Admin:reservation }
+bledvoyage_admin_listes:
+    path:     manager/listes
+    defaults: { _controller: BaseBledvoyageBundle:Admin:listes }
 
 bledvoyage_admin_present:
     path:     manager/present

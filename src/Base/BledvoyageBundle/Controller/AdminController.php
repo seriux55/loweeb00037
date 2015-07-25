@@ -12,7 +12,7 @@ use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class AdminController extends Controller
 {
-    public function indexAction()
+    public function reservationAction()
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
@@ -67,10 +67,11 @@ class AdminController extends Controller
                 'note'              => $data->getNote(),
                 'ticketPromo'       => $data->getTicketPromo(),
                 'vip'               => $data->getUser()->getVip(),
+                'acompteTarif'      => $data->getAcompte(),
             );
             $number++;
         }
-        return $this->render('BaseBledvoyageBundle:Admin:index.html.twig', array(
+        return $this->render('BaseBledvoyageBundle:Admin:reservation.html.twig', array(
             'product'       => $sorties,
             'reservation'   => $reservation,
         ));
@@ -125,7 +126,7 @@ class AdminController extends Controller
         ));
     }
     
-    public function reservationAction()
+    public function listesAction()
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
@@ -133,7 +134,7 @@ class AdminController extends Controller
                    ->leftJoin('a.user', 'b')
                    ->addSelect('c')
                    ->leftJoin('a.sortie', 'c')
-                   ->where('a.confirmer = 1')
+                   ->where('a.confirmer_user IS NOT NULL')
                    ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
@@ -161,7 +162,7 @@ class AdminController extends Controller
             }
         }
         
-        return $this->render('BaseBledvoyageBundle:Admin:reservation.html.twig', array(
+        return $this->render('BaseBledvoyageBundle:Admin:listes.html.twig', array(
             'product'   => $product,
             'sortie'    => $sorties,
             'resa'      => $resa,
@@ -416,7 +417,7 @@ class AdminController extends Controller
             $note     = $request->get('note');
             if(empty($notearea) && ($note == 'Annulée')){
                 $booking->setNote($note)
-                        ->setConfirmer('0');
+                        ->setConfirmer_user(null);
             }else if(empty($notearea) && ($note != 'Annulée')){
                 $booking->setNote($note);
             }else{
@@ -513,6 +514,7 @@ class AdminController extends Controller
     
     public function reservationAvisAction($id)
     {
+        $total   = 0;
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
@@ -618,7 +620,10 @@ class AdminController extends Controller
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
             $product = $em->getRepository('BaseBledvoyageBundle:Booking')->find($id);
-            if(!empty($request->get('acompte'))) $product->setAcompte($request->get('acompte'));
+            $acompte = $request->request->get('acompte');
+            if (!empty($acompte)) {
+                $product->setAcompte($acompte);
+            }
             $product->setAcompte_user($this->get('security.context')->getToken()->getUser());
             $em->persist($product);
             $em->flush();
@@ -824,7 +829,7 @@ class AdminController extends Controller
                 $datetime = $data->getDateTime()->format('Y-m-d');
                 if (date($datetime) >= date($date1[$i]) && date($datetime) <= date($date2[$i])){
                     $reservation[$i] = $reservation[$i] + 1;
-                    if ($data->getConfirmer() === '1'){
+                    if ($data->getConfirmer_user() != null){
                         $confirmationR[$i] = $confirmationR[$i] + 1;
                     }
                     if ($data->getAvis() === '1'){

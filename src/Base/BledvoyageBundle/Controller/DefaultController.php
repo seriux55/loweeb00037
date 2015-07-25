@@ -4,7 +4,6 @@ namespace Base\BledvoyageBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Base\BledvoyageBundle\Entity\Booking;
 use Base\BledvoyageBundle\Entity\Commande;
@@ -14,6 +13,7 @@ use Base\BledvoyageBundle\Entity\CategorieSortie;
 use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
 use Base\BledvoyageBundle\Entity\Sortie;
 use Base\BledvoyageBundle\Entity\Categorie;
+use Symfony\Component\HttpFoundation\Request;
 
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
@@ -466,7 +466,7 @@ class DefaultController extends Controller
         return $response;
     }
     
-    public function avisAction(Resquest $request, $id)
+    public function avisAction(Request $request, $id)
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
