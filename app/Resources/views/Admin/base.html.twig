@@ -29,16 +29,16 @@
                         <a href="{{ path('bledvoyage_admin_statisqtique') }}">Statistique</a>
                         <a href="{{ path('bledvoyage_admin_devis_entreprise') }}">Devis</a>
                         {% endif %}
-                        <!-- <a href="{{ path('bledvoyage_admin_present') }}">Présents</a> -->
+                        {# <a href="{{ path('bledvoyage_admin_present') }}">Présents</a> #}
                         {% if not is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('base_bledvoyage_homepage') }}">Les sorties</a>
                         {% endif %}
-                        <!--
+                        {#
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
                             <p>0 556 179 774</p>
                         </div>
-                        -->
+                        #}
                     </div>
                 </div>
             </div>
