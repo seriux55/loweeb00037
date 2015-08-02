@@ -26,9 +26,9 @@
                         <a href="{{ path('bledvoyage_teambuilding') }}">Entreprise</a>
                         {% block formation %}{% endblock %}
                         <a href="{{ path('bledvoyage_suggest') }}">Déposez votre produit</a>
-                        <!--
+                        {#
                         <a href="{{ path('bledvoyage_contact') }}">Contact</a>
-                        -->
+                        #}
                         {% if is_granted("ROLE_USER") and not is_granted("ROLE_MODERATEUR") and not is_granted("ROLE_ADMIN") %}
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
