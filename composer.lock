@@ -809,12 +809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc"
+                "reference": "1684863fff37db58174ab7e73490076ddc016148"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/78954cce4962a4655ff47c0751eb78021fbaf2cc",
-                "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/1684863fff37db58174ab7e73490076ddc016148",
+                "reference": "1684863fff37db58174ab7e73490076ddc016148",
                 "shasum": ""
             },
             "require": {
@@ -834,10 +834,13 @@
             "suggest": {
                 "symfony/console": "to run the migration from the console"
             },
+            "bin": [
+                "bin/doctrine-migrations"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "v1.0.x-dev"
                 }
             },
             "autoload": {
@@ -865,7 +868,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-07-05 21:24:36"
+            "time": "2015-08-02 23:50:17"
         },
         {
             "name": "doctrine/orm",
@@ -1182,12 +1185,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "3efbc08a97f218d0a4524dee926fc4381e3d0947"
+                "reference": "c2e68acfb2b5786cd455fd9ae3b6d7f255f12646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/3efbc08a97f218d0a4524dee926fc4381e3d0947",
-                "reference": "3efbc08a97f218d0a4524dee926fc4381e3d0947",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
+                "reference": "c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
                 "shasum": ""
             },
             "require": {
@@ -1241,7 +1244,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2015-06-10 08:27:05"
+            "time": "2015-08-03 00:52:58"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2627,16 +2630,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.18.2",
+            "version": "v1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e8e6575abf6102af53ec283f7f14b89e304fa602"
+                "reference": "edbeaf43b0a606cdaadc32a11d2673614a377b90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e8e6575abf6102af53ec283f7f14b89e304fa602",
-                "reference": "e8e6575abf6102af53ec283f7f14b89e304fa602",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/edbeaf43b0a606cdaadc32a11d2673614a377b90",
+                "reference": "edbeaf43b0a606cdaadc32a11d2673614a377b90",
                 "shasum": ""
             },
             "require": {
@@ -2645,7 +2648,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.18-dev"
+                    "dev-master": "1.19-dev"
                 }
             },
             "autoload": {
@@ -2680,7 +2683,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-06-06 23:31:24"
+            "time": "2015-07-31 13:45:26"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -2724,16 +2727,16 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "1.3.4",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "d7fa4ce4a0436915b9ba9f7cb5ff37719f0a834c"
+                "reference": "8a84c5956e765f432542fc52a8c6e9aff4508eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/d7fa4ce4a0436915b9ba9f7cb5ff37719f0a834c",
-                "reference": "d7fa4ce4a0436915b9ba9f7cb5ff37719f0a834c",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/8a84c5956e765f432542fc52a8c6e9aff4508eb3",
+                "reference": "8a84c5956e765f432542fc52a8c6e9aff4508eb3",
                 "shasum": ""
             },
             "require": {
@@ -2742,12 +2745,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Negotiation": "src/"
+                "psr-4": {
+                    "Negotiation\\": "src/Negotiation"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2769,7 +2772,7 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2014-10-02 07:26:00"
+            "time": "2015-07-28 13:10:50"
         },
         {
             "name": "zendframework/zend-json",

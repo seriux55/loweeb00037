@@ -1230,17 +1230,26 @@ class Sortie
     
     public function getSorties($em)
     {
+        $mc = new \Memcached();
+        $mc->addServer("127.0.0.1", 11211);
+        if($mc->get("sorties"))
+        {
+            return $mc->get("sorties");
+        }
         $sorties = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
             ->createQueryBuilder('a')
             ->addSelect('b')
             ->leftJoin('a.sortie', 'b')
             ->addSelect('c')
             ->leftJoin('b.picture1', 'c')
+            ->AddSelect('d')
+            ->leftJoin('b.user', 'd')
             ->where('b.valider = :valider')
             ->setParameter('valider', '1')
             ->orderBy('a.id','ASC')
             ->getQuery()
             ->getResult();
+        $mc->set("sorties", $sorties);
         return $sorties;
     }
 }
