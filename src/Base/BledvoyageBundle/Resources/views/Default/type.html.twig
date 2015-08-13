@@ -20,7 +20,7 @@
     <div class="navicont">
         <ul class="naviul">
             {% for data in categorie %}
-            {% if data.nom != 'formation' %}
+            {% if data.nom != 'formation' and data.nom != 'traineeship' and data.nom != 'formación'%}
             <li class="navili">
                 <a href="{{ path('bledvoyage_type', { 'id' : data.id }) }}" class="navia">{{ data.nom|title }}</a>
             </li>
@@ -143,4 +143,4 @@
 {% endblock %}
 
 {% block jquery %}{% endblock %}
-{% block formation %}<a href="{{ path('bledvoyage_type', { 'id' : formation }) }}">Formation</a>{% endblock %}
+{# {% block formation %}<a href="{{ path('bledvoyage_type', { 'id' : formation }) }}">Formation</a>{% endblock %} #}

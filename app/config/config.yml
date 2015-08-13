@@ -68,7 +68,16 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -110,6 +119,9 @@ fos_rest:
 
 # Stof\DoctrineExtensionBundle Configuration
 stof_doctrine_extensions:
+    default_locale: fr_FR
+    translation_fallback: true
     orm:
         default:
             sluggable: true
+            translatable: true

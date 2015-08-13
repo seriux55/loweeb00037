@@ -1,6 +1,8 @@
 base_bledvoyage:
     resource: "@BaseBledvoyageBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /{_locale}/
+    requirements:
+        _locale: |fr|en|es
 
 base_user:
     resource: "@BaseUserBundle/Resources/config/routing.yml"

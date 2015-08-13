@@ -6,7 +6,7 @@
 
 {% block body %}
 {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-{{ render(controller('BaseUserBundle:Security:login', { 'id' : 2, 'booking' : booking } )) }}
+{{ render(controller('BaseUserBundle:Security:login', { 'id' : 2, 'booking' : booking, 'locale' : app.request.locale } )) }}
 {{ render(controller('BaseUserBundle:Registration:register', { 'id' : booking } )) }}
 {% else %}
 
@@ -23,12 +23,12 @@
         </div>
         <div class="infoparcourss">
             <div class="info_parcours">
-                <p class="pgras1">Recapitulatif et commande</p>
+                <p class="pgras1">{% trans %}base.bledvoyage.promotiontype.recapitulatif{% endtrans %}</p>
                 <div class="rectangle1">
                 </div>
             </div>
             <div class="info_parcours">
-                <p class="pgras">Confirmation</p>
+                <p class="pgras">{% trans %}base.bledvoyage.promotiontype.confirmation{% endtrans %}</p>
                 <div class="rectangle">
                 </div>
             </div>
@@ -37,65 +37,65 @@
             <form method="post">
                 <div class="dates">
                     <h2>
-                        Quantité de Tickets "{{ data.nom }}"
+                        {% trans %}base.bledvoyage.promotiontype.nombre_1{% endtrans %} "{{ data.nom }}"
                     </h2>
-                    <h6>Combien de Tickets "{{ data.nom }}" ?</h6>
+                    <h6>{% trans %}base.bledvoyage.promotiontype.nombre_2{% endtrans %} "{{ data.nom }}" ?</h6>
                     <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
                 <div class="dates">
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="1">1 Ticket</label>
+                            <label for="1">1 {% trans %}base.bledvoyage.promotiontype.ticket{% endtrans %}</label>
                             <input type= "radio" name="nombre" title="Le nombre de réservation est requis!" x-moz-errormessage="Le nombre de réservation est requis!" required value="1" id="1">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="2">2 Tickets</label>
+                            <label for="2">2 {% trans %}base.bledvoyage.promotiontype.tickets{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="2" for="2">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="3">3 Tickets</label>
+                            <label for="3">3 {% trans %}base.bledvoyage.promotiontype.tickets{% endtrans %}</label>
                             <INPUT type= "radio" name="nombre" value="3" id="3">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="4">4 Tickets</label>
+                            <label for="4">4 {% trans %}base.bledvoyage.promotiontype.tickets{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="4" id="4">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="5">5 Tickets</label>
+                            <label for="5">5 {% trans %}base.bledvoyage.promotiontype.tickets{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="5" id="5">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="6">6 Tickets</label>
+                            <label for="6">6 {% trans %}base.bledvoyage.promotiontype.tickets{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="6" id="6">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="7">7 et Plus</label>
+                            <label for="7">7 {% trans %}base.bledvoyage.promotiontype.plus{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="7 et plus" id="7">
                         </div>
                     </div>
                 </div>
                 <div class="dates">
                     <h2>
-                        Dernière étape, personnalisez votre commande ! 
+                        {% trans %}base.bledvoyage.promotiontype.perso_1{% endtrans %}
                     </h2>
-                    <h6>Un message à mettre sur votre commande ? 
+                    <h6>{% trans %}base.bledvoyage.promotiontype.perso_2{% endtrans %}</h6>
                     <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
                 <div class="mr7">
                     <div class="mr4u">
-                        <label for="textPerso">Passez cette étape si vous n'avez pas besoin d'ajouter un message </label>
+                        <label for="textPerso">{% trans %}base.bledvoyage.promotiontype.perso_3{% endtrans %}</label>
                         <textarea onFocus="if (this.value==='Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ...') this.value='';" class="ouardep" id="textperso" cols="30" rows="4" name="textPerso" 
                         onkeypress="this.innerText = this.innerText.substr(0,50);" maxlength="50"
                         onkeyup="compte();">Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ...</textarea>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <div class="mr6">
-                    <input class="cherchez" name="login" type="submit" value="Valider"/>
+                    <input class="cherchez" name="login" type="submit" value="{% trans %}base.bledvoyage.promotiontype.valider{% endtrans %}"/>
                 </div>
             </form>
         </div>
@@ -111,11 +111,11 @@
     <div class="sectiono">
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Besoin d'aide ?</h4>
+                <h4>{% trans %}base.bledvoyage.promotiontype.aide_1{% endtrans %}</h4>
             </div>
             <div class="mr2i">
                 <p>
-                    Des difficultés à remplir le formulaire ? Besoin de plus d'information sur la commande ? Appelez-nous ! 
+                    {% trans %}base.bledvoyage.promotiontype.aide_2{% endtrans %}
                 </p>
             </div>
             <div class="appel">
@@ -127,7 +127,7 @@
     <div class="plusrc">
         <p>
         <a href="{{ path('base_bledvoyage_homepage') }}">
-        Revenir au site bledvoyage.com
+        {% trans %}base.bledvoyage.promotiontype.retour{% endtrans %}
         </a>
         </p>
     </div>

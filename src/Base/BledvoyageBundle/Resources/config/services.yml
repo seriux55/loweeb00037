@@ -7,3 +7,13 @@ services:
 
     dateFromNumberWeek:
         class: Base\BledvoyageBundle\Service\DateFunction\DateFromNumberWeek
+        
+    stof_doctrine_extensions.listener.sluggable:
+        class: %stof_doctrine_extensions.listener.sluggable.class%
+        public: false
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [setAnnotationReader, ['@annotation_reader']]
+            - [setTransliterator, [[Base\BledvoyageBundle\Service\SlugUTF8\Slugger, transliterate]]]
+            - [setUrlizer, [[Base\BledvoyageBundle\Service\SlugUTF8\Slugger, urlize]]]

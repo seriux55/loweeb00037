@@ -1,0 +1,276 @@
+base:
+    bledvoyage:
+        base:
+            vitrine_1:
+                bledvoyage.com crée et developpe des solutions anti-routines pour particuliers et professionnels.
+            vitrine_2: >
+                Détente, Sensation, Aventure, Challenge, Adrénaline,... Nous vous aidons à trouver des plans 
+                sympas pour chasser la routine.
+            footer: >
+                bledvoyage.com, crée et développe des solutions anti-routines pour particliers et professionnels. 
+                Il vous permet de trouver les meilleurs offres de séjours, de bons plans sympatiques, de vacances, 
+                activités de loisirs en Algérie. Recherchez votre séjour n'a jamais été aussi facile, vous 
+                partirez en Algérie et participerez aux activités de loisirs en toute confiance. comparez en un 
+                clic les offres ainsi que les tarifs et reservez votre séjour, vos plans loisirs, vos vacances 
+                au meilleur prix en Algérie. Chassez la routine !
+            toutsavoir:
+                Tout savoir sur bledvoyage
+            lessorties:
+                Les sorties
+            login: 
+                Login
+            logout: 
+                Logout
+            manager:
+                manager
+            promotion: 
+                Promotion
+            entreprise: 
+                Entreprise
+            formation:
+                Formation
+            accueil: 
+                Acceuil
+            depot:
+                Déposez votre produit
+        defaut:
+            au:
+                AU
+            max:
+                Max
+            personne:
+                personnes
+            detail:
+                Détail
+            reserver:
+                Réserver
+            complet:
+                Complet
+            promo_1:
+                Achetez des tickets cadeaux et profitez des sorties et activités à prix réduits !
+            promo_21:
+                "Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités : Sensations sur mer, sur terre, en montagne ... à prix réduits !"
+            promo_22:
+                De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches offir en cadeau.
+            promo_3:
+                Découvrir nos offres à tarifs réduits
+        product:
+            au:
+                AU
+            personne:
+                personnes
+            dinars:
+                dinars
+            description:
+                Description
+            photos:
+                Photos
+            video_2:
+                Vidéo
+            video_1:
+                En vidéo
+            condition:
+                Conditions
+            reserver:
+                Réserver
+            apropos:
+                À propos
+            categorie:
+                Catégorie
+            organisateur:
+                Quelques mots sur l'organisateur
+            question:
+                Des questions ?
+            appel_1:
+                Appelez-nous !
+            appel_2:
+                Vous souhaitez avoir plus d'information sur l'activité ? Appelez-nous !
+            avis_1:
+                Avis
+            avis_2:
+                Il y a
+            social_1:
+                Réseaux Sociaux
+            social_2:
+                Partagez l'évènement avec vos amis
+            participant_1:
+                Les participants
+            participant_2:
+                participant(s) cette semaine
+            retour:
+                Cliquez ici pour retourner à la liste des sorties...
+        entreprise:
+            vitrine_1:
+                Chassez la routine !
+            vitrine_2:
+                De l'aventure, du plaisir, de la cohésion, du challenge pour ses salariés, ses collaborateurs, ses partenaires, ... Des activités de Team Building, des sorties détente, sur mesure et unique en Algérie.
+            vitrine_3:
+                Découvrir nos offres pour corporates
+            titre:
+                Team Building, Plaisir & Aventure
+            contenu_1:
+                Nos offres pour les professionnels
+            contenu_2:
+                Mer, Terre, Montagne, Air, ... bledvoyage.com crée et développe des solutions anti-routine pour professionnels.
+            contenu_3:
+                Des activités innovantes, dynamique et riche en sensation, idéal pour favoriser la cohésion d'équipe.
+            contact_1:
+                Contactez-nous !
+            contact_2:
+                Intéressé par l'une de nos offres ? Vous souhaitez une formule personnaliser ? Des demandes particulières ? Besoin de plus d'information sur la sortie ? Appelez-nous !
+            contact_3:
+                Nous sommes aussi joignables par e-mail
+            telecharger_1:
+                Télécharger notre brochure
+            telecharger_2:
+                Téléchergez notre brochure PDF, vous y trouverez des offres détaillées, avec déscription complète des activités.
+            telecharger_3:
+                Télécharger
+        creation:
+            sujet:
+                Création d'une sortie
+            creation:
+                Création
+            finalisation:
+                Finalisation
+            confirmation:
+                Confirmation
+            information:
+                Information sur la sortie
+            local:
+                Localisation
+            titre:
+                Titre de la sortie
+            type:
+                Type de sortie
+            date_1:
+                Date de début de la sortie
+            heure_1:
+                Heure de début
+            date_2:
+                Date de fin de la sortie
+            heure_2:
+                Heure de fin
+            tarif:
+                Tarif par personne
+            nombre:
+                Nombre maximum de personne
+            description_1:
+                Descriptif
+            description_2:
+                Assurez vous de l'avoir écrit correctement. Vous receverez votre réservation par e-mail.
+            condition_1:
+                Condition
+            condition_2:
+                Assurez vous de l'avoir écrit correctement. pour vous contacter en cas de besoin.
+            valider:
+                Valider
+            aide_1:
+                Besoin d'aide ?
+            aide_2:
+                Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous !
+            revenir:
+                Revenir au site bledvoyage.com
+            envoyer_1:
+                Sortie envoyée!
+            envoyer_2: >
+                Votre sortie a été transmise à l'équipe, pour validation.
+                Vous receverez un e-mail dès que possible, n'hésitez pas à consutler le dossier "courrier indesirable".
+            velo:
+                Vélo, Cyclime
+            randonee:
+                Randonée, Camping
+            fitness:
+                Fitness, Danses
+            running:
+                Running
+            roller:
+                Roller
+            tennis:
+                Tennis
+            eau:
+                Sport d'eau
+            plongee:
+                Plongée
+            golf:
+                Golf
+            kayak:
+                Kayak, Bateau
+            equitation:
+                Equitation
+            marche:
+                Marche
+            patrimoine:
+                Visites patromoine
+            air:
+                Air
+            sable:
+                Sable
+            quad:
+                Quad
+            arc:
+                Arc
+        promotion:
+            vitrine_1:
+                Des activités à prix réduits !
+            vitrine_2: >
+                De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches.
+                Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités sur mesure : 
+                Sensations sur terre, sur mer, en montagne ... à prix réduits !
+            vitrine_3:
+                Découvrir nos tickets cadeaux
+            titre:
+                Pour le plaisir d'offrir et de s'offrir !
+            description: >
+                En commandant ce pack, vous recevrez un ticket cadeau qui permettra
+                à son bénéficiaire de participer à %nombre% activité, d'une valeur de %reduit% dinars, au lieu de %normal% dinars.
+            valable:
+                Le ticket cadeau est valable pendant %duree% Mois.
+            loisir:
+                Le ticket cadeau vous permet d'accéder aux activités loisirs
+            montagne:
+                "MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne."
+            terre:
+                "TERRE : Randonnée Cheval, Randonnée VTT, Balade et découverte de la ville Romaine."
+            mer:
+                "MER : Randonnée aquatique, Bouée sensation."
+            air:
+                "AIR : Cerf volant géant."
+            exlusive: >
+                EXCLUSIVITÉ : Avec ce ticket, vous aurez l'accès en exclusivité aux nouvelles activités qui seront lancées prochainement :
+                Tyrolienne géante, Escalade, Parcours aventure, ...
+            economie:
+                d'économie
+            offre:
+                Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
+            commander:
+                Commander
+        promotiontype:
+            recapitulatif:
+                Recapitulatif et commande
+            confirmation:
+                Confirmation
+            nombre_1:
+                Quantité de tickets
+            nombre_2:
+                Combien de tickets
+            ticket:
+                ticket
+            tickets:
+                tickets
+            plus:
+                et plus
+            perso_1:
+                Dernière étape, personnalisez votre commande !
+            perso_2:
+                Un message à mettre sur votre commande ?
+            perso_3:
+                Passez cette étape si vous n'avez pas besoin d'ajouter un message
+            valider:
+                Valider
+            aide_1:
+                Besoin d'aide ?
+            aide_2:
+                Des difficultés à remplir le formulaire ? Besoin de plus d'information sur la commande ? Appelez-nous !
+            retour:
+                Revenir au site bledvoyage.com

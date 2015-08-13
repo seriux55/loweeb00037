@@ -9,14 +9,10 @@
     <div class="headcad">
         <div class="contint">
             <div class="message">
-                <h1>Des activités à prix réduits !</h1>
-                <h2>
-                    De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches.
-                    Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités sur mesure : 
-                    Sensations sur terre, sur mer, en montagne ... à prix réduits !
-                </h2>
+                <h1>{% trans %}base.bledvoyage.promotion.vitrine_1{% endtrans %}</h1>
+                <h2>{% trans %}base.bledvoyage.promotion.vitrine_2{% endtrans %}</h2>
                 <p>
-                    <a href="#decouvrir">Découvrir nos tickets cadeaux</a>
+                    <a href="#decouvrir">{% trans %}base.bledvoyage.promotion.vitrine_3{% endtrans %}</a>
                 </p>
             </div>
         </div>
@@ -25,7 +21,7 @@
 <div id="decouvrir"></div>
 <div class="bloc_page_body222">
     <h2>
-        Pour le plaisir d'offrir et de s'offrir ! 
+        {% trans %}base.bledvoyage.promotion.titre{% endtrans %}
     </h2>
 </div>
 {% for data in product %}
@@ -42,39 +38,37 @@
                 <div class="headmr">
                     <div class="bome">
                         <p>
-                            En commandant ce pack, vous recevrez un ticket cadeau qui permettra 
-                            à son bénéficiaire de participer à {{ data.nombreActivite }} activité, d'une valeur de {{ data.tarif }} Dinars, au lieu de {{ data.tarif + data.economie }} Dinars.
+                            {% trans with {'%nombre%': data.nombreActivite, '%reduit%': data.tarif, '%normal%': data.tarif + data.economie} %}base.bledvoyage.promotion.description{% endtrans %}
                         </p>
                         <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> Le ticket cadeau est valable pendant {{ data.duree }} Mois. 
+                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/val.png') }}"> {% trans with {'%duree%': data.duree} %}base.bledvoyage.promotion.valable{% endtrans %}
                         </p>
                         <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/cad.png') }}"> Le ticket cadeau vous permet d'accéder aux activités loisirs : 
+                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/cad.png') }}"> {% trans %}base.bledvoyage.promotion.loisir{% endtrans %} :
                         </p>
                         <div class="tbome">
                             <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}"> MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
+                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}"> {% trans %}base.bledvoyage.promotion.montagne{% endtrans %} 
                             </p>
                             <p>							
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}"> TERRE : Randonnée Cheval, Randonnée VTT, Balade et découverte de la ville Romaine.
+                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}"> {% trans %}base.bledvoyage.promotion.terre{% endtrans %} 
                             </p>
                             <p>
-                                <img alt="Image"  class="bbo" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}"> MER : Randonnée aquatique, Bouée sensation.
+                                <img alt="Image"  class="bbo" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}"> {% trans %}base.bledvoyage.promotion.mer{% endtrans %} 
                             </p>
                             <p>
-                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}"> AIR : Cerf volant géant.
+                                <img alt="Image" class="bbo"  src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}"> {% trans %}base.bledvoyage.promotion.air{% endtrans %} 
                             </p>
                         </div>
                         <p>
-                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/exclu.png') }}"> EXCLUSIVITÉ : Avec ce ticket, vous aurez l'accès en exclusivité aux nouvelles activités qui seront lancées prochainement : 
-                            Tyrolienne géante, Escalade, Parcours aventure, ....
+                            <img alt="Image" class="abo" src="{{ asset('bundles/basebledvoyage/images/cadeau/offre/exclu.png') }}"> {% trans %}base.bledvoyage.promotion.exlusive{% endtrans %} 
                         </p>
                     </div>
                     <div class="headtar">
                         <h5>{{ data.tarif }} Da</h5>
-                        <h6>{{ data.economie }} Da d'économie</h6>
+                        <h6>{{ data.economie }} Da {% trans %}base.bledvoyage.promotion.economie{% endtrans %} </h6>
                         <p>
-                            Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
+                            {% trans %}base.bledvoyage.promotion.offre{% endtrans %}
                         </p>
                     </div>
                 </div>
@@ -82,7 +76,7 @@
         </div> 
         <div class="casoute">
             <a href="{{ path('bledvoyage_promotion_type', { 'id': data.id }) }}">
-                <input class="anou" type="button" value="Commander">
+                <input class="anou" type="button" value="{% trans %}base.bledvoyage.promotion.commander{% endtrans %}">
             </a>
         </div>
     </div>

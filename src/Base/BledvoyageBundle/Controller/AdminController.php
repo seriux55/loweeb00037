@@ -14,7 +14,7 @@ class AdminController extends Controller
 {
     public function reservationAction()
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+        $product  = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.sortie', 'b')
@@ -71,6 +71,51 @@ class AdminController extends Controller
             );
             $number++;
         }
+        // Lors de la submission du formulaire de generation du pdf
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $i = $nbr_resa = $nbr_place = 0;
+            foreach ($product as $data)
+            {
+                $frToDatetime = $this->container->get('FrToDatetime');
+                $date         = new \DateTime($frToDatetime->todatetime($request->request->get('pdf')));
+                $sortie_id    = $request->request->get('sortie');
+                if($data->getSortie()->getId() == $sortie_id && $data->getConfirmer_user() != null && $data->getDateConfirmer() == $date){
+                    $participant[] = array(
+                        'prenom' => $data->getUser()->getSecondename(),
+                        'nom'    => $data->getUser()->getFirstname(),
+                        'nombre' => $data->getNombre(),
+                        'note'   => $data->getNote(),
+                    );
+                    $nbr_resa++;
+                    $nbr_place = $nbr_place + $data->getNombre();
+                    if ($i === 0) { $titre = $data->getSortie()->getTitre(); $i = 1; }
+                }
+            }
+            if($i === 1){
+                $devisPdf = $this->render('BaseBledvoyageBundle:Mail:admin_liste_participant.pdf.twig', array(
+                    'titre'    => $titre,
+                    'product'  => $participant,
+                    'nbrResa'  => $nbr_resa,
+                    'nbrPlace' => $nbr_place,
+                    'date'     => $date,
+                ));
+                $pdf_1 = new \HTML2PDF('P','A4','fr');
+                $pdf_1->pdf->SetDisplayMode('real');
+                $pdf_1->writeHTML($devisPdf);
+                $content_1 = $pdf_1->Output('participant.pdf', true);
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('test liste des participant, bledvoyage.com')
+                    ->setFrom('contact@bledvoyage.com')
+                    ->setTo(array('nadir.allam@bledvoyage.com'))
+                    ->setBody('Bonjour la liste')
+                    ->attach(Swift_Attachment::newInstance($content_1, 'participants.pdf', 'application/pdf'))
+                ;
+                $this->get('mailer')->send($message);
+                return $devisPdf;
+            }
+        }
+        
         return $this->render('BaseBledvoyageBundle:Admin:reservation.html.twig', array(
             'product'       => $sorties,
             'reservation'   => $reservation,

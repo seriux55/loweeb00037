@@ -11,9 +11,11 @@ class MurAdminController extends Controller
 {
     public function indexAction(Request $request)
     {
-        if($request->getMethod() == 'POST' && !empty($request->request->get('etat'))){
+        $comments   = $request->request->get('comment');
+        $etat       = $request->request->get('etat');
+        $stat       = $request->request->get('statut');
+        if($request->getMethod() == 'POST' && !empty($etat)){
             $statutId = $request->request->get('statutId');
-            $etat     = $request->request->get('etat');
             $statut   = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:AdminStatut')->find($statutId);
             switch($etat){
                 case 'Fait'         : $d = '1'; break;
@@ -25,7 +27,7 @@ class MurAdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($statut);
             $em->flush();
-        }elseif($request->getMethod() == 'POST' && !empty($request->request->get('comment'))){
+        }elseif($request->getMethod() == 'POST' && !empty($comments)){
             $statutId   = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:AdminStatut')->find($request->request->get('statutId'));
             $newcomment = new AdminComment;
             $newcomment->setComment($request->request->get('commentaire'))
@@ -34,7 +36,7 @@ class MurAdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($newcomment);
             $em->flush();
-        }elseif($request->getMethod() == 'POST' && !empty($request->request->get('statut'))){
+        }elseif($request->getMethod() == 'POST' && !empty($stat)){
             $newstatut = new AdminStatut;
             $newstatut->setStatut($request->request->get('statut'))
                 ->setUser($this->get('security.context')->getToken()->getUser());

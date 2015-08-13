@@ -10,12 +10,12 @@
 {% block body %}
 
 {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-<div>{{ render(controller('BaseUserBundle:Security:login', { 'id' : 1, 'booking' : booking } )) }}</div>
+<div>{{ render(controller('BaseUserBundle:Security:login', { 'id' : 1, 'booking' : booking, 'locale' : app.request.locale } )) }}</div>
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div id="inscription" class="bloc_page_body222">
     <h2>
-        Inscription 
+        Inscription
     </h2>
 </div>
 <div class="bloc_page_body3">
@@ -66,9 +66,9 @@
                 {{ form_rest(form) }}
                 <div class="mr2">
                     <div class="mr6">
-                        <input type="hidden" name="_target_path"  value="/booking/{{ booking }}" />
+                        <input type="hidden" name="_target_path" value="/{{ app.request.locale }}/booking/{{ booking }}" />
                         <input type="hidden" name="red" value="{{ booking }}" />
-                        <input class="trouvezi" type="submit" value="{{ 'registration.submit'|trans }}" />
+                        <input class="trouvezi" type="submit" value="{% trans %}base.bledvoyage.booking.valider{% endtrans %}" />
                     </div>
                 </div>
             </form>
@@ -78,19 +78,19 @@
 {% else %}
 <div class="bloc_page_body222">
     <h2>
-        Réservation 
+        {% trans %}base.bledvoyage.booking.reservation{% endtrans %} 
     </h2>
 </div>
 <div class="bloc_page_body3">
     <section>
         <div class="infoparcourss">
             <div class="info_parcours">
-                <p class="pgras1">Récapitulatif et réservation</p>
+                <p class="pgras1">{% trans %}base.bledvoyage.booking.recapitulatif{% endtrans %}</p>
                 <div class="rectangle1">
                 </div>
             </div>
             <div class="info_parcours">
-                <p class="pgras">Confirmation</p>
+                <p class="pgras">{% trans %}base.bledvoyage.booking.confirmation{% endtrans %}</p>
                 <div class="rectangle">
                 </div>
             </div>
@@ -99,58 +99,58 @@
             <form method="post">
                 <div class="dates">
                     <h2>
-                        Nombre de places
+                        {% trans %}base.bledvoyage.booking.place_1{% endtrans %} 
                     </h2>
-                    <h6>Combien de places ?</h6>
+                    <h6>{% trans %}base.bledvoyage.booking.place_2{% endtrans %} </h6>
                     <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
                 <div class="dates">
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="1">1 Place</label>
-                            <input type= "radio" name="nombre" title="Le nombre de réservation est requis!" x-moz-errormessage="Le nombre de réservation est requis!" required value="1" id="1">
+                            <label for="1">1 {% trans %}base.bledvoyage.booking.place{% endtrans %}</label>
+                            <input type= "radio" name="nombre" value="1" id="1">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="2">2 Places</label>
+                            <label for="2">2 {% trans %}base.bledvoyage.booking.places{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="2" id="2">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="3">3 Places</label>
+                            <label for="3">3 {% trans %}base.bledvoyage.booking.places{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="3" id="3">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="4">4 Places</label>
+                            <label for="4">4 {% trans %}base.bledvoyage.booking.places{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="4" id="4">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="5">5 Places</label>
+                            <label for="5">5 {% trans %}base.bledvoyage.booking.places{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="5" id="5">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="6">6 Places</label>
+                            <label for="6">6 {% trans %}base.bledvoyage.booking.places{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="6" id="6">
                         </div>
                     </div>
                     <div class="outplace">
                         <div class="inplace">
-                            <label for="7">7 et Plus</label>
+                            <label for="7">7 {% trans %}base.bledvoyage.booking.septplaces{% endtrans %}</label>
                             <input type= "radio" name="nombre" value="7" id="7">
                         </div>
                     </div>
                 </div>
                 <div class="dates">
                     <h2>
-                        Date de réservation
+                        {% trans %}base.bledvoyage.booking.date{% endtrans %}
                     </h2>
                     <img class="calendaro" alt="" src="{{ asset('bundles/basebledvoyage/images/interface/calendaro.png') }}">
                 </div>
@@ -162,14 +162,14 @@
                         <div class="outdate">
                             <div class="indate">    
                                 <label for="{{ data.dateDebut|date('d/m/Y') }}">{{ data.dateDebut|date('d/m/Y') }}</label>
-                                <input type= "radio" id="{{ data.dateDebut|date('d/m/Y') }}" name="dateReserver" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!" value="{{ data.dateDebut|date('d/m/Y') }}">
+                                <input type= "radio" id="{{ data.dateDebut|date('d/m/Y') }}" name="dateReserver" value="{{ data.dateDebut|date('d/m/Y') }}">
                             </div>
                         </div>
                         {% else %}
                         <div class="outdatea">
                             <div class="indateà">    
                                 <label for="{{ data.dateDebut|date('d/m/Y') }}">Du {{ data.dateDebut|date('d/m/Y') }}, au {{ data.dateFin|date('d/m/Y') }}</label>
-                                <input type= "radio" id="{{ data.dateDebut|date('d/m/Y') }}" name="dateReserver" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!" value="{{ data.dateDebut|date('d/m/Y') }}">
+                                <input type= "radio" id="{{ data.dateDebut|date('d/m/Y') }}" name="dateReserver" value="{{ data.dateDebut|date('d/m/Y') }}">
                             </div>
                         </div>
                         {% endif %}
@@ -181,7 +181,7 @@
                                 <label>
                                     {{ data.dateDebut|date('d/m/Y') }}
                                 </label>
-                                <p>Complet</p>
+                                <p>{% trans %}base.bledvoyage.booking.complet{% endtrans %}</p>
                                 <img class="calendara" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/sad.png') }}">
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                                 <label>
                                     Du {{ data.dateDebut|date('d/m/Y') }}, au {{ data.dateFin|date('d/m/Y') }}
                                 </label>
-                                <p>Complet</p>
+                                <p>{% trans %}base.bledvoyage.booking.complet{% endtrans %}</p>
                                 <img class="calendara" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/sad.png') }}">
                             </div>
                         </div>
@@ -200,18 +200,18 @@
                     {% endfor %}
                 </div>
                 <div class="dates" id="groupe" style="display:none;">
-                    <input type= "text" name="dateReserverGroupe" class="datepicker" required title="La date de réservation est requise!" x-moz-errormessage="La date de réservation est requise!">
+                    <input type= "text" name="dateReserverGroupe" class="datepicker">
                 </div>
                 <div class="dates">
                     <h2>
-                        Avez vous un code promotion ?
+                        {% trans %}base.bledvoyage.booking.promo_1{% endtrans %}
                     </h2>
-                    <h6>J'ai un code promo</h6>
+                    <h6>{% trans %}base.bledvoyage.booking.promo_2{% endtrans %}</h6>
                     <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/promo.png') }}">
                 </div>
                 <div class="mr7">
                     <div class="mr4u">
-                        <label for="mdp">Passez cette étape si vous n'avez pas de code promo.</label>
+                        <label for="mdp">{% trans %}base.bledvoyage.booking.promo_3{% endtrans %}</label>
                         <input class="ouardep" type="text" name="promo0" maxlength="8" />
                         <div id="cadre"></div>
                         <div class="casouty">
@@ -222,9 +222,9 @@
                 </div>
                 <div class="mr6">
                     {% if date != 0 %}
-                    <input class="cherchez" name="Valider" type="submit" value="Valider"/>
+                    <input class="cherchez" name="Valider" type="submit" value="{% trans %}base.bledvoyage.booking.valider{% endtrans %}" id="booking"/>
                     {% else %}
-                    <input class="cherchez" name="Complet" type="botton" value="Complet"/>
+                    <input class="cherchez" name="Complet" type="botton" value="{% trans %}base.bledvoyage.booking.complet{% endtrans %}"/>
                     {% endif %}
                 </div>
             </form>
@@ -233,11 +233,11 @@
     <div class="sectiono">
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Besoin d'aide ?</h4>
+                <h4>{% trans %}base.bledvoyage.booking.aide_1{% endtrans %}</h4>
             </div>
             <div class="mr2i">
                 <p>
-                    Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous ! 
+                    {% trans %}base.bledvoyage.booking.aide_2{% endtrans %}
                 </p>
             </div>
             <div class="appel">
@@ -248,7 +248,7 @@
     </div>
     <div class="plusrc">
         <p>
-            <a href="{{ path('base_bledvoyage_homepage') }}">Revenir au site bledvoyage.com</a>
+            <a href="{{ path('base_bledvoyage_homepage') }}">{% trans %}base.bledvoyage.booking.revenir{% endtrans %}</a>
         </p>
     </div>
 </div>
@@ -258,17 +258,6 @@
 
 {% block javascripts %}
 <script type="text/javascript">
-
-$('a[href^="#"]').ready(function(){
-    $('a[href^="#inscription"]').on('click', function(evt){
-        evt.preventDefault(); 
-        var target = $(this).attr('href');
-        $('html, body')
-            .stop()
-            .animate({scrollTop: $(target).offset().top}, 1000 ); 
-    });
-});
-
 var c,c2, ch;
 // ajouter un champ avec son "name" propre;
 function plus(){
@@ -307,7 +296,7 @@ for (var i = 0; i < forms.length; i++) {
 </script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <script>
-jQuery(function($){
+$(function(){
     $.datepicker.regional['fr'] = {
         closeText: 'Fermer',
         prevText: 'Précédent',
@@ -332,6 +321,17 @@ jQuery(function($){
 });
 $(function() {
     $('input.datepicker').datepicker();
+    $('#booking').on('click', function(){
+        if ($('input[name=nombre]:checked').length <= 0) {
+            alert('Vous devez selectionner le nombre de places');
+            return false;
+        }else if ($('input[name=dateReserver]:checked').length <= 0) {
+            alert('Vous devez selectionner une date de réservation');
+            return false;
+        }else{
+            return true;
+        }
+    });
 });
 </script>
 <!--

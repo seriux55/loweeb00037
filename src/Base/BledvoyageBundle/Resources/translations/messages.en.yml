@@ -1,0 +1,273 @@
+base:
+    bledvoyage:
+        base:
+            vitrine_1:
+                bledvoyage.com creates and developes anti-routine soltions for individuals and professionals.
+            vitrine_2: >
+                Trigger,Thrilling, Adventure, Challenge, Adrenalin,... we will help you find some nice shots 
+                to hunt down your routine.
+            footer: >
+                bledvoyage.com creates and develops anti-routine solutions for individuals and professionals. 
+                It allows you to find the best accommodation offers. Good sympathetic plans, holidays, leisure 
+                activities in Algeria. Search, your stay has never been any easier, you’ll go to Algeria and 
+                participate in those activities with all the safety needed. In one single click , compare the 
+                offers and the prices and book your stay, your leisure plans ,your holidays with the best 
+                price in Algeria. Hunt down the routine !
+            toutsavoir:
+                All about bledvoyage
+            lessorties:
+                The outings
+            login: 
+                Login
+            logout: 
+                Logout
+            manager:
+                Manager
+            promotion: 
+                Promotion
+            entreprise: 
+                Businesses
+            formation:
+                Traineeship
+            accueil: 
+                Home
+            depot:
+                Place your product
+        defaut:
+            au:
+                TO
+            max:
+                Max
+            personne:
+                people
+            detail:
+                Details
+            reserver:
+                Book
+            complet:
+                Full
+            promo_1:
+                Get the gift vouchers and enjoy outings and discount activities !
+            promo_21:
+                "Whether you are an individual or a company, The gift vouchers offer you a wide choice of activities : Sensations in the sea, on land , up in the mountain ... at a reduced price !"
+            promo_22:
+                Adventure, Trigger for yourselves, your friends, your co-workers, your co-partners... to share with your besties, offer as present.
+            promo_3:
+                Discover our reduced-price offers
+        product:
+            au:
+                TO
+            personne:
+                people
+            dinars:
+                dinars
+            description:
+                Description
+            photos:
+                Photos
+            video_2:
+                Video
+            video_1:
+                In video
+            condition:
+                Conditions
+            reserver:
+                Book
+            apropos:
+                About
+            categorie:
+                Categories
+            organisateur:
+                Few words about the promoter
+            question:
+                Any questions ?
+            appel_1:
+                Call us !
+            appel_2:
+                You would like to have more info? Call us !
+            avis_1:
+                opinions
+            avis_2:
+                There are
+            social_1:
+                Social Network
+            social_2:
+                Share the event with your friends
+            participant_1:
+                The participants
+            participant_2:
+                participant(s) this week
+            retour:
+                Click here to go back to outings list...
+        entreprise:
+            vitrine_1:
+                Chassez la routine !
+            vitrine_2:
+                De l'aventure, du plaisir, de la cohésion, du challenge pour ses salariés, ses collaborateurs, ses partenaires, ... Des activités de Team Building, des sorties détente, sur mesure et unique en Algérie.
+            vitrine_3:
+                Découvrir nos offres pour corporates
+            titre:
+                Team Building, Pleasure & Adventure
+            contenu_1:
+                Our offers for professionals
+            contenu_2:
+                Sea, Land, Mountain, Air ... bledvoyage.com creates and develops anti-routine solutions to professionals.
+            contenu_3:
+                Innovative activities, dynamic and full of feeling, ideal for promoting team cohesion
+            contact_1:
+                Contact us !
+            contact_2:
+                Interested in one of our offers? Do you want to customize a formula? Special requests? Need more information about the output? Call us!
+            contact_3:
+                We are also reachable by email
+            telecharger_1:
+                Download our brochure
+            telecharger_2:
+                Download our PDF brochure you will find detailed offers, with complete description so activities.
+            telecharger_3:
+                Download
+        creation:
+            sujet:
+                Creation of an outing
+            creation:
+                Creation
+            finalisation:
+                Finalisation
+            confirmation:
+                Confirmation
+            information:
+                Information on the outing
+            local:
+                Localisation
+            titre:
+                Title of the outing
+            type:
+                Type
+            date_1:
+                Start date of the release
+            heure_1:
+                Start time
+            date_2:
+                Date trip ended
+            heure_2:
+                End time
+            tarif:
+                Price per person
+            nombre:
+                Maximum number of person
+            description_1:
+                Descriptive
+            description_2:
+                Make sure you have written correctly. You will receive your reservation by email.
+            condition_1:
+                Condition
+            condition_2:
+                Make sure you have written correctly. to contact you if necessary.
+            valider:
+                Validate
+            aide_1:
+                Need help?
+            aide_2:
+                Difficulty completing the booking form? Need more information about the output? Call us !
+            revenir:
+                Come back to bledvoyage.com
+            envoyer_1:
+                Sortie envoyée!
+            envoyer_2: >
+                Votre sortie a été transmise à l'équipe, pour validation.
+                Vous receverez un e-mail dès que possible, n'hésitez pas à consutler le dossier "courrier indesirable".
+            velo:
+                Biking, Cyclime
+            randonee:
+                Trekking, Camping
+            fitness:
+                Fitness, Dance
+            running:
+                Running
+            roller:
+                Roller
+            tennis:
+                Tennis
+            eau:
+                Water sport
+            plongee:
+                Diving
+            golf:
+                Golf
+            kayak:
+                Kayaking, Boating
+            equitation:
+                Horse Riding
+            marche:
+                March
+            patrimoine:
+                Patromoine visits
+            air:
+                Air
+            sable:
+                Sand
+            quad:
+                Four wheeld motorcycle
+            arc:
+                Arc
+        promotion:
+            vitrine_1:
+                Activities at a reduced price !
+            vitrine_2:
+                "Adventure, Relaxation, for yourselves, your contributors, your partners, ... to share with your besties. Weather you are individuals or companies, The gift vochours offer you a large choise suitable for you : Sensation on the ground, out  in  the sea, in mountain ... at a discount !"
+            vitrine_3:
+                Discover our gift vouchers
+            titre:
+                For ourselves or to offer as a gift !
+            description:
+                By taking this pack, you ill receive a gift ticket that permites you to participate in %nombre% activity, at a %reduit% dinars price instead of %normal% dinars !
+            valable:
+                The gift ticket is available for %duree% mothes.
+            loisir:
+                The gift ticket permites your access to recreation activities
+            montagne:
+                "MOUNTAIN : Morning freshness hike, Archey hiking, Treasure hunts, orientation games, 4WM in montain"
+            terre:
+                "LAND : ATV hinkg, Strolling and discovery of the roman city."
+            mer:
+                "SEA: Sensation in a buoy."
+            air:
+                "AIR : giant kite."
+            exlusive: >
+                EXCLUSIVE : with this ticket, you will have access to the next activites e will have soon :
+                Climbing zip line; Adventure circuit and clibe …
+            economie:
+                of economy
+            offre:
+                Offer available until march 19th 2015, in the limite of the available stock !
+            commander:
+                Order
+        promotiontype:
+            recapitulatif:
+                Summary and booking
+            confirmation:
+                Confirmation
+            nombre_1:
+                Number of tickets
+            nombre_2:
+                How many tickets
+            ticket:
+                ticket
+            tickets:
+                tickets
+            plus:
+                & more
+            perso_1:
+                Dernière étape, personnalisez votre commande !
+            perso_2:
+                Un message à mettre sur votre commande ?
+            perso_3:
+                Passez cette étape si vous n'avez pas besoin d'ajouter un message
+            valider:
+                Validate
+            aide_1:
+                Need any help ?
+            aide_2:
+                Dificulties filling up the registration form ? Need more info on the outing ? Call us !
+            retour:
+                Come back to bledvoyage.com

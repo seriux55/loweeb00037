@@ -1,0 +1,273 @@
+base:
+    bledvoyage:
+        base:
+            vitrine_1:
+                bledvoyage.com crea y desarrolla soluciones anti-rutinas para particulares y profesionales.
+            vitrine_2: >
+                Relajación, Sensation, Aventura, Desafío adrenalina ... Te ayudamos a encontrar planes 
+                agradables para perseguir la rutina
+            footer: >
+                bledvoyage.com, crea y desarrolla soluciones anti-rutinas para particulares y profesionales. 
+                Se permite encontrar las mejores ofertas de alojamiento, buenos planes de amistad de vacaciones, 
+                actividades de ocio en Argelia. Encuentre su paquete nunca ha sido más fácil, te vas en Argelia 
+                y participaras a las actividades de ocio en toda confianza. Comparar con un clic las ofertas 
+                como las tarifas y reservar su estancia, sus planes de ocio, sus vacaciones al mejor precio 
+                en Argelia. Desterrar la rutina!
+            toutsavoir:
+                Todo sobre bledvoyage
+            lessorties:
+                Salidas
+            login: 
+                Login
+            logout: 
+                Logout
+            manager:
+                Manager
+            promotion: 
+                Promoción
+            entreprise: 
+                Entreprise
+            formation:
+                Formación
+            accueil: 
+                Inicio
+            depot:
+                Publica tu empresa
+        defaut:
+            au:
+                HASTA
+            max:
+                Max
+            personne:
+                peronas
+            detail:
+                Detalles
+            reserver:
+                Reservar
+            complet:
+                Completo
+            promo_1:
+                Comprar bonos de regalo y disfrutar de salidas y actividades de descuento!
+            promo_21:
+                "Si usted es un particular o una empresa, vales de regalo ofrecen una amplia variedad de actividades: Las sensaciones en el mar, en tierra, en las montañas ... a precios excelentes!"
+            promo_22:
+                Aventura, relajación para usted, sus amigos, sus empleados, sus socios ... para compartir con amigos y familia como regalos.
+            promo_3:
+                Descubra nuestras tarifas Ofertas descuentos
+        product:
+            au:
+                HASTA
+            personne:
+                personas
+            dinars:
+                dinares
+            description:
+                Descripcion
+            photos:
+                Fotos
+            video_2:
+                Vídeo
+            video_1:
+                En vídeo
+            condition:
+                Condiciones
+            reserver:
+                Reservar
+            apropos:
+                Sobre
+            categorie:
+                Categoria
+            organisateur:
+                Algunas palabras sobre el organizador
+            question:
+                Preguntas ?
+            appel_1:
+                Llamanos !
+            appel_2:
+                Necesitas mas informacionessobre las actividades ? Llamanos !
+            avis_1:
+                opiniones
+            avis_2:
+                Hay
+            social_1:
+                Redes Sociales
+            social_2:
+                Comparte el evento con tus amigos
+            participant_1:
+                Los participantes
+            participant_2:
+                participante(s) esta semana
+            retour:
+                Volver al sitio de bledvoyage.com
+        entreprise:
+            vitrine_1:
+                Cazade rutina !
+            vitrine_2:
+                Aventura, diversión, la cohesión, el desafío para sus empleados, sus empleados, socios ... actividades de team building, salidas de ocio, personalizados y únicos en Argelia.
+            vitrine_3:
+                Découvrir nos offres pour corporates
+            titre:
+                Team Building, ocio & aventura
+            contenu_1:
+                Nuestras ofertas para profesionales
+            contenu_2:
+                Mar, Tierra, Montaña, Aire ... bledvoyage.com crea y desarrolla soluciones anti-rutina a los profesionales.
+            contenu_3:
+                Actividades innovadoras, dinámicas y llenas de sentimiento, ideal para la promoción de la cohesión del equipo.
+            contact_1:
+                Contáctenos !
+            contact_2:
+                Más sobre una de nuestras ofertas? ¿Quieres personalizar una fórmula? Solicitudes especiales ? ¿Necesita más información acerca de la salida? Llámanos!
+            contact_3:
+                Estamos también accesible por correo electrónico
+            telecharger_1:
+                Descargue nuestro folleto
+            telecharger_2:
+                Descargue nuestro folleto PDF usted encontrará ofertas detalladas, con descripción completa de modo actividades...
+            telecharger_3:
+                Descargue
+        creation:
+            sujet:
+                Creación de una salida
+            creation:
+                Creacion
+            finalisation:
+                Finalizacion
+            confirmation:
+                Confirmacion
+            information:
+                La información de salida
+            local:
+                Localisation
+            titre:
+                Titre de la sortie
+            type:
+                Type de sortie
+            date_1:
+                Fecha de la liberación Iniciar
+            heure_1:
+                Hora de inicio
+            date_2:
+                Fecha de termino
+            heure_2:
+                Hora de finalización
+            tarif:
+                Precio por persona
+            nombre:
+                Número máximo de personas
+            description_1:
+                descriptivo
+            description_2:
+                Asegúrese de que ha escrito correctamente. Usted recibirá su reserva por correo electrónico.
+            condition_1:
+                Condicion
+            condition_2:
+                Asegúrese de que ha escrito correctamente. para contactar con usted en caso necesario.
+            valider:
+                Validar
+            aide_1:
+                Necesitas ayuda ?
+            aide_2:
+                Dificultad para completar el formulario de reserva ? necesitas mas informaciones sobre  las salidas ? Llamanos !
+            revenir:
+                Volver al sitio de bledvoyage.com
+            envoyer_1:
+                Sortie envoyée!
+            envoyer_2: >
+                Votre sortie a été transmise à l'équipe, pour validation.
+                Vous receverez un e-mail dès que possible, n'hésitez pas à consutler le dossier "courrier indesirable".
+            velo:
+                Ciclismo
+            randonee:
+                Senderismo, Camping
+            fitness:
+                Fitness, Danza
+            running:
+                Corriendo
+            roller:
+                Roller
+            tennis:
+                Tennis
+            eau:
+                Deporte acuático
+            plongee:
+                Buceo
+            golf:
+                Golf
+            kayak:
+                Kayak, Cnotaje
+            equitation:
+                Equitacion
+            marche:
+                Balada
+            patrimoine:
+                Turismo del Patrimonio
+            air:
+                Aire
+            sable:
+                Arena
+            quad:
+                Quad
+            arc:
+                Arc
+        promotion:
+            vitrine_1:
+                Actividades de descuento !
+            vitrine_2:
+                "Aventura, relajacion para ustedes, sus amigos, sus colaboratorios, sus socios, ... para compartir con sus seres queridos. si eres un particular o bien una empresa, vales de regalo ofrecen una amplia gama de actividades personalizadas : Sensacion en tiera, en mar, en montana ... a precios excelentes !"
+            vitrine_3:
+                Descubra nuestros bonos de regalo
+            titre:
+                Para si-mismo o bien  para ofrecer !
+            description:
+                Al ordenar este paquete, usted recibirá un boleto de regalo que dará derecho al beneficiario a participar en %nombre% actividad, por un valor de %reduit% dinares en vez de %normal% dinares.
+            valable:
+                El paquete regalo esta  valable durante %duree% meses
+            loisir:
+                El paquete regalo  os permeteentrar a las actividades de ocio
+            montagne:
+                "MONTANA : caminata de manana frescura , caminata & Tiro al  arco ,Busqueda del tesoro, Juegos de orientación, quad en las montañas."
+            terre:
+                "TIERRA : caminata  de bicicletas de montaña, montar y explorar la ciudad romana."
+            mer:
+                "MAR : Boya  Sensación."
+            air:
+                "AIRE :Cerf volador gigante."
+            exlusive: >
+                EXCLUSIVO :Con este billete, tendrá acceso exclusivo a las nuevas actividades que se lanzará pronto :
+                Tirolina gigante, Escalada, circuito de aventura, ...
+            economie:
+                de economia
+            offre:
+                Oferta válida hasta el 19 de marzo 2015 en el cepo !
+            commander:
+                Comprar
+        promotiontype:
+            recapitulatif:
+                Resumen y reserva
+            confirmation:
+                Confirmación
+            nombre_1:
+                Número de billetes
+            nombre_2:
+                Cuántos billetes
+            ticket:
+                billete
+            tickets:
+                billetes
+            plus:
+                y más
+            perso_1:
+                Dernière étape, personnalisez votre commande !
+            perso_2:
+                Un message à mettre sur votre commande ?
+            perso_3:
+                Passez cette étape si vous n'avez pas besoin d'ajouter un message
+            valider:
+                Validar
+            aide_1:
+                Necesitas ayuda ?
+            aide_2:
+                Dificultad para completar el formulario de reserva ? Necesita más información acerca de la salida ? Llámanos !
+            retour:
+                Volver al sitio de bledvoyage.com

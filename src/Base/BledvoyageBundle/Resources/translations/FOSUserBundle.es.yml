@@ -1,0 +1,37 @@
+base:
+    bledvoyage: 
+        booking:
+            reservation:
+                Reserva
+            recapitulatif:
+                Resumen y reserva
+            confirmation:
+                Confirmación
+            place_1:
+                Número de plazas
+            place_2:
+                Cuántos lugares ?
+            place:
+                lugar
+            places:
+                lugares
+            septplaces:
+                y más
+            date:
+                Fecha de la reserva
+            complet:
+                Completo
+            promo_1:
+                Tienes un código promocional ?
+            promo_2:
+                Tengo un código promocional
+            promo_3:
+                Omita este paso si no tiene un código promocional.
+            valider:
+                Validar
+            aide_1:
+                Necesitas ayuda ?
+            aide_2:
+                Dificultad para completar el formulario de reserva ? Necesita más información acerca de la salida ? Llámanos!
+            revenir:
+                Volver al sitio de bledvoyage.com

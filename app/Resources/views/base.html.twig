@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <!--[if lt IE 9]>
@@ -20,12 +20,12 @@
                 </div>
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
-                        {% if not is_granted("ROLE_USER") %}<a href="{{ path('fos_user_security_login') }}">Login</a>{% else %}<a href="{{ path('fos_user_security_logout') }}">Logout</a>{% endif %}
-                        {% if is_granted("ROLE_MODERATEUR") or is_granted("ROLE_ADMIN") or is_granted("ROLE_MONITEUR") %}<a href="{{ path('bledvoyage_admin') }}">Manager</a>{% endif %}
-                        <a href="{{ path('bledvoyage_promotion') }}">Promotion</a>
-                        <a href="{{ path('bledvoyage_teambuilding') }}">Entreprise</a>
+                        {% if not is_granted("ROLE_USER") %}<a href="{{ path('fos_user_security_login') }}">{% trans %}base.bledvoyage.base.login{% endtrans %}</a>{% else %}<a href="{{ path('fos_user_security_logout') }}">{% trans %}base.bledvoyage.base.logout{% endtrans %}</a>{% endif %}
+                        {% if is_granted("ROLE_MODERATEUR") or is_granted("ROLE_ADMIN") or is_granted("ROLE_MONITEUR") %}<a href="{{ path('bledvoyage_admin') }}">{% trans %}base.bledvoyage.base.manager{% endtrans %}</a>{% endif %}
+                        <a href="{{ path('bledvoyage_promotion') }}">{% trans %}base.bledvoyage.base.promotion{% endtrans %}</a>
+                        <a href="{{ path('bledvoyage_teambuilding') }}">{% trans %}base.bledvoyage.base.entreprise{% endtrans %}</a>
                         {% block formation %}{% endblock %}
-                        <a href="{{ path('bledvoyage_suggest') }}">Déposez votre produit</a>
+                        <a href="{{ path('bledvoyage_suggest') }}">{% trans %}base.bledvoyage.base.depot{% endtrans %}</a>
                         {#
                         <a href="{{ path('bledvoyage_contact') }}">Contact</a>
                         #}
@@ -55,17 +55,12 @@
         <div class="footer_page">
             <div id="bloc_page_footer2">
                 <p>
-                    bledvoyage.com, crée et développe des solutions anti-routines pour particliers et professionnels. 
-                    Il vous permet de trouver les meilleurs offres de séjours, de bons plans sympatiques, de vacances, activités de loisirs en Algérie. 
-                    Recherchez votre séjour n'a jamais été aussi facile, vous partirez en Algérie et participerez aux activités de loisirs en toute confiance.
-                    comparez en un clic les offres ainsi que les tarifs et reservez votre séjour, vos plans loisirs,  
-                    vos vacances au meilleur prix en Algérie. 
-                    Chassez la routine ! 
+                    {% trans %}base.bledvoyage.base.footer{% endtrans %}
                 </p>
             </div>
             <hr>
             <div id="bloc_page_footer3">
-                <a href="#">Tout savoir sur bledvoyage</a> -
+                <a href="#">{% trans %}base.bledvoyage.base.toutsavoir{% endtrans %}</a> -
                 © 2013 <a href="{{ path('base_bledvoyage_homepage') }}" target="_blank">bledvoyage.com</a> -
                 <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="{{ asset('bundles/basebledvoyage/images/old/facebook.png') }}" alt="bledvoyage sur facebook" id="facebook"/></a>
                 <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="{{ asset('bundles/basebledvoyage/images/old/twitter.png') }}" alt="bledvoyage sur twitter" id="twitter"/></a>
@@ -74,7 +69,7 @@
         </div>
         {% endblock %}
         {% block jquery %}
-        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

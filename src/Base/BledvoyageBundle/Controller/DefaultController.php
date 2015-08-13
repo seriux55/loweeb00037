@@ -13,6 +13,7 @@ use Base\BledvoyageBundle\Entity\CategorieSortie;
 use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
 use Base\BledvoyageBundle\Entity\Sortie;
 use Base\BledvoyageBundle\Entity\Categorie;
+use Base\BledvoyageBundle\Entity\CategorieTicket;
 use Symfony\Component\HttpFoundation\Request;
 
 use FOS\UserBundle\FOSUserEvents;
@@ -29,10 +30,11 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em         = $this->getDoctrine();
+        $locale     = $this->get('request')->getLocale();
         $sortie     = new Sortie();
-        $product    = $sortie->getSorties($em);
+        $product    = $sortie->getSorties($em, $locale);
         $categories = new Categorie();
-        $categorie  = $categories->getCategorie($em);
+        $categorie  = $categories->getCategorie($em, $locale);
         foreach ($categorie as $data)
         {
             if($data->getNom() == 'formation'){ $formation = $data->getId(); }
@@ -42,15 +44,17 @@ class DefaultController extends Controller
             'categorie'     => $categorie,
             //'formation'     => $formation,
         ));
+        
         return $response;
     }
     
     public function productAction($id)
     {
         $em         = $this->getDoctrine();
+        $locale     = $this->get('request')->getLocale();
         $sortie     = new Sortie();
-        $product    = $sortie->getProduct($em, $id);
-        $avisSortie = new AvisSortie;
+        $product    = $sortie->getProduct($em, $id, $locale);
+        $avisSortie = new AvisSortie();
         $avis       = $avisSortie->getAvisSortie($em, $id);
         switch(date('N')){
             case 7:
@@ -294,21 +298,27 @@ class DefaultController extends Controller
                    ->orderBy('a.id','ASC')
                    ->getQuery()
                    ->getResult();
+        /*
         foreach ($categorie as $data)
         {
             if($data->getNom() == 'formation'){ $formation = $data->getId(); }
         }
+        */
         $response = $this->render('BaseBledvoyageBundle:Default:type.html.twig', array(
             'product'       => $product,
             'categorie'     => $categorie,
-            'formation'     => $formation,
+            //'formation'     => $formation,
         ));
         return $response;
     }
     
     public function promotionAction()
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')->findAll();
+        $em         = $this->getDoctrine();
+        $locale     = $this->get('request')->getLocale();
+        $ticket     = new CategorieTicket();
+        $product    = $ticket->getCategories($em, $locale);
+        
         $response = $this->render('BaseBledvoyageBundle:Default:promotion.html.twig', array(
             'product' => $product,
         ));
@@ -319,12 +329,10 @@ class DefaultController extends Controller
     {
         $session = $request->getSession();
         $session->set('back', $request->server->get('PHP_SELF'));
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieTicket')
-                   ->createQueryBuilder('a')
-                   ->where('a.id = :id')
-                   ->setParameter('id', $id)
-                   ->getQuery()
-                   ->getResult();
+        $em      = $this->getDoctrine();
+        $locale  = $this->get('request')->getLocale();
+        $ticket  = new CategorieTicket();
+        $product = $ticket->getCategorie($em, $id, $locale);
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
             $commande = new Commande();

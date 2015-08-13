@@ -1,0 +1,37 @@
+base:
+    bledvoyage: 
+        booking:
+            reservation:
+                Booking
+            recapitulatif:
+                Summary and booking
+            confirmation:
+                Confirmation
+            place_1:
+                Number of places
+            place_2:
+                How many places ?
+            place:
+                place
+            places:
+                places
+            septplaces:
+                & more
+            date:
+                Booking date
+            complet:
+                Full
+            promo_1:
+                Do you have a promotion code ?
+            promo_2:
+                I have a promotion code
+            promo_3:
+                Skipe this step if you don’t have the promotion code.
+            valider:
+                Validate
+            aide_1:
+                Need any help ?
+            aide_2:
+                Dificulties filling up the registration form ? Need more info on the outing ? Call us !
+            revenir:
+                Come back to bledvoyage.com

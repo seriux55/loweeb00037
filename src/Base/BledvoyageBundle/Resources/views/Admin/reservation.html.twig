@@ -3,8 +3,9 @@
 {% block title %}Administration{% endblock %}
 
 {% block stylesheets %}
-{{ parent() }}
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    {{ parent() }}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -12,7 +13,18 @@
     <h2>
         Tableau de Bord
     </h2>
-</div>		
+</div>
+<div>
+    <form method="post">
+        <input class="datepicker" type="text" name="pdf" value="{{ 'now'|date('d/m/Y') }}">
+        <select name="sortie">
+        {% for data in product %}
+            <option value="{{ data.id }}">{{ data.titre }}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Générer pdf">
+    </form>
+</div>
 <section>
     <div class="avisor">
         <h3>31 sorties</h3>
@@ -246,7 +258,7 @@
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_acompte', { 'id' : dataR.id }) }}">Acompte</a></td> <!-- botton -> bottono -->
                                         <td><a class="button"  target="_blank" href="{{ path('bledvoyage_admin_reservation_avis', { 'id' : dataR.id }) }}">Avis</a></td>                                      
                                     </tr>
-                                {% elseif dataR.tel is not empty and dataR.confirmer is null and dataR.acompte is null and dataR.avis == 0 %}
+                                {% elseif dataR.tel is not empty and dataR.confirmer is null %}
                                     <tr>
                                         <td class="numero">{{ i }}</td>
                                         <td>{{ dataR.id }}</td>
@@ -301,8 +313,36 @@
 </div>
 {% endblock %}
 
-{% block jquery %}{% endblock %}
 {% block javascripts %}
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+jQuery(function($){
+    $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin',
+        'Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+        dayNamesMin: ['D','L','M','M','J','V','S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 7,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+    $( ".datepicker" ).datepicker( $.datepicker.regional[ "fr" ] );
+});
+$(function() {
+    $('input.datepicker').datepicker();
+});
+</script>
 <!--
 <script>
 jQuery(document).ready(function(){

@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 class SecurityController extends Controller
 {
-    public function loginAction(Request $request, $id = 0, $booking = 0)
+    public function loginAction(Request $request, $id = 0, $booking = 0, $locale = 'fr')
     {
         /** @var $session \Symfony\Component\HttpFoundation\Session\Session */
         $session = $request->getSession();
@@ -37,9 +37,9 @@ class SecurityController extends Controller
         
         //$route = $_SERVER['REQUEST_URI'];
         if ($id == 1){
-            $book = '/booking/'.$booking;
+            $book = '/'.$locale.'/booking/'.$booking;
         }elseif ($id == 2){
-            $book = '/promotion/'.$booking;
+            $book = '/'.$locale.'/promotion/'.$booking;
         }elseif ($id == 0){
             $book = '';
         }

@@ -2,6 +2,9 @@
 
 namespace Base\BledvoyageBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="bledvoyage__Categorie")
  * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\CategorieRepository")
  */
-class Categorie
+class Categorie implements Translatable
 {
     /**
      * @var integer
@@ -23,7 +26,8 @@ class Categorie
 
     /**
      * @var string
-     *
+     * 
+     * @Gedmo\Translatable
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
@@ -56,6 +60,12 @@ class Categorie
      */
     private $dateTime;
 
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
 
     /**
      * Get id
@@ -182,22 +192,39 @@ class Categorie
         return $this->dateTime;
     }
     
-    public function getCategorie($em)
+    /**
+     * 
+     * @param type $locale
+     */
+    public function setTranslatableLocale($locale)
     {
-        $categorie = $em->getRepository('BaseBledvoyageBundle:Categorie')
+        $this->locale = $locale;
+    }
+    
+    public function getCategorie($em, $locale)
+    {
+        $qb = $em->getRepository('BaseBledvoyageBundle:Categorie')
             ->createQueryBuilder('a')
-            ->where('a.nom = :nom1 OR a.nom = :nom2 OR a.nom = :nom3 OR a.nom = :nom4 OR a.nom = :nom5 OR a.nom = :nom6')
+            ->where('a.nom != :nom1')
             ->setParameters(array(
-                     'nom1' => 'montagne',
-                     'nom2' => 'sable',
-                     'nom3' => 'air',
-                     'nom4' => 'terre',
-                     'nom5' => 'mer',
-                     'nom6' => 'formation',
+                    'nom1' => 'formule',
                 ))
-            ->orderBy('a.id','ASC')
-            ->getQuery()
-            ->getResult();
+            ->orderBy('a.id','ASC');
+        
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $categorie = $query->getResult();
+        
+        
         return $categorie;
     }
 }

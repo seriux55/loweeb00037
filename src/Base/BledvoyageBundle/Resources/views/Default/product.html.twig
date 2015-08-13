@@ -26,7 +26,7 @@
                         {{ data.sortie.titre }}
                     </h3>
                     <h4>
-                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }} AU 
+                        <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }} {% trans %}base.bledvoyage.product.au{% endtrans %} 
                         <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateFin|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}.
                     </h4>
                     <div class="detroi">
@@ -45,7 +45,7 @@
                                     <h6>
                                     {{ data.sortie.maxPersonne }}											
                                     </h6>
-                                    <p>Personnes</p>
+                                    <p>{% trans %}base.bledvoyage.product.personne{% endtrans %}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             <div class="debhead">
                                 <div class="debbody">
                                     <h6>{{ data.sortie.tarif }}</h6>
-                                    <p>Dinars</p>
+                                    <p>{% trans %}base.bledvoyage.product.dinars{% endtrans %}</p>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                     <div class="reservationi">
                         <div class="mr6io">
                             <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">
-                                <input class="trouvezi" type="button" value="Réserver"/>
+                                <input class="trouvezi" type="button" value="{% trans %}base.bledvoyage.product.reserver{% endtrans %}"/>
                             </a>
                         </div>								
                     </div>
@@ -81,16 +81,16 @@
                     <ul>
                         <li><a onClick="document.getElementById('description').style.display='block'; 
                                         document.getElementById('conditions').style.display='none'; 
-                                        document.getElementById('photos').style.display='none';">Description</a></li>
+                                        document.getElementById('photos').style.display='none';">{% trans %}base.bledvoyage.product.description{% endtrans %}</a></li>
 
                         <li><a onClick="document.getElementById('description').style.display='none'; 
                                         document.getElementById('conditions').style.display='none'; 
-                                        document.getElementById('photos').style.display='block';">Photos</a></li>
+                                        document.getElementById('photos').style.display='block';">{% trans %}base.bledvoyage.product.photos{% endtrans %}</a></li>
                         <li><a onClick="document.getElementById('description').style.display='none'; 
                                         document.getElementById('conditions').style.display='block'; 
-                                        document.getElementById('photos').style.display='none';" >Conditions</a></li>
+                                        document.getElementById('photos').style.display='none';" >{% trans %}base.bledvoyage.product.condition{% endtrans %}</a></li>
                         <!--<li>Avis</li>-->
-                        <li><a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a></li>								
+                        <li><a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">{% trans %}base.bledvoyage.product.reserver{% endtrans %}</a></li>								
                     </ul>
                 </nav>
             </div>
@@ -100,12 +100,12 @@
     <!-- LeProjet -->					
     <div id="description" style="display:block;">					
         <div class="sectiar">
-            <h2>Description</h2> 
+            <h2>{% trans %}base.bledvoyage.product.description{% endtrans %}</h2> 
         </div>
         <div class="sectiono"> 
             <div class="mr1i">
                 <div class="mr2i">
-                    <h4>À propos</h4>
+                    <h4>{% trans %}base.bledvoyage.product.apropos{% endtrans %}</h4>
                 </div>
                 <div class="mr2i">
                     <p>
@@ -115,7 +115,7 @@
                 <!-- Astuce -->
                 <!-- FinAstucce -->
                 <div class="mr2i">
-                    <h5>Catégorie</h5>
+                    <h5>{% trans %}base.bledvoyage.product.categorie{% endtrans %}</h5>
                     <p>
                         {% if data.roller == 1 %}       <img alt="Roller"       src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
                         {% if data.equitation == 1 %}   <img alt="Equitation"   src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
@@ -135,7 +135,7 @@
                     </p>
                 </div>
                 <div class="mr2i">
-                    <h5>Quelques mots sur l'organisateur</h5>
+                    <h5>{% trans %}base.bledvoyage.product.organisateur{% endtrans %}</h5>
                     <div class="pholui">
                         {% if data.sortie.user.picture != null %}
                         <img src="{{ asset(data.sortie.user.picture.webPath) }}" alt="{{ data.sortie.user.picture.alt }}" />
@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="casoute">
-                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">{% trans %}base.bledvoyage.product.reserver{% endtrans %}</a>
             </div>
         </div>
     </div>
@@ -163,12 +163,12 @@
     <!-- video -->
     <div id="videos" style="display:block;">					
         <div class="sectiar">
-            <h2>En vidéo</h2> 
+            <h2>{% trans %}base.bledvoyage.product.video_1{% endtrans %}</h2> 
         </div>
         <div class="sectiono"> 
             <div class="mr1i">
                 <div class="mr2i">
-                    <h4>Vidéo</h4>
+                    <h4>{% trans %}base.bledvoyage.product.video_2{% endtrans %}</h4>
                 </div>
                 <div class="intro4">
                     <iframe width="620" height="349" src="{{ data.sortie.video[:24] ~ 'embed/' ~ data.sortie.video[32:] ~ '?rel=0' }}" allowfullscreen>
@@ -176,7 +176,7 @@
                 </div> 
             </div>
             <div class="casoute">
-                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">{% trans %}base.bledvoyage.product.reserver{% endtrans %}</a>
             </div>				
         </div>
     </div>	
@@ -185,12 +185,12 @@
     <!-- LeProjet -->					
     <div id="conditions" style="display:block;">					
         <div class="sectiar">
-            <h2>Conditions</h2> 
+            <h2>{% trans %}base.bledvoyage.product.condition{% endtrans %}</h2> 
         </div>
         <div class="sectiono"> 
             <div class="mr1i">
                 <div class="mr2i">
-                    <h4>Conditions</h4>
+                    <h4>{% trans %}base.bledvoyage.product.condition{% endtrans %}</h4>
                 </div>
                 <div class="mr2i">
                     <p>
@@ -199,7 +199,7 @@
                 </div>
             </div>
             <div class="casoute">
-                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">{% trans %}base.bledvoyage.product.reserver{% endtrans %}</a>
             </div>
         </div>
     </div>
@@ -207,16 +207,16 @@
     <!--FinAide-->	
     <div id="photos" style="display:block;">					
         <div class="sectiar">
-            <h2>Des questions ?</h2> 
+            <h2>{% trans %}base.bledvoyage.product.question{% endtrans %}</h2> 
         </div>
         <div class="sectiono"> 
             <div class="mr1i">
                 <div class="mr2i">
-                    <h4>Appelez-nous !</h4>
+                    <h4>{% trans %}base.bledvoyage.product.appel_1{% endtrans %}</h4>
                 </div>
                 <div class="mr2i">
                     <p>
-                        Vous souhaitez avoir plus d'information sur l'activité ? Appelez-nous ! 
+                        {% trans %}base.bledvoyage.product.appel_2{% endtrans %}
                     </p>
                 </div>
                 <div class="appel">
@@ -229,12 +229,12 @@
     <!-- LeAide -->					
     <div id="photos" style="display:block;">					
         <div class="sectiar">
-            <h2>Photos</h2> 
+            <h2>{% trans %}base.bledvoyage.product.photos{% endtrans %}</h2> 
         </div>
         <div class="sectiono"> 
             <div class="mr1i">
                 <div class="mr2i">
-                    <h4>Photos</h4>
+                    <h4>{% trans %}base.bledvoyage.product.photos{% endtrans %}</h4>
                 </div>
                 <div class="intro4">
                     <div class="photoss">
@@ -245,7 +245,7 @@
                 </div>
             </div>
             <div class="casoute">
-                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">Réserver</a>
+                <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">{% trans %}base.bledvoyage.product.reserver{% endtrans %}</a>
             </div>				
         </div>
     </div>	
@@ -256,12 +256,12 @@
 <!-- Avis -->
 <div id="avis" style="display:block;">					
     <div class="sectiar">
-        <h2>Avis</h2> 
+        <h2>{% trans %}base.bledvoyage.product.avis_1{% endtrans %}</h2> 
     </div>
     <div class="sectiono"> 
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Il y a {{ nbrAvis }} avis</h4>
+                <h4>{% trans %}base.bledvoyage.product.avis_2{% endtrans %} {{ nbrAvis }} {% trans %}base.bledvoyage.product.avis_1{% endtrans %}</h4>
             </div>
             <div class="mr2i">
                 <ul class="coment">
@@ -304,7 +304,7 @@
     <div class="sectiono"> 
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Il y a {{ nbrParticipant }} participant(s) cette semaine</h4>
+                <h4>{% trans %}base.bledvoyage.product.avis_2{% endtrans %} {{ nbrParticipant }} participant(s) cette semaine</h4>
             </div>
             <div class="mr2i">
                 <ul class="coment">
@@ -329,12 +329,12 @@
 <!-- Partage -->
 <div id="partage" style="display:block;">					
     <div class="sectiar">
-        <h2>Réseaux Sociaux</h2> 
+        <h2>{% trans %}base.bledvoyage.product.social_1{% endtrans %}</h2> 
     </div>
     <div class="sectiono"> 
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Partagez l'évènement avec vos amis</h4>
+                <h4>{% trans %}base.bledvoyage.product.social_2{% endtrans %}</h4>
             </div>
             <div class="mr2i">
                 <table>
@@ -390,7 +390,7 @@
 <!-- FinPartage -->
 <div class="plusrc">
     <p>
-        <a href="{{ path('base_bledvoyage_homepage') }}">Cliquez ici pour retourner à la liste des sorties...</a>
+        <a href="{{ path('base_bledvoyage_homepage') }}">{% trans %}base.bledvoyage.product.retour{% endtrans %}</a>
     </p>
 </div>
 {% endfor %}

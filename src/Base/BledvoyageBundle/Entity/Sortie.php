@@ -5,6 +5,7 @@ namespace Base\BledvoyageBundle\Entity;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * 
  * @ExclusionPolicy("all")
  */
-class Sortie
+class Sortie implements Translatable
 {
     public function __construct() {
         $this->valider  = "0";
@@ -80,6 +81,7 @@ class Sortie
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="titre", type="string", length=255)
      * @Expose
      */
@@ -87,6 +89,8 @@ class Sortie
     
     /**
      * @Gedmo\Slug(fields={"titre"})
+     * 
+     * @Gedmo\Translatable
      * @ORM\Column(name="slug", type="string", length=128)
      */
     private $slug;
@@ -94,6 +98,7 @@ class Sortie
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="descriptif", type="string", length=255)
      * @Expose
      */
@@ -102,6 +107,7 @@ class Sortie
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="conditions", type="string", length=255)
      * @Expose
      */
@@ -315,6 +321,13 @@ class Sortie
      * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
+    
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
 
     /**
      * Get id
@@ -1200,9 +1213,24 @@ class Sortie
         return $this->dateTime;
     }
     
-    public function getProduct($em, $id)
+    /**
+     * 
+     * @param type $locale
+     */
+    public function setTranslatableLocale($locale)
     {
-        $product = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
+        $this->locale = $locale;
+    }
+    
+    public function getProduct($em, $id, $locale = 'fr')
+    {
+        $mc = new \Memcached();
+        $mc->addServer("127.0.0.1", 11211);
+        if($mc->get("product_".$locale."_".$id))
+        {
+            return $mc->get("product_".$locale."_".$id);
+        }
+        $qb = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
             ->createQueryBuilder('a')
             ->addSelect('b')
             ->leftJoin('a.sortie', 'b')
@@ -1222,21 +1250,33 @@ class Sortie
                      'valider'    => '1',
                      'id'         => $id,
                  ))
-            ->orderBy('a.id','DESC')
-            ->getQuery()
-            ->getResult();
+            ->orderBy('a.id','DESC');
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
+        
+        $mc->set("product_".$locale."_".$id, $product);
         return $product;
     }
     
-    public function getSorties($em)
+    public function getSorties($em, $locale = 'fr')
     {
         $mc = new \Memcached();
         $mc->addServer("127.0.0.1", 11211);
-        if($mc->get("sorties"))
+        if($mc->get("sorties_".$locale))
         {
-            return $mc->get("sorties");
+            return $mc->get("sorties_".$locale);
         }
-        $sorties = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
+        $qb = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
             ->createQueryBuilder('a')
             ->addSelect('b')
             ->leftJoin('a.sortie', 'b')
@@ -1246,10 +1286,24 @@ class Sortie
             ->leftJoin('b.user', 'd')
             ->where('b.valider = :valider')
             ->setParameter('valider', '1')
-            ->orderBy('a.id','ASC')
-            ->getQuery()
-            ->getResult();
-        $mc->set("sorties", $sorties);
+            ->orderBy('a.id','ASC');
+        
+        //->orderBy(...) customize it        
+
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $sorties = $query->getResult();
+        
+        $mc->set("sorties_".$locale, $sorties);
         return $sorties;
     }
 }

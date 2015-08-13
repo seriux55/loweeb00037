@@ -10,46 +10,46 @@
 {% block body %}
 <div class="bloc_page_body222">
     <h2>
-        Création d'une sortie 
+        {% trans %}base.bledvoyage.creation.sujet{% endtrans %}
     </h2>
 </div>	
 <div class="bloc_page_body3">
     <section>
         <div class="infoparcourss">
             <div class="parcre">
-                <p class="pgras1">Création</p>
+                <p class="pgras1">{% trans %}base.bledvoyage.creation.creation{% endtrans %}</p>
                 <div class="rectangle1">
                 </div>
             </div>
             <div class="parcre">
-                <p class="pgras">Finalisation</p>
+                <p class="pgras">{% trans %}base.bledvoyage.creation.finalisation{% endtrans %}</p>
                 <div class="rectangle">
                 </div>
             </div>
             <div class="parcre">
-                <p class="pgras">Confirmation</p>
+                <p class="pgras">{% trans %}base.bledvoyage.creation.confirmation{% endtrans %}</p>
                 <div class="rectangle">
                 </div>
             </div>
         </div>
         <div class="resae">
             <div class="sectiar">
-                <h2>Information sur la sortie</h2>
+                <h2>{% trans %}base.bledvoyage.creation.information{% endtrans %}</h2>
             </div>
             <div class="sectiono">
                 <form method="post" enctype="multipart/form-data" {{ form_enctype(form) }}>
                     <div class="mr7">
                         <div class="mr4u">
-                            <label>Localisation</label>
+                            <label>{% trans %}base.bledvoyage.creation.local{% endtrans %}</label>
                             {{ form_widget(form.sortie.localisation, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
-                        <label for="titre">Titre de la sortie </label>
+                        <label for="titre">{% trans %}base.bledvoyage.creation.titre{% endtrans %}</label>
                         {{ form_widget(form.sortie.titre, {'attr': {'class': 'ouatitre'} }) }}
                     </div>
                     <div class="mr7">
-                        <label for="type">Type de sortie </label>
+                        <label for="type">{% trans %}base.bledvoyage.creation.type{% endtrans %}</label>
                         <div class="tyso">
                             <div class="opig">
                                 {{ form_widget(form.velo) }}
@@ -58,7 +58,7 @@
                                 <label for="velo" class="pigo">
                                     <img alt="Velo" src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">
                                     <div class="piod">
-                                        Vélo, Cyclime
+                                        {% trans %}base.bledvoyage.creation.velo{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -71,7 +71,7 @@
                                 <label for="randonee" class="pigo">
                                     <img alt="Randonee" src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">
                                     <div class="piod">
-                                        Randonée, Camping
+                                        {% trans %}base.bledvoyage.creation.randonee{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -84,7 +84,7 @@
                                 <label for="fitness" class="pigo">
                                     <img alt="Fitness" src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">
                                     <div class="piod">
-                                        fitness, Danses
+                                        {% trans %}base.bledvoyage.creation.fitness{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -97,7 +97,7 @@
                                 <label for="running" class="pigo">
                                     <img alt="Running" src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">
                                     <div class="piod">
-                                        Running
+                                        {% trans %}base.bledvoyage.creation.running{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -110,7 +110,7 @@
                                 <label for="roller" class="pigo">
                                     <img alt="Running" src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">
                                     <div class="piod">
-                                        Roller
+                                        {% trans %}base.bledvoyage.creation.roller{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -123,7 +123,7 @@
                                 <label for="tennis" class="pigo">
                                     <img alt="tenis" src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">
                                     <div class="piod">
-                                        Tennis
+                                        {% trans %}base.bledvoyage.creation.tennis{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -136,7 +136,7 @@
                                 <label for="sport_eau" class="pigo">
                                     <img alt="Sport" src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">
                                     <div class="piod">
-                                        Sport d'eau
+                                        {% trans %}base.bledvoyage.creation.eau{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -149,7 +149,7 @@
                                 <label for="plongee" class="pigo">
                                     <img alt="Plongée" src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">
                                     <div class="piod">
-                                        Plongée
+                                        {% trans %}base.bledvoyage.creation.plongee{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -162,7 +162,7 @@
                                 <label for="golf" class="pigo">
                                     <img alt="Golf" src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">
                                     <div class="piod">
-                                        Golf
+                                        {% trans %}base.bledvoyage.creation.golf{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -175,7 +175,7 @@
                                 <label for="kayak" class="pigo">
                                     <img alt="Kayak" src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">
                                     <div class="piod">
-                                        Kayak, bateau
+                                        {% trans %}base.bledvoyage.creation.kayak{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -188,7 +188,7 @@
                                 <label for="equitation" class="pigo">
                                     <img alt="Equitation" src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">
                                     <div class="piod">
-                                        Equitation
+                                        {% trans %}base.bledvoyage.creation.equitation{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -201,7 +201,7 @@
                                 <label for="marche" class="pigo">
                                     <img alt="Marche" src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">
                                     <div class="piod">
-                                        Marche
+                                        {% trans %}base.bledvoyage.creation.marche{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -214,7 +214,7 @@
                                 <label for="visites" class="pigo">
                                     <img alt="Visite" src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
                                     <div class="piod">
-                                        Visites patromoine
+                                        {% trans %}base.bledvoyage.creation.patrimoine{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -227,7 +227,7 @@
                                 <label for="air" class="pigo">
                                     <img alt="Air" src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
                                     <div class="piod">
-                                        Air
+                                        {% trans %}base.bledvoyage.creation.air{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -240,7 +240,7 @@
                                 <label for="sable" class="pigo">
                                     <img alt="Sable" src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">
                                     <div class="piod">
-                                        Sable
+                                        {% trans %}base.bledvoyage.creation.sable{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -253,7 +253,7 @@
                                 <label for="quad" class="pigo">
                                     <img alt="Quad" src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">
                                     <div class="piod">
-                                        Quad
+                                        {% trans %}base.bledvoyage.creation.quad{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -266,7 +266,7 @@
                                 <label for="arc" class="pigo">
                                     <img alt="Arc" src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">
                                     <div class="piod">
-                                        Arc
+                                        {% trans %}base.bledvoyage.creation.arc{% endtrans %}
                                     </div>
                                 </label>
                             </div>
@@ -274,41 +274,41 @@
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
-                            <label for="date_debut">Date de début de la sortie</label>
+                            <label for="date_debut">{% trans %}base.bledvoyage.creation.date_1{% endtrans %}</label>
                             {{ form_widget(form.sortie.dateDebut, {'attr': {'class': 'datepicker'} }) }}
                         </div>
                         <div class="mr4u">
-                            <label for="heure_debut">Heure de début</label>
+                            <label for="heure_debut">{% trans %}base.bledvoyage.creation.heure_1{% endtrans %}</label>
                             {{ form_widget(form.sortie.heureDebut, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                         <div class="mr4u">
-                            <label for="date_fin">Date de fin de la sortie</label>
+                            <label for="date_fin">{% trans %}base.bledvoyage.creation.date_2{% endtrans %}</label>
                             {{ form_widget(form.sortie.dateFin, {'attr': {'class': 'datepicker'} }) }}
                         </div>
                         <div class="mr4u">
-                            <label for="heure_fin">Heure de fin</label>
+                            <label for="heure_fin">{% trans %}base.bledvoyage.creation.heure_2{% endtrans %}</label>
                             {{ form_widget(form.sortie.heureFin, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
-                            <label for="tarif">Tarif par personne</label>
+                            <label for="tarif">{% trans %}base.bledvoyage.creation.tarif{% endtrans %}</label>
                             {{ form_widget(form.sortie.tarif, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                         <div class="mr4u">
-                            <label for="max_personne">Nombre maximum de personne</label>
+                            <label for="max_personne">{% trans %}base.bledvoyage.creation.nombre{% endtrans %}</label>
                             {{ form_widget(form.sortie.maxPersonne, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
-                            <label for="descriptif">Descriptif</label>
-                            <p class="coord">Assurez vous de l'avoir écrit correctement. Vous receverez votre réservation par e-mail.</p>
+                            <label for="descriptif">{% trans %}base.bledvoyage.creation.description_1{% endtrans %}</label>
+                            <p class="coord">{% trans %}base.bledvoyage.creation.description_2{% endtrans %}</p>
                             {{ form_widget(form.sortie.descriptif, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
                         </div>
                         <div class="mr4u">
-                            <label for="condi">Condition</label>
-                            <p class="coord">Assurez vous de l'avoir écrit correctement. pour vous contacter en cas de besoin.</p>
+                            <label for="condi">{% trans %}base.bledvoyage.creation.condition_1{% endtrans %}</label>
+                            <p class="coord">{% trans %}base.bledvoyage.creation.condition_2{% endtrans %}</p>
                             {{ form_widget(form.sortie.conditions, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
                         </div>
                     </div>
@@ -328,7 +328,7 @@
                     </div>
                     <div class="mr6">
                         {{ form_rest(form) }}
-                        <input class="cherchez" name="login" type="submit" value="Valider"/>
+                        <input class="cherchez" name="login" type="submit" value="{% trans %}base.bledvoyage.creation.valider{% endtrans %}"/>
                     </div>
                 </form>
             </div>
@@ -337,11 +337,11 @@
     <div class="sectiono">
         <div class="mr1i">
             <div class="mr2i">
-                <h4>Besoin d'aide ?</h4>
+                <h4>{% trans %}base.bledvoyage.creation.aide_1{% endtrans %}</h4>
             </div>
             <div class="mr2i">
                 <p>
-                    Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous ! 
+                    {% trans %}base.bledvoyage.creation.aide_2{% endtrans %}
                 </p>
             </div>
             <div class="appel">
@@ -353,7 +353,7 @@
     <div class="plusrc">
         <p>
             <a href="{{ path('base_bledvoyage_homepage') }}">
-                Revenir au site bledvoyage.com
+                {% trans %}base.bledvoyage.creation.revenir{% endtrans %}
             </a>
         </p>
     </div>

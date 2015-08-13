@@ -2,6 +2,9 @@
 
 namespace Base\BledvoyageBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="bledvoyage__CategorieTicket")
  * @ORM\Entity(repositoryClass="Base\BledvoyageBundle\Entity\CategorieTicketRepository")
  */
-class CategorieTicket
+class CategorieTicket implements Translatable
 {
     /**
      * @var integer
@@ -24,6 +27,7 @@ class CategorieTicket
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
@@ -83,7 +87,13 @@ class CategorieTicket
      * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
-
+    
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
 
     /**
      * Get id
@@ -300,5 +310,70 @@ class CategorieTicket
     public function getDateTime()
     {
         return $this->dateTime;
+    }
+    
+    /**
+     * 
+     * @param type $locale
+     */
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+    
+    public function getCategories($em, $locale = 'fr')
+    {
+        $mc = new \Memcached();
+        $mc->addServer("127.0.0.1", 11211);
+        if($mc->get("categorie_".$locale))
+        {
+            return $mc->get("categorie_".$locale);
+        }
+        $qb = $em->getRepository('BaseBledvoyageBundle:CategorieTicket')
+            ->createQueryBuilder('a');
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
+        
+        $mc->set("categorie_".$locale, $product);
+        return $product;
+    }
+    
+    public function getCategorie($em, $id, $locale = 'fr')
+    {
+        $mc = new \Memcached();
+        $mc->addServer("127.0.0.1", 11211);
+        if($mc->get("categorie_".$id."_".$locale))
+        {
+            return $mc->get("categorie_".$id."_".$locale);
+        }
+        $qb = $em->getRepository('BaseBledvoyageBundle:CategorieTicket')
+            ->createQueryBuilder('a')
+            ->where('a.id = :id')
+            ->setParameter('id', $id);
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
+        
+        $mc->set("categorie_".$id."_".$locale, $product);
+        return $product;
     }
 }
