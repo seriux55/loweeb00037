@@ -303,6 +303,266 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
         $sortie15->setTranslatableLocale('es');
         $manager->persist($sortie15);
         
+        $sortie16 = $this->getReference('sortie16');
+        $sortie16->setTitre('Paragliding training and internship');
+        $sortie16->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie16->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie16->setTranslatableLocale('es');
+        $manager->persist($sortie16);
+        
+        $sortie17 = $this->getReference('sortie17');
+        $sortie17->setTitre('Paragliding training and internship');
+        $sortie17->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie17->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie17->setTranslatableLocale('es');
+        $manager->persist($sortie17);
+        
+        $sortie18 = $this->getReference('sortie18');
+        $sortie18->setTitre('Paragliding training and internship');
+        $sortie18->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie18->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie18->setTranslatableLocale('es');
+        $manager->persist($sortie18);
+        
+        $sortie19 = $this->getReference('sortie19');
+        $sortie19->setTitre('Paragliding training and internship');
+        $sortie19->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie19->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie19->setTranslatableLocale('es');
+        $manager->persist($sortie19);
+        
+        $sortie20 = $this->getReference('sortie20');
+        $sortie20->setTitre('Paragliding training and internship');
+        $sortie20->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie20->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie20->setTranslatableLocale('es');
+        $manager->persist($sortie20);
+        
+        $sortie21 = $this->getReference('sortie21');
+        $sortie21->setTitre('Paragliding training and internship');
+        $sortie21->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie21->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie21->setTranslatableLocale('es');
+        $manager->persist($sortie21);
+        
+        $sortie22 = $this->getReference('sortie22');
+        $sortie22->setTitre('Paragliding training and internship');
+        $sortie22->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie22->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie22->setTranslatableLocale('es');
+        $manager->persist($sortie22);
+        
+        $sortie23 = $this->getReference('sortie23');
+        $sortie23->setTitre('Paragliding training and internship');
+        $sortie23->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie23->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie23->setTranslatableLocale('es');
+        $manager->persist($sortie23);
+        
+        $sortie24 = $this->getReference('sortie24');
+        $sortie24->setTitre('Paragliding training and internship');
+        $sortie24->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie24->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie24->setTranslatableLocale('es');
+        $manager->persist($sortie24);
+        
+        $sortie25 = $this->getReference('sortie25');
+        $sortie25->setTitre('Paragliding training and internship');
+        $sortie25->setDescriptif("See for yourself! This is what Jaafar offers.
+A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
+program:
+More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
+Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
+At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
+        $sortie25->setConditions("Register using the booking form to reserve your place,
+To be healthy,
+Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+Present a medical certificate of non-cons to the practice of paragliding,
+Accessible from 14 years without prerequisites with parental consent,
+
+Documents required for training:
+A medical certificate of non-cons to the practice of paragliding,
+A birth certificate,
+4 passport photos,
+Copy of the national map.
+Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
+What to bring
+We recommend a casual dress, but for your comfort and safety.
+Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie25->setTranslatableLocale('es');
+        $manager->persist($sortie25);
+        
         $categorie2 = $this->getReference('categorie2');
         $categorie2->setNom('montaña');
         $categorie2->setTranslatableLocale('es');

@@ -781,6 +781,528 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
         $sortie15->setDateTime(new \DateTime('2015-03-01 12:00:00'));
         $manager->persist($sortie15);
         
+        $sortie16 = new Sortie();
+        $sortie16->setUser($this->getReference('user15'));
+        $sortie16->setCategorie($this->getReference('categorie2'));
+        $sortie16->setPicture1($this->getReference('picture71'));
+        $sortie16->setPicture2($this->getReference('picture72'));
+        $sortie16->setPicture3($this->getReference('picture73'));
+        $sortie16->setPicture4($this->getReference('picture74'));
+        $sortie16->setTitre('Quad Discovery');
+        $sortie16->setDescriptif("Chaque jour, nous nous retrouverons à Djbel Chenoua, Tipaza, pour une randonnée en Quad ! 45 minutes à 1h00 de découverte, matin et après-midi.
+
+Vous prendrez les commandes d’une machine à sensation pour une aventure en Montagne. Nous partagerons ensemble ce moment de plaisir !
+Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
+C’est parti !
+
+Tarif normal : 1900 Dinas/personne.
+Tarif étudiant : 1800 Dinars/personne.
+
+Divers:
+Utilisation de son propre quad, le tarif est de 900 Dinars/personne et le port du casque est obligatoire.");
+        $sortie16->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Avoir son permis de conduire,
+Être en bonne santé,
+Conducteur : Être majeur,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+Le port de vêtements et chaussures de montagne (fermées et montantes) est fortement conseillé,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
+Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre.");
+        $sortie16->setLocalisation('Tipaza');
+        $sortie16->setTarif(49000);
+        $sortie16->setMaxPersonne(10);
+        $sortie16->setDateDebut(new \DateTime('2015-04-30 00:00:00'));
+        $sortie16->setHeureDebut('9h00');
+        $sortie16->setDateFin(new \DateTime('2016-08-31 00:00:00'));
+        $sortie16->setHeureFin('19h00');
+        $sortie16->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
+        $sortie16->setPhoto1('forma_1.png');
+        $sortie16->setPhoto2('forma_1.png');
+        $sortie16->setPhoto3('format_2.png');
+        $sortie16->setPhoto4('format_2.png');
+        $sortie16->setValider('1');
+        $sortie16->setCharge('');
+        $sortie16->setAcces('');
+        $sortie16->setEcheance('0');
+        $sortie16->setTarifEcheance('0');
+        $sortie16->setCommission('');
+        $sortie16->setAnnuler('0');
+        $sortie16->setTarifEtud('0');
+        $sortie16->setPromoClient('0');
+        $sortie16->setPromoPartenaire('0');
+        $sortie16->setAstuce('0');
+        $sortie16->setPub('1');
+        $sortie16->setClose('0');
+        $sortie16->setIp('127.0.0.1');
+        $sortie16->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie16);
+        
+        $sortie17 = new Sortie();
+        $sortie17->setUser($this->getReference('user15'));
+        $sortie17->setCategorie($this->getReference('categorie2'));
+        $sortie17->setPicture1($this->getReference('picture75'));
+        $sortie17->setPicture2($this->getReference('picture76'));
+        $sortie17->setPicture3($this->getReference('picture77'));
+        $sortie17->setPicture4($this->getReference('picture78'));
+        $sortie17->setTitre('Quad Sensation');
+        $sortie17->setDescriptif("Encore une nouveauté en Algérie !!
+Chaque jour, nous nous retrouverons à Djbel Chenoua, Tipaza, pour une randonnée en Quad ! 01h00 à 01h15 de pur sensation matin et après-midi.
+
+Vous prendrez les commandes d’une machine à sensation pour une aventure en Montagne. Nous partagerons ensemble ce moment de plaisir !
+Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
+C’est parti !
+
+Tarif normal : 2900 Dinas/personne.
+Tarif étudiant : 2400 Dinars/personne.
+
+Divers:
+Utilisation de son propre quad, le tarif est de 1900 Dinars/personne et le port du casque est obligatoire.");
+        $sortie17->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Avoir son permis de conduire,
+Être en bonne santé,
+Conducteur : Être majeur,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+Le port de vêtements et chaussures de montagne (fermées et montantes) est fortement conseillé,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
+Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre.");
+        $sortie17->setLocalisation('Tipaza');
+        $sortie17->setTarif(49000);
+        $sortie17->setMaxPersonne(10);
+        $sortie17->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie17->setHeureDebut('9h00');
+        $sortie17->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie17->setHeureFin('17h00');
+        $sortie17->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
+        $sortie17->setPhoto1('forma_1.png');
+        $sortie17->setPhoto2('forma_1.png');
+        $sortie17->setPhoto3('format_2.png');
+        $sortie17->setPhoto4('format_2.png');
+        $sortie17->setValider('1');
+        $sortie17->setCharge('');
+        $sortie17->setAcces('');
+        $sortie17->setEcheance('0');
+        $sortie17->setTarifEcheance('0');
+        $sortie17->setCommission('');
+        $sortie17->setAnnuler('0');
+        $sortie17->setTarifEtud('0');
+        $sortie17->setPromoClient('0');
+        $sortie17->setPromoPartenaire('0');
+        $sortie17->setAstuce('0');
+        $sortie17->setPub('1');
+        $sortie17->setClose('0');
+        $sortie17->setIp('127.0.0.1');
+        $sortie17->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie17);
+        
+        $sortie18 = new Sortie();
+        $sortie18->setUser($this->getReference('user12'));
+        $sortie18->setCategorie($this->getReference('categorie4'));
+        $sortie18->setPicture1($this->getReference('picture79'));
+        $sortie18->setPicture2($this->getReference('picture80'));
+        $sortie18->setPicture3($this->getReference('picture81'));
+        $sortie18->setPicture4($this->getReference('picture82'));
+        $sortie18->setTitre('Jet Ski Discovery');
+        $sortie18->setDescriptif("Une randonnée découverte, qui nous permettra de prendre en main le Jet Ski, tout en savourant un paysage extraordinaire à Tipaza. Un moment plaisir !
+Durée : 45min de Randonnée, dont 15 minutes de conduite / personne.
+Tarif normal : 2900 Da");
+        $sortie18->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Être en bonne santé,
+Savoir nager,
+Conducteur : à partir de 16 ans,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+L'activité est très sensible aux conditions climatiques et peut être annulée, déplacée ou reportée à tout moment, si les conditions ne seront pas favorables,
+Prévoir des lunettes de soleil et la crème solaire,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée.");
+        $sortie18->setLocalisation('Tipaza');
+        $sortie18->setTarif(2900);
+        $sortie18->setMaxPersonne(10);
+        $sortie18->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie18->setHeureDebut('9h00');
+        $sortie18->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie18->setHeureFin('17h00');
+        $sortie18->setPhoto1('forma_1.png');
+        $sortie18->setPhoto2('forma_1.png');
+        $sortie18->setPhoto3('format_2.png');
+        $sortie18->setPhoto4('format_2.png');
+        $sortie18->setValider('1');
+        $sortie18->setCharge('');
+        $sortie18->setAcces('');
+        $sortie18->setEcheance('0');
+        $sortie18->setTarifEcheance('0');
+        $sortie18->setCommission('');
+        $sortie18->setAnnuler('0');
+        $sortie18->setTarifEtud('0');
+        $sortie18->setPromoClient('0');
+        $sortie18->setPromoPartenaire('0');
+        $sortie18->setAstuce('0');
+        $sortie18->setPub('1');
+        $sortie18->setClose('0');
+        $sortie18->setIp('127.0.0.1');
+        $sortie18->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie18);
+        
+        $sortie19 = new Sortie();
+        $sortie19->setUser($this->getReference('user15'));
+        $sortie19->setCategorie($this->getReference('categorie4'));
+        $sortie19->setPicture1($this->getReference('picture83'));
+        $sortie19->setPicture2($this->getReference('picture84'));
+        $sortie19->setPicture3($this->getReference('picture85'));
+        $sortie19->setPicture4($this->getReference('picture86'));
+        $sortie19->setTitre('Jet Ski Ride');
+        $sortie19->setDescriptif("Nous prendrons les commandes des Jet Ski, pour partir à la conquête des magnifiques côtes de Tipaza. Des paysages à couper le souffle. Un véritable moment plaisir !
+Durée : 1h15min de Randonnée, dont 25 minutes de conduite / personne.
+Tarif normal : 3900 Da");
+        $sortie19->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Être en bonne santé,
+Savoir nager,
+Conducteur : à partir de 16 ans,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+L'activité est très sensible aux conditions climatiques et peut être annulée, déplacée ou reportée à tout moment, si les conditions ne seront pas favorables,
+Prévoir des lunettes de soleil et la crème solaire,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée.");
+        $sortie19->setLocalisation('Tipaza');
+        $sortie19->setTarif(3900);
+        $sortie19->setMaxPersonne(6);
+        $sortie19->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie19->setHeureDebut('9h00');
+        $sortie19->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie19->setHeureFin('17h00');
+        $sortie19->setPhoto1('forma_1.png');
+        $sortie19->setPhoto2('forma_1.png');
+        $sortie19->setPhoto3('format_2.png');
+        $sortie19->setPhoto4('format_2.png');
+        $sortie19->setValider('1');
+        $sortie19->setCharge('');
+        $sortie19->setAcces('');
+        $sortie19->setEcheance('0');
+        $sortie19->setTarifEcheance('0');
+        $sortie19->setCommission('');
+        $sortie19->setAnnuler('0');
+        $sortie19->setTarifEtud('0');
+        $sortie19->setPromoClient('0');
+        $sortie19->setPromoPartenaire('0');
+        $sortie19->setAstuce('0');
+        $sortie19->setPub('1');
+        $sortie19->setClose('0');
+        $sortie19->setIp('127.0.0.1');
+        $sortie19->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie19);
+        
+        $sortie20 = new Sortie();
+        $sortie20->setUser($this->getReference('user15'));
+        $sortie20->setCategorie($this->getReference('categorie4'));
+        $sortie20->setPicture1($this->getReference('picture87'));
+        $sortie20->setPicture2($this->getReference('picture88'));
+        $sortie20->setPicture3($this->getReference('picture89'));
+        $sortie20->setPicture4($this->getReference('picture90'));
+        $sortie20->setTitre('Jet Ski sensation');
+        $sortie20->setDescriptif("Une belle randonnée en Jet Ski, au large des côtes de Tipaza, encadrée par des moniteurs professionnels et expérimentés, nous piloterons des machines à sensation, pour partir en randonnée découverte d’un paysage extraordinaire à Tipaza. Un moment plaisir !
+Durée : 1h30min de Randonnée, dont 30 minutes de conduite / personne.
+Tarif normal : 4900 Da");
+        $sortie20->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Être en bonne santé,
+Savoir nager,
+Conducteur : à partir de 16 ans,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+L'activité est très sensible aux conditions climatiques et peut être annulée, déplacée ou reportée à tout moment, si les conditions ne seront pas favorables,
+Prévoir des lunettes de soleil et la crème solaire,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée.");
+        $sortie20->setLocalisation('Tipaza');
+        $sortie20->setTarif(4900);
+        $sortie20->setMaxPersonne(6);
+        $sortie20->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie20->setHeureDebut('9h00');
+        $sortie20->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie20->setHeureFin('17h00');
+        $sortie20->setPhoto1('forma_1.png');
+        $sortie20->setPhoto2('forma_1.png');
+        $sortie20->setPhoto3('format_2.png');
+        $sortie20->setPhoto4('format_2.png');
+        $sortie20->setValider('1');
+        $sortie20->setCharge('');
+        $sortie20->setAcces('');
+        $sortie20->setEcheance('0');
+        $sortie20->setTarifEcheance('0');
+        $sortie20->setCommission('');
+        $sortie20->setAnnuler('0');
+        $sortie20->setTarifEtud('0');
+        $sortie20->setPromoClient('0');
+        $sortie20->setPromoPartenaire('0');
+        $sortie20->setAstuce('0');
+        $sortie20->setPub('1');
+        $sortie20->setClose('0');
+        $sortie20->setIp('127.0.0.1');
+        $sortie20->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie20);
+        
+        $sortie21 = new Sortie();
+        $sortie21->setUser($this->getReference('user12'));
+        $sortie21->setCategorie($this->getReference('categorie4'));
+        $sortie21->setPicture1($this->getReference('picture91'));
+        $sortie21->setPicture2($this->getReference('picture92'));
+        $sortie21->setPicture3($this->getReference('picture93'));
+        $sortie21->setPicture4($this->getReference('picture94'));
+        $sortie21->setTitre('Jet Ski Trip');
+        $sortie21->setDescriptif("Nous prendrons les commandes des Jet Ski, pour une belle balade en Mer. Encadrée par des moniteurs professionnels et expérimentés, nous partirons à la découverte d’un paysage extraordinaire à Tipaza. Un moment plaisir !
+Durée : 2h15min de Randonnée, dont 45 minutes de conduite / personne.
+Tarif normal : 6400 Da");
+        $sortie21->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Être en bonne santé,
+Savoir nager,
+Conducteur : à partir de 16 ans,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+L'activité est très sensible aux conditions climatiques et peut être annulée, déplacée ou reportée à tout moment, si les conditions ne seront pas favorables,
+Prévoir des lunettes de soleil et la crème solaire,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée.");
+        $sortie21->setLocalisation('Tipaza');
+        $sortie21->setTarif(6400);
+        $sortie21->setMaxPersonne(6);
+        $sortie21->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie21->setHeureDebut('9h00');
+        $sortie21->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie21->setHeureFin('17h00');
+        $sortie21->setPhoto1('forma_1.png');
+        $sortie21->setPhoto2('forma_1.png');
+        $sortie21->setPhoto3('format_2.png');
+        $sortie21->setPhoto4('format_2.png');
+        $sortie21->setValider('1');
+        $sortie21->setCharge('');
+        $sortie21->setAcces('');
+        $sortie21->setEcheance('0');
+        $sortie21->setTarifEcheance('0');
+        $sortie21->setCommission('');
+        $sortie21->setAnnuler('0');
+        $sortie21->setTarifEtud('0');
+        $sortie21->setPromoClient('0');
+        $sortie21->setPromoPartenaire('0');
+        $sortie21->setAstuce('0');
+        $sortie21->setPub('1');
+        $sortie21->setClose('0');
+        $sortie21->setIp('127.0.0.1');
+        $sortie21->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie21);
+        
+        $sortie22 = new Sortie();
+        $sortie22->setUser($this->getReference('user12'));
+        $sortie22->setCategorie($this->getReference('categorie4'));
+        $sortie22->setPicture1($this->getReference('picture95'));
+        $sortie22->setPicture2($this->getReference('picture96'));
+        $sortie22->setPicture3($this->getReference('picture97'));
+        $sortie22->setPicture4($this->getReference('picture98'));
+        $sortie22->setTitre('Jet Ski Evasion');
+        $sortie22->setDescriptif("Une évasion en Jet Ski au large des côtes de Tipaza. Encadrés par des moniteurs professionnels et expérimentés, nous piloterons des machines à sensation pour partir en randonnée d’un paysage extraordinaire à Tipaza. Un moment unique d’évasion!
+Durée : 3h00 de Randonnée, dont 1h00 de conduite / personne.
+Tarif normal : 7400 Da");
+        $sortie22->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Être en bonne santé,
+Savoir nager,
+Conducteur : à partir de 16 ans,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+L'activité est très sensible aux conditions climatiques et peut être annulée, déplacée ou reportée à tout moment, si les conditions ne seront pas favorables,
+Prévoir des lunettes de soleil et la crème solaire,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée.");
+        $sortie22->setLocalisation('Tipaza');
+        $sortie22->setTarif(7400);
+        $sortie22->setMaxPersonne(6);
+        $sortie22->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie22->setHeureDebut('9h00');
+        $sortie22->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie22->setHeureFin('17h00');
+        $sortie22->setPhoto1('forma_1.png');
+        $sortie22->setPhoto2('forma_1.png');
+        $sortie22->setPhoto3('format_2.png');
+        $sortie22->setPhoto4('format_2.png');
+        $sortie22->setValider('1');
+        $sortie22->setCharge('');
+        $sortie22->setAcces('');
+        $sortie22->setEcheance('0');
+        $sortie22->setTarifEcheance('0');
+        $sortie22->setCommission('');
+        $sortie22->setAnnuler('0');
+        $sortie22->setTarifEtud('0');
+        $sortie22->setPromoClient('0');
+        $sortie22->setPromoPartenaire('0');
+        $sortie22->setAstuce('0');
+        $sortie22->setPub('1');
+        $sortie22->setClose('0');
+        $sortie22->setIp('127.0.0.1');
+        $sortie22->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie22);
+        
+        $sortie23 = new Sortie();
+        $sortie23->setUser($this->getReference('user12'));
+        $sortie23->setCategorie($this->getReference('categorie4'));
+        $sortie23->setPicture1($this->getReference('picture99'));
+        $sortie23->setPicture2($this->getReference('picture100'));
+        $sortie23->setPicture3($this->getReference('picture101'));
+        $sortie23->setPicture4($this->getReference('picture102'));
+        $sortie23->setTitre('Bouée Tentation');
+        $sortie23->setDescriptif("Une sortie en Hors-Bord, des bouées sensation et baignade au large, du lundi au Samedi du Mois d’août de 10h00 à 20h00 pour une balade d'une heure et demi avec rodéo.
+
+Êtes-vous attiré par l’idée d’une croisière le long de la baie de Tipaza 
+Découvrez une autre facette de Tipaza, en hors-bord, le vent dans les cheveux,...
+Des pauses baignades en large, Dans les grottes naturelles,
+Activité nautique pour les challengers ; vous pourrez embarquer sur nos bouées gonflables ... Rien à craindre, sauf tomber à l'eau, alors accrochez-vous, le rodéo commence !
+
+Tarif normal : 2900 Dinars/personne. 
+Tarif étudiant : 2400 Dinars/personne.");
+        $sortie23->setConditions("- S'inscrire à l'aide du formulaire de réservation,
+- Être en bonne santé,
+- Être majeur,
+- Savoir nager.
+Et pour finir, pendant les activités, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre sous l'eau.");
+        $sortie23->setLocalisation('Tipaza');
+        $sortie23->setTarif(2900);
+        $sortie23->setMaxPersonne(6);
+        $sortie23->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie23->setHeureDebut('9h00');
+        $sortie23->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie23->setHeureFin('17h00');
+        $sortie23->setPhoto1('forma_1.png');
+        $sortie23->setPhoto2('forma_1.png');
+        $sortie23->setPhoto3('format_2.png');
+        $sortie23->setPhoto4('format_2.png');
+        $sortie23->setValider('1');
+        $sortie23->setCharge('');
+        $sortie23->setAcces('');
+        $sortie23->setEcheance('0');
+        $sortie23->setTarifEcheance('0');
+        $sortie23->setCommission('');
+        $sortie23->setAnnuler('0');
+        $sortie23->setTarifEtud('0');
+        $sortie23->setPromoClient('0');
+        $sortie23->setPromoPartenaire('0');
+        $sortie23->setAstuce('0');
+        $sortie23->setPub('1');
+        $sortie23->setClose('0');
+        $sortie23->setIp('127.0.0.1');
+        $sortie23->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie23);
+        
+        $sortie24 = new Sortie();
+        $sortie24->setUser($this->getReference('user12'));
+        $sortie24->setCategorie($this->getReference('categorie2'));
+        $sortie24->setPicture1($this->getReference('picture103'));
+        $sortie24->setPicture2($this->getReference('picture104'));
+        $sortie24->setPicture3($this->getReference('picture105'));
+        $sortie24->setPicture4($this->getReference('picture106'));
+        $sortie24->setTitre('Dirty Quad Trip - Full Day');
+        $sortie24->setDescriptif("Un 'Quad Trip' plaisir & découverte le temps d’une journée, avec déjeuner au Mont Chenoua, 
+Vous prendrez les commandes de notre meute de Quads sauvages en montagne, Rita, Robusta, Nervosita, Tornado, etc. Venez les monter ! 
+Au programme : 
+09h00-09h30 : Arrivée & Accueil des participants,
+
+09h30 - 10h00 : Consignes et initiation au Quad,
+
+10h00 - 12h00 : Randonnée Quad & Pauses photos, 
+
+12h00 - 13h00 : Barbecue en plein air & Rafraichissement,
+
+13h00 - 16h00 : Suite Randonnée Quad & Pauses photos
+16h00 – 16h30 : Fin & Départ des participants. 
+C’est parti !
+
+Tarif normal : 11900 Dinars/personne.
+Tarif étudiant : 10900 Dinars/personne.");
+        $sortie24->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Avoir son permis de conduire,
+Être en bonne santé,
+Conducteur : Être majeur,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+Le port de vêtements et chaussures de montagne (fermées et montantes) est fortement conseillé,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
+Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre.");
+        $sortie24->setLocalisation('Oran, Blida, Tipaza, Alger, Bouira, Setif');
+        $sortie24->setTarif(11900);
+        $sortie24->setMaxPersonne(10);
+        $sortie24->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie24->setHeureDebut('9h00');
+        $sortie24->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie24->setHeureFin('17h00');
+        $sortie24->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
+        $sortie24->setPhoto1('forma_1.png');
+        $sortie24->setPhoto2('forma_1.png');
+        $sortie24->setPhoto3('format_2.png');
+        $sortie24->setPhoto4('format_2.png');
+        $sortie24->setValider('1');
+        $sortie24->setCharge('');
+        $sortie24->setAcces('');
+        $sortie24->setEcheance('0');
+        $sortie24->setTarifEcheance('0');
+        $sortie24->setCommission('');
+        $sortie24->setAnnuler('0');
+        $sortie24->setTarifEtud('0');
+        $sortie24->setPromoClient('0');
+        $sortie24->setPromoPartenaire('0');
+        $sortie24->setAstuce('0');
+        $sortie24->setPub('1');
+        $sortie24->setClose('0');
+        $sortie24->setIp('127.0.0.1');
+        $sortie24->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie24);
+        
+        $sortie25 = new Sortie();
+        $sortie25->setUser($this->getReference('user12'));
+        $sortie25->setCategorie($this->getReference('categorie2'));
+        $sortie25->setPicture1($this->getReference('picture107'));
+        $sortie25->setPicture2($this->getReference('picture108'));
+        $sortie25->setPicture3($this->getReference('picture109'));
+        $sortie25->setPicture4($this->getReference('picture110'));
+        $sortie25->setTitre('Quad After Work');
+        $sortie25->setDescriptif("Une randonnée « After Work » en Quad, pour décompresser ? 
+Chaque soir à 19h00, nous nous retrouverons au Mont Chenoua, Tipaza, pour une balade en montagne, couché du soleil en live, le calme absolu, 01h15 à 1h30 de pur plaisir. Le meilleur créneau de la journée. 
+Vous prendrez les commandes d’une machine à sensation pour une aventure en Montagne. 
+Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
+C’est parti !
+
+Tarif normal : 3900 Dinas/personne.
+Tarif étudiant : 3400 Dinars/personne.");
+        $sortie25->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
+Avoir son permis de conduire,
+Être en bonne santé,
+Conducteur : Être majeur,
+Passager : Mineur à partir de 10 ans, autorisé avec présence d'un parent,
+Le port de vêtements et chaussures de montagne (fermées et montantes) est fortement conseillé,
+Le port des gants est conseillé,
+Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
+Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre.");
+        $sortie25->setLocalisation('Tipaza');
+        $sortie25->setTarif(3900);
+        $sortie25->setMaxPersonne(6);
+        $sortie25->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
+        $sortie25->setHeureDebut('9h00');
+        $sortie25->setDateFin(new \DateTime('2016-02-28 00:00:00'));
+        $sortie25->setHeureFin('17h00');
+        $sortie25->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
+        $sortie25->setPhoto1('forma_1.png');
+        $sortie25->setPhoto2('forma_1.png');
+        $sortie25->setPhoto3('format_2.png');
+        $sortie25->setPhoto4('format_2.png');
+        $sortie25->setValider('1');
+        $sortie25->setCharge('');
+        $sortie25->setAcces('');
+        $sortie25->setEcheance('0');
+        $sortie25->setTarifEcheance('0');
+        $sortie25->setCommission('');
+        $sortie25->setAnnuler('0');
+        $sortie25->setTarifEtud('0');
+        $sortie25->setPromoClient('0');
+        $sortie25->setPromoPartenaire('0');
+        $sortie25->setAstuce('0');
+        $sortie25->setPub('1');
+        $sortie25->setClose('0');
+        $sortie25->setIp('127.0.0.1');
+        $sortie25->setDateTime(new \DateTime('2015-03-01 12:00:00'));
+        $manager->persist($sortie25);
+        
         $manager->flush();
         
         $this->addReference('sortie1',   $sortie1);
@@ -798,6 +1320,16 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
         $this->addReference('sortie13',  $sortie13);
         $this->addReference('sortie14',  $sortie14);
         $this->addReference('sortie15',  $sortie15);
+        $this->addReference('sortie16',  $sortie16);
+        $this->addReference('sortie17',  $sortie17);
+        $this->addReference('sortie18',  $sortie18);
+        $this->addReference('sortie19',  $sortie19);
+        $this->addReference('sortie20',  $sortie20);
+        $this->addReference('sortie21',  $sortie21);
+        $this->addReference('sortie22',  $sortie22);
+        $this->addReference('sortie23',  $sortie23);
+        $this->addReference('sortie24',  $sortie24);
+        $this->addReference('sortie25',  $sortie25);
     }
     
     public function getOrder()

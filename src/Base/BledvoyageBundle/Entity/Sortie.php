@@ -25,6 +25,7 @@ class Sortie implements Translatable
         $this->astuce   = "0";
         $this->pub      = "0";
         $this->close    = "0";
+        $this->order    = "999";
         $this->dateTime = new \DateTime();
     }
     
@@ -37,6 +38,13 @@ class Sortie implements Translatable
      * @Expose
      */
     private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="orderby", type="string", length=255)
+     */
+    private $order;
     
     /**
      * @ORM\ManyToOne(targetEntity="Base\UserBundle\Entity\User")
@@ -337,6 +345,29 @@ class Sortie implements Translatable
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set order
+     *
+     * @param string $order
+     * @return Sortie
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return string 
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 
     /**
@@ -1276,6 +1307,7 @@ class Sortie implements Translatable
         {
             return $mc->get("sorties_".$locale);
         }
+        
         $qb = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
             ->createQueryBuilder('a')
             ->addSelect('b')
@@ -1284,12 +1316,8 @@ class Sortie implements Translatable
             ->leftJoin('b.picture1', 'c')
             ->AddSelect('d')
             ->leftJoin('b.user', 'd')
-            ->where('b.valider = :valider')
-            ->setParameter('valider', '1')
+            ->where('b.valider = 1')
             ->orderBy('a.id','ASC');
-        
-        //->orderBy(...) customize it        
-
         // Use Translation Walker
         $query = $qb->getQuery();
         $query->setHint(
