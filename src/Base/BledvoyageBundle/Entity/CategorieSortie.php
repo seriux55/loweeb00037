@@ -43,12 +43,6 @@ class CategorieSortie
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Sortie", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $sortie;
 
     /**
      * @var string
@@ -192,29 +186,6 @@ class CategorieSortie
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set sortie
-     *
-     * @param \Base\BledvoyageBundle\Entity\Sortie $sortie
-     * @return CategorieSortie
-     */
-    public function setSortie(\Base\BledvoyageBundle\Entity\Sortie $sortie)
-    {
-        $this->sortie = $sortie;
-
-        return $this;
-    }
-
-    /**
-     * Get sortie
-     *
-     * @return \Base\BledvoyageBundle\Entity\Sortie
-     */
-    public function getSortie()
-    {
-        return $this->sortie;
     }
 
     /**

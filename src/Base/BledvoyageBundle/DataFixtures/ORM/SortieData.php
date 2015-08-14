@@ -24,6 +24,7 @@ class SortieData extends AbstractFixture implements FixtureInterface, ContainerA
         $sortie1 = new Sortie();
         $sortie1->setUser($this->getReference('user6'));
         $sortie1->setCategorie($this->getReference('categorie1'));
+        $sortie1->setCategorieSortie($this->getReference('categorie_sortie1'));
         $sortie1->setPicture1($this->getReference('picture1'));
         $sortie1->setPicture2($this->getReference('picture2'));
         $sortie1->setPicture3($this->getReference('picture3'));
@@ -101,6 +102,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie2 = new Sortie();
         $sortie2->setUser($this->getReference('user15'));
         $sortie2->setCategorie($this->getReference('categorie2'));
+        $sortie2->setCategorieSortie($this->getReference('categorie_sortie2'));
         $sortie2->setPicture1($this->getReference('picture5'));
         $sortie2->setPicture2($this->getReference('picture6'));
         $sortie2->setPicture3($this->getReference('picture7'));
@@ -155,6 +157,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie3 = new Sortie();
         $sortie3->setUser($this->getReference('user9'));
         $sortie3->setCategorie($this->getReference('categorie2'));
+        $sortie3->setCategorieSortie($this->getReference('categorie_sortie3'));
         $sortie3->setPicture1($this->getReference('picture9'));
         $sortie3->setPicture2($this->getReference('picture10'));
         $sortie3->setPicture3($this->getReference('picture11'));
@@ -199,6 +202,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie4 = new Sortie();
         $sortie4->setUser($this->getReference('user9'));
         $sortie4->setCategorie($this->getReference('categorie2'));
+        $sortie4->setCategorieSortie($this->getReference('categorie_sortie4'));
         $sortie4->setPicture1($this->getReference('picture13'));
         $sortie4->setPicture2($this->getReference('picture14'));
         $sortie4->setPicture3($this->getReference('picture15'));
@@ -244,6 +248,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5 = new Sortie();
         $sortie5->setUser($this->getReference('user9'));
         $sortie5->setCategorie($this->getReference('categorie2'));
+        $sortie5->setCategorieSortie($this->getReference('categorie_sortie5'));
         $sortie5->setPicture1($this->getReference('picture17'));
         $sortie5->setPicture2($this->getReference('picture18'));
         $sortie5->setPicture3($this->getReference('picture19'));
@@ -295,6 +300,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie6 = new Sortie();
         $sortie6->setUser($this->getReference('user9'));
         $sortie6->setCategorie($this->getReference('categorie2'));
+        $sortie6->setCategorieSortie($this->getReference('categorie_sortie6'));
         $sortie6->setPicture1($this->getReference('picture21'));
         $sortie6->setPicture2($this->getReference('picture22'));
         $sortie6->setPicture3($this->getReference('picture23'));
@@ -342,6 +348,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie7 = new Sortie();
         $sortie7->setUser($this->getReference('user10'));
         $sortie7->setCategorie($this->getReference('categorie4'));
+        $sortie7->setCategorieSortie($this->getReference('categorie_sortie7'));
         $sortie7->setPicture1($this->getReference('picture25'));
         $sortie7->setPicture2($this->getReference('picture26'));
         $sortie7->setPicture3($this->getReference('picture27'));
@@ -387,6 +394,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie8 = new Sortie();
         $sortie8->setUser($this->getReference('user5'));
         $sortie8->setCategorie($this->getReference('categorie4'));
+        $sortie8->setCategorieSortie($this->getReference('categorie_sortie8'));
         $sortie8->setPicture1($this->getReference('picture29'));
         $sortie8->setPicture2($this->getReference('picture30'));
         $sortie8->setPicture3($this->getReference('picture31'));
@@ -436,6 +444,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie9 = new Sortie();
         $sortie9->setUser($this->getReference('user5'));
         $sortie9->setCategorie($this->getReference('categorie4'));
+        $sortie9->setCategorieSortie($this->getReference('categorie_sortie9'));
         $sortie9->setPicture1($this->getReference('picture33'));
         $sortie9->setPicture2($this->getReference('picture34'));
         $sortie9->setPicture3($this->getReference('picture35'));
@@ -483,6 +492,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie10 = new Sortie();
         $sortie10->setUser($this->getReference('user12'));
         $sortie10->setCategorie($this->getReference('categorie5'));
+        $sortie10->setCategorieSortie($this->getReference('categorie_sortie10'));
         $sortie10->setPicture1($this->getReference('picture37'));
         $sortie10->setPicture2($this->getReference('picture38'));
         $sortie10->setPicture3($this->getReference('picture39'));
@@ -533,6 +543,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie11 = new Sortie();
         $sortie11->setUser($this->getReference('user13'));
         $sortie11->setCategorie($this->getReference('categorie5'));
+        $sortie11->setCategorieSortie($this->getReference('categorie_sortie11'));
         $sortie11->setPicture1($this->getReference('picture41'));
         $sortie11->setPicture2($this->getReference('picture42'));
         $sortie11->setPicture3($this->getReference('picture43'));
@@ -586,6 +597,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie12 = new Sortie();
         $sortie12->setUser($this->getReference('user8'));
         $sortie12->setCategorie($this->getReference('categorie5'));
+        $sortie12->setCategorieSortie($this->getReference('categorie_sortie12'));
         $sortie12->setPicture1($this->getReference('picture45'));
         $sortie12->setPicture2($this->getReference('picture46'));
         $sortie12->setPicture3($this->getReference('picture47'));
@@ -630,6 +642,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie13 = new Sortie();
         $sortie13->setUser($this->getReference('user7'));
         $sortie13->setCategorie($this->getReference('categorie5'));
+        $sortie13->setCategorieSortie($this->getReference('categorie_sortie13'));
         $sortie13->setPicture1($this->getReference('picture49'));
         $sortie13->setPicture2($this->getReference('picture50'));
         $sortie13->setPicture3($this->getReference('picture51'));
@@ -675,6 +688,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie14 = new Sortie();
         $sortie14->setUser($this->getReference('user11'));
         $sortie14->setCategorie($this->getReference('categorie3'));
+        $sortie14->setCategorieSortie($this->getReference('categorie_sortie14'));
         $sortie14->setPicture1($this->getReference('picture53'));
         $sortie14->setPicture2($this->getReference('picture54'));
         $sortie14->setPicture3($this->getReference('picture55'));
@@ -725,6 +739,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie15 = new Sortie();
         $sortie15->setUser($this->getReference('user12'));
         $sortie15->setCategorie($this->getReference('categorie7'));
+        $sortie15->setCategorieSortie($this->getReference('categorie_sortie15'));
         $sortie15->setPicture1($this->getReference('picture57'));
         $sortie15->setPicture2($this->getReference('picture58'));
         $sortie15->setPicture3($this->getReference('picture59'));
@@ -784,6 +799,7 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
         $sortie16 = new Sortie();
         $sortie16->setUser($this->getReference('user15'));
         $sortie16->setCategorie($this->getReference('categorie2'));
+        $sortie16->setCategorieSortie($this->getReference('categorie_sortie16'));
         $sortie16->setPicture1($this->getReference('picture71'));
         $sortie16->setPicture2($this->getReference('picture72'));
         $sortie16->setPicture3($this->getReference('picture73'));
@@ -841,6 +857,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie17 = new Sortie();
         $sortie17->setUser($this->getReference('user15'));
         $sortie17->setCategorie($this->getReference('categorie2'));
+        $sortie17->setCategorieSortie($this->getReference('categorie_sortie17'));
         $sortie17->setPicture1($this->getReference('picture75'));
         $sortie17->setPicture2($this->getReference('picture76'));
         $sortie17->setPicture3($this->getReference('picture77'));
@@ -899,6 +916,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie18 = new Sortie();
         $sortie18->setUser($this->getReference('user12'));
         $sortie18->setCategorie($this->getReference('categorie4'));
+        $sortie18->setCategorieSortie($this->getReference('categorie_sortie18'));
         $sortie18->setPicture1($this->getReference('picture79'));
         $sortie18->setPicture2($this->getReference('picture80'));
         $sortie18->setPicture3($this->getReference('picture81'));
@@ -947,6 +965,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie19 = new Sortie();
         $sortie19->setUser($this->getReference('user15'));
         $sortie19->setCategorie($this->getReference('categorie4'));
+        $sortie19->setCategorieSortie($this->getReference('categorie_sortie19'));
         $sortie19->setPicture1($this->getReference('picture83'));
         $sortie19->setPicture2($this->getReference('picture84'));
         $sortie19->setPicture3($this->getReference('picture85'));
@@ -995,6 +1014,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie20 = new Sortie();
         $sortie20->setUser($this->getReference('user15'));
         $sortie20->setCategorie($this->getReference('categorie4'));
+        $sortie20->setCategorieSortie($this->getReference('categorie_sortie20'));
         $sortie20->setPicture1($this->getReference('picture87'));
         $sortie20->setPicture2($this->getReference('picture88'));
         $sortie20->setPicture3($this->getReference('picture89'));
@@ -1043,6 +1063,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie21 = new Sortie();
         $sortie21->setUser($this->getReference('user12'));
         $sortie21->setCategorie($this->getReference('categorie4'));
+        $sortie21->setCategorieSortie($this->getReference('categorie_sortie21'));
         $sortie21->setPicture1($this->getReference('picture91'));
         $sortie21->setPicture2($this->getReference('picture92'));
         $sortie21->setPicture3($this->getReference('picture93'));
@@ -1091,6 +1112,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie22 = new Sortie();
         $sortie22->setUser($this->getReference('user12'));
         $sortie22->setCategorie($this->getReference('categorie4'));
+        $sortie22->setCategorieSortie($this->getReference('categorie_sortie22'));
         $sortie22->setPicture1($this->getReference('picture95'));
         $sortie22->setPicture2($this->getReference('picture96'));
         $sortie22->setPicture3($this->getReference('picture97'));
@@ -1139,6 +1161,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie23 = new Sortie();
         $sortie23->setUser($this->getReference('user12'));
         $sortie23->setCategorie($this->getReference('categorie4'));
+        $sortie23->setCategorieSortie($this->getReference('categorie_sortie23'));
         $sortie23->setPicture1($this->getReference('picture99'));
         $sortie23->setPicture2($this->getReference('picture100'));
         $sortie23->setPicture3($this->getReference('picture101'));
@@ -1189,6 +1212,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie24 = new Sortie();
         $sortie24->setUser($this->getReference('user12'));
         $sortie24->setCategorie($this->getReference('categorie2'));
+        $sortie24->setCategorieSortie($this->getReference('categorie_sortie24'));
         $sortie24->setPicture1($this->getReference('picture103'));
         $sortie24->setPicture2($this->getReference('picture104'));
         $sortie24->setPicture3($this->getReference('picture105'));
@@ -1252,6 +1276,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie25 = new Sortie();
         $sortie25->setUser($this->getReference('user12'));
         $sortie25->setCategorie($this->getReference('categorie2'));
+        $sortie25->setCategorieSortie($this->getReference('categorie_sortie25'));
         $sortie25->setPicture1($this->getReference('picture107'));
         $sortie25->setPicture2($this->getReference('picture108'));
         $sortie25->setPicture3($this->getReference('picture109'));
@@ -1334,6 +1359,6 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
     
     public function getOrder()
     {
-        return 4; // l'ordre dans lequel les fichiers sont chargés
+        return 5; // l'ordre dans lequel les fichiers sont chargés
     }
 }

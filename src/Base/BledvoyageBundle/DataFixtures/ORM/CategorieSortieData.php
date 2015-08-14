@@ -22,7 +22,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
     public function load(ObjectManager $manager)
     {
         $categorie_sortie1 = new CategorieSortie();
-        $categorie_sortie1->setSortie($this->getReference('sortie1'));
         $categorie_sortie1->setAir('0');
         $categorie_sortie1->setArc('0');
         $categorie_sortie1->setEquitation('0');
@@ -45,7 +44,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie1);
         
         $categorie_sortie2 = new CategorieSortie();
-        $categorie_sortie2->setSortie($this->getReference('sortie2'));
         $categorie_sortie2->setAir('0');
         $categorie_sortie2->setArc('0');
         $categorie_sortie2->setEquitation('0');
@@ -68,7 +66,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie2);
         
         $categorie_sortie3 = new CategorieSortie();
-        $categorie_sortie3->setSortie($this->getReference('sortie3'));
         $categorie_sortie3->setAir('0');
         $categorie_sortie3->setArc('0');
         $categorie_sortie3->setEquitation('0');
@@ -91,7 +88,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie3);
         
         $categorie_sortie4 = new CategorieSortie();
-        $categorie_sortie4->setSortie($this->getReference('sortie4'));
         $categorie_sortie4->setAir('0');
         $categorie_sortie4->setArc('0');
         $categorie_sortie4->setEquitation('0');
@@ -114,7 +110,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie4);
         
         $categorie_sortie5 = new CategorieSortie();
-        $categorie_sortie5->setSortie($this->getReference('sortie5'));
         $categorie_sortie5->setAir('0');
         $categorie_sortie5->setArc('0');
         $categorie_sortie5->setEquitation('0');
@@ -137,7 +132,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie5);
         
         $categorie_sortie6 = new CategorieSortie();
-        $categorie_sortie6->setSortie($this->getReference('sortie6'));
         $categorie_sortie6->setAir('0');
         $categorie_sortie6->setArc('0');
         $categorie_sortie6->setEquitation('0');
@@ -159,31 +153,29 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $categorie_sortie6->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie6);
         
-        $categorie_sortie7 = new CategorieSortie();
-        $categorie_sortie7->setSortie($this->getReference('sortie7'));
-        $categorie_sortie7->setAir('0');
-        $categorie_sortie7->setArc('0');
-        $categorie_sortie7->setEquitation('0');
-        $categorie_sortie7->setFitness('0');
-        $categorie_sortie7->setGolf('0');
-        $categorie_sortie7->setKayak('0');
-        $categorie_sortie7->setMarche('0');
-        $categorie_sortie7->setPlongee('0');
-        $categorie_sortie7->setQuad('1');
-        $categorie_sortie7->setRandonee('0');
-        $categorie_sortie7->setRoller('0');
-        $categorie_sortie7->setRunning('0');
-        $categorie_sortie7->setSable('0');
-        $categorie_sortie7->setSportEau('0');
-        $categorie_sortie7->setTennis('0');
-        $categorie_sortie7->setVelo('0');
-        $categorie_sortie7->setVisites('1');
-        $categorie_sortie7->setIp('127.0.0.1');
-        $categorie_sortie7->setDateTime(new \DateTime('2015-01-01 00:00:00'));
-        $manager->persist($categorie_sortie7);
+        $categorie_sortie17 = new CategorieSortie();
+        $categorie_sortie17->setAir('0');
+        $categorie_sortie17->setArc('0');
+        $categorie_sortie17->setEquitation('0');
+        $categorie_sortie17->setFitness('0');
+        $categorie_sortie17->setGolf('0');
+        $categorie_sortie17->setKayak('0');
+        $categorie_sortie17->setMarche('0');
+        $categorie_sortie17->setPlongee('0');
+        $categorie_sortie17->setQuad('1');
+        $categorie_sortie17->setRandonee('0');
+        $categorie_sortie17->setRoller('0');
+        $categorie_sortie17->setRunning('0');
+        $categorie_sortie17->setSable('0');
+        $categorie_sortie17->setSportEau('0');
+        $categorie_sortie17->setTennis('0');
+        $categorie_sortie17->setVelo('0');
+        $categorie_sortie17->setVisites('1');
+        $categorie_sortie17->setIp('127.0.0.1');
+        $categorie_sortie17->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie17);
         
         $categorie_sortie8 = new CategorieSortie();
-        $categorie_sortie8->setSortie($this->getReference('sortie8'));
         $categorie_sortie8->setAir('0');
         $categorie_sortie8->setArc('0');
         $categorie_sortie8->setEquitation('0');
@@ -206,7 +198,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie8);
         
         $categorie_sortie9 = new CategorieSortie();
-        $categorie_sortie9->setSortie($this->getReference('sortie9'));
         $categorie_sortie9->setAir('0');
         $categorie_sortie9->setArc('0');
         $categorie_sortie9->setEquitation('0');
@@ -229,7 +220,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie9);
         
         $categorie_sortie10 = new CategorieSortie();
-        $categorie_sortie10->setSortie($this->getReference('sortie10'));
         $categorie_sortie10->setAir('0');
         $categorie_sortie10->setArc('0');
         $categorie_sortie10->setEquitation('0');
@@ -252,7 +242,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie10);
         
         $categorie_sortie11 = new CategorieSortie();
-        $categorie_sortie11->setSortie($this->getReference('sortie11'));
         $categorie_sortie11->setAir('0');
         $categorie_sortie11->setArc('0');
         $categorie_sortie11->setEquitation('0');
@@ -275,7 +264,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie11);
         
         $categorie_sortie12 = new CategorieSortie();
-        $categorie_sortie12->setSortie($this->getReference('sortie12'));
         $categorie_sortie12->setAir('0');
         $categorie_sortie12->setArc('0');
         $categorie_sortie12->setEquitation('0');
@@ -298,7 +286,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie12);
         
         $categorie_sortie13 = new CategorieSortie();
-        $categorie_sortie13->setSortie($this->getReference('sortie13'));
         $categorie_sortie13->setAir('0');
         $categorie_sortie13->setArc('0');
         $categorie_sortie13->setEquitation('0');
@@ -321,7 +308,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie13);
         
         $categorie_sortie14 = new CategorieSortie();
-        $categorie_sortie14->setSortie($this->getReference('sortie14'));
         $categorie_sortie14->setAir('0');
         $categorie_sortie14->setArc('0');
         $categorie_sortie14->setEquitation('0');
@@ -344,7 +330,6 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $manager->persist($categorie_sortie14);
         
         $categorie_sortie15 = new CategorieSortie();
-        $categorie_sortie15->setSortie($this->getReference('sortie15'));
         $categorie_sortie15->setAir('0');
         $categorie_sortie15->setArc('0');
         $categorie_sortie15->setEquitation('0');
@@ -366,6 +351,226 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $categorie_sortie15->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie15);
         
+        $categorie_sortie16 = new CategorieSortie();
+        $categorie_sortie16->setAir('0');
+        $categorie_sortie16->setArc('0');
+        $categorie_sortie16->setEquitation('0');
+        $categorie_sortie16->setFitness('0');
+        $categorie_sortie16->setGolf('0');
+        $categorie_sortie16->setKayak('0');
+        $categorie_sortie16->setMarche('0');
+        $categorie_sortie16->setPlongee('0');
+        $categorie_sortie16->setQuad('0');
+        $categorie_sortie16->setRandonee('0');
+        $categorie_sortie16->setRoller('0');
+        $categorie_sortie16->setRunning('0');
+        $categorie_sortie16->setSable('0');
+        $categorie_sortie16->setSportEau('1');
+        $categorie_sortie16->setTennis('0');
+        $categorie_sortie16->setVelo('0');
+        $categorie_sortie16->setVisites('1');
+        $categorie_sortie16->setIp('127.0.0.1');
+        $categorie_sortie16->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie16);
+        
+        $categorie_sortie7 = new CategorieSortie();
+        $categorie_sortie7->setAir('0');
+        $categorie_sortie7->setArc('0');
+        $categorie_sortie7->setEquitation('0');
+        $categorie_sortie7->setFitness('0');
+        $categorie_sortie7->setGolf('0');
+        $categorie_sortie7->setKayak('0');
+        $categorie_sortie7->setMarche('0');
+        $categorie_sortie7->setPlongee('0');
+        $categorie_sortie7->setQuad('1');
+        $categorie_sortie7->setRandonee('0');
+        $categorie_sortie7->setRoller('0');
+        $categorie_sortie7->setRunning('0');
+        $categorie_sortie7->setSable('0');
+        $categorie_sortie7->setSportEau('0');
+        $categorie_sortie7->setTennis('0');
+        $categorie_sortie7->setVelo('0');
+        $categorie_sortie7->setVisites('1');
+        $categorie_sortie7->setIp('127.0.0.1');
+        $categorie_sortie7->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie7);
+        
+        $categorie_sortie18 = new CategorieSortie();
+        $categorie_sortie18->setAir('0');
+        $categorie_sortie18->setArc('0');
+        $categorie_sortie18->setEquitation('0');
+        $categorie_sortie18->setFitness('0');
+        $categorie_sortie18->setGolf('0');
+        $categorie_sortie18->setKayak('0');
+        $categorie_sortie18->setMarche('0');
+        $categorie_sortie18->setPlongee('0');
+        $categorie_sortie18->setQuad('1');
+        $categorie_sortie18->setRandonee('0');
+        $categorie_sortie18->setRoller('0');
+        $categorie_sortie18->setRunning('0');
+        $categorie_sortie18->setSable('0');
+        $categorie_sortie18->setSportEau('0');
+        $categorie_sortie18->setTennis('0');
+        $categorie_sortie18->setVelo('0');
+        $categorie_sortie18->setVisites('1');
+        $categorie_sortie18->setIp('127.0.0.1');
+        $categorie_sortie18->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie18);
+        
+        $categorie_sortie19 = new CategorieSortie();
+        $categorie_sortie19->setAir('0');
+        $categorie_sortie19->setArc('0');
+        $categorie_sortie19->setEquitation('0');
+        $categorie_sortie19->setFitness('0');
+        $categorie_sortie19->setGolf('0');
+        $categorie_sortie19->setKayak('0');
+        $categorie_sortie19->setMarche('0');
+        $categorie_sortie19->setPlongee('0');
+        $categorie_sortie19->setQuad('1');
+        $categorie_sortie19->setRandonee('0');
+        $categorie_sortie19->setRoller('0');
+        $categorie_sortie19->setRunning('0');
+        $categorie_sortie19->setSable('0');
+        $categorie_sortie19->setSportEau('0');
+        $categorie_sortie19->setTennis('0');
+        $categorie_sortie19->setVelo('0');
+        $categorie_sortie19->setVisites('1');
+        $categorie_sortie19->setIp('127.0.0.1');
+        $categorie_sortie19->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie19);
+        
+        $categorie_sortie20 = new CategorieSortie();
+        $categorie_sortie20->setAir('0');
+        $categorie_sortie20->setArc('0');
+        $categorie_sortie20->setEquitation('0');
+        $categorie_sortie20->setFitness('0');
+        $categorie_sortie20->setGolf('0');
+        $categorie_sortie20->setKayak('0');
+        $categorie_sortie20->setMarche('0');
+        $categorie_sortie20->setPlongee('0');
+        $categorie_sortie20->setQuad('1');
+        $categorie_sortie20->setRandonee('0');
+        $categorie_sortie20->setRoller('0');
+        $categorie_sortie20->setRunning('0');
+        $categorie_sortie20->setSable('0');
+        $categorie_sortie20->setSportEau('0');
+        $categorie_sortie20->setTennis('0');
+        $categorie_sortie20->setVelo('0');
+        $categorie_sortie20->setVisites('1');
+        $categorie_sortie20->setIp('127.0.0.1');
+        $categorie_sortie20->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie20);
+        
+        $categorie_sortie21 = new CategorieSortie();
+        $categorie_sortie21->setAir('0');
+        $categorie_sortie21->setArc('0');
+        $categorie_sortie21->setEquitation('0');
+        $categorie_sortie21->setFitness('0');
+        $categorie_sortie21->setGolf('0');
+        $categorie_sortie21->setKayak('0');
+        $categorie_sortie21->setMarche('0');
+        $categorie_sortie21->setPlongee('0');
+        $categorie_sortie21->setQuad('1');
+        $categorie_sortie21->setRandonee('0');
+        $categorie_sortie21->setRoller('0');
+        $categorie_sortie21->setRunning('0');
+        $categorie_sortie21->setSable('0');
+        $categorie_sortie21->setSportEau('0');
+        $categorie_sortie21->setTennis('0');
+        $categorie_sortie21->setVelo('0');
+        $categorie_sortie21->setVisites('1');
+        $categorie_sortie21->setIp('127.0.0.1');
+        $categorie_sortie21->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie21);
+        
+        $categorie_sortie22 = new CategorieSortie();
+        $categorie_sortie22->setAir('0');
+        $categorie_sortie22->setArc('0');
+        $categorie_sortie22->setEquitation('0');
+        $categorie_sortie22->setFitness('0');
+        $categorie_sortie22->setGolf('0');
+        $categorie_sortie22->setKayak('0');
+        $categorie_sortie22->setMarche('0');
+        $categorie_sortie22->setPlongee('0');
+        $categorie_sortie22->setQuad('1');
+        $categorie_sortie22->setRandonee('0');
+        $categorie_sortie22->setRoller('0');
+        $categorie_sortie22->setRunning('0');
+        $categorie_sortie22->setSable('0');
+        $categorie_sortie22->setSportEau('0');
+        $categorie_sortie22->setTennis('0');
+        $categorie_sortie22->setVelo('0');
+        $categorie_sortie22->setVisites('1');
+        $categorie_sortie22->setIp('127.0.0.1');
+        $categorie_sortie22->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie22);
+        
+        $categorie_sortie23 = new CategorieSortie();
+        $categorie_sortie23->setAir('0');
+        $categorie_sortie23->setArc('0');
+        $categorie_sortie23->setEquitation('0');
+        $categorie_sortie23->setFitness('0');
+        $categorie_sortie23->setGolf('0');
+        $categorie_sortie23->setKayak('0');
+        $categorie_sortie23->setMarche('0');
+        $categorie_sortie23->setPlongee('0');
+        $categorie_sortie23->setQuad('1');
+        $categorie_sortie23->setRandonee('0');
+        $categorie_sortie23->setRoller('0');
+        $categorie_sortie23->setRunning('0');
+        $categorie_sortie23->setSable('0');
+        $categorie_sortie23->setSportEau('0');
+        $categorie_sortie23->setTennis('0');
+        $categorie_sortie23->setVelo('0');
+        $categorie_sortie23->setVisites('1');
+        $categorie_sortie23->setIp('127.0.0.1');
+        $categorie_sortie23->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie23);
+        
+        $categorie_sortie24 = new CategorieSortie();
+        $categorie_sortie24->setAir('0');
+        $categorie_sortie24->setArc('0');
+        $categorie_sortie24->setEquitation('0');
+        $categorie_sortie24->setFitness('0');
+        $categorie_sortie24->setGolf('0');
+        $categorie_sortie24->setKayak('0');
+        $categorie_sortie24->setMarche('0');
+        $categorie_sortie24->setPlongee('0');
+        $categorie_sortie24->setQuad('1');
+        $categorie_sortie24->setRandonee('0');
+        $categorie_sortie24->setRoller('0');
+        $categorie_sortie24->setRunning('0');
+        $categorie_sortie24->setSable('0');
+        $categorie_sortie24->setSportEau('0');
+        $categorie_sortie24->setTennis('0');
+        $categorie_sortie24->setVelo('0');
+        $categorie_sortie24->setVisites('1');
+        $categorie_sortie24->setIp('127.0.0.1');
+        $categorie_sortie24->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie24);
+        
+        $categorie_sortie25 = new CategorieSortie();
+        $categorie_sortie25->setAir('0');
+        $categorie_sortie25->setArc('0');
+        $categorie_sortie25->setEquitation('0');
+        $categorie_sortie25->setFitness('0');
+        $categorie_sortie25->setGolf('0');
+        $categorie_sortie25->setKayak('0');
+        $categorie_sortie25->setMarche('0');
+        $categorie_sortie25->setPlongee('0');
+        $categorie_sortie25->setQuad('1');
+        $categorie_sortie25->setRandonee('0');
+        $categorie_sortie25->setRoller('0');
+        $categorie_sortie25->setRunning('0');
+        $categorie_sortie25->setSable('0');
+        $categorie_sortie25->setSportEau('0');
+        $categorie_sortie25->setTennis('0');
+        $categorie_sortie25->setVelo('0');
+        $categorie_sortie25->setVisites('1');
+        $categorie_sortie25->setIp('127.0.0.1');
+        $categorie_sortie25->setDateTime(new \DateTime('2015-01-01 00:00:00'));
+        $manager->persist($categorie_sortie25);
+        
         $manager->flush();
         
         $this->addReference('categorie_sortie1',  $categorie_sortie1);
@@ -383,10 +588,20 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $this->addReference('categorie_sortie13', $categorie_sortie13);
         $this->addReference('categorie_sortie14', $categorie_sortie14);
         $this->addReference('categorie_sortie15', $categorie_sortie15);
+        $this->addReference('categorie_sortie16', $categorie_sortie16);
+        $this->addReference('categorie_sortie17', $categorie_sortie17);
+        $this->addReference('categorie_sortie18', $categorie_sortie18);
+        $this->addReference('categorie_sortie19', $categorie_sortie19);
+        $this->addReference('categorie_sortie20', $categorie_sortie20);
+        $this->addReference('categorie_sortie21', $categorie_sortie21);
+        $this->addReference('categorie_sortie22', $categorie_sortie22);
+        $this->addReference('categorie_sortie23', $categorie_sortie23);
+        $this->addReference('categorie_sortie24', $categorie_sortie24);
+        $this->addReference('categorie_sortie25', $categorie_sortie25);
     }
     
     public function getOrder()
     {
-        return 5; // l'ordre dans lequel les fichiers sont chargés
+        return 4; // l'ordre dans lequel les fichiers sont chargés
     }
 }

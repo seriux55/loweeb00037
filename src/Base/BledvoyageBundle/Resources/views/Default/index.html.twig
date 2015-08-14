@@ -41,22 +41,22 @@
         <div class="conte">
             <div class="rc">
                 <div class="photorc">
-                    {% if data.sortie.picture1 != null %}
-                    <img src="{{ asset(data.sortie.picture1.webPath) }}" alt="{{ data.sortie.picture1.alt }}" />
+                    {% if data.picture1 != null %}
+                    <img src="{{ asset(data.picture1.webPath) }}" alt="{{ data.picture1.alt }}" />
                     {% endif %}
                 </div>
                 <div class="desrc">
                     <article>
-                        <h1>{{ data.sortie.titre }}</h1>
+                        <h1>{{ data.titre }}</h1>
                         <h3>
-                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureDebut }}  {% trans %}base.bledvoyage.defaut.au{% endtrans %} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.sortie.dateFin|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.sortie.heureFin }}
+                            <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.dateDebut|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.heureDebut }}  {% trans %}base.bledvoyage.defaut.au{% endtrans %} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}"> {{ data.dateFin|date('d/m/Y') }} <img alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}">{{ data.heureFin }}
                         </h3>
                         <div class="loc">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/loc.png') }}" alt="Image"/>
-                            <h2>{{ data.sortie.localisation }}</h2>
+                            <h2>{{ data.localisation }}</h2>
                         </div>
                         <p>
-                        {{ data.sortie.descriptif | slice(0, 150) }}
+                        {{ data.descriptif | slice(0, 150) }}
                         </p>
                         <!--
                         <div class="starblock">
@@ -65,41 +65,41 @@
                         -->
                     </article>
                     <div class="opt">
-                        {% if data.roller == 1 %}<img alt="Roller"          src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
-                        {% if data.equitation == 1 %}<img alt="Equitation"  src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
-                        {% if data.fitness == 1 %}<img alt="Fitness"        src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
-                        {% if data.golf == 1 %}<img alt="Golf"              src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
-                        {% if data.kayak == 1 %}<img alt="Kayak"            src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
-                        {% if data.plongee == 1 %}<img alt="Plongée"        src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
-                        {% if data.randonee == 1 %}<img alt="Randonnee"     src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
-                        {% if data.running == 1 %}<img alt="Running"        src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
-                        {% if data.marche == 1 %}<img alt="Marche"          src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
-                        {% if data.sportEau == 1 %}<img alt="Sport"         src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
-                        {% if data.tennis == 1 %}<img alt="tenis"           src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
-                        {% if data.velo == 1 %}<img alt="Velo"              src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
-                        {% if data.visites == 1 %}<img alt="Visite"         src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
-                        {% if data.arc == 1 %}<img alt="Arc"                src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
-                        {% if data.quad == 1 %}<img alt="Quad"              src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
+                        {% if data.categorieSortie.roller == 1 %}<img alt="Roller"          src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
+                        {% if data.categorieSortie.equitation == 1 %}<img alt="Equitation"  src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
+                        {% if data.categorieSortie.fitness == 1 %}<img alt="Fitness"        src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
+                        {% if data.categorieSortie.golf == 1 %}<img alt="Golf"              src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
+                        {% if data.categorieSortie.kayak == 1 %}<img alt="Kayak"            src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
+                        {% if data.categorieSortie.plongee == 1 %}<img alt="Plongée"        src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
+                        {% if data.categorieSortie.randonee == 1 %}<img alt="Randonnee"     src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
+                        {% if data.categorieSortie.running == 1 %}<img alt="Running"        src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
+                        {% if data.categorieSortie.marche == 1 %}<img alt="Marche"          src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
+                        {% if data.categorieSortie.sportEau == 1 %}<img alt="Sport"         src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
+                        {% if data.categorieSortie.tennis == 1 %}<img alt="tenis"           src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
+                        {% if data.categorieSortie.velo == 1 %}<img alt="Velo"              src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
+                        {% if data.categorieSortie.visites == 1 %}<img alt="Visite"         src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
+                        {% if data.categorieSortie.arc == 1 %}<img alt="Arc"                src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
+                        {% if data.categorieSortie.quad == 1 %}<img alt="Quad"              src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
                     </div>
                 </div>
             </div>
             <div class="choirc">
                 <div class="detrc">
                     <p class="prixnuit">
-                        <strong>{{ data.sortie.tarif }}</strong>
+                        <strong>{{ data.tarif }}</strong>
                         Da
                     </p>
-                    <p class="prixtot">{% trans %}base.bledvoyage.defaut.max{% endtrans %} : {{ data.sortie.maxPersonne }} {% trans %}base.bledvoyage.defaut.personne{% endtrans %}</p>
+                    <p class="prixtot">{% trans %}base.bledvoyage.defaut.max{% endtrans %} : {{ data.maxPersonne }} {% trans %}base.bledvoyage.defaut.personne{% endtrans %}</p>
                 </div>
                 <div class="choiev">
                     <div class="detprod">
-                        <a href="{{ path('bledvoyage_product', { 'id': data.sortie.id, 'slug':data.sortie.slug }) }}">{% trans %}base.bledvoyage.defaut.detail{% endtrans %}</a>
+                        <a href="{{ path('bledvoyage_product', { 'id': data.id, 'slug':data.slug }) }}">{% trans %}base.bledvoyage.defaut.detail{% endtrans %}</a>
                     </div>
-                    {% if data.sortie.close == 0 %}
+                    {% if data.close == 0 %}
                     <div class="resrc">
-                        <a href="{{ path('bledvoyage_booking', { 'id': data.sortie.id  }) }}">{% trans %}base.bledvoyage.defaut.reserver{% endtrans %}</a>
+                        <a href="{{ path('bledvoyage_booking', { 'id': data.id  }) }}">{% trans %}base.bledvoyage.defaut.reserver{% endtrans %}</a>
                     </div>
-                    {% elseif data.sortie.close == 1 %}
+                    {% elseif data.close == 1 %}
                     <div class="complet">
                         {% trans %}base.bledvoyage.defaut.complet{% endtrans %}
                     </div>

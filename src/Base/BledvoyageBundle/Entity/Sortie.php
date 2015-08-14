@@ -57,6 +57,12 @@ class Sortie implements Translatable
      * @ORM\JoinColumn(nullable=true)
      */
     private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\CategorieSortie")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $categorieSortie;
     
     /**
      * @ORM\OneToOne(targetEntity="Base\BledvoyageBundle\Entity\Picture", cascade={"persist", "remove"})
@@ -414,6 +420,29 @@ class Sortie implements Translatable
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set categorieSortie
+     *
+     * @param \Base\BledvoyageBundle\Entity\CategorieSortie $categorieSortie
+     * @return Sortie
+     */
+    public function setCategorieSortie(\Base\BledvoyageBundle\Entity\CategorieSortie $categorieSortie)
+    {
+        $this->categorieSortie = $categorieSortie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorieSortie
+     *
+     * @return \Base\BledvoyageBundle\Entity\CategorieSortie
+     */
+    public function getCategorieSortie()
+    {
+        return $this->categorieSortie;
     }
 
     /**
@@ -1261,26 +1290,26 @@ class Sortie implements Translatable
         {
             return $mc->get("product_".$locale."_".$id);
         }
-        $qb = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
+        $qb = $em->getRepository('BaseBledvoyageBundle:Sortie')
             ->createQueryBuilder('a')
             ->addSelect('b')
-            ->leftJoin('a.sortie', 'b')
+            ->leftJoin('a.categorieSortie', 'b')
             ->addSelect('c')
-            ->leftJoin('b.picture1', 'c')
+            ->leftJoin('a.picture1', 'c')
             ->addSelect('d')
-            ->leftJoin('b.picture2', 'd')
+            ->leftJoin('a.picture2', 'd')
             ->addSelect('e')
-            ->leftJoin('b.picture3', 'e')
+            ->leftJoin('a.picture3', 'e')
             ->addSelect('f')
-            ->leftJoin('b.picture4', 'f')
+            ->leftJoin('a.picture4', 'f')
             ->addSelect('g')
-            ->leftJoin('b.user', 'g')
-            ->where('b.valider = :valider AND b.id = :id')
+            ->leftJoin('a.user', 'g')
+            ->where('a.valider = :valider AND a.id = :id')
             ->setParameters(
-                 array(
-                     'valider'    => '1',
-                     'id'         => $id,
-                 ))
+                array(
+                    'valider'    => '1',
+                    'id'         => $id,
+                ))
             ->orderBy('a.id','DESC');
         // Use Translation Walker
         $query = $qb->getQuery();
@@ -1308,15 +1337,15 @@ class Sortie implements Translatable
             return $mc->get("sorties_".$locale);
         }
         
-        $qb = $em->getRepository('BaseBledvoyageBundle:CategorieSortie')
+        $qb = $em->getRepository('BaseBledvoyageBundle:Sortie')
             ->createQueryBuilder('a')
             ->addSelect('b')
-            ->leftJoin('a.sortie', 'b')
+            ->leftJoin('a.categorieSortie', 'b')
             ->addSelect('c')
-            ->leftJoin('b.picture1', 'c')
+            ->leftJoin('a.picture1', 'c')
             ->AddSelect('d')
-            ->leftJoin('b.user', 'd')
-            ->where('b.valider = 1')
+            ->leftJoin('a.user', 'd')
+            ->where('a.valider = 1')
             ->orderBy('a.id','ASC');
         // Use Translation Walker
         $query = $qb->getQuery();

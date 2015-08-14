@@ -100,7 +100,7 @@ class DefaultController extends Controller
             ->getQuery()
             ->getResult();
         foreach ($product as $data) {
-            $titre = $data->getSortie()->getTitre();
+            $titre = $data->getTitre();
         }
         $nbrAvis = 0;
         foreach ($avis as $data) {
