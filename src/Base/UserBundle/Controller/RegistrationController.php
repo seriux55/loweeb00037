@@ -102,7 +102,7 @@ class RegistrationController extends BaseController
                 'form'      => $form->createView(),
                 'id'        => $id,
             ));
-        }elseif ($redirect == true){
+        }elseif ($redirect === true){
             $response = $this->render('BaseBledvoyageBundle:Default:booking.html.twig', array(
                 'form'      => $form->createView(),
                 'booking'        => $request->request->get('red'),

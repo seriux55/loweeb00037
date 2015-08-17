@@ -90,7 +90,7 @@ class AdminController extends Controller
                 $frToDatetime = $this->container->get('FrToDatetime');
                 $date         = new \DateTime($frToDatetime->todatetime($request->request->get('pdf')));
                 $sortie_id    = $request->request->get('sortie');
-                if($data->getSortie()->getId() == $sortie_id && $data->getConfirmer_user() != null && $data->getDateConfirmer() == $date){
+                if($data->getSortie()->getId() == $sortie_id && $data->getConfirmer_user() !== null && $data->getDateConfirmer() == $date){
                     $participant[] = array(
                         'id'      => $data->getId(),
                         'prenom'  => $data->getUser()->getSecondename(),
@@ -930,7 +930,7 @@ class AdminController extends Controller
                 $datetime = $data->getDateTime()->format('Y-m-d');
                 if (date($datetime) >= date($date1[$i]) && date($datetime) <= date($date2[$i])){
                     $reservation[$i] = $reservation[$i] + 1;
-                    if ($data->getConfirmer_user() != null){
+                    if ($data->getConfirmer_user() !== null){
                         $confirmationR[$i] = $confirmationR[$i] + 1;
                     }
                     if ($data->getAvis() === '1'){
@@ -1317,7 +1317,7 @@ class AdminController extends Controller
                        ->setPourcentage($request->get('pourcentage'))
                        ->setTextPerso($request->get('textPerso'))
                        ->setIp($request->getClientIp());
-            if (null != $request->get('dateSortie')){
+            if (null !== $request->get('dateSortie')){
                 $invitation->setDateSortie(new \DateTime($frToDatetime->toDatetime($request->get('dateSortie'))));
             }
             /*

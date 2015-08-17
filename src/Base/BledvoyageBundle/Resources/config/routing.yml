@@ -117,12 +117,6 @@ bledvoyage_admin_reservation_avis:
     requirements:
         id:   \d+
 
-bledvoyage_admin_reservation_vip:
-    path:     manager/reservation/vip/{id}
-    defaults: { _controller: BaseBledvoyageBundle:Admin:reservationVip }
-    requirements:
-        id:   \d+
-
 bledvoyage_admin_reservation_confirmer:
     path:     manager/reservation/confirmer/{id}
     defaults: { _controller: BaseBledvoyageBundle:Admin:reservationConfirmer }
