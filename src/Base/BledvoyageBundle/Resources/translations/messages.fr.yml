@@ -2,7 +2,7 @@ base:
     bledvoyage:
         base:
             vitrine_1:
-                bledvoyage.com crée et developpe des solutions anti-routines pour particuliers et professionnels.
+                bledvoyage.com crée et developpe des solutions anti-routines pour particuliers et professionnels
             vitrine_2: >
                 Détente, Sensation, Aventure, Challenge, Adrénaline,... Nous vous aidons à trouver des plans 
                 sympas pour chasser la routine.
@@ -22,7 +22,7 @@ base:
             logout: 
                 Logout
             manager:
-                manager
+                Manager
             promotion: 
                 Promotion
             entreprise: 

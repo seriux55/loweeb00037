@@ -268,15 +268,15 @@ class DefaultController extends Controller
     
     public function typeAction($id)
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:CategorieSortie')
+        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
+                   ->leftJoin('a.categorieSortie', 'b')
                    ->addSelect('c')
-                   ->leftJoin('b.categorie', 'c')
+                   ->leftJoin('a.categorie', 'c')
                    ->addSelect('d')
-                   ->leftJoin('b.picture1', 'd')
-                   ->where('b.valider = :valider AND b.categorie = :id')
+                   ->leftJoin('a.picture1', 'd')
+                   ->where('a.valider = :valider AND a.categorie = :id')
                    ->setParameters(array(
                             'valider'   => '1',
                             'id'        => $id,

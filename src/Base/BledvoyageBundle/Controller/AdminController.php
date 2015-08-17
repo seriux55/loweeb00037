@@ -1301,6 +1301,22 @@ class AdminController extends Controller
         );
         $sortie = $query->getResult();
         
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Invitation')
+                ->createQueryBuilder('a')
+                ->addSelect('b')
+                ->leftJoin('a.sortie', 'b')
+                ->orderBy('a.id','DESC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $invitation = $query->getResult();
+        
         if ($request->getMethod() == 'POST') {
             $em           = $this->getDoctrine()->getManager();
             $frToDatetime = $this->container->get('FrToDatetime');
