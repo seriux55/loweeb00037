@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Base\BledvoyageBundle\Form\Type\PictureType;
+use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
 
 class SortieType extends AbstractType
 {
@@ -26,17 +27,17 @@ class SortieType extends AbstractType
             ->add('maxPersonne', 'text')
             ->add('dateDebut', 'date', array(
                     'widget' => 'single_text',
-                    'input' => 'datetime',
+                    'input'  => 'datetime',
                     'format' => 'dd/MM/yyyy',
-                    'attr' => array('class' => 'datepicker'),
+                    'attr'   => array('class' => 'datepicker'),
                 )
             )
             ->add('heureDebut')
             ->add('dateFin', 'date', array(
                     'widget' => 'single_text',
-                    'input' => 'datetime',
+                    'input'  => 'datetime',
                     'format' => 'dd/MM/yyyy',
-                    'attr' => array('class' => 'datepicker'),
+                    'attr'   => array('class' => 'datepicker'),
                 )
             )
             ->add('heureFin')
@@ -44,6 +45,7 @@ class SortieType extends AbstractType
             ->add('picture2', new PictureType())
             ->add('picture3', new PictureType())
             ->add('picture4', new PictureType())
+            ->add('categorieSortie',   new CategorieSortieType())
         ;
         
         /*

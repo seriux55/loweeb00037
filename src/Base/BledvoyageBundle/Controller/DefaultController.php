@@ -10,7 +10,7 @@ use Base\BledvoyageBundle\Entity\Commande;
 use Base\BledvoyageBundle\Entity\AvisSortie;
 use Base\BledvoyageBundle\Entity\Contact;
 use Base\BledvoyageBundle\Entity\CategorieSortie;
-use Base\BledvoyageBundle\Form\Type\CategorieSortieType;
+use Base\BledvoyageBundle\Form\Type\SortieType;
 use Base\BledvoyageBundle\Entity\Sortie;
 use Base\BledvoyageBundle\Entity\Categorie;
 use Base\BledvoyageBundle\Entity\CategorieTicket;
@@ -406,13 +406,13 @@ class DefaultController extends Controller
     {
         $session = $request->getSession();
         $session->set('back', $request->server->get('PHP_SELF'));
-        $sortie = new CategorieSortie();
-        $form = $this->createForm(new CategorieSortieType(), $sortie);
+        $sortie = new Sortie();
+        $form = $this->createForm(new SortieType(), $sortie);
         
         if ($form->handleRequest($request)->isValid()) {
-            $sortie->getSortie()->setIp($this->getRequest()->getClientIp());
-            $sortie->getSortie()->setUser($this->get('security.context')->getToken()->getUser());
             $sortie->setIp($this->getRequest()->getClientIp());
+            $sortie->setUser($this->get('security.context')->getToken()->getUser());
+            $sortie->getCategorieSortie()->setIp($this->getRequest()->getClientIp());
             $em = $this->getDoctrine()->getManager();
             $em->persist($sortie);
             $em->flush();

@@ -14,7 +14,8 @@ class AdminController extends Controller
 {
     public function reservationAction()
     {
-        $product  = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+        $locale = $this->get('request')->getLocale();
+        $qb     = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.sortie', 'b')
@@ -22,9 +23,18 @@ class AdminController extends Controller
                    ->leftJoin('a.user', 'c')
                    ->where('b.valider = :valider')
                    ->setParameter('valider', '1')
-                   ->orderBy('a.id','DESC')
-                   ->getQuery()
-                   ->getResult();
+                   ->orderBy('a.id','ASC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
+        
         $d = array();
         foreach ($product as $data)
         {
@@ -82,19 +92,27 @@ class AdminController extends Controller
                 $sortie_id    = $request->request->get('sortie');
                 if($data->getSortie()->getId() == $sortie_id && $data->getConfirmer_user() != null && $data->getDateConfirmer() == $date){
                     $participant[] = array(
-                        'prenom' => $data->getUser()->getSecondename(),
-                        'nom'    => $data->getUser()->getFirstname(),
-                        'nombre' => $data->getNombre(),
-                        'note'   => $data->getNote(),
+                        'id'      => $data->getId(),
+                        'prenom'  => $data->getUser()->getSecondename(),
+                        'nom'     => $data->getUser()->getFirstname(),
+                        'nombre'  => $data->getNombre(),
+                        'note'    => $data->getNote(),
+                        'creneau' => $data->getCreneau(),
+                        'tel'     => $data->getUser()->getPhone(),
                     );
                     $nbr_resa++;
                     $nbr_place = $nbr_place + $data->getNombre();
-                    if ($i === 0) { $titre = $data->getSortie()->getTitre(); $i = 1; }
+                    if ($i === 0) {
+                        $titre = $data->getSortie()->getTitre();
+                        $tarif = $data->getSortie()->getTarif();
+                        $i = 1; 
+                    }
                 }
             }
             if($i === 1){
                 $devisPdf = $this->render('BaseBledvoyageBundle:Mail:admin_liste_participant.pdf.twig', array(
                     'titre'    => $titre,
+                    'tarif'    => $tarif,
                     'product'  => $participant,
                     'nbrResa'  => $nbr_resa,
                     'nbrPlace' => $nbr_place,
@@ -124,15 +142,25 @@ class AdminController extends Controller
     
     public function commandeAction()
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+        $locale     = $this->get('request')->getLocale();
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.user', 'b')
                    ->addSelect('c')
                    ->leftJoin('a.categorieTicket', 'c')
-                   ->orderBy('a.id','DESC')
-                   ->getQuery()
-                   ->getResult();
+                   ->orderBy('a.id','DESC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
+        
         $d = array();
         foreach ($product as $data)
         {
@@ -173,16 +201,25 @@ class AdminController extends Controller
     
     public function listesAction()
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+        $locale     = $this->get('request')->getLocale();
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.user', 'b')
                    ->addSelect('c')
                    ->leftJoin('a.sortie', 'c')
                    ->where('a.confirmer_user IS NOT NULL')
-                   ->orderBy('a.id','ASC')
-                   ->getQuery()
-                   ->getResult();
+                   ->orderBy('a.id','ASC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
         
         $d = $resa = array();
         foreach ($product as $data) {
@@ -797,6 +834,7 @@ class AdminController extends Controller
     
     public function statisticMoisAction($year = 15)
     {
+        $locale     = $this->get('request')->getLocale();
         $dateFromNumberWeek = $this->container->get('dateFromNumberWeek');
         $toTwoDate = $dateFromNumberWeek->toTwoDate(1, 2015);
         $dimanche  = $toTwoDate[0];
@@ -811,7 +849,7 @@ class AdminController extends Controller
             $dateB = date('Y-m-d', strtotime($year.'-12-31'));
         }
         
-        $commandes = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+        $qb = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.categorieTicket', 'b')
@@ -819,10 +857,19 @@ class AdminController extends Controller
                    ->setParameters(array(
                        'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
                        'dateB' => $dateB,
-                   ))
-                   ->getQuery()
-                   ->getResult();
-        $reservations = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
+                   ));
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $commandes = $query->getResult();
+        
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.sortie', 'b')
@@ -830,9 +877,18 @@ class AdminController extends Controller
                    ->setParameters(array(
                        'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
                        'dateB' => $dateB,
-                   ))
-                   ->getQuery()
-                   ->getResult();
+                   ));
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $reservations = $query->getResult();
+        
         $operateurs = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Operateur')
                     ->createQueryBuilder('a')
                     ->addSelect('b')
@@ -1228,13 +1284,23 @@ class AdminController extends Controller
     
     public function invitationAction(Request $request)
     {
-        $sortie = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
+        $locale     = $this->get('request')->getLocale();
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
                 ->createQueryBuilder('a')
                 ->where('a.valider = :valider')
                 ->setParameter('valider', '1')
-                ->orderBy('a.id','ASC')
-                ->getQuery()
-                ->getResult();
+                ->orderBy('a.id','ASC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $sortie = $query->getResult();
+        
         if ($request->getMethod() == 'POST') {
             $em           = $this->getDoctrine()->getManager();
             $frToDatetime = $this->container->get('FrToDatetime');
@@ -1310,15 +1376,25 @@ class AdminController extends Controller
         ));
     }
     
-    public function devisEntrepriseAction(Request $request){
-        
-        $sorties = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
+    public function devisEntrepriseAction(Request $request)
+    {
+        $locale     = $this->get('request')->getLocale();
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
                 ->createQueryBuilder('a')
                 ->where('a.valider = :valider')
                 ->setParameter('valider', '1')
-                ->orderBy('a.id','ASC')
-                ->getQuery()
-                ->getResult();
+                ->orderBy('a.id','ASC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $sorties = $query->getResult();
+        
         $total = 0;
         if ($request->getMethod() == 'POST') {
             foreach ($sorties as $data) {

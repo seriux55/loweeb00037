@@ -59,7 +59,7 @@ class Sortie implements Translatable
     private $categorie;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\CategorieSortie")
+     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\CategorieSortie", cascade = {"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $categorieSortie;

@@ -5,7 +5,6 @@ namespace Base\BledvoyageBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Base\BledvoyageBundle\Form\Type\SortieType;
 
 class CategorieSortieType extends AbstractType
 {
@@ -84,7 +83,6 @@ class CategorieSortieType extends AbstractType
                 'label'     => 'Quad',
                 'required'  => false,
             ))
-            ->add('sortie', new SortieType())
         ;
     }
     

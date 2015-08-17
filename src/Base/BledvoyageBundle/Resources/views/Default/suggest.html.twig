@@ -41,18 +41,18 @@
                     <div class="mr7">
                         <div class="mr4u">
                             <label>{% trans %}base.bledvoyage.creation.local{% endtrans %}</label>
-                            {{ form_widget(form.sortie.localisation, {'attr': {'class': 'ouardep'} }) }}
+                            {{ form_widget(form.localisation, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <label for="titre">{% trans %}base.bledvoyage.creation.titre{% endtrans %}</label>
-                        {{ form_widget(form.sortie.titre, {'attr': {'class': 'ouatitre'} }) }}
+                        {{ form_widget(form.titre, {'attr': {'class': 'ouatitre'} }) }}
                     </div>
                     <div class="mr7">
                         <label for="type">{% trans %}base.bledvoyage.creation.type{% endtrans %}</label>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.velo) }}
+                                {{ form_widget(form.categorieSortie.velo) }}
                             </div>
                             <div class="opit">
                                 <label for="velo" class="pigo">
@@ -65,7 +65,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.randonee) }}
+                                {{ form_widget(form.categorieSortie.randonee) }}
                             </div>
                             <div class="opit">
                                 <label for="randonee" class="pigo">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.fitness) }}
+                                {{ form_widget(form.categorieSortie.fitness) }}
                             </div>
                             <div class="opit">
                                 <label for="fitness" class="pigo">
@@ -91,7 +91,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.running) }}
+                                {{ form_widget(form.categorieSortie.running) }}
                             </div>
                             <div class="opit">
                                 <label for="running" class="pigo">
@@ -104,7 +104,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.roller) }}
+                                {{ form_widget(form.categorieSortie.roller) }}
                             </div>
                             <div class="opit">
                                 <label for="roller" class="pigo">
@@ -117,7 +117,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.tennis) }}
+                                {{ form_widget(form.categorieSortie.tennis) }}
                             </div>
                             <div class="opit">
                                 <label for="tennis" class="pigo">
@@ -130,7 +130,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.sportEau) }}
+                                {{ form_widget(form.categorieSortie.sportEau) }}
                             </div>
                             <div class="opit">
                                 <label for="sport_eau" class="pigo">
@@ -143,7 +143,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.plongee) }}
+                                {{ form_widget(form.categorieSortie.plongee) }}
                             </div>
                             <div class="opit">
                                 <label for="plongee" class="pigo">
@@ -156,7 +156,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.golf) }}
+                                {{ form_widget(form.categorieSortie.golf) }}
                             </div>
                             <div class="opit">
                                 <label for="golf" class="pigo">
@@ -169,7 +169,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.kayak) }}
+                                {{ form_widget(form.categorieSortie.kayak) }}
                             </div>
                             <div class="opit">
                                 <label for="kayak" class="pigo">
@@ -182,7 +182,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.equitation) }}
+                                {{ form_widget(form.categorieSortie.equitation) }}
                             </div>
                             <div class="opit">
                                 <label for="equitation" class="pigo">
@@ -195,7 +195,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.marche) }}
+                                {{ form_widget(form.categorieSortie.marche) }}
                             </div>
                             <div class="opit">
                                 <label for="marche" class="pigo">
@@ -208,7 +208,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.visites) }}
+                                {{ form_widget(form.categorieSortie.visites) }}
                             </div>
                             <div class="opit">
                                 <label for="visites" class="pigo">
@@ -221,7 +221,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.air) }}
+                                {{ form_widget(form.categorieSortie.air) }}
                             </div>
                             <div class="opit">
                                 <label for="air" class="pigo">
@@ -234,7 +234,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.sable) }}
+                                {{ form_widget(form.categorieSortie.sable) }}
                             </div>
                             <div class="opit">
                                 <label for="sable" class="pigo">
@@ -247,7 +247,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.quad) }}
+                                {{ form_widget(form.categorieSortie.quad) }}
                             </div>
                             <div class="opit">
                                 <label for="quad" class="pigo">
@@ -260,7 +260,7 @@
                         </div>
                         <div class="tyso">
                             <div class="opig">
-                                {{ form_widget(form.arc) }}
+                                {{ form_widget(form.categorieSortie.arc) }}
                             </div>
                             <div class="opit">
                                 <label for="arc" class="pigo">
@@ -275,55 +275,55 @@
                     <div class="mr7">
                         <div class="mr4u">
                             <label for="date_debut">{% trans %}base.bledvoyage.creation.date_1{% endtrans %}</label>
-                            {{ form_widget(form.sortie.dateDebut, {'attr': {'class': 'datepicker'} }) }}
+                            {{ form_widget(form.dateDebut, {'attr': {'class': 'datepicker'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="heure_debut">{% trans %}base.bledvoyage.creation.heure_1{% endtrans %}</label>
-                            {{ form_widget(form.sortie.heureDebut, {'attr': {'class': 'ouardep'} }) }}
+                            {{ form_widget(form.heureDebut, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="date_fin">{% trans %}base.bledvoyage.creation.date_2{% endtrans %}</label>
-                            {{ form_widget(form.sortie.dateFin, {'attr': {'class': 'datepicker'} }) }}
+                            {{ form_widget(form.dateFin, {'attr': {'class': 'datepicker'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="heure_fin">{% trans %}base.bledvoyage.creation.heure_2{% endtrans %}</label>
-                            {{ form_widget(form.sortie.heureFin, {'attr': {'class': 'ouardep'} }) }}
+                            {{ form_widget(form.heureFin, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
                             <label for="tarif">{% trans %}base.bledvoyage.creation.tarif{% endtrans %}</label>
-                            {{ form_widget(form.sortie.tarif, {'attr': {'class': 'ouardep'} }) }}
+                            {{ form_widget(form.tarif, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="max_personne">{% trans %}base.bledvoyage.creation.nombre{% endtrans %}</label>
-                            {{ form_widget(form.sortie.maxPersonne, {'attr': {'class': 'ouardep'} }) }}
+                            {{ form_widget(form.maxPersonne, {'attr': {'class': 'ouardep'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
                             <label for="descriptif">{% trans %}base.bledvoyage.creation.description_1{% endtrans %}</label>
                             <p class="coord">{% trans %}base.bledvoyage.creation.description_2{% endtrans %}</p>
-                            {{ form_widget(form.sortie.descriptif, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
+                            {{ form_widget(form.descriptif, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
                         </div>
                         <div class="mr4u">
                             <label for="condi">{% trans %}base.bledvoyage.creation.condition_1{% endtrans %}</label>
                             <p class="coord">{% trans %}base.bledvoyage.creation.condition_2{% endtrans %}</p>
-                            {{ form_widget(form.sortie.conditions, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
+                            {{ form_widget(form.conditions, {'attr': {'class': 'textarea', 'cols': '30', 'rows': '5'} }) }}
                         </div>
                     </div>
                     <div class="mr7">
                         <div class="mr4u">
-                            {{ form_widget(form.sortie.picture1.file) }}
+                            {{ form_widget(form.picture1.file) }}
                         
                         <div class="mr4u">
-                            {{ form_widget(form.sortie.picture2.file) }}
+                            {{ form_widget(form.picture2.file) }}
                         </div>
                         <div class="mr4u">
-                            {{ form_widget(form.sortie.picture3.file) }}
+                            {{ form_widget(form.picture3.file) }}
                         </div>
                         <div class="mr4u">
-                            {{ form_widget(form.sortie.picture4.file) }}
+                            {{ form_widget(form.picture4.file) }}
                         </div>
                     </div>
                     <div class="mr6">

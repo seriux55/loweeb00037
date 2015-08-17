@@ -4,6 +4,9 @@
             <h1>{{ date|date('d/m/Y') }}</h1>
         </div>
         <strong>TOTAL :  {{ nbrResa }} résa, {{ nbrPlace }} places</strong>
+        <br />
+        <br />
+        <strong>Tarif: {{ tarif }} Dinars/personne</strong>
         <h2>{{ titre }}</h2>
         <table>
             <thead>
@@ -19,17 +22,19 @@
                 </tr>
             </thead>
             <tbody>
+                {% set i = 1 %}
                 {% for data in product %}
                 <tr>
-                    <td class="numero">11</td>
-                    <td>123</td>
+                    <td class="numero">{{ i }}</td>
+                    <td>{{ data.id }}</td>
                     <td>{{ data.prenom }}</td>
                     <td>{{ data.nom }}</td>
-                    <td>0606060606</td>
+                    <td>{{ data.tel }}</td>
                     <td>{{ data.nombre }}</td>
-                    <td>11h</td>
+                    <td>{{ data.creneau }}</td>
                     <td>{{ data.note }}</td>
                 </tr>
+                {% set i = i + 1 %}
                 {% endfor %}
             </tbody>
         </table>
