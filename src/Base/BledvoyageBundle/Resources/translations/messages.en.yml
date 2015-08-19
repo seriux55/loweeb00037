@@ -271,3 +271,24 @@ base:
                 Dificulties filling up the registration form ? Need more info on the outing ? Call us !
             retour:
                 Come back to bledvoyage.com
+        type:
+            au:
+                TO
+            max:
+                Max
+            personne:
+                people
+            detail:
+                Details
+            reserver:
+                Book
+            complet:
+                Full
+            promo_1:
+                Get the gift vouchers and enjoy outings and discount activities !
+            promo_21:
+                "Whether you are an individual or a company, The gift vouchers offer you a wide choice of activities : Sensations in the sea, on land , up in the mountain ... at a reduced price !"
+            promo_22:
+                Adventure, Trigger for yourselves, your friends, your co-workers, your co-partners... to share with your besties, offer as present.
+            promo_3:
+                Discover our reduced-price offers

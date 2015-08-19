@@ -13,10 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Invitation
 {
     public function __construct() {
-        $this->code     = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
-        $this->dateTime = new \DateTime();
+        $this->code       = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
+        $this->dateTime   = new \DateTime();
         $this->dateSortie = new \DateTime('0000-00-00');
-        $this->close = "0";
+        $this->close      = "0";
     }
     
     /**

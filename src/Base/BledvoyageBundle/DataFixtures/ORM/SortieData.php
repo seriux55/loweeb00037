@@ -1256,7 +1256,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie24->setPhoto2('forma_1.png');
         $sortie24->setPhoto3('format_2.png');
         $sortie24->setPhoto4('format_2.png');
-        $sortie24->setValider('1');
+        $sortie24->setValider('0');
         $sortie24->setCharge('');
         $sortie24->setAcces('');
         $sortie24->setEcheance('0');
@@ -1311,7 +1311,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie25->setPhoto2('forma_1.png');
         $sortie25->setPhoto3('format_2.png');
         $sortie25->setPhoto4('format_2.png');
-        $sortie25->setValider('1');
+        $sortie25->setValider('2');
         $sortie25->setCharge('');
         $sortie25->setAcces('');
         $sortie25->setEcheance('0');

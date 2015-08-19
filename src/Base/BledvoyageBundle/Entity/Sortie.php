@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Sortie implements Translatable
 {
     public function __construct() {
-        $this->valider  = "0";
+        $this->valider  = "2";
         $this->annuler  = "0";
         $this->astuce   = "0";
         $this->pub      = "0";

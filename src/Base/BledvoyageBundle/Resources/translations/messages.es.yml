@@ -271,3 +271,24 @@ base:
                 Dificultad para completar el formulario de reserva ? Necesita más información acerca de la salida ? Llámanos !
             retour:
                 Volver al sitio de bledvoyage.com
+        type:
+            au:
+                HASTA
+            max:
+                Max
+            personne:
+                peronas
+            detail:
+                Detalles
+            reserver:
+                Reservar
+            complet:
+                Completo
+            promo_1:
+                Comprar bonos de regalo y disfrutar de salidas y actividades de descuento!
+            promo_21:
+                "Si usted es un particular o una empresa, vales de regalo ofrecen una amplia variedad de actividades: Las sensaciones en el mar, en tierra, en las montañas ... a precios excelentes!"
+            promo_22:
+                Aventura, relajación para usted, sus amigos, sus empleados, sus socios ... para compartir con amigos y familia como regalos.
+            promo_3:
+                Descubra nuestras tarifas Ofertas descuentos

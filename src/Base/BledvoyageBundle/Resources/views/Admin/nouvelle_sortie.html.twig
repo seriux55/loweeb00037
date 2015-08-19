@@ -1,0 +1,72 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Validation des sorties
+    </h2>
+</div>
+{% for data in sorties %}
+<section>
+    <div class="conte">
+        <div class="rc">
+            <div class="photorc">
+                {% if data.picture1 != null %}
+                <img src="{{ asset(data.picture1.webPath) }}" alt="{{ data.picture1.alt }}" />
+                {% endif %}
+            </div>
+            <div class="desrc">
+                <article>
+                    <h1>{{ data.titre }}</h1>
+                    <h3>Le {{ data.dateDebut|date('d/m/Y') }}, {{ data.heureDebut }} - {{ data.heureFin }}.</h3>
+                    <p>
+                        {{ data.descriptif }}<br />
+                    </p>
+                    <h2>{{ data.localisation }}</h2>
+                </article>
+                <div class="opt">
+                    {% if data.categorieSortie.roller == 1 %}<img alt="Roller"          src="{{ asset('bundles/basebledvoyage/images/op/roller.png') }}">{% endif %}
+                    {% if data.categorieSortie.equitation == 1 %}<img alt="Equitation"  src="{{ asset('bundles/basebledvoyage/images/op/equitation.png') }}">{% endif %}
+                    {% if data.categorieSortie.fitness == 1 %}<img alt="Fitness"        src="{{ asset('bundles/basebledvoyage/images/op/fitness.png') }}">{% endif %}
+                    {% if data.categorieSortie.golf == 1 %}<img alt="Golf"              src="{{ asset('bundles/basebledvoyage/images/op/golf.png') }}">{% endif %}
+                    {% if data.categorieSortie.kayak == 1 %}<img alt="Kayak"            src="{{ asset('bundles/basebledvoyage/images/op/kayak.png') }}">{% endif %}
+                    {% if data.categorieSortie.plongee == 1 %}<img alt="Plongée"        src="{{ asset('bundles/basebledvoyage/images/op/plongee.png') }}">{% endif %}
+                    {% if data.categorieSortie.randonee == 1 %}<img alt="Randonnee"     src="{{ asset('bundles/basebledvoyage/images/op/randonnee.png') }}">{% endif %}
+                    {% if data.categorieSortie.running == 1 %}<img alt="Running"        src="{{ asset('bundles/basebledvoyage/images/op/running.png') }}">{% endif %}
+                    {% if data.categorieSortie.marche == 1 %}<img alt="Marche"          src="{{ asset('bundles/basebledvoyage/images/op/marche.png') }}">{% endif %}
+                    {% if data.categorieSortie.sportEau == 1 %}<img alt="Sport"         src="{{ asset('bundles/basebledvoyage/images/op/sport_eau.png') }}">{% endif %}
+                    {% if data.categorieSortie.tennis == 1 %}<img alt="tenis"           src="{{ asset('bundles/basebledvoyage/images/op/tenis.png') }}">{% endif %}
+                    {% if data.categorieSortie.velo == 1 %}<img alt="Velo"              src="{{ asset('bundles/basebledvoyage/images/op/velo.png') }}">{% endif %}
+                    {% if data.categorieSortie.visites == 1 %}<img alt="Visite"         src="{{ asset('bundles/basebledvoyage/images/op/visite.png') }}">{% endif %}
+                    {% if data.categorieSortie.arc == 1 %}<img alt="Arc"                src="{{ asset('bundles/basebledvoyage/images/op/arc.png') }}">{% endif %}
+                    {% if data.categorieSortie.quad == 1 %}<img alt="Quad"              src="{{ asset('bundles/basebledvoyage/images/op/quad.png') }}">{% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="choirc">
+            <div class="detrc">
+                <p class="prixnuit">
+                    <strong>{{ data.tarif }}</strong>
+                    Da
+                </p>
+                <p class="prixtot">Max : {{ data.maxPersonne }} peronnes</p>	
+            </div>
+        </div>
+    </div>
+    <div class="conte">
+        <p>{{ data.user.secondename }}</p>
+        <p>{{ data.user.firstname }}</p>
+        <p>{{ data.user.email }}</p>
+        <p>{{ data.user.phone }}</p>
+    </div>
+    <div class="casoute">
+        <a href="{{ path('bledvoyage_admin_valider_sortie', { id: data.id } ) }}">Accepter</a>
+        <a href="{{ path('bledvoyage_admin_refuser_sortie', { id: data.id } ) }}">Refuser</a>
+    </div>
+</section>
+{% endfor %}
+{% endblock %}
+
+{% block jquery %}{% endblock %}

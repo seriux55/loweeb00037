@@ -569,22 +569,22 @@ Shoes like tennis, arctic clothing or windproof gloves.");
         $manager->persist($categorie2);
         
         $categorie3 = $this->getReference('categorie3');
-        $categorie3->setNom('mar');
+        $categorie3->setNom('arena');
         $categorie3->setTranslatableLocale('es');
         $manager->persist($categorie3);
         
         $categorie4 = $this->getReference('categorie4');
-        $categorie4->setNom('aire');
+        $categorie4->setNom('mar');
         $categorie4->setTranslatableLocale('es');
         $manager->persist($categorie4);
         
         $categorie5 = $this->getReference('categorie5');
-        $categorie5->setNom('tierra');
+        $categorie5->setNom('aire');
         $categorie5->setTranslatableLocale('es');
         $manager->persist($categorie5);
         
         $categorie6 = $this->getReference('categorie6');
-        $categorie6->setNom('arena');
+        $categorie6->setNom('tierra');
         $categorie6->setTranslatableLocale('es');
         $manager->persist($categorie6);
         

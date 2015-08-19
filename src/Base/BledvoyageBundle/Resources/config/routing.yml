@@ -146,3 +146,19 @@ bledvoyage_admin_invitation:
 bledvoyage_admin_devis_entreprise:
     path:     manager/devis
     defaults: { _controller: BaseBledvoyageBundle:Admin:devisEntreprise }
+
+bledvoyage_admin_nouvelle_sortie:
+    path:     manager/newActivity
+    defaults: { _controller: BaseBledvoyageBundle:Admin:validationSortie }
+
+bledvoyage_admin_valider_sortie:
+    path:     manager/valider/yes/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:validerSortie }
+    requirements:
+        id: \d+
+
+bledvoyage_admin_refuser_sortie:
+    path:     manager/valider/no/{id}
+    defaults: { _controller: BaseBledvoyageBundle:Admin:refuserSortie }
+    requirements:
+        id: \d+

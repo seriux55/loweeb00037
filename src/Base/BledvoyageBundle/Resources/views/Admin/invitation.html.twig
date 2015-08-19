@@ -16,12 +16,45 @@
 <div class="bloc_page_body3">
     <section>
         <p>Les autres invitations</p>
-        
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Entreprise</th>
+                    <th>email</th>
+                    <th>Tel</th>
+                    <th>Nombre</th>
+                    <th>Sortie</th>
+                    <th>Réduction</th>
+                    <th>Date</th>
+                    <th>Création</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in invitation %}
+                <tr>
+                    <td>{{ data.id }}
+                    <td>{{ data.nom }}</td>
+                    <td>{{ data.prenom }}</td>
+                    <td>{{ data.entreprise }}</td>
+                    <td>{{ data.mail }}</td>
+                    <td>{{ data.telephone }}</td>
+                    <td>{{ data.nombre }}</td>
+                    <td>{{ data.sortie.titre }}</td>
+                    <td>{{ data.pourcentage }}%</td>
+                    <td>{% if data.dateSortie == "30/11/-0001" %}{{ data.dateSortie|date('d/m/Y') }}{% endif %}</td>
+                    <td>{{ data.dateTime|date('d/m/Y') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
     <section>
         <div>
             <div class="sectiar">
-                <h2>Information sur l'invitation</h2>
+                <h2>Nouvelle invitation</h2>
             </div>
             <div class="sectiono">
                 <form method="post" enctype="multipart/form-data">

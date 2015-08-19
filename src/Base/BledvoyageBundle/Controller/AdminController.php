@@ -16,15 +16,15 @@ class AdminController extends Controller
     {
         $locale = $this->get('request')->getLocale();
         $qb     = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('a.user', 'c')
-                   ->where('b.valider = :valider')
-                   ->setParameter('valider', '1')
-                   ->orderBy('a.id','ASC');
-        $query = $qb->getQuery();
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.sortie', 'b')
+            ->addSelect('c')
+            ->leftJoin('a.user', 'c')
+            ->where('b.valider = :valider')
+            ->setParameter('valider', '1')
+            ->orderBy('a.id','ASC');
+        $query  = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
             'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
@@ -34,6 +34,21 @@ class AdminController extends Controller
             $locale
         );
         $product = $query->getResult();
+        
+        $qb     = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Invitation')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.sortie', 'b');
+        $query  = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $invitation = $query->getResult();
         
         $d = array();
         foreach ($product as $data)
@@ -53,32 +68,67 @@ class AdminController extends Controller
                 );
                 $d[] = $data->getSortie()->getTitre();
             }
-            $reservation[] = array(
-                'number'            => $number,
-                'id'                => $data->getId(),
-                'sortie'            => $data->getSortie()->getId(),
-                'nom'               => $data->getUser()->getFirstname(),
-                'prenom'            => $data->getUser()->getSecondename(),
-                'tel'               => $data->getUser()->getPhone(),
-                'dateTime'          => $data->getDateTime(),
-                'place'             => $data->getNombre(),
-                'dateReserver'      => $data->getDateReserver(),
-                'dateConfirmer'     => $data->getDateConfirmer(),
-                'promo'             => $data->getPromoApayer(),
-                'formation'         => $data->getLieuFormation(),
-                'DateRdv'           => $data->getDateRdv(),
-                'HeureRdv'          => $data->getHeureRdv(),
-                'lieuRdv'           => $data->getLieuRdv(),
-                'avis'              => $data->getAvis(),
-                'confirmer'         => $data->getConfirmer_user(),
-                'acompte'           => $data->getAcompte_user(),
-                'avisUser'          => $data->getAvis_user(),
-                'noteUser'          => $data->getNote_user(),
-                'note'              => $data->getNote(),
-                'ticketPromo'       => $data->getTicketPromo(),
-                'vip'               => $data->getUser()->getVip(),
-                'acompteTarif'      => $data->getAcompte(),
-            );
+            if(null === $data->getInvitation()){
+                $reservation[] = array(
+                    'number'            => $number,
+                    'id'                => $data->getId(),
+                    'sortie'            => $data->getSortie()->getId(),
+                    'nom'               => $data->getUser()->getFirstname(),
+                    'prenom'            => $data->getUser()->getSecondename(),
+                    'tel'               => $data->getUser()->getPhone(),
+                    'dateTime'          => $data->getDateTime(),
+                    'place'             => $data->getNombre(),
+                    'dateReserver'      => $data->getDateReserver(),
+                    'dateConfirmer'     => $data->getDateConfirmer(),
+                    'promo'             => $data->getPromoApayer(),
+                    'formation'         => $data->getLieuFormation(),
+                    'DateRdv'           => $data->getDateRdv(),
+                    'HeureRdv'          => $data->getHeureRdv(),
+                    'lieuRdv'           => $data->getLieuRdv(),
+                    'avis'              => $data->getAvis(),
+                    'confirmer'         => $data->getConfirmer_user(),
+                    'acompte'           => $data->getAcompte_user(),
+                    'avisUser'          => $data->getAvis_user(),
+                    'noteUser'          => $data->getNote_user(),
+                    'note'              => $data->getNote(),
+                    'ticketPromo'       => $data->getTicketPromo(),
+                    'vip'               => $data->getUser()->getVip(),
+                    'acompteTarif'      => $data->getAcompte(),
+                );
+            }else{
+                foreach($invitation as $inv){
+                    if($inv == $data->getInvitation()){
+                        $reservation[] = array(
+                            'number'            => $inv->getId(),
+                            'id'                => $data->getId(),
+                            'sortie'            => $inv->getSortie()->getId(),
+                            'nom'               => $inv->getNom(),
+                            'prenom'            => $inv->getPrenom(),
+                            'tel'               => $inv->getTelephone(),
+                            'dateTime'          => $inv->getDateTime(),
+                            'place'             => $inv->getNombre(),
+                            'dateReserver'      => $data->getDateReserver(),
+                            'dateConfirmer'     => $data->getDateConfirmer(),
+                            'promo'             => $data->getPromoApayer(),
+                            'formation'         => $data->getLieuFormation(),
+                            'DateRdv'           => $data->getDateRdv(),
+                            'HeureRdv'          => $data->getHeureRdv(),
+                            'lieuRdv'           => $data->getLieuRdv(),
+                            'avis'              => $data->getAvis(),
+                            'confirmer'         => $data->getConfirmer_user(),
+                            'acompte'           => $data->getAcompte_user(),
+                            'avisUser'          => $data->getAvis_user(),
+                            'noteUser'          => $data->getNote_user(),
+                            'note'              => 'Invitation: réduction de '.$inv->getPourcentage().'%',
+                            'ticketPromo'       => '',
+                            'vip'               => '',
+                            'acompteTarif'      => '',
+                        );
+                       
+                    } 
+                }
+            }
+            
             $number++;
         }
         // Lors de la submission du formulaire de generation du pdf
@@ -137,6 +187,7 @@ class AdminController extends Controller
         return $this->render('BaseBledvoyageBundle:Admin:reservation.html.twig', array(
             'product'       => $sorties,
             'reservation'   => $reservation,
+            'invitation'    => $invitation,
         ));
     }
     
@@ -144,12 +195,12 @@ class AdminController extends Controller
     {
         $locale     = $this->get('request')->getLocale();
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.user', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('a.categorieTicket', 'c')
-                   ->orderBy('a.id','DESC');
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.user', 'b')
+            ->addSelect('c')
+            ->leftJoin('a.categorieTicket', 'c')
+            ->orderBy('a.id','DESC');
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -203,13 +254,13 @@ class AdminController extends Controller
     {
         $locale     = $this->get('request')->getLocale();
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.user', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('a.sortie', 'c')
-                   ->where('a.confirmer_user IS NOT NULL')
-                   ->orderBy('a.id','ASC');
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.user', 'b')
+            ->addSelect('c')
+            ->leftJoin('a.sortie', 'c')
+            ->where('a.confirmer_user IS NOT NULL')
+            ->orderBy('a.id','ASC');
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -262,34 +313,34 @@ class AdminController extends Controller
     public function commandeConfirmerAction($id)
     {
         $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.user', 'b')
-                   ->addSelect('c')
-                   ->leftJoin('a.categorieTicket', 'c')
-                   ->where('a.id = :id')
-                   ->setParameter('id', $id)
-                   ->orderBy('a.id','ASC')
-                   ->getQuery()
-                   ->getResult();
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.user', 'b')
+            ->addSelect('c')
+            ->leftJoin('a.categorieTicket', 'c')
+            ->where('a.id = :id')
+            ->setParameter('id', $id)
+            ->orderBy('a.id','ASC')
+            ->getQuery()
+            ->getResult();
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
             $frToDatetime = $this->container->get('FrToDatetime');
             $em = $this->getDoctrine()->getManager();
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
             $commande->setModePaiement($request->get('paiement'))
-                     ->setNombre($request->get('nombre'))
-                     ->setLieuRdv($request->get('lieuRdv'))
-                     ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))))
-                     ->setHeureRdv($request->get('heureRdv'))
-                     ->setConfirmer('1')
-                     ->getUser()->setEmail($request->get('email'));
+                ->setNombre($request->get('nombre'))
+                ->setLieuRdv($request->get('lieuRdv'))
+                ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))))
+                ->setHeureRdv($request->get('heureRdv'))
+                ->setConfirmer('1')
+                ->getUser()->setEmail($request->get('email'));
             $em->persist($commande);
             $operateur = new Operateur();
             $operateur->setUser($this->get('security.context')->getToken()->getUser())
-                      ->setCommande($commande)
-                      ->setAction('2')
-                      ->setIp($this->getRequest()->getClientIp());
+                ->setCommande($commande)
+                ->setAction('2')
+                ->setIp($this->getRequest()->getClientIp());
             $em->persist($operateur);
             $em->flush();
             $message = \Swift_Message::newInstance()
@@ -1315,7 +1366,7 @@ class AdminController extends Controller
             \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
             $locale
         );
-        $invitation = $query->getResult();
+        $invitations = $query->getResult();
         
         if ($request->getMethod() == 'POST') {
             $em           = $this->getDoctrine()->getManager();
@@ -1388,7 +1439,8 @@ class AdminController extends Controller
         }
         
         return $this->render('BaseBledvoyageBundle:Admin:invitation.html.twig', array(
-            'sortie' => $sortie,
+            'sortie'     => $sortie,
+            'invitation' => $invitations,
         ));
     }
     
@@ -1445,5 +1497,58 @@ class AdminController extends Controller
             'sorties'   => $sorties,
             'total'     => $total,
         ));
+    }
+    
+    public function validationSortieAction()
+    {
+        $locale = $this->get('request')->getLocale();
+        
+        $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.categorieSortie', 'b')
+            ->addSelect('c')
+            ->leftJoin('a.picture1', 'c')
+            ->AddSelect('d')
+            ->leftJoin('a.user', 'd')
+            ->where('a.valider = 2')
+            ->orderBy('a.id','ASC');
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $sorties = $query->getResult();
+        return $this->render('BaseBledvoyageBundle:Admin:nouvelle_sortie.html.twig', array(
+            'sorties'   => $sorties,
+        ));
+    }
+    
+    public function validerSortieAction($id)
+    {
+        $em      = $this->getDoctrine()->getManager();
+        $sortie  = $em->getRepository('BaseBledvoyageBundle:Sortie')->find($id);
+        $sortie->setValider("1");
+        $em->persist($sortie);
+        $em->flush(); 
+        
+        return $this->forward('BaseBledvoyageBundle:Admin:validationSortie');
+    }
+    
+    public function refuserSortieAction($id)
+    {
+        $em      = $this->getDoctrine()->getManager();
+        $sortie  = $em->getRepository('BaseBledvoyageBundle:Sortie')->find($id);
+        $sortie->setValider("0");
+        $em->persist($sortie);
+        $em->flush(); 
+        
+        return $this->forward('BaseBledvoyageBundle:Admin:validationSortie');
     }
 }

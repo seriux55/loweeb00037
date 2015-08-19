@@ -55,6 +55,12 @@ class Booking
      * @ORM\JoinColumn(nullable=false)
      */
     private $sortie;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Base\BledvoyageBundle\Entity\Invitation")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $invitation;
 
     /**
      * @var \DateTime
@@ -941,5 +947,28 @@ class Booking
     public function getSortie()
     {
         return $this->sortie;
+    }
+
+    /**
+     * Set invitation
+     *
+     * @param \Base\BledvoyageBundle\Entity\Invitation $invitation
+     * @return Booking
+     */
+    public function setInvitation(\Base\BledvoyageBundle\Entity\Invitation $invitation)
+    {
+        $this->invitation = $invitation;
+
+        return $this;
+    }
+
+    /**
+     * Get invitation
+     *
+     * @return \Base\BledvoyageBundle\Entity\Invitation
+     */
+    public function getInvitation()
+    {
+        return $this->invitation;
     }
 }

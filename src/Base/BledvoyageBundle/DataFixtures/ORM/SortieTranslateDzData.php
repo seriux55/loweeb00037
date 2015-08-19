@@ -10,7 +10,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Base\BledvoyageBundle\Entity\Sortie;
 
-class SortieTranslateEnData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class SortieTranslateDzData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     private $container;
 
@@ -65,7 +65,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie1->setTranslatableLocale('en');
+        $sortie1->setTranslatableLocale('dz');
         $manager->persist($sortie1);
         
         $sortie2 = $this->getReference('sortie2');
@@ -86,7 +86,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie2->setTranslatableLocale('en');
+        $sortie2->setTranslatableLocale('dz');
         $manager->persist($sortie2);
         
         $sortie3 = $this->getReference('sortie3');
@@ -103,7 +103,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie3->setTranslatableLocale('en');
+        $sortie3->setTranslatableLocale('dz');
         $manager->persist($sortie3);
         
         $sortie4 = $this->getReference('sortie4');
@@ -123,7 +123,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie4->setTranslatableLocale('en');
+        $sortie4->setTranslatableLocale('dz');
         $manager->persist($sortie4);
         
         $sortie5 = $this->getReference('sortie5');
@@ -148,7 +148,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie5->setTranslatableLocale('en');
+        $sortie5->setTranslatableLocale('dz');
         $manager->persist($sortie5);
         
         $sortie6 = $this->getReference('sortie6');
@@ -164,7 +164,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie6->setTranslatableLocale('en');
+        $sortie6->setTranslatableLocale('dz');
         $manager->persist($sortie6);
         
         $sortie7 = $this->getReference('sortie7');
@@ -177,7 +177,7 @@ Do not forget your USB key to retrieve your photos & videos, all fresh.");
 Être majeur,
 Être en bonne santé.
 Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre sous l'eau.");
-        $sortie7->setTranslatableLocale('en');
+        $sortie7->setTranslatableLocale('dz');
         $manager->persist($sortie7);
         
         $sortie8 = $this->getReference('sortie8');
@@ -200,7 +200,7 @@ Wearing mountain clothes and shoes (closed and knee hight) is strongly recommend
 Wearing gloves is adviced,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region,
 Moreover, During the activity.It is prefered not to wear jewelleries  (wrings, necklases, bracelets,...) of the risk of loss .");
-        $sortie8->setTranslatableLocale('en');
+        $sortie8->setTranslatableLocale('dz');
         $manager->persist($sortie8);
         
         $sortie9 = $this->getReference('sortie9');
@@ -220,7 +220,7 @@ Student price: 4400 dinars / person.");
 - Savoir nager,
 - Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
 Et pour finir, pendant les activités, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre sous l'eau.");
-        $sortie9->setTranslatableLocale('en');
+        $sortie9->setTranslatableLocale('dz');
         $manager->persist($sortie9);
         
         $sortie10 = $this->getReference('sortie10');
@@ -240,7 +240,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie10->setTranslatableLocale('en');
+        $sortie10->setTranslatableLocale('dz');
         $manager->persist($sortie10);
         
         $sortie11 = $this->getReference('sortie11');
@@ -263,7 +263,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie11->setTranslatableLocale('en');
+        $sortie11->setTranslatableLocale('dz');
         $manager->persist($sortie11);
         
         $sortie12 = $this->getReference('sortie12');
@@ -281,7 +281,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie12->setTranslatableLocale('en');
+        $sortie12->setTranslatableLocale('dz');
         $manager->persist($sortie12);
         
         $sortie13 = $this->getReference('sortie13');
@@ -299,7 +299,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie13->setTranslatableLocale('en');
+        $sortie13->setTranslatableLocale('dz');
         $manager->persist($sortie13);
         
         $sortie14 = $this->getReference('sortie14');
@@ -318,7 +318,7 @@ Be healthy,
 Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
 The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
-        $sortie14->setTranslatableLocale('en');
+        $sortie14->setTranslatableLocale('dz');
         $manager->persist($sortie14);
         
         $sortie15 = $this->getReference('sortie15');
@@ -344,7 +344,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie15->setTranslatableLocale('en');
+        $sortie15->setTranslatableLocale('dz');
         $manager->persist($sortie15);
         
         $sortie16 = $this->getReference('sortie16');
@@ -370,7 +370,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie16->setTranslatableLocale('en');
+        $sortie16->setTranslatableLocale('dz');
         $manager->persist($sortie16);
         
         $sortie17 = $this->getReference('sortie17');
@@ -396,7 +396,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie17->setTranslatableLocale('en');
+        $sortie17->setTranslatableLocale('dz');
         $manager->persist($sortie17);
         
         $sortie18 = $this->getReference('sortie18');
@@ -422,7 +422,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie18->setTranslatableLocale('en');
+        $sortie18->setTranslatableLocale('dz');
         $manager->persist($sortie18);
         
         $sortie19 = $this->getReference('sortie19');
@@ -448,7 +448,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie19->setTranslatableLocale('en');
+        $sortie19->setTranslatableLocale('dz');
         $manager->persist($sortie19);
         
         $sortie20 = $this->getReference('sortie20');
@@ -474,7 +474,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie20->setTranslatableLocale('en');
+        $sortie20->setTranslatableLocale('dz');
         $manager->persist($sortie20);
         
         $sortie21 = $this->getReference('sortie21');
@@ -500,7 +500,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie21->setTranslatableLocale('en');
+        $sortie21->setTranslatableLocale('dz');
         $manager->persist($sortie21);
         
         $sortie22 = $this->getReference('sortie22');
@@ -526,7 +526,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie22->setTranslatableLocale('en');
+        $sortie22->setTranslatableLocale('dz');
         $manager->persist($sortie22);
         
         $sortie23 = $this->getReference('sortie23');
@@ -552,7 +552,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie23->setTranslatableLocale('en');
+        $sortie23->setTranslatableLocale('dz');
         $manager->persist($sortie23);
         
         $sortie24 = $this->getReference('sortie24');
@@ -578,7 +578,7 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie24->setTranslatableLocale('en');
+        $sortie24->setTranslatableLocale('dz');
         $manager->persist($sortie24);
         
         $sortie25 = $this->getReference('sortie25');
@@ -604,57 +604,57 @@ Also, during the activity, it is best not to wear jewelry (rings, necklaces, bra
 What to bring
 We recommend a casual dress, but for your comfort and safety.
 Shoes like tennis, arctic clothing or windproof gloves.");
-        $sortie25->setTranslatableLocale('en');
+        $sortie25->setTranslatableLocale('dz');
         $manager->persist($sortie25);
         
         $categorie2 = $this->getReference('categorie2');
-        $categorie2->setNom('mountain');
-        $categorie2->setTranslatableLocale('en');
+        $categorie2->setNom('adrar');
+        $categorie2->setTranslatableLocale('dz');
         $manager->persist($categorie2);
         
         $categorie3 = $this->getReference('categorie3');
-        $categorie3->setNom('sand');
-        $categorie3->setTranslatableLocale('en');
+        $categorie3->setNom('ijdi');
+        $categorie3->setTranslatableLocale('dz');
         $manager->persist($categorie3);
         
         $categorie4 = $this->getReference('categorie4');
-        $categorie4->setNom('sea');
-        $categorie4->setTranslatableLocale('en');
+        $categorie4->setNom('illel');
+        $categorie4->setTranslatableLocale('dz');
         $manager->persist($categorie4);
         
         $categorie5 = $this->getReference('categorie5');
-        $categorie5->setNom('air');
-        $categorie5->setTranslatableLocale('en');
+        $categorie5->setNom('igenni');
+        $categorie5->setTranslatableLocale('dz');
         $manager->persist($categorie5);
         
         $categorie6 = $this->getReference('categorie6');
-        $categorie6->setNom('land');
-        $categorie6->setTranslatableLocale('en');
+        $categorie6->setNom('akal');
+        $categorie6->setTranslatableLocale('dz');
         $manager->persist($categorie6);
         
         $categorie7 = $this->getReference('categorie7');
-        $categorie7->setNom('traineeship');
-        $categorie7->setTranslatableLocale('en');
+        $categorie7->setNom('asilegh');
+        $categorie7->setTranslatableLocale('dz');
         $manager->persist($categorie7);
         
         $ticket1 = $this->getReference('ticket1');
-        $ticket1->setNom('Discovery pack');
-        $ticket1->setTranslatableLocale('en');
+        $ticket1->setNom('Akerrud tifin');
+        $ticket1->setTranslatableLocale('dz');
         $manager->persist($ticket1);
         
         $ticket2 = $this->getReference('ticket2');
-        $ticket2->setNom('Leisure pack 3');
-        $ticket2->setTranslatableLocale('en');
+        $ticket2->setNom('Akerrud amzel 3');
+        $ticket2->setTranslatableLocale('dz');
         $manager->persist($ticket2);
         
         $ticket3 = $this->getReference('ticket3');
-        $ticket3->setNom('Leisure pack 6');
-        $ticket3->setTranslatableLocale('en');
+        $ticket3->setNom('Akerrud amzel 6');
+        $ticket3->setTranslatableLocale('dz');
         $manager->persist($ticket3);
         
         $ticket4 = $this->getReference('ticket4');
-        $ticket4->setNom('Leisure pack 12');
-        $ticket4->setTranslatableLocale('en');
+        $ticket4->setNom('Akerrud amzel 12');
+        $ticket4->setTranslatableLocale('dz');
         $manager->persist($ticket4);
         
         $manager->flush();
@@ -662,6 +662,6 @@ Shoes like tennis, arctic clothing or windproof gloves.");
     
     public function getOrder()
     {
-        return 15; // l'ordre dans lequel les fichiers sont chargés
+        return 17; // l'ordre dans lequel les fichiers sont chargés
     }
 }

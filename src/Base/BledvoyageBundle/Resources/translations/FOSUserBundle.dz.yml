@@ -1,0 +1,37 @@
+base:
+    bledvoyage: 
+        booking:
+            reservation:
+                Réservation
+            recapitulatif:
+                Récapitulatif et réservation
+            confirmation:
+                Confirmation
+            place_1:
+                Nombre de places
+            place_2:
+                Combien de places ?
+            place:
+                place
+            places:
+                places
+            septplaces:
+                et plus
+            date:
+                Date de réservation
+            complet:
+                Complet
+            promo_1:
+                Avez vous un code promotion ?
+            promo_2:
+                J'ai un code promo
+            promo_3:
+                Passez cette étape si vous n'avez pas de code promo.
+            valider:
+                Valider
+            aide_1:
+                Besoin d'aide ?
+            aide_2:
+                Des difficultés à remplir le formulaire de réservation ? Besoin de plus d'information sur la sortie ? Appelez-nous !
+            revenir:
+                Revenir au site bledvoyage.com
