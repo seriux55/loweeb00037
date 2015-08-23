@@ -78,9 +78,9 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie1->setTarif(14900);
         $sortie1->setMaxPersonne(15);
         $sortie1->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie1->setHeureDebut('16h00');
+        $sortie1->setHeureDebut('9h00');
         $sortie1->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie1->setHeureFin('12h00');
+        $sortie1->setHeureFin('19h00');
         $sortie1->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie1->setValider('1');
         $sortie1->setCharge('');
@@ -130,7 +130,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie2->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie2->setHeureDebut('9h00');
         $sortie2->setDateFin(new \DateTime('2015-02-28 00:00:00'));
-        $sortie2->setHeureFin('17h00');
+        $sortie2->setHeureFin('19h00');
         $sortie2->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie2->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
         $sortie2->setPhoto1('quad.jpg');
@@ -178,9 +178,9 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie3->setTarif(2900);
         $sortie3->setMaxPersonne(20);
         $sortie3->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie3->setHeureDebut('15h30');
+        $sortie3->setHeureDebut('9h00');
         $sortie3->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie3->setHeureFin('18h30');
+        $sortie3->setHeureFin('19h00');
         $sortie3->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie3->setValider('1');
         $sortie3->setCharge('');
@@ -224,9 +224,9 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie4->setTarif(2900);
         $sortie4->setMaxPersonne(20);
         $sortie4->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie4->setHeureDebut('06h00');
+        $sortie4->setHeureDebut('9h00');
         $sortie4->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie4->setHeureFin('14h00');
+        $sortie4->setHeureFin('19h00');
         $sortie4->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie4->setValider('1');
         $sortie4->setCharge('');
@@ -276,9 +276,9 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie5->setTarif(2900);
         $sortie5->setMaxPersonne(22);
         $sortie5->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie5->setHeureDebut('10h00');
+        $sortie5->setHeureDebut('9h00');
         $sortie5->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie5->setHeureFin('18h00');
+        $sortie5->setHeureFin('19h00');
         $sortie5->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie5->setValider('1');
         $sortie5->setCharge('');
@@ -324,9 +324,9 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie6->setTarif(2900);
         $sortie6->setMaxPersonne(24);
         $sortie6->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie6->setHeureDebut('10h00');
+        $sortie6->setHeureDebut('9h00');
         $sortie6->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie6->setHeureFin('18h00');
+        $sortie6->setHeureFin('19h00');
         $sortie6->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie6->setValider('1');
         $sortie6->setCharge('');
@@ -368,7 +368,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie7->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie7->setHeureDebut('9h00');
         $sortie7->setDateFin(new \DateTime('2015-02-28 00:00:00'));
-        $sortie7->setHeureFin('17h00');
+        $sortie7->setHeureFin('19h00');
         $sortie7->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie7->setPhoto1('cover_balade_sous.png');
         $sortie7->setPhoto2('sortie_aventure_sous.png');
@@ -420,9 +420,9 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie8->setTarif(3400);
         $sortie8->setMaxPersonne(10);
         $sortie8->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie8->setHeureDebut('16h30');
+        $sortie8->setHeureDebut('9h00');
         $sortie8->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie8->setHeureFin('18h30');
+        $sortie8->setHeureFin('19h00');
         $sortie8->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie8->setValider('1');
         $sortie8->setCharge('');
@@ -468,9 +468,9 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie9->setTarif(4900);
         $sortie9->setMaxPersonne(10);
         $sortie9->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie9->setHeureDebut('15h30');
+        $sortie9->setHeureDebut('9h00');
         $sortie9->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie9->setHeureFin('18h30');
+        $sortie9->setHeureFin('19h00');
         $sortie9->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie9->setValider('1');
         $sortie9->setCharge('');
@@ -516,7 +516,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie10->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie10->setHeureDebut('9h00');
         $sortie10->setDateFin(new \DateTime('2015-02-28 00:00:00'));
-        $sortie10->setHeureFin('17h00');
+        $sortie10->setHeureFin('19h00');
         $sortie10->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie10->setVideo('https://www.youtube.com/watch?v=x2geTtXd_xE');
         $sortie10->setPhoto1('decolage.png');
@@ -570,7 +570,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie11->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie11->setHeureDebut('9h00');
         $sortie11->setDateFin(new \DateTime('2015-02-28 00:00:00'));
-        $sortie11->setHeureFin('17h00');
+        $sortie11->setHeureFin('19h00');
         $sortie11->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie11->setVideo('https://www.youtube.com/watch?v=6FV3QZLkq5A');
         $sortie11->setPhoto1('ico_vtt.png');
@@ -618,9 +618,9 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie12->setTarif(2900);
         $sortie12->setMaxPersonne(15);
         $sortie12->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie12->setHeureDebut('09h00');
+        $sortie12->setHeureDebut('9h00');
         $sortie12->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie12->setHeureFin('18h00');
+        $sortie12->setHeureFin('19h00');
         $sortie12->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie12->setValider('1');
         $sortie12->setCharge('');
@@ -664,9 +664,9 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie13->setTarif(2900);
         $sortie13->setMaxPersonne(8);
         $sortie13->setDateDebut(new \DateTime('2014-10-01 00:00:00'));
-        $sortie13->setHeureDebut('09h00');
+        $sortie13->setHeureDebut('9h00');
         $sortie13->setDateFin(new \DateTime('2016-08-31 00:00:00'));
-        $sortie13->setHeureFin('18h00');
+        $sortie13->setHeureFin('19h00');
         $sortie13->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie13->setValider('1');
         $sortie13->setCharge('');
@@ -712,7 +712,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie14->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie14->setHeureDebut('9h00');
         $sortie14->setDateFin(new \DateTime('2015-02-28 00:00:00'));
-        $sortie14->setHeureFin('17h00');
+        $sortie14->setHeureFin('19h00');
         $sortie14->setPlanAcces("À quelque mètres de l'entrée de Chenoua Plage, prendre la première sortie sur la gauche et s'arrêter au bout de 400 mètres. Le moniteur vous attendra à cet endroit précis.");
         $sortie14->setVideo('https://www.youtube.com/watch?v=igLzB-5FrHk');
         $sortie14->setPhoto1('cerf_volant.png');
@@ -773,7 +773,7 @@ Nous vous conseillons une tenue vestimentaire décontractée, mais adaptée à v
         $sortie15->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie15->setHeureDebut('9h00');
         $sortie15->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie15->setHeureFin('17h00');
+        $sortie15->setHeureFin('19h00');
         $sortie15->setVideo('https://www.youtube.com/watch?v=x2geTtXd_xE');
         $sortie15->setPhoto1('forma_1.png');
         $sortie15->setPhoto2('forma_1.png');
@@ -826,8 +826,8 @@ Le port des gants est conseillé,
 Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
 Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre.");
         $sortie16->setLocalisation('Tipaza');
-        $sortie16->setTarif(49000);
-        $sortie16->setMaxPersonne(10);
+        $sortie16->setTarif(1900);
+        $sortie16->setMaxPersonne(5);
         $sortie16->setDateDebut(new \DateTime('2015-04-30 00:00:00'));
         $sortie16->setHeureDebut('9h00');
         $sortie16->setDateFin(new \DateTime('2016-08-31 00:00:00'));
@@ -885,12 +885,12 @@ Le port des gants est conseillé,
 Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
 Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre.");
         $sortie17->setLocalisation('Tipaza');
-        $sortie17->setTarif(49000);
-        $sortie17->setMaxPersonne(10);
+        $sortie17->setTarif(1900);
+        $sortie17->setMaxPersonne(5);
         $sortie17->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie17->setHeureDebut('9h00');
         $sortie17->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie17->setHeureFin('17h00');
+        $sortie17->setHeureFin('19h00');
         $sortie17->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
         $sortie17->setPhoto1('forma_1.png');
         $sortie17->setPhoto2('forma_1.png');
@@ -940,7 +940,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie18->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie18->setHeureDebut('9h00');
         $sortie18->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie18->setHeureFin('17h00');
+        $sortie18->setHeureFin('19h00');
         $sortie18->setPhoto1('forma_1.png');
         $sortie18->setPhoto2('forma_1.png');
         $sortie18->setPhoto3('format_2.png');
@@ -989,7 +989,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie19->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie19->setHeureDebut('9h00');
         $sortie19->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie19->setHeureFin('17h00');
+        $sortie19->setHeureFin('19h00');
         $sortie19->setPhoto1('forma_1.png');
         $sortie19->setPhoto2('forma_1.png');
         $sortie19->setPhoto3('format_2.png');
@@ -1038,7 +1038,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie20->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie20->setHeureDebut('9h00');
         $sortie20->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie20->setHeureFin('17h00');
+        $sortie20->setHeureFin('19h00');
         $sortie20->setPhoto1('forma_1.png');
         $sortie20->setPhoto2('forma_1.png');
         $sortie20->setPhoto3('format_2.png');
@@ -1087,7 +1087,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie21->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie21->setHeureDebut('9h00');
         $sortie21->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie21->setHeureFin('17h00');
+        $sortie21->setHeureFin('19h00');
         $sortie21->setPhoto1('forma_1.png');
         $sortie21->setPhoto2('forma_1.png');
         $sortie21->setPhoto3('format_2.png');
@@ -1136,7 +1136,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie22->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie22->setHeureDebut('9h00');
         $sortie22->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie22->setHeureFin('17h00');
+        $sortie22->setHeureFin('19h00');
         $sortie22->setPhoto1('forma_1.png');
         $sortie22->setPhoto2('forma_1.png');
         $sortie22->setPhoto3('format_2.png');
@@ -1187,7 +1187,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie23->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie23->setHeureDebut('9h00');
         $sortie23->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie23->setHeureFin('17h00');
+        $sortie23->setHeureFin('19h00');
         $sortie23->setPhoto1('forma_1.png');
         $sortie23->setPhoto2('forma_1.png');
         $sortie23->setPhoto3('format_2.png');
@@ -1221,7 +1221,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie24->setDescriptif("Un 'Quad Trip' plaisir & découverte le temps d’une journée, avec déjeuner au Mont Chenoua, 
 Vous prendrez les commandes de notre meute de Quads sauvages en montagne, Rita, Robusta, Nervosita, Tornado, etc. Venez les monter ! 
 Au programme : 
-09h00-09h30 : Arrivée & Accueil des participants,
+9h00-09h30 : Arrivée & Accueil des participants,
 
 09h30 - 10h00 : Consignes et initiation au Quad,
 
@@ -1250,7 +1250,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie24->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie24->setHeureDebut('9h00');
         $sortie24->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie24->setHeureFin('17h00');
+        $sortie24->setHeureFin('19h00');
         $sortie24->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
         $sortie24->setPhoto1('forma_1.png');
         $sortie24->setPhoto2('forma_1.png');
@@ -1305,7 +1305,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie25->setDateDebut(new \DateTime('2015-02-06 00:00:00'));
         $sortie25->setHeureDebut('9h00');
         $sortie25->setDateFin(new \DateTime('2016-02-28 00:00:00'));
-        $sortie25->setHeureFin('17h00');
+        $sortie25->setHeureFin('19h00');
         $sortie25->setVideo('https://www.youtube.com/watch?v=yGGX_nE71Ko');
         $sortie25->setPhoto1('forma_1.png');
         $sortie25->setPhoto2('forma_1.png');

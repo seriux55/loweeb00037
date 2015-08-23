@@ -113,7 +113,7 @@ class Sortie implements Translatable
      * @var string
      *
      * @Gedmo\Translatable
-     * @ORM\Column(name="descriptif", type="string", length=255)
+     * @ORM\Column(name="descriptif", type="string", length=3071)
      * @Expose
      */
     private $descriptif;
@@ -122,7 +122,7 @@ class Sortie implements Translatable
      * @var string
      *
      * @Gedmo\Translatable
-     * @ORM\Column(name="conditions", type="string", length=255)
+     * @ORM\Column(name="conditions", type="string", length=3071)
      * @Expose
      */
     private $conditions;
