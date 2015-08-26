@@ -20,9 +20,9 @@
     <div class="navicont">
         <ul class="naviul">
             {% for data in categorie %}
-            {% if data.nom != 'formation' and data.nom != 'traineeship' and data.nom != 'formación'%}
+            {% if data.nom != 'formation' and data.nom != 'traineeship' and data.nom != 'formación' %}
             <li class="navili">
-                <a href="{{ path('bledvoyage_type', { 'id' : data.id }) }}" class="navia">{{ data.nom|title }}</a>
+                <a href="{{ path('bledvoyage_type', { 'id': data.id }) }}" class="navia">{{ data.nom|title }}</a>
             </li>
             {% endif %}
             {% endfor %}
@@ -34,7 +34,7 @@
         {% set i = false %}
         {% for data in product %}
         {% if i == 0 %}
-        {% if data.categorie.nom != 'formation' %}{{ data.categorie.nom|title }}{% else %}Les formations{% endif %}
+        {% if data.categorie.nom != 'formation' and data.categorie.nom != 'traineeship' and data.categorie.nom != 'formación' %}{{ data.categorie.nom|title }}{% else %}Les formations{% endif %}
         {% set i = true %}
         {% endif %}
         {% endfor %}

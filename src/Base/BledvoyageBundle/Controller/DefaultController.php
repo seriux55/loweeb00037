@@ -268,7 +268,9 @@ class DefaultController extends Controller
     
     public function typeAction($id)
     {
-        $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
+        $em = $this->getDoctrine();
+        $locale = $this->get('request')->getLocale();
+        $qb = $em->getRepository('BaseBledvoyageBundle:Sortie')
                    ->createQueryBuilder('a')
                    ->addSelect('b')
                    ->leftJoin('a.categorieSortie', 'b')
@@ -281,23 +283,22 @@ class DefaultController extends Controller
                             'valider'   => '1',
                             'id'        => $id,
                        ))
-                   ->orderBy('a.id','DESC')
-                   ->getQuery()
-                   ->getResult();
-        $categorie = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Categorie')
-                   ->createQueryBuilder('a')
-                   ->where('a.nom = :nom1 OR a.nom = :nom2 OR a.nom = :nom3 OR a.nom = :nom4 OR a.nom = :nom5 OR a.nom = :nom6')
-                   ->setParameters(array(
-                            'nom1' => 'montagne',
-                            'nom2' => 'sable',
-                            'nom3' => 'air',
-                            'nom4' => 'terre',
-                            'nom5' => 'mer',
-                            'nom6' => 'formation',
-                       ))
-                   ->orderBy('a.id','ASC')
-                   ->getQuery()
-                   ->getResult();
+                   ->orderBy('a.id','DESC');
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        $product = $query->getResult();
+        
+        $categories = new Categorie();
+        $categorie  = $categories->getCategorie($em, $locale);
+        
         /*
         foreach ($categorie as $data)
         {
