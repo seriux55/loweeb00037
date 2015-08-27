@@ -373,177 +373,177 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
         
         $picture71 = new Picture();
         $picture71->setAlt('quand_sensation.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture71);
         
         $picture72 = new Picture();
         $picture72->setAlt('quad_sensation_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture72);
         
         $picture73 = new Picture();
         $picture73->setAlt('quand_sensation.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture73);
         
         $picture74 = new Picture();
         $picture74->setAlt('quad_sensation_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture74);
         
         $picture75 = new Picture();
         $picture75->setAlt('quand_sensation.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture75);
         
         $picture76 = new Picture();
         $picture76->setAlt('quad_sensation_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture76);
         
         $picture77 = new Picture();
         $picture77->setAlt('quand_sensation.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture77);
         
         $picture78 = new Picture();
         $picture78->setAlt('quad_sensation_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture78);
         
         $picture79 = new Picture();
         $picture79->setAlt('jetski_discovery.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture79);
         
         $picture80 = new Picture();
         $picture80->setAlt('jetski_discovery_cover.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture80);
         
         $picture81 = new Picture();
         $picture81->setAlt('jetski_discovery.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture81);
         
         $picture82 = new Picture();
         $picture82->setAlt('jetski_discovery_cover.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture82);
         
         $picture83 = new Picture();
         $picture83->setAlt('jetski_ride.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture83);
         
         $picture84 = new Picture();
         $picture84->setAlt('jetski_ride_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture84);
         
         $picture85 = new Picture();
         $picture85->setAlt('jetski_ride.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture85);
         
         $picture86 = new Picture();
         $picture86->setAlt('jetski_ride_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture86);
         
         $picture87 = new Picture();
         $picture87->setAlt('jetski_sensation.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture87);
         
         $picture88 = new Picture();
         $picture88->setAlt('jetski_sensation_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture88);
         
         $picture89 = new Picture();
         $picture89->setAlt('jetski_sensation.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture89);
         
         $picture90 = new Picture();
         $picture90->setAlt('jetski_sensation_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture90);
         
         $picture91 = new Picture();
         $picture91->setAlt('jetski_trip.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture91);
         
         $picture92 = new Picture();
         $picture92->setAlt('jetski_trip_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture92);
         
         $picture93 = new Picture();
         $picture93->setAlt('jetski_trip.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture93);
         
         $picture94 = new Picture();
         $picture94->setAlt('jetski_trip_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture94);
         
         $picture95 = new Picture();
         $picture95->setAlt('jetski_evasion.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture95);
         
         $picture96 = new Picture();
         $picture96->setAlt('jetski_evasion_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture96);
         
         $picture97 = new Picture();
         $picture97->setAlt('jetski_evasion.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture97);
         
         $picture98 = new Picture();
         $picture98->setAlt('jetski_evasion_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture98);
         
         $picture99 = new Picture();
-        $picture99->setAlt('bouee_sensation_vit.jpeg')
+        $picture99->setAlt('bouee_sensation_vit.jpg')
                   ->setUrl('jpg');
         $manager->persist($picture99);
         
         $picture100 = new Picture();
-        $picture100->setAlt('bouee_aout.jpeg')
+        $picture100->setAlt('bouee_aout.jpg')
                   ->setUrl('jpg');
         $manager->persist($picture100);
         
         $picture101 = new Picture();
         $picture101->setAlt('bouee_tentation.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture101);
         
         $picture102 = new Picture();
-        $picture102->setAlt('bouee_sensation_vit.jpeg')
+        $picture102->setAlt('bouee_sensation_vit.jpg')
                  ->setUrl('jpg');
         $manager->persist($picture102);
         
         $picture103 = new Picture();
         $picture103->setAlt('quad_trip.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture103);
         
         $picture104 = new Picture();
         $picture104->setAlt('quad_trip_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture104);
         
         $picture105 = new Picture();
         $picture105->setAlt('quad_trip.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture105);
         
         $picture106 = new Picture();
@@ -553,22 +553,22 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
         
         $picture107 = new Picture();
         $picture107->setAlt('quad_trip_afterwork.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture107);
         
         $picture108 = new Picture();
         $picture108->setAlt('sortie_afterwork_couv.jpg')
-                 ->setUrl('jpeg');
+                 ->setUrl('jpg');
         $manager->persist($picture108);
         
         $picture109 = new Picture();
         $picture109->setAlt('quad_trip_afterwork.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture109);
         
         $picture110 = new Picture();
         $picture110->setAlt('sortie_afterwork_couv.jpg')
-                  ->setUrl('jpeg');
+                  ->setUrl('jpg');
         $manager->persist($picture110);
         
         $manager->flush();
