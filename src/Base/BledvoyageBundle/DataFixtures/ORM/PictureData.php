@@ -22,23 +22,23 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
     public function load(ObjectManager $manager)
     {
         $picture1 = new Picture();
-        $picture1->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture1->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture1);
         
         $picture2 = new Picture();
-        $picture2->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture2->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture2);
         
         $picture3 = new Picture();
-        $picture3->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture3->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture3);
         
         $picture4 = new Picture();
-        $picture4->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture4->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture4);
         
         $picture5 = new Picture();
@@ -62,268 +62,268 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
         $manager->persist($picture8);
         
         $picture9 = new Picture();
-        $picture9->setAlt('cover_balade_sous.png')
-                 ->setUrl('png');
+        $picture9->setAlt('cover_balade_sous.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture9);
         
         $picture10 = new Picture();
-        $picture10->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture10->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture10);
         
         $picture11 = new Picture();
-        $picture11->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture11->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture11);
         
         $picture12 = new Picture();
-        $picture12->setAlt('sortie_sousmarine_balade_cover.png')
-                  ->setUrl('png');
+        $picture12->setAlt('sortie_sousmarine_balade_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture12);
         
         $picture13 = new Picture();
-        $picture13->setAlt('decolage.png')
-                  ->setUrl('png');
+        $picture13->setAlt('decolage.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture13);
         
         $picture14 = new Picture();
-        $picture14->setAlt('decolage_cover.png')
-                  ->setUrl('png');
+        $picture14->setAlt('decolage_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture14);
         
         $picture15 = new Picture();
-        $picture15->setAlt('decolage.png')
-                  ->setUrl('png');
+        $picture15->setAlt('decolage.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture15);
         
         $picture16 = new Picture();
-        $picture16->setAlt('decolage_cover.png')
-                  ->setUrl('png');
+        $picture16->setAlt('decolage_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture16);
         
         $picture17 = new Picture();
-        $picture17->setAlt('ico_vtt.png')
-                  ->setUrl('png');
+        $picture17->setAlt('ico_vtt.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture17);
         
         $picture18 = new Picture();
-        $picture18->setAlt('randonnee_vtt.png')
-                  ->setUrl('png');
+        $picture18->setAlt('randonnee_vtt.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture18);
         
         $picture19 = new Picture();
-        $picture19->setAlt('randonee_vtt_cover.png')
-                  ->setUrl('png');
+        $picture19->setAlt('randonee_vtt_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture19);
         
         $picture20 = new Picture();
-        $picture20->setAlt('randonee_vtt_cover.png')
-                  ->setUrl('png');
+        $picture20->setAlt('randonee_vtt_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture20);
         
         $picture21 = new Picture();
-        $picture21->setAlt('forma_1.png')
-                  ->setUrl('png');
+        $picture21->setAlt('forma_1.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture21);
         
         $picture22 = new Picture();
-        $picture22->setAlt('forma_1.png')
-                  ->setUrl('png');
+        $picture22->setAlt('forma_1.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture22);
         
         $picture23 = new Picture();
-        $picture23->setAlt('forma_2.png')
-                  ->setUrl('png');
+        $picture23->setAlt('forma_2.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture23);
         
         $picture24 = new Picture();
-        $picture24->setAlt('forma_2.png')
-                  ->setUrl('png');
+        $picture24->setAlt('forma_2.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture24);
         
         $picture25 = new Picture();
-        $picture25->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture25->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture25);
         
         $picture26 = new Picture();
-        $picture26->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture26->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture26);
         
         $picture27 = new Picture();
-        $picture27->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture27->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture27);
         
         $picture28 = new Picture();
-        $picture28->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture28->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture28);
         
         $picture29 = new Picture();
-        $picture29->setAlt('cerf_volant.png')
-                 ->setUrl('png');
+        $picture29->setAlt('cerf_volant.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture29);
         
         $picture30 = new Picture();
-        $picture30->setAlt('cerf_volant.png')
-                 ->setUrl('png');
+        $picture30->setAlt('cerf_volant.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture30);
         
         $picture31 = new Picture();
-        $picture31->setAlt('cerf_volant_cover.png')
-                 ->setUrl('png');
+        $picture31->setAlt('cerf_volant_cover.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture31);
         
         $picture32 = new Picture();
-        $picture32->setAlt('cerf_volant_cover.png')
-                 ->setUrl('png');
+        $picture32->setAlt('cerf_volant_cover.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture32);
         
         $picture33 = new Picture();
-        $picture33->setAlt('cover_balade_sous.png')
-                 ->setUrl('png');
+        $picture33->setAlt('cover_balade_sous.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture33);
         
         $picture34 = new Picture();
-        $picture34->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture34->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture34);
         
         $picture35 = new Picture();
-        $picture35->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture35->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture35);
         
         $picture36 = new Picture();
-        $picture36->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture36->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture36);
         
         $picture37 = new Picture();
-        $picture37->setAlt('sortie_sousmarine_balade_cover.png')
-                  ->setUrl('png');
+        $picture37->setAlt('sortie_sousmarine_balade_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture37);
         
         $picture38 = new Picture();
-        $picture38->setAlt('decolage.png')
-                  ->setUrl('png');
+        $picture38->setAlt('decolage.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture38);
         
         $picture39 = new Picture();
-        $picture39->setAlt('decolage_cover.png')
-                  ->setUrl('png');
+        $picture39->setAlt('decolage_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture39);
         
         $picture40 = new Picture();
-        $picture40->setAlt('decolage.png')
-                  ->setUrl('png');
+        $picture40->setAlt('decolage.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture40);
         
         $picture41 = new Picture();
-        $picture41->setAlt('decolage_cover.png')
-                  ->setUrl('png');
+        $picture41->setAlt('decolage_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture41);
         
         $picture42 = new Picture();
-        $picture42->setAlt('ico_vtt.png')
-                  ->setUrl('png');
+        $picture42->setAlt('ico_vtt.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture42);
         
         $picture43 = new Picture();
-        $picture43->setAlt('randonnee_vtt.png')
-                  ->setUrl('png');
+        $picture43->setAlt('randonnee_vtt.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture43);
         
         $picture44 = new Picture();
-        $picture44->setAlt('randonee_vtt_cover.png')
-                  ->setUrl('png');
+        $picture44->setAlt('randonee_vtt_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture44);
         
         $picture45 = new Picture();
-        $picture45->setAlt('randonee_vtt_cover.png')
-                  ->setUrl('png');
+        $picture45->setAlt('randonee_vtt_cover.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture45);
         
         $picture46 = new Picture();
-        $picture46->setAlt('forma_1.png')
-                  ->setUrl('png');
+        $picture46->setAlt('forma_1.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture46);
         
         $picture47 = new Picture();
-        $picture47->setAlt('forma_1.png')
-                  ->setUrl('png');
+        $picture47->setAlt('forma_1.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture47);
         
         $picture48 = new Picture();
-        $picture48->setAlt('forma_2.png')
-                  ->setUrl('png');
+        $picture48->setAlt('forma_2.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture48);
         
         $picture49 = new Picture();
-        $picture49->setAlt('forma_2.png')
-                  ->setUrl('png');
+        $picture49->setAlt('forma_2.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture49);
         
         $picture50 = new Picture();
-        $picture50->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture50->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture50);
         
         $picture51 = new Picture();
-        $picture51->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture51->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture51);
         
         $picture52 = new Picture();
-        $picture52->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture52->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture52);
         
         $picture53 = new Picture();
-        $picture53->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture53->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture53);
         
         $picture54 = new Picture();
-        $picture54->setAlt('cerf_volant.png')
-                 ->setUrl('png');
+        $picture54->setAlt('cerf_volant.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture54);
         
         $picture55 = new Picture();
-        $picture55->setAlt('cerf_volant.png')
-                 ->setUrl('png');
+        $picture55->setAlt('cerf_volant.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture55);
         
         $picture56 = new Picture();
-        $picture56->setAlt('cerf_volant_cover.png')
-                 ->setUrl('png');
+        $picture56->setAlt('cerf_volant_cover.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture56);
         
         $picture57 = new Picture();
-        $picture57->setAlt('cerf_volant_cover.png')
-                 ->setUrl('png');
+        $picture57->setAlt('cerf_volant_cover.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture57);
         
         $picture58 = new Picture();
-        $picture58->setAlt('cover_balade_sous.png')
-                 ->setUrl('png');
+        $picture58->setAlt('cover_balade_sous.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture58);
         
         $picture59 = new Picture();
-        $picture59->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture59->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture59);
         
         $picture60 = new Picture();
-        $picture60->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture60->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture60);
         
         $picture61 = new Picture();
-        $picture61->setAlt('quad.png')
-                 ->setUrl('png');
+        $picture61->setAlt('quad.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture61);
         
         $picture62 = new Picture();
@@ -332,18 +332,18 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
         $manager->persist($picture62);
         
         $picture63 = new Picture();
-        $picture63->setAlt('quad_couv.png')
-                 ->setUrl('png');
+        $picture63->setAlt('quad_couv.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture63);
         
         $picture64 = new Picture();
-        $picture64->setAlt('cerf_volant.png')
-                 ->setUrl('png');
+        $picture64->setAlt('cerf_volant.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture64);
         
         $picture65 = new Picture();
-        $picture65->setAlt('cerf_volant.png')
-                 ->setUrl('png');
+        $picture65->setAlt('cerf_volant.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture65);
         
         $picture66 = new Picture();
@@ -352,23 +352,23 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
         $manager->persist($picture66);
         
         $picture67 = new Picture();
-        $picture67->setAlt('cerf_volant_cover.png')
-                 ->setUrl('png');
+        $picture67->setAlt('cerf_volant_cover.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture67);
         
         $picture68 = new Picture();
-        $picture68->setAlt('cover_balade_sous.png')
-                 ->setUrl('png');
+        $picture68->setAlt('cover_balade_sous.jpg')
+                 ->setUrl('jpg');
         $manager->persist($picture68);
         
         $picture69 = new Picture();
-        $picture69->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture69->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture69);
         
         $picture70 = new Picture();
-        $picture70->setAlt('sortie_aventure_sous.png')
-                  ->setUrl('png');
+        $picture70->setAlt('sortie_aventure_sous.jpg')
+                  ->setUrl('jpg');
         $manager->persist($picture70);
         
         $picture71 = new Picture();
@@ -513,12 +513,12 @@ class PictureData extends AbstractFixture implements FixtureInterface, Container
         
         $picture99 = new Picture();
         $picture99->setAlt('bouee_sensation_vit.jpeg')
-                  ->setUrl('png');
+                  ->setUrl('jpg');
         $manager->persist($picture99);
         
         $picture100 = new Picture();
         $picture100->setAlt('bouee_aout.jpeg')
-                  ->setUrl('png');
+                  ->setUrl('jpg');
         $manager->persist($picture100);
         
         $picture101 = new Picture();
