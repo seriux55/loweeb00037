@@ -88,7 +88,7 @@ base:
             avis_1:
                 opinions
             avis_2:
-                There are
+                There are %number% opinions
             social_1:
                 Social Network
             social_2:
@@ -242,6 +242,14 @@ base:
                 Offer available until march 19th 2015, in the limite of the available stock !
             commander:
                 Order
+            envoyer_1:
+                Commande envoyée!
+            envoyer_2:
+                Votre commande a été transmise aux organisateurs, elle est en attente de confirmation.
+            envoyer_3:
+                Vous recevrez un e-mail dans quelques jours, n'hésitez pas à consulter le dossier "courrier indésirable ».
+            envoyer_4:
+                Si dans les 5 heures vous ne recevez pas d'appels de notre part, merci de nous le signaler sur le +213 553 815 922 ou sur contact@bledvoyage.com
         promotiontype:
             recapitulatif:
                 Summary and booking
@@ -263,6 +271,8 @@ base:
                 Un message à mettre sur votre commande ?
             perso_3:
                 Passez cette étape si vous n'avez pas besoin d'ajouter un message
+            perso_4:
+                "Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ..."
             valider:
                 Validate
             aide_1:

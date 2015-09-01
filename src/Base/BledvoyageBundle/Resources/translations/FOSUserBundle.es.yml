@@ -16,7 +16,7 @@ base:
             places:
                 lugares
             septplaces:
-                y más
+                y mas
             date:
                 Fecha de la reserva
             complet:
@@ -35,3 +35,11 @@ base:
                 Dificultad para completar el formulario de reserva ? Necesita más información acerca de la salida ? Llámanos!
             revenir:
                 Volver al sitio de bledvoyage.com
+            reserver_1:
+                Reservacion enviada 
+            reserver_2:
+                Su reserva ha sido enviado a los organizadores, se espera de confirmación.
+            reserver_3:
+                Usted recibirá un correo electrónico en unos pocos días, no dude en consultar el archivo de "correo basura".
+            reserver_4:
+                Si dentro de cinco horas no recibe llamadas de nosotros, sinalalo en+213 553 815 922 ou bien contact@bledvoyage.com

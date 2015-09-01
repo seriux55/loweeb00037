@@ -594,7 +594,7 @@ Shoes like tennis, arctic clothing or windproof gloves.");
         $manager->persist($categorie7);
         
         $ticket1 = $this->getReference('ticket1');
-        $ticket1->setNom('Paquete de descubrimiento');
+        $ticket1->setNom('Paquete descubrimiento');
         $ticket1->setTranslatableLocale('es');
         $manager->persist($ticket1);
         

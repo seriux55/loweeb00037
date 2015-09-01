@@ -16,21 +16,21 @@ base:
             toutsavoir:
                 Todo sobre bledvoyage
             lessorties:
-                Salidas
+                Las salidas
             login: 
                 Login
-            logout: 
-                Logout
+            logout:
+                Cierre de sesion
             manager:
                 Manager
             promotion: 
                 Promoción
-            entreprise: 
-                Entreprise
+            entreprise:
+                Empressa
             formation:
                 Formación
-            accueil: 
-                Inicio
+            accueil:
+                Bienvenida
             depot:
                 Publica tu empresa
         defaut:
@@ -86,9 +86,9 @@ base:
             appel_2:
                 Necesitas mas informacionessobre las actividades ? Llamanos !
             avis_1:
-                opiniones
+                aviso
             avis_2:
-                Hay
+                Hay %number% comentarios
             social_1:
                 Redes Sociales
             social_2:
@@ -96,16 +96,16 @@ base:
             participant_1:
                 Los participantes
             participant_2:
-                participante(s) esta semana
+                participantes esta semana
             retour:
                 Volver al sitio de bledvoyage.com
         entreprise:
             vitrine_1:
                 Cazade rutina !
             vitrine_2:
-                Aventura, diversión, la cohesión, el desafío para sus empleados, sus empleados, socios ... actividades de team building, salidas de ocio, personalizados y únicos en Argelia.
+                Aventura, diversión, la cohesión, el desafío para sus empleados, socios ... actividades de team building, salidas de ocio, personalizados y únicos en Argelia.
             vitrine_3:
-                Découvrir nos offres pour corporates
+                Descubra nuestras ofertas para corporaciones
             titre:
                 Team Building, ocio & aventura
             contenu_1:
@@ -138,11 +138,11 @@ base:
             information:
                 La información de salida
             local:
-                Localisation
+                Localozacion
             titre:
-                Titre de la sortie
+                Título de salida
             type:
-                Type de sortie
+                Tipo de salida
             date_1:
                 Fecha de la liberación Iniciar
             heure_1:
@@ -172,10 +172,10 @@ base:
             revenir:
                 Volver al sitio de bledvoyage.com
             envoyer_1:
-                Sortie envoyée!
+                Salida enviada!
             envoyer_2: >
-                Votre sortie a été transmise à l'équipe, pour validation.
-                Vous receverez un e-mail dès que possible, n'hésitez pas à consutler le dossier "courrier indesirable".
+                Su salida fue transmitido al equipo, para su validación.
+                Usted recibirá un correo electrónico tan pronto como sea posible, por favor revise la carpeta de "spam".
             velo:
                 Ciclismo
             randonee:
@@ -241,7 +241,15 @@ base:
             offre:
                 Oferta válida hasta el 19 de marzo 2015 en el cepo !
             commander:
-                Comprar
+                Solicitar
+            envoyer_1:
+                Demanda enviada !
+            envoyer_2:
+                Su pedido ha sido enviado a los organizadores, se espera de confirmación.
+            envoyer_3:
+                Usted recibirá un correo electrónico en unos pocos días, no dude en consultar el archivo de "correo basura".
+            envoyer_4:
+                Si dentro de cinco horas no recibe llamadas de nosotros, gracias a que nos notifique en 213 553 815 922 o contact@bledvoyage.com
         promotiontype:
             recapitulatif:
                 Resumen y reserva
@@ -258,11 +266,13 @@ base:
             plus:
                 y más
             perso_1:
-                Dernière étape, personnalisez votre commande !
+                Última etapa, personalizar su demanda !
             perso_2:
-                Un message à mettre sur votre commande ?
+                Un mensaje en su demanda?
             perso_3:
-                Passez cette étape si vous n'avez pas besoin d'ajouter un message
+                Omita este paso si no es necesario anadir un mensaje
+            perso_4:
+                "Ex : Mis mejores deseos, feliz día de la madre, feliz cumpleaños, ..."
             valider:
                 Validar
             aide_1:

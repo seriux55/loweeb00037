@@ -261,7 +261,7 @@
     <div class="sectiono"> 
         <div class="mr1i">
             <div class="mr2i">
-                <h4>{% trans %}base.bledvoyage.product.avis_2{% endtrans %} {{ nbrAvis }} {% trans %}base.bledvoyage.product.avis_1{% endtrans %}</h4>
+                <h4>{% trans with { '%numbre%': nbrAvis } %}base.bledvoyage.product.avis_2{% endtrans %}</h4>
             </div>
             <div class="mr2i">
                 <ul class="coment">

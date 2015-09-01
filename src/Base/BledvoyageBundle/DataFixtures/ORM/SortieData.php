@@ -542,7 +542,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         
         $sortie11 = new Sortie();
         $sortie11->setUser($this->getReference('user13'));
-        $sortie11->setCategorie($this->getReference('categorie5'));
+        $sortie11->setCategorie($this->getReference('categorie2'));
         $sortie11->setCategorieSortie($this->getReference('categorie_sortie11'));
         $sortie11->setPicture1($this->getReference('picture41'));
         $sortie11->setPicture2($this->getReference('picture42'));
@@ -596,7 +596,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         
         $sortie12 = new Sortie();
         $sortie12->setUser($this->getReference('user8'));
-        $sortie12->setCategorie($this->getReference('categorie5'));
+        $sortie12->setCategorie($this->getReference('categorie6'));
         $sortie12->setCategorieSortie($this->getReference('categorie_sortie12'));
         $sortie12->setPicture1($this->getReference('picture45'));
         $sortie12->setPicture2($this->getReference('picture46'));
@@ -641,7 +641,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         
         $sortie13 = new Sortie();
         $sortie13->setUser($this->getReference('user7'));
-        $sortie13->setCategorie($this->getReference('categorie5'));
+        $sortie13->setCategorie($this->getReference('categorie6'));
         $sortie13->setCategorieSortie($this->getReference('categorie_sortie13'));
         $sortie13->setPicture1($this->getReference('picture49'));
         $sortie13->setPicture2($this->getReference('picture50'));

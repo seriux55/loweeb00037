@@ -88,7 +88,7 @@ base:
             avis_1:
                 Avis
             avis_2:
-                Il y a
+                Il y a %number% avis
             social_1:
                 Réseaux Sociaux
             social_2:
@@ -213,17 +213,14 @@ base:
         promotion:
             vitrine_1:
                 Des activités à prix réduits !
-            vitrine_2: >
-                De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches.
-                Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités sur mesure : 
-                Sensations sur terre, sur mer, en montagne ... à prix réduits !
+            vitrine_2:
+                "De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches. Que vous soyez un particulier ou une entreprise, les tickets cadeaux vous offrent un vaste choix d'activités sur mesure : Sensations sur terre, sur mer, en montagne ... à prix réduits !"
             vitrine_3:
                 Découvrir nos tickets cadeaux
             titre:
                 Pour le plaisir d'offrir et de s'offrir !
-            description: >
-                En commandant ce pack, vous recevrez un ticket cadeau qui permettra
-                à son bénéficiaire de participer à %nombre% activité, d'une valeur de %reduit% dinars, au lieu de %normal% dinars.
+            description:
+                En commandant ce pack, vous recevrez un ticket cadeau qui permettra à son bénéficiaire de participer à %nombre% activité, d'une valeur de %reduit% dinars, au lieu de %normal% dinars.
             valable:
                 Le ticket cadeau est valable pendant %duree% Mois.
             loisir:
@@ -245,6 +242,14 @@ base:
                 Offre valable jusqu'au 15 février 2015, dans la limite des stocks disponibles !
             commander:
                 Commander
+            envoyer_1:
+                Commande envoyée!
+            envoyer_2:
+                Votre commande a été transmise aux organisateurs, elle est en attente de confirmation.
+            envoyer_3:
+                Vous recevrez un e-mail dans quelques jours, n'hésitez pas à consulter le dossier "courrier indésirable ».
+            envoyer_4:
+                Si dans les 5 heures vous ne recevez pas d'appels de notre part, merci de nous le signaler sur le +213 553 815 922 ou sur contact@bledvoyage.com
         promotiontype:
             recapitulatif:
                 Recapitulatif et commande
@@ -266,6 +271,8 @@ base:
                 Un message à mettre sur votre commande ?
             perso_3:
                 Passez cette étape si vous n'avez pas besoin d'ajouter un message
+            perso_4:
+                "Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ..."
             valider:
                 Valider
             aide_1:
