@@ -21,6 +21,7 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
 
     public function load(ObjectManager $manager)
     {
+        /*
         $categorie_sortie1 = new CategorieSortie();
         $categorie_sortie1->setAir('0');
         $categorie_sortie1->setArc('0');
@@ -42,6 +43,7 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $categorie_sortie1->setIp('127.0.0.1');
         $categorie_sortie1->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie1);
+        */
         
         $categorie_sortie2 = new CategorieSortie();
         $categorie_sortie2->setAir('0');
@@ -285,6 +287,7 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $categorie_sortie12->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie12);
         
+        /*
         $categorie_sortie13 = new CategorieSortie();
         $categorie_sortie13->setAir('0');
         $categorie_sortie13->setArc('0');
@@ -306,6 +309,7 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $categorie_sortie13->setIp('127.0.0.1');
         $categorie_sortie13->setDateTime(new \DateTime('2015-01-01 00:00:00'));
         $manager->persist($categorie_sortie13);
+        */
         
         $categorie_sortie14 = new CategorieSortie();
         $categorie_sortie14->setAir('0');
@@ -573,7 +577,7 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         
         $manager->flush();
         
-        $this->addReference('categorie_sortie1',  $categorie_sortie1);
+        //$this->addReference('categorie_sortie1',  $categorie_sortie1);
         $this->addReference('categorie_sortie2',  $categorie_sortie2);
         $this->addReference('categorie_sortie3',  $categorie_sortie3);
         $this->addReference('categorie_sortie4',  $categorie_sortie4);
@@ -585,7 +589,7 @@ class CategorieSortieData extends AbstractFixture implements FixtureInterface, C
         $this->addReference('categorie_sortie10', $categorie_sortie10);
         $this->addReference('categorie_sortie11', $categorie_sortie11);
         $this->addReference('categorie_sortie12', $categorie_sortie12);
-        $this->addReference('categorie_sortie13', $categorie_sortie13);
+        //$this->addReference('categorie_sortie13', $categorie_sortie13);
         $this->addReference('categorie_sortie14', $categorie_sortie14);
         $this->addReference('categorie_sortie15', $categorie_sortie15);
         $this->addReference('categorie_sortie16', $categorie_sortie16);

@@ -22,7 +22,7 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
     public function load(ObjectManager $manager)
     {
         $dateSortie1 = new DateSortie();
-        $dateSortie1->setSortie($this->getReference('sortie1'));
+        $dateSortie1->setSortie($this->getReference('sortie6'));
         $dateSortie1->setDateDebut(new \DateTime("2015-01-01"));
         $dateSortie1->setDateFin(new \DateTime("2015-01-01"));
         $dateSortie1->setStatut("");
@@ -30,7 +30,7 @@ class DateSortieData extends AbstractFixture implements FixtureInterface, Contai
         $manager->persist($dateSortie1);
         
         $dateSortie2 = new DateSortie();
-        $dateSortie2->setSortie($this->getReference('sortie1'));
+        $dateSortie2->setSortie($this->getReference('sortie6'));
         $dateSortie2->setDateDebut(new \DateTime("2017-01-01"));
         $dateSortie2->setDateFin(new \DateTime("2017-01-01"));
         $dateSortie2->setStatut("");

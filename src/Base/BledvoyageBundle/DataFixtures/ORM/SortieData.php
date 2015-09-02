@@ -21,6 +21,7 @@ class SortieData extends AbstractFixture implements FixtureInterface, ContainerA
 
     public function load(ObjectManager $manager)
     {
+        /*
         $sortie1 = new Sortie();
         $sortie1->setUser($this->getReference('user6'));
         $sortie1->setCategorie($this->getReference('categorie1'));
@@ -98,6 +99,7 @@ Et pour finir, pendant les activités, il est préférable de ne pas porter de b
         $sortie1->setIp('127.0.0.1');
         $sortie1->setDateTime(new \DateTime('2015-03-01 12:00:00'));
         $manager->persist($sortie1);
+        */
         
         $sortie2 = new Sortie();
         $sortie2->setUser($this->getReference('user15'));
@@ -639,6 +641,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie12->setDateTime(new \DateTime('2015-03-01 12:00:00'));
         $manager->persist($sortie12);
         
+        /*
         $sortie13 = new Sortie();
         $sortie13->setUser($this->getReference('user7'));
         $sortie13->setCategorie($this->getReference('categorie6'));
@@ -684,6 +687,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $sortie13->setIp('127.0.0.1');
         $sortie13->setDateTime(new \DateTime('2015-03-01 12:00:00'));
         $manager->persist($sortie13);
+        */
         
         $sortie14 = new Sortie();
         $sortie14->setUser($this->getReference('user11'));
@@ -1019,7 +1023,7 @@ Les ressortissants étrangers doivent faire l'objet d'une déclaration de prése
         $sortie20->setPicture2($this->getReference('picture88'));
         $sortie20->setPicture3($this->getReference('picture89'));
         $sortie20->setPicture4($this->getReference('picture90'));
-        $sortie20->setTitre('Jet Ski sensation');
+        $sortie20->setTitre('Jet Ski Sensation');
         $sortie20->setDescriptif("Une belle randonnée en Jet Ski, au large des côtes de Tipaza, encadrée par des moniteurs professionnels et expérimentés, nous piloterons des machines à sensation, pour partir en randonnée découverte d’un paysage extraordinaire à Tipaza. Un moment plaisir !
 Durée : 1h30min de Randonnée, dont 30 minutes de conduite / personne.
 Tarif normal : 4900 Da");
@@ -1330,7 +1334,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         
         $manager->flush();
         
-        $this->addReference('sortie1',   $sortie1);
+        //$this->addReference('sortie1',   $sortie1);
         $this->addReference('sortie2',   $sortie2);
         $this->addReference('sortie3',   $sortie3);
         $this->addReference('sortie4',   $sortie4);
@@ -1342,7 +1346,7 @@ Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (b
         $this->addReference('sortie10',  $sortie10);
         $this->addReference('sortie11',  $sortie11);
         $this->addReference('sortie12',  $sortie12);
-        $this->addReference('sortie13',  $sortie13);
+        //$this->addReference('sortie13',  $sortie13);
         $this->addReference('sortie14',  $sortie14);
         $this->addReference('sortie15',  $sortie15);
         $this->addReference('sortie16',  $sortie16);

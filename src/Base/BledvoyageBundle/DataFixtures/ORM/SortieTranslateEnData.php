@@ -21,6 +21,7 @@ class SortieTranslateEnData extends AbstractFixture implements FixtureInterface,
 
     public function load(ObjectManager $manager)
     {
+        /*
         $sortie1 = $this->getReference('sortie1');
         $sortie1->setTitre('Week-end «Trigger »');
         $sortie1->setDescriptif("Thirsday, Friday ,Saturday. 3 days and 2 nights.
@@ -67,6 +68,7 @@ The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie1->setTranslatableLocale('en');
         $manager->persist($sortie1);
+        */
         
         $sortie2 = $this->getReference('sortie2');
         $sortie2->setTitre('4WM Discovery');
@@ -284,6 +286,7 @@ To conclude, during the activities, It’s preferred to not wear jewelries (Ring
         $sortie12->setTranslatableLocale('en');
         $manager->persist($sortie12);
         
+        /*
         $sortie13 = $this->getReference('sortie13');
         $sortie13->setTitre('A horse hike');
         $sortie13->setDescriptif("A novelty in Algeria. now it is possible to do horse riding! This is possible thanks to the riding club in Blida.
@@ -301,6 +304,7 @@ The activities Will be allocated  according to Weather conditions.
 To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie13->setTranslatableLocale('en');
         $manager->persist($sortie13);
+        */
         
         $sortie14 = $this->getReference('sortie14');
         $sortie14->setTitre('Dominate the flying beast');

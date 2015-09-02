@@ -23,7 +23,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
     {
         $booking1 = new Booking();
         $booking1->setUser($this->getReference('user1'));
-        $booking1->setSortie($this->getReference('sortie1'));
+        $booking1->setSortie($this->getReference('sortie6'));
         $booking1->setDateReserver(new \DateTime('2017-01-01'));
         $booking1->setDateConfirmer(new \DateTime('2017-01-01'));
         $booking1->setNombre(2);
@@ -52,7 +52,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         
         $booking2 = new Booking();
         $booking2->setUser($this->getReference('user2'));
-        $booking2->setSortie($this->getReference('sortie1'));
+        $booking2->setSortie($this->getReference('sortie6'));
         $booking2->setDateReserver(new \DateTime('2017-01-01'));
         $booking2->setDateConfirmer(new \DateTime('2017-01-01'));
         $booking2->setNombre(2);
@@ -77,7 +77,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         
         $booking3 = new Booking();
         $booking3->setUser($this->getReference('user3'));
-        $booking3->setSortie($this->getReference('sortie1'));
+        $booking3->setSortie($this->getReference('sortie6'));
         $booking3->setDateReserver(new \DateTime('2017-01-01'));
         $booking3->setDateConfirmer(new \DateTime('2017-01-01'));
         $booking3->setNombre(2);
@@ -103,7 +103,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         
         $booking4 = new Booking();
         $booking4->setUser($this->getReference('user4'));
-        $booking4->setSortie($this->getReference('sortie1'));
+        $booking4->setSortie($this->getReference('sortie6'));
         $booking4->setDateReserver(new \DateTime('2017-01-01'));
         $booking4->setDateConfirmer(new \DateTime('2017-01-01'));
         $booking4->setNombre(2);
@@ -128,7 +128,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         
         $booking5 = new Booking();
         $booking5->setUser($this->getReference('user5'));
-        $booking5->setSortie($this->getReference('sortie1'));
+        $booking5->setSortie($this->getReference('sortie6'));
         $booking5->setDateReserver(new \DateTime('2017-01-01'));
         $booking5->setDateConfirmer(new \DateTime('2017-01-01'));
         $booking5->setNombre(2);
@@ -466,7 +466,7 @@ class BookingData extends AbstractFixture implements FixtureInterface, Container
         
         $booking19 = new Booking();
         $booking19->setUser($this->getReference('user7'));
-        $booking19->setSortie($this->getReference('sortie1'));
+        $booking19->setSortie($this->getReference('sortie6'));
         $booking19->setDateReserver(new \DateTime('2017-01-01 00:00:00'));
         $booking19->setDateConfirmer(new \DateTime('2017-01-01 00:00:00'));
         $booking19->setNombre(2);
