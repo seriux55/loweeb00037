@@ -12,9 +12,7 @@
 
 {% for data in product %}
 <div class="bloc_page_body222">
-    <h2>
-        {{ data.nom }}
-    </h2>
+    <h2>{{ data.nom }}</h2>
 </div>	
 <div class="bloc_page_body3">
     <section>
@@ -36,9 +34,7 @@
         <div class="forpar">
             <form method="post">
                 <div class="dates">
-                    <h2>
-                        {% trans %}base.bledvoyage.promotiontype.nombre_1{% endtrans %} "{{ data.nom }}"
-                    </h2>
+                    <h2>{% trans %}base.bledvoyage.promotiontype.nombre_1{% endtrans %} "{{ data.nom }}"</h2>
                     <h6>{% trans %}base.bledvoyage.promotiontype.nombre_2{% endtrans %} "{{ data.nom }}" ?</h6>
                     <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
@@ -87,9 +83,7 @@
                     </div>
                 </div>
                 <div class="dates">
-                    <h2>
-                        {% trans %}base.bledvoyage.promotiontype.perso_1{% endtrans %}
-                    </h2>
+                    <h2>{% trans %}base.bledvoyage.promotiontype.perso_1{% endtrans %}</h2>
                     <h6>{% trans %}base.bledvoyage.promotiontype.perso_2{% endtrans %}</h6>
                     <img class="calendaro" alt="Image" src="{{ asset('bundles/basebledvoyage/images/interface/place.png') }}">
                 </div>
@@ -114,9 +108,7 @@
                 <h4>{% trans %}base.bledvoyage.promotiontype.aide_1{% endtrans %}</h4>
             </div>
             <div class="mr2i">
-                <p>
-                    {% trans %}base.bledvoyage.promotiontype.aide_2{% endtrans %}
-                </p>
+                <p>{% trans %}base.bledvoyage.promotiontype.aide_2{% endtrans %}</p>
             </div>
             <div class="appel">
                 <img alt="0 556 179 774" src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}">

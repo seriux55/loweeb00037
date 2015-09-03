@@ -20,11 +20,11 @@
                 </div>
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
-                        <a href="{{ path('fos_user_security_login') }}">Login</a>
-                        <a href="{{ path('bledvoyage_promotion') }}">Promotion</a>
-                        <a href="{{ path('bledvoyage_teambuilding') }}">Entreprise</a>
+                        <a href="{{ path('fos_user_security_login') }}">{% trans %}base.bledvoyage.base.login{% endtrans %}</a>
+                        <a href="{{ path('bledvoyage_promotion') }}">{% trans %}base.bledvoyage.base.promotion{% endtrans %}</a>
+                        <a href="{{ path('bledvoyage_teambuilding') }}">{% trans %}base.bledvoyage.base.entreprise{% endtrans %}</a>
                         {% block formation %}{% endblock %}
-                        <a href="{{ path('bledvoyage_suggest') }}">Déposez votre produit</a>
+                        <a href="{{ path('bledvoyage_suggest') }}">{% trans %}base.bledvoyage.base.depot{% endtrans %}</a>
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
                             <p>0 556 179 774</p>
@@ -34,9 +34,9 @@
             </div>
             <div class="bloc_page_entete3">
                 {# <a href="{{ path('base_bledvoyage_homepage', { _locale: 'dz'} ) }}" title="bledvoyage s tamaziɣt"><img src="{{ asset('bundles/basebledvoyage/images/lang/dz.png') }}" alt="bledvoyage s tamaziɣt" id="dz"/></a> #}
-                <a href="{{ path('base_bledvoyage_homepage', { _locale: 'fr'} ) }}" title="bledvoyage en français"><img src="{{ asset('bundles/basebledvoyage/images/lang/fr.png') }}" alt="bledvoyage en français" id="fr"/></a>
-                <a href="{{ path('base_bledvoyage_homepage', { _locale: 'en'} ) }}" title="bledvoyage in english"><img src="{{ asset('bundles/basebledvoyage/images/lang/en.png') }}" alt="bledvoyage in english" id="en"/></a>
-                <a href="{{ path('base_bledvoyage_homepage', { _locale: 'es'} ) }}" title="bledvoyage en español"><img src="{{ asset('bundles/basebledvoyage/images/lang/es.png') }}" alt="bledvoyage en español" id="es"/></a>
+                <a href="{{ path(app.request.attributes.get('_route'), { _locale: 'fr'} ) }}" title="bledvoyage en français"><img src="{{ asset('bundles/basebledvoyage/images/lang/fr.png') }}" alt="bledvoyage en français" id="fr"/></a>
+                <a href="{{ path(app.request.attributes.get('_route'), { _locale: 'en'} ) }}" title="bledvoyage in english"><img src="{{ asset('bundles/basebledvoyage/images/lang/en.png') }}" alt="bledvoyage in english" id="en"/></a>
+                <a href="{{ path(app.request.attributes.get('_route'), { _locale: 'es'} ) }}" title="bledvoyage en español"><img src="{{ asset('bundles/basebledvoyage/images/lang/es.png') }}" alt="bledvoyage en español" id="es"/></a>
             </div>
         </div>
         {% endblock %}
@@ -47,17 +47,12 @@
         <div class="footer_page">
             <div id="bloc_page_footer2">
                 <p>
-                    bledvoyage.com, crée et développe des solutions anti-routines pour particliers et professionnels. 
-                    Il vous permet de trouver les meilleurs offres de séjours, de bons plans sympatiques, de vacances, activités de loisirs en Algérie. 
-                    Recherchez votre séjour n'a jamais été aussi facile, vous partirez en Algérie et participerez aux activités de loisirs en toute confiance.
-                    comparez en un clic les offres ainsi que les tarifs et reservez votre séjour, vos plans loisirs,  
-                    vos vacances au meilleur prix en Algérie. 
-                    Chassez la routine ! 
+                    {% trans %}base.bledvoyage.base.footer{% endtrans %}
                 </p>
             </div>
             <hr>
             <div id="bloc_page_footer3">
-                <a href="#">Tout savoir sur bledvoyage</a> -
+                <a href="#">{% trans %}base.bledvoyage.base.toutsavoir{% endtrans %}</a> -
                 © 2013 <a href="{{ path('base_bledvoyage_homepage') }}" target="_blank">bledvoyage.com</a> -
                 <a href="http://www.facebook.com/Bledvoyage" target="_blank" title="bledvoyage sur Facebook"><img src="{{ asset('bundles/basebledvoyage/images/old/facebook.png') }}" alt="bledvoyage sur facebook" id="facebook"/></a>
                 <a href="https://twitter.com/bledvoyage" target="_blank" title="bledvoyage sur twitter"><img src="{{ asset('bundles/basebledvoyage/images/old/twitter.png') }}" alt="bledvoyage sur twitter" id="twitter"/></a>
