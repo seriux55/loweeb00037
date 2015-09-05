@@ -125,6 +125,7 @@ class DefaultController extends Controller
     {
         $session = $request->getSession();
         $session->set('back', $request->server->get('PHP_SELF'));
+        $locale  = $this->get('request')->getLocale();
         // if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
             
         //}else{
@@ -205,6 +206,7 @@ class DefaultController extends Controller
                         ->setDateReserver(new \DateTime($frToDatetime->toDatetime($request->get('dateReserver'))))
                         ->setNombre($request->get('nombre'))
                         ->setPromo($code)
+                        ->setLang($locale)
                         ->setIp($this->getRequest()->getClientIp());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($booking);
@@ -338,12 +340,13 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $commande = new Commande();
             $textPerso = $request->get('textPerso');
-            if($textPerso == "Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ..."){ $textPerso = ""; }
+            if($textPerso == "Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ..." || $textPerso = "Ex : Mis mejores deseos, feliz día de la madre, feliz cumpleaños, ..." || $textPerso == "Ex : Best wishes, Happy birthday mom, Valentine's day, ..."){ $textPerso = ""; }
             $commande->setUser($this->get('security.context')->getToken()->getUser())
                      ->setCategorieTicket($em->getRepository('BaseBledvoyageBundle:CategorieTicket')->find($id))
                      ->setPaiement($em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode('espèce'))
                      ->setNombre($request->get('nombre'))
                      ->setTextPerso($textPerso)
+                     ->setLang($locale)
                      ->setIp($this->getRequest()->getClientIp());
             $em->persist($commande);
             $em->flush();

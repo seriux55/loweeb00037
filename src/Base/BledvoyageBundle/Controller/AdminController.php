@@ -637,7 +637,7 @@ class AdminController extends Controller
                 )))
             ;
             $this->get('mailer')->send($message);
-            return $this->forward('BaseBledvoyageBundle:Confirmation:noteReservation');
+            return $this->forward('BaseBledvoyageBundle:Confirmation:confirmerReservation');
         }
         
         return $this->render('BaseBledvoyageBundle:Admin:reservation_confirmer.html.twig', array(

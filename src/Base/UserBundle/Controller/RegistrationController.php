@@ -27,8 +27,10 @@ class RegistrationController extends BaseController
         /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
 
+        $locale  = $this->get('request')->getLocale();
         $user = $userManager->createUser();
         $user->setEnabled(true);
+        $user->setLang($locale);
         $user->setIp($this->getRequest()->getClientIp());
 
         $event = new GetResponseUserEvent($user, $request);
@@ -42,6 +44,8 @@ class RegistrationController extends BaseController
 
         if($id != '0'){
             $session->set('booking', $id);
+        }else{
+            $session->set('booking', '0');
         }
         
         $redirect = false;

@@ -20,11 +20,12 @@
                 </div>
                 <div class="bloc_page_entete_2">
                     <div class="entete3">
-                        <a href="{{ path('fos_user_security_login') }}">{% trans %}base.bledvoyage.base.login{% endtrans %}</a>
+                        <a href="{{ path('base_bledvoyage_homepage') }}">{% trans %}base.bledvoyage.base.accueil{% endtrans %}</a>
                         <a href="{{ path('bledvoyage_promotion') }}">{% trans %}base.bledvoyage.base.promotion{% endtrans %}</a>
                         <a href="{{ path('bledvoyage_teambuilding') }}">{% trans %}base.bledvoyage.base.entreprise{% endtrans %}</a>
                         {% block formation %}{% endblock %}
                         <a href="{{ path('bledvoyage_suggest') }}">{% trans %}base.bledvoyage.base.depot{% endtrans %}</a>
+                        <a href="{{ path('fos_user_security_login') }}">{% trans %}base.bledvoyage.base.login{% endtrans %}</a>
                         <div class="contsou">
                             <img src="{{ asset('bundles/basebledvoyage/images/interface/phone.png') }}" alt="0 556 179 774"/>
                             <p>0 556 179 774</p>
@@ -33,10 +34,10 @@
                 </div>
             </div>
             <div class="bloc_page_entete3">
-                {# <a href="{{ path('base_bledvoyage_homepage', { _locale: 'dz'} ) }}" title="bledvoyage s tamaziɣt"><img src="{{ asset('bundles/basebledvoyage/images/lang/dz.png') }}" alt="bledvoyage s tamaziɣt" id="dz"/></a> #}
-                <a href="{{ path(app.request.attributes.get('_route'), { _locale: 'fr'} ) }}" title="bledvoyage en français"><img src="{{ asset('bundles/basebledvoyage/images/lang/fr.png') }}" alt="bledvoyage en français" id="fr"/></a>
-                <a href="{{ path(app.request.attributes.get('_route'), { _locale: 'en'} ) }}" title="bledvoyage in english"><img src="{{ asset('bundles/basebledvoyage/images/lang/en.png') }}" alt="bledvoyage in english" id="en"/></a>
-                <a href="{{ path(app.request.attributes.get('_route'), { _locale: 'es'} ) }}" title="bledvoyage en español"><img src="{{ asset('bundles/basebledvoyage/images/lang/es.png') }}" alt="bledvoyage en español" id="es"/></a>
+                {# <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'dz'})) }}" title="bledvoyage s tamaziɣt"><img src="{{ asset('bundles/basebledvoyage/images/lang/dz.png') }}" alt="bledvoyage s tamaziɣt" id="dz"/></a> #}
+                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="bledvoyage en français"><img src="{{ asset('bundles/basebledvoyage/images/lang/fr.png') }}" alt="bledvoyage en français" id="fr"/></a>
+                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="bledvoyage in english"><img src="{{ asset('bundles/basebledvoyage/images/lang/en.png') }}" alt="bledvoyage in english" id="en"/></a>
+                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}" title="bledvoyage en español"><img src="{{ asset('bundles/basebledvoyage/images/lang/es.png') }}" alt="bledvoyage en español" id="es"/></a>
             </div>
         </div>
         {% endblock %}

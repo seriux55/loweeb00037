@@ -44,10 +44,10 @@
                 </div>
             </div>
             <div class="bloc_page_entete3">
-                {# <a href="{{ path('base_bledvoyage_homepage', { _locale: 'dz'} ) }}" title="bledvoyage s tamaziɣt"><img src="{{ asset('bundles/basebledvoyage/images/lang/dz.png') }}" alt="bledvoyage s tamaziɣt" id="dz"/></a> #}
-                <a href="{{ path('base_bledvoyage_homepage', { _locale: 'fr'} ) }}" title="bledvoyage en français"><img src="{{ asset('bundles/basebledvoyage/images/lang/fr.png') }}" alt="bledvoyage en français" id="fr"/></a>
-                <a href="{{ path('base_bledvoyage_homepage', { _locale: 'en'} ) }}" title="bledvoyage in english"><img src="{{ asset('bundles/basebledvoyage/images/lang/en.png') }}" alt="bledvoyage in english" id="en"/></a>
-                <a href="{{ path('base_bledvoyage_homepage', { _locale: 'es'} ) }}" title="bledvoyage en español"><img src="{{ asset('bundles/basebledvoyage/images/lang/es.png') }}" alt="bledvoyage en español" id="es"/></a>
+                {# <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'dz'})) }}" title="bledvoyage s tamaziɣt"><img src="{{ asset('bundles/basebledvoyage/images/lang/dz.png') }}" alt="bledvoyage s tamaziɣt" id="dz"/></a> #}
+                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="bledvoyage en français"><img src="{{ asset('bundles/basebledvoyage/images/lang/fr.png') }}" alt="bledvoyage en français" id="fr"/></a>
+                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="bledvoyage in english"><img src="{{ asset('bundles/basebledvoyage/images/lang/en.png') }}" alt="bledvoyage in english" id="en"/></a>
+                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}" title="bledvoyage en español"><img src="{{ asset('bundles/basebledvoyage/images/lang/es.png') }}" alt="bledvoyage en español" id="es"/></a>
             </div>
         </div>
         {% endblock %}

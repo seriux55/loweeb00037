@@ -32,7 +32,8 @@ class Booking
         $this->lieuFormation    = "";
         $this->modeChoisi       = "";
         $this->heureRdv         = "";
-        $this->lieuRdv          = "";       
+        $this->lieuRdv          = "";
+        $this->lang             = 'fr';
     }
     
     /**
@@ -247,6 +248,13 @@ class Booking
      * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lang", type="string", length=255)
+     */
+    private $lang;
 
 
     /**
@@ -901,6 +909,29 @@ class Booking
     public function getDateTime()
     {
         return $this->dateTime;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param string $lang
+     * @return Booking
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return string 
+     */
+    public function getLang()
+    {
+        return $this->lang;
     }
 
     /**

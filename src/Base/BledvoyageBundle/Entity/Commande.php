@@ -27,6 +27,7 @@ class Commande
         $this->facture      = '0';
         $this->dateRdv      = new \dateTime('0000-00-00 00:00:00');
         $this->dateAchat    = new \dateTime('0000-00-00 00:00:00');
+        $this->lang         = 'fr';
     }
     
     /**
@@ -167,6 +168,13 @@ class Commande
      * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lang", type="string", length=255)
+     */
+    private $lang;
 
 
     /**
@@ -614,5 +622,28 @@ class Commande
     public function getDateTime()
     {
         return $this->dateTime;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param string $lang
+     * @return Commande
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return string 
+     */
+    public function getLang()
+    {
+        return $this->lang;
     }
 }

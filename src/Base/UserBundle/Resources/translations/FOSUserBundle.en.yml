@@ -1,0 +1,11 @@
+base:
+    user:
+        login:
+            email:
+                Email address
+            oublie:
+                Forgot your password?
+            inscription:
+                Registration
+            error:
+                Incorrect e-mail or password

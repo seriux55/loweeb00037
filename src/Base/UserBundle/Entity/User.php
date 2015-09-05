@@ -20,9 +20,10 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->deposit          = new \Datetime();
-        $this->vip              = "0";
-        $this->nbrReservation   = "0";
-        $this->nbrParticipation = "0";
+        $this->vip              = '0';
+        $this->nbrReservation   = '0';
+        $this->nbrParticipation = '0';
+        $this->lang             = 'fr';
     }
     
     /**
@@ -128,6 +129,36 @@ class User extends BaseUser
      * @ORM\Column(name="deposit", type="datetime")
      */
     private $deposit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lang", type="string", length=255)
+     */
+    private $lang;
+
+    /**
+     * Set lang
+     *
+     * @param string $lang
+     * @return User
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return string 
+     */
+    public function getLang()
+    {
+        return $this->lang;
+    }
 
     /**
      * Get id

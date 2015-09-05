@@ -10,7 +10,7 @@
                 <div class="mr7">
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     <div class="mr3">
-                        <label for="username">Adresse mail :</label>
+                        <label for="username">{% trans %}base.user.login.email{% endtrans %} :</label>
                         <input class="ouardepp" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
                     </div>
                     <div class="mr3">
@@ -22,10 +22,10 @@
                         <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
                     </div>
                     <div class="mr3">
-                        <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
+                        <a href="{{ path('fos_user_resetting_request') }}">{% trans %}base.user.login.oublie{% endtrans %}</a>
                     </div>
                     <div class="mr3">
-                        <a href="#inscription">Inscription</a>
+                        <a href="#inscription">{% trans %}base.user.login.inscription{% endtrans %}</a>
                     </div>
                 </div>
                 <div class="mr2">

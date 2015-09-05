@@ -20,7 +20,7 @@ base:
             login: 
                 Login
             logout:
-                Cierre de sesion
+                Cierre de sesión
             manager:
                 Manager
             promotion: 
@@ -80,11 +80,11 @@ base:
             organisateur:
                 Algunas palabras sobre el organizador
             question:
-                Preguntas ?
+                ¿Preguntas ?
             appel_1:
                 Llamanos !
             appel_2:
-                Necesitas mas informacionessobre las actividades ? Llamanos !
+                ¿Necesitas mas informacionessobre las actividades ? Llamanos !
             avis_1:
                 aviso
             avis_2:
@@ -117,7 +117,7 @@ base:
             contact_1:
                 Contáctenos !
             contact_2:
-                Más sobre una de nuestras ofertas? ¿Quieres personalizar una fórmula? Solicitudes especiales ? ¿Necesita más información acerca de la salida? Llámanos!
+                ¿Más sobre una de nuestras ofertas? ¿Quieres personalizar una fórmula? ¿Solicitudes especiales ? ¿Necesita más información acerca de la salida? Llámanos!
             contact_3:
                 Estamos también accesible por correo electrónico
             telecharger_1:
@@ -166,9 +166,9 @@ base:
             valider:
                 Validar
             aide_1:
-                Necesitas ayuda ?
+                ¿Necesitas ayuda ?
             aide_2:
-                Dificultad para completar el formulario de reserva ? necesitas mas informaciones sobre  las salidas ? Llamanos !
+                ¿Dificultad para completar el formulario de reserva ? ¿necesitas mas informaciones sobre  las salidas ? ¿Llamanos !
             revenir:
                 Volver al sitio de bledvoyage.com
             envoyer_1:
@@ -220,7 +220,7 @@ base:
             titre:
                 Para si-mismo o bien  para ofrecer !
             description:
-                Al ordenar este paquete, usted recibirá un boleto de regalo que dará derecho al beneficiario a participar en %nombre% actividad, por un valor de %reduit% dinares en vez de %normal% dinares.
+                Al ordenar este paquete, usted recibirá un boleto de regalo que permiten al oyente a participar en %nombre% actividades con un valor de %reduit% dinares/actividad en lugar de %normal% dinares/actividad.
             valable:
                 El paquete regalo esta  valable durante %duree% meses
             loisir:
@@ -237,7 +237,7 @@ base:
                 EXCLUSIVO : Con este billete, tendrá acceso exclusivo a las nuevas actividades que se lanzará pronto :
                 Tirolina gigante, Escalada, circuito de aventura, ...
             economie:
-                de economia
+                ahorros
             offre:
                 Oferta válida hasta el 19 de marzo 2015 en el cepo !
             commander:
@@ -276,11 +276,13 @@ base:
             valider:
                 Validar
             aide_1:
-                Necesitas ayuda ?
+                ¿Necesitas ayuda ?
             aide_2:
-                Dificultad para completar el formulario de reserva ? Necesita más información acerca de la salida ? Llámanos !
+                ¿Dificultad para completar el formulario de reserva ? ¿Necesita más información acerca de la salida ? Llámanos !
             retour:
                 Volver al sitio de bledvoyage.com
+            alert:
+                Debe seleccionar el número de entradas
         type:
             au:
                 HASTA
@@ -302,3 +304,191 @@ base:
                 Aventura, relajación para usted, sus amigos, sus empleados, sus socios ... para compartir con amigos y familia como regalos.
             promo_3:
                 Descubra nuestras tarifas Ofertas descuentos
+        confirmation:
+            reservation:
+                Reserva
+            recapitulatif:
+                Resumen y reserva
+            confirmation:
+                Confirmación
+            booking_1:
+                Reservacion enviada
+            booking_2:
+                Su reserva ha sido enviado a los organizadores, se espera de confirmación.
+            booking_3:
+                Usted recibirá un correo electrónico en unos pocos días, no dude en consultar el archivo de "correo basura".
+            booking_4:
+                Si dentro de cinco horas no recibe llamadas de nosotros, sinalalo en+213 553 815 922 ou bien contact@bledvoyage.com
+            commande_1:
+                Demanda enviada
+            commande_2:
+                Su pedido ha sido enviado a los organizadores, se espera de confirmación.
+            commande_3:
+                Usted recibirá un correo electrónico en unos pocos días, no dude en consultar el archivo de "correo basura".
+            commande_4:
+                Si dentro de cinco horas no recibe llamadas de nosotros, gracias a que nos notifique en 213 553 815 922 o contact@bledvoyage.com
+            avis_1:
+                ¡Aviso enviado!
+            avis_2:
+                Tu opinión se ha enviado al equipo. Será en línea dentro de poco momentos.
+            merci:
+                ¡Gracias!
+        ticket:
+            promo:
+                CÓDIGO PROMO
+            valable:
+                Válido hasta
+        mail:
+            conf_reservation: |
+                Hola %prenom%, 
+                Confirmamos su reserva. Aquí encontrarás los detalles de su reserva.
+
+                DETALLES DE RESERVA: 
+
+                Numero de reservaion : %id%
+                Salida : %sortie%
+                Fecha de reservacion : %datetime%
+                Tarifa : %tarif% dinares/persona 
+                Hora de inicio : %heureDebut%
+                Número de plazas : %nombre%
+                Su nicho: %creneau%
+
+                Mediante la promoción ya no tiene que pagar nada.
+
+                Siga nuestras aventuras en nuestra página de facebook: 
+                - #nroho : https://www.facebook.com/nroho
+                - #chassezlaroutine : https://www.facebook.com/bledvoyage
+
+                También se encuentra por debajo de las condiciones de participación impuesto por el monitor, un mapa e información de contacto
+                la persona de contacto :
+
+                Condiciones de participación :
+                %condition%
+
+
+                Instrucciones :
+                %plan%
+
+                Persona de contacto :
+                Soumia : 0556179774
+
+                Monitor de actividad :
+                %moniteur%
+
+                -----
+                Condiciones de pago :
+                Diferentes métodos de pago están disponibles. Si se opta por los primeros 3 modos para mantener su reserva de forma rápida :
+                Tome una foto con su recibo legible con su smartfone,
+                cámara, ... y nos envía la foto con su número de reserva en contact@bledvoyage.com, por fax en el número: 00 213 24 47 14 04.
+                Nos pondremos en contacto con usted pronto para confirmar su reserva.
+
+
+                1  El Giro postal : 
+                Titular de la cuenta : Centre sebastopol   
+                CCP : 0000378861  75
+
+
+                --
+                2  Transferencia bancaria : 
+                Titular de la cuenta: BADR - Sebastopol - 81, Chenoua plage, 42000, Tipaza - Algérie.
+                R.I.B : 003 - 00448 - 300183300019.
+
+
+                --
+                3  El pago por cheque :
+                Haga el cheque pagadero a la orden de : Sebastopol
+                Enviar cheque a:
+                81, Chenoua plage - 42000, Tipaza - Algérie.
+
+
+                --
+                4  Empresas y profesionales
+                Enviar un pedido, el número de asientos, fecha de reserva, firma y sello, por
+                E-mail: contact@bledvoyage.com, o por fax al: 00 213 24 47 14 07. 
+
+
+                --
+                5  En  Especies
+                En el mismo lugar.
+
+
+
+
+
+                Un pronto.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com es un servicio operado por la empresa "Sebastopol", con domicilio social se encuentra en:
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Fax : 00 213 24 47 14 04
+            conf_commande: |
+                Hola %prenom%, 
+                Confirmamos su pedido. Aquí encontrarás los detalles de su pedido.
+
+                ORDEN AL POR MENOR : 
+
+                N.º de pedido : %id%
+                Categoría : %categorie%
+                Fecha Orden : %datetime%
+                Precio : %tarif%
+                Número de entradas : %nombre%
+
+                Forma de pago eligido  : %modePaiement%
+                %rdv%
+
+                Persona de contacto :
+                Soumia : 0556179774
+
+
+                -----
+                Nuestros métodos de pago : 
+                Diferentes métodos de pago están disponibles. Si se opta por los primeros 3 modos para mantener su reserva de forma rápida:
+                Tome una fotografía legible con su recibo con el teléfono inteligente,
+                cámara, ... y nos envía la foto con su número de reserva en contact@bledvoyage.com, por fax en el número: 00 213 24 47 14 04.
+                Nos pondremos en contacto con usted pronto para confirmar su reserva.
+
+
+                1  El Giro postal : 
+                Titular de la cuenta : Centre sebastopol    
+                CCP : 0000378861  75
+
+
+                --
+                2  Transferencia bancaria : 
+                Titular de la cuenta : BADR - Sebastopol - 81, Chenoua plage, 42000, Tiapza - Algérie.
+                R.I.B : 003 - 00448 - 300183300019.
+
+
+                --
+                3  El pago por cheque :
+                Haga el cheque pagadero a la orden de : Sebastopol
+                Enviar cheque a :
+                81, Chenoua plage - 42000, Tipaza - Algérie.
+
+
+                --
+                4  Empresas y profesionales
+                Enviar un pedido, el número de asientos, fecha de reserva, firma y sello, por
+                E-mail: contact@bledvoyage.com o por fax al: 00 213 24 47 14 04.
+
+
+                --
+                5  En especies
+                En el mismo lugar.
+
+
+
+
+
+                Un pronto.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com es un servicio operado por la empresa "Sebastopol", con domicilio social se encuentra en :
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Fax : 00 213 24 47 14 04

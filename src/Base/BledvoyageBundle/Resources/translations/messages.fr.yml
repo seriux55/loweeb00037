@@ -18,9 +18,9 @@ base:
             lessorties:
                 Les sorties
             login: 
-                Login
+                S'identifier
             logout: 
-                Logout
+                Se déconnecter
             manager:
                 Manager
             promotion: 
@@ -281,6 +281,8 @@ base:
                 Des difficultés à remplir le formulaire ? Besoin de plus d'information sur la commande ? Appelez-nous !
             retour:
                 Revenir au site bledvoyage.com
+            alert:
+                Vous devez selectionner le nombre de tickets
         type:
             au:
                 AU
@@ -302,3 +304,191 @@ base:
                 De l'aventure, de la détente pour vous, vos amis, vos collaborateurs, vos partenaires, ... à partager avec vos proches offir en cadeau.
             promo_3:
                 Découvrir nos offres à tarifs réduits
+        confirmation:
+            reservation:
+                Réservation
+            recapitulatif:
+                Récapitulatif et réservation
+            confirmation:
+                Confirmation
+            booking_1:
+                Commande envoyée
+            booking_2:
+                Votre réservation a été transmise aux organisateurs, elle est en attente de confirmation.
+            booking_3:
+                Vous recevrez un e-mail dans quelques jours, n'hésitez pas à consulter le dossier "courrier indésirable".
+            booking_4:
+                Si dans les 5 heures vous ne recevez pas d'appels de notre part, merci de nous le signaler sur le +213 553 815 922 ou sur contact@bledvoyage.com
+            commande_1:
+                Commande envoyée
+            commande_2:
+                Votre réservation a été transmise aux organisateurs, elle est en attente de confirmation.
+            commande_3:
+                Vous recevrez un e-mail dans quelques jours, n'hésitez pas à consulter le dossier "courrier indésirable".
+            commande_4:
+                Si dans les 5 heures vous ne recevez pas d'appels de notre part, merci de nous le signaler sur le +213 553 815 922 ou sur contact@bledvoyage.com
+            avis_1:
+                Avis envoyé!
+            avis_2:
+                Votre avis a été envoyé à l'équipe. Il sera mis en ligne dans quelques instants.
+            merci:
+                Merci!
+        ticket:
+            promo:
+                CODE PROMO
+            valable:
+                Valable jusqu'au
+        mail:
+            conf_reservation: |
+                Bonjour {{ product.prenom }}, 
+                Nous vous confirmons votre réservation. Vous trouverez ci-après, les détails de votre réservation.
+
+                DETAIL RESERVATION : 
+
+                N° de réservation : {{ product.id }}
+                Sortie : {{ product.sortie }} 
+                Date de réservation : {{ product.dateTime|date('d/m/Y') }}
+                Tarif : {{ product.tarif }} da/personne
+                Heure de début : {{ product.heureDebut }}
+                Nombre de places : {{ product.nombre }}
+                Votre créneau : {{ product.creneau }}
+
+                Grâce à la promotion vous n'avez plus rien a payer.
+
+                Suivez nos aventures sur nos pages facebook : 
+                - #nroho : https://www.facebook.com/nroho
+                - #chassezlaroutine : https://www.facebook.com/bledvoyage
+
+                Aussi, vous trouverez ci-après les conditions de participation imposé par le moniteur, un plan d'accès, ainsi que les coordonées 
+                de la personne à contacter :
+
+                Conditions de participation :
+                {{ product.condition }}
+
+
+                Plan d'accès :
+                {{ product.planAcces }}
+
+                Personne à contacter :
+                Soumia : 0556179774
+
+                Moniteur activité :
+                {{ product.moniteur }}
+
+                -----
+                Modalités de paiement : 
+                Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre réservation rapidement :
+                Prendre une photo lisible avec votre reçu avec votre smartphone, 
+                appareil photo,... Et envoyez-nous la photo avec votre numéro de réservation sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
+                Nous vous contacterons très rapidement pour valider votre réservation. 
+
+
+                1  Le Mandat postal : 
+                Titulaire du compte : Centre sebastopol    
+                CCP : 0000378861  75
+
+
+                --
+                2  Le virement bancaire : 
+                Titulaire du compte : BADR - Sebastopol - 81, Chenoua plage, 42000, Tipaza - Algérie.
+                R.I.B : 003 - 00448 - 300183300019.
+
+
+                --
+                3  Paiement par chèque
+                Libeller le chèque à l ordre de : Sebastopol
+                Envoyer le chèque à :
+                81, Chenoua plage - 42000, Tipaza - Algérie.
+
+
+                --
+                4  Entreprises et professionnels
+                Envoyez un bon de commande, avec, nombre de place, date de réservation, signature et cachet, par 
+                E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 07. 
+
+
+                --
+                5  En Espèce
+                Sur place.
+
+
+
+
+
+                A bientôt.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Fax : 00 213 24 47 14 04
+            conf_commande: |
+                Bonjour %prenom%, 
+                Nous vous confirmons votre commande. Vous trouverez ci-après, les détails de votre commande.
+
+                DETAIL COMMANDE : 
+
+                N° de commande : %id%
+                Catégorie : %categorie%
+                Date de commande : %datetime%
+                Tarif : %tarif%
+                Nombre de tickets : %nombre%
+
+                Mode de paiement choisi : %modePaiement%
+                %rdv%
+
+                Personne à contacter :
+                Soumia : 0556179774
+
+
+                -----
+                Nos modes de paiement : 
+                Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre réservation rapidement :
+                Prendre une photo lisible avec votre reçu avec votre smartphone, 
+                appareil photo,... Et envoyez-nous la photo avec votre numéro de réservation sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
+                Nous vous contacterons très rapidement pour valider votre réservation. 
+
+
+                1  Le Mandat postal : 
+                Titulaire du compte : Centre sebastopol    
+                CCP : 0000378861  75
+
+
+                --
+                2  Le virement bancaire : 
+                Titulaire du compte : BADR - Sebastopol - 81, Chenoua plage, 42000, Tiapza - Algérie.
+                R.I.B : 003 - 00448 - 300183300019.
+
+
+                --
+                3  Paiement par chèque
+                Libeller le chèque à l ordre de : Sebastopol
+                Envoyer le chèque à :
+                81, Chenoua plage - 42000, Tipaza - Algérie.
+
+
+                --
+                4  Entreprises et professionnels
+                Envoyez un bon de commande, avec, nombre de place, date de réservation, signature et cachet, par 
+                E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 04. 
+
+
+                --
+                5  En Espèce
+                Sur place.
+
+
+
+
+
+                A bientôt.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Fax : 00 213 24 47 14 04
