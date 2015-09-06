@@ -59,9 +59,7 @@ thead
             <tr>
                 <td style="width:100%;border-top:1px solid #e8e8e8; padding:0mm;">
                     <p class="signature" style="width:100%;padding:0mm;line-height: 4mm;">
-                        bledvoyage.com et nroho.com sont des services opérés par la société "Sebastopol", dont le siège social est situé au :<br/>
-                        81 Chenoua plage, 42000 Tipaza, Algérie. RCN° :42/00-2647788A13 - NIF :197622290072621.<br/>
-                        contact@bledvoyage.com - www.bledvoyage.com - Tél./Fax : 00 213 24 47 14 04
+                        {% trans %}base.bledvoyage.commande.commande_facturer_facture_1{% endtrans %}
                     </p>
                 </td>
             </tr>	
@@ -74,11 +72,7 @@ thead
                 <img style="width:290px;" src="bundles/basebledvoyage/images/admin/logo_facture.jpg" alt="" >
             </td>
             <td style="width:35%; font-size:10px;color:#666666; line-height:3mm;text-align:right;">
-                Services de réservation :<br/>
-                Sorties : http://www.bledvoyage.com <br/>
-                Covoiturages & Sorties : http://www.nroho.com<br/>
-                Contact : contact@bledvoyage.com<br/>
-                tél./Fax : +213 24471404 (De 09h00 - 18h00) <br/>
+                {% trans %}base.bledvoyage.commande.commande_facturer_facture_2{% endtrans %}<br/>
             </td>
         </tr>
     </table>
@@ -95,20 +89,26 @@ thead
     <table style="vertical-align:top;">
         <tr>
             <td style="width:65%">
-                <strong>Offre « {{ product.offre }} ».</strong><br/>
-                N° de commande : {{ product.idCommande }}<br/>
-                N° de facture : {{ product.id }}<br/>
-                Date de commande: {{ product.dateTime|date('d/m/Y') }}<br/>
-                Mode de règlement : {{ product.paiement }}<br/>
+                <strong>{% trans %}base.bledvoyage.commande.commande_facturer_facture_3{% endtrans %} « {{ product.offre }} ».</strong><br/>
+                {% trans with {
+                    '%idCommande%'  : product.idCommande,
+                    '%id%'          : product.id,
+                    '%datetime%'    : product.dateTime|date('d/m/Y'),
+                    '%paiement%'    : product.paiement
+                } %}base.bledvoyage.commande.commande_facturer_facture_4{% endtrans %}<br/>
             </td>
             <td style="width:35%">
                 <strong>{{ product.prenom }} {{ product.nom }}</strong><br/>
                 {% if product.entreprise is not empty %}
-                Nom de l'entreprise : {{ product.entreprise }}<br/>
-                Adresse : {{ product.adresse }}<br/>
+                {% trans with {
+                    '%entreprise%'  : product.entreprise,
+                    '%adresse%'     : product.adresse,
+                } %}base.bledvoyage.commande.commande_facturer_facture_5{% endtrans %}<br/>
                 {% endif %}
-                Téléphone : {{ product.tel }}<br/>
-                E-mail : {{ product.email }}<br/>
+                {% trans with {
+                    '%tel%'     : product.tel,
+                    '%email%'   : product.email,
+                } %}base.bledvoyage.commande.commande_facturer_facture_6{% endtrans %}<br/>
             </td>
         </tr>
     </table>
@@ -122,7 +122,7 @@ thead
     <table style="width:100%;padding-bottom:6mm">
         <tr>
             <td style="width:100%;border-bottom:1px solid #cdcaca; padding:0mm;">
-                <h1 style="width:100%;padding:0mm">Facture du {{ 'now'|date('d/m/Y') }}</h1>
+                <h1 style="width:100%;padding:0mm">{% trans %}base.bledvoyage.commande.commande_facturer_facture_11{% endtrans %} {{ 'now'|date('d/m/Y') }}</h1>
             </td>
         </tr>	
     </table>
@@ -130,31 +130,31 @@ thead
         <thead>
         <tbody>
             <tr>
-                <th style="width:80%">Offre « {{ product.offre }} »</th>
+                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_3{% endtrans %} « {{ product.offre }} »</th>
                 <td style="width:20%;text-align:center;">{{ product.tarif }} DA</td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <th style="width:80%">Quantité</th>
+                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_7{% endtrans %}</th>
                 <td style="width:20%;text-align:center;">{{ product.nombre }}</td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <th style="width:80%">Total HT</th>
+                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_8{% endtrans %}</th>
                 <td style="width:20%;text-align:center;">{{ product.total - (product.total * 0.17)|number_format(2, '.', ',') }} DA</td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <th style="width:80%">TVA (17%)</th>
+                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_9{% endtrans %} (17%)</th>
                 <td style="width:20%;text-align:center;">{{ product.total * 0.17 }} DA</td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <th style="width:80%"><strong>Somme Payée TTC</strong></th>
+                <th style="width:80%"><strong>{% trans %}base.bledvoyage.commande.commande_facturer_facture_10{% endtrans %}</strong></th>
                 <td style="width:20%;text-align:center;"><strong>{{ product.total }} DA</strong></td>
             </tr>
         </tbody>

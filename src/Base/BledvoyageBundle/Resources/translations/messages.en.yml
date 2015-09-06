@@ -338,20 +338,52 @@ base:
                 PROMO CODE
             valable:
                 Valid until
+        commande:
+            commande_facturer_facture_1: >
+                bledvoyage.com et nroho.com sont des services opérés par la société "Sebastopol", dont le siège social est situé au :
+            commande_facturer_facture_2: |
+                Services de réservation :
+                Sorties : http://www.bledvoyage.com
+                Covoiturages & Sorties : http://www.nroho.com
+                Contact : contact@bledvoyage.com
+                tél./Fax : +213 24471404 (De 09h00 - 18h00)
+            commande_facturer_facture_3:
+                Offre
+            commande_facturer_facture_4: |
+                N° de commande : %idCommande%
+                N° de facture : %id%
+                Date de commande: %datetime%
+                Mode de règlement : %paiement%
+            commande_facturer_facture_5: |
+                Nom de l'entreprise : %entreprise%
+                Adresse : %adresse%
+            commande_facturer_facture_6: |
+                Téléphone : %tel%
+                E-mail : %email%
+            commande_facturer_facture_7:
+                Quantité
+            commande_facturer_facture_8:
+                Total HT
+            commande_facturer_facture_9:
+                TVA
+            commande_facturer_facture_10:
+                Somme Payée TTC
+            commande_facturer_facture_11:
+                Facture du
         mail:
             conf_reservation: |
-                Bonjour {{ product.prenom }}, 
+                Bonjour %prenom%, 
                 Nous vous confirmons votre réservation. Vous trouverez ci-après, les détails de votre réservation.
 
                 DETAIL RESERVATION : 
 
-                N° de réservation : {{ product.id }}
-                Sortie : {{ product.sortie }} 
-                Date de réservation : {{ product.dateTime|date('d/m/Y') }}
-                Tarif : {{ product.tarif }} da/personne
-                Heure de début : {{ product.heureDebut }}
-                Nombre de places : {{ product.nombre }}
-                Votre créneau : {{ product.creneau }}
+                N° de réservation : %id%
+                Sortie : %sortie%
+                Date de réservation : %datetime%
+                Tarif : %tarif% da/personne
+                Heure de début : %heureDebut%
+                Nombre de places : %nombre%
+                Votre créneau : %creneau%
 
                 Grâce à la promotion vous n'avez plus rien a payer.
 
@@ -363,17 +395,17 @@ base:
                 de la personne à contacter :
 
                 Conditions de participation :
-                {{ product.condition }}
+                %condition%
 
 
                 Plan d'accès :
-                {{ product.planAcces }}
+                %plan%
 
                 Personne à contacter :
                 Soumia : 0556179774
 
                 Moniteur activité :
-                {{ product.moniteur }}
+                %moniteur%
 
                 -----
                 Modalités de paiement : 
@@ -444,7 +476,8 @@ base:
 
 
                 -----
-                Nos modes de paiement : 
+                Nos modes de paiement :
+                    
                 Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre réservation rapidement :
                 Prendre une photo lisible avec votre reçu avec votre smartphone, 
                 appareil photo,... Et envoyez-nous la photo avec votre numéro de réservation sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
@@ -489,6 +522,157 @@ base:
                 ---
                 bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
                 81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Fax : 00 213 24 47 14 04
+            env_avis: |
+                Bonjour %prenom%, 
+                Vous avez récemment participé à la sortie : %sortie%, à %localisation%.
+                Nous étions très ravis de vous acceuillir. 
+                On vous invite à laisser votre avis sur cette sortie ici : http://www.bledvoyage.com/avis/%id%
+
+                Partagez vos photos avec vous ! Sur nos pages facebook : 
+                - #nroho : https://www.facebook.com/nroho
+                - #chassezlaroutine : https://www.facebook.com/bledvoyage
+
+                Aussi, vous trouverez ci-dessous les détails de participation.
+
+                ------
+                Participant : 
+
+                N° de réservation : %id%
+                Sortie : %sortie%
+                Localisation : %localisation%
+                Prénom et Nom : %prenom%, %nom%
+                Téléphone : %tel%
+                E-mail : %email%
+                Date de réservation : %datetime%
+                Tarif : %tarif% dainars/personne
+                Nombre de places : %nombre%
+                Total  : %total% dinars
+
+                A bientôt.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Fax : 00 213 24 47 14 04
+            att_commande: |
+                Bonjour , 
+                Votre commande sur « bledvoyage » est en attente de confirmation. Notre équipe prendra contact avec vous très vite.
+                Vous trouverez ci-après, les détails de votre commande.
+
+                DETAIL COMMANDE : 
+
+                N° de commande : %id%
+                Prénom et Nom : %secondename%, %firstname%
+                Ticket cadeau : %nom%
+                Date de commande : %datetime%
+                Tarif : %tarif% dinars
+                Quantité : %nombre%
+                Validité : %duree% Mois
+
+                Aussi, vous trouverez ci-après quelques informations sur la commande, les conditions, ainsi que les coordonées 
+                de la personne à contacter en cas de besoin :
+
+                Descriptif :
+                %description%
+
+                Conditions :
+                %conditions%
+
+                Personne à contacter en cas de besoin, ou si vous ne recevez pas de réponse de notre part sous 24h, ayez le réflexe de nous appeler :
+                Soumia : 0 556 179 774
+
+
+                -----
+                MODALITÉS DE PAIEMENT : 
+
+                Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre commande rapidement :
+                Prendre une photo lisible avec votre reçu en utilisant votre smartphone, appareil photo,... 
+                Et envoyez-nous la photo avec votre numéro de commande sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
+                Nous vous contacterons très rapidement pour valider votre réservation. 
+
+
+                1  Le Mandat postal : 
+                Titulaire du compte : Centre sebastopol    
+                CCP : 0000378861  75
+
+
+                --
+                2  Le virement bancaire : 
+                Titulaire du compte : Sebastopol - 81, Cehnoua plage, 42000, Tiapza - Algérie.
+                R.I.B : 003 - 00448 - 300183300019.
+
+
+                --
+                3  Paiement par chèque
+                Libeller le chèque à l ordre de : Sebastopol
+                Envoyer le chèque à :
+                81, Chenoua plage - 42000, Tipaza - Algérie.
+
+
+                --
+                4  Entreprises et professionnels
+                Envoyez un bon de commande, avec le pack demandé, le nombre de pack, signature et cachet, par 
+                E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 07. 
+
+
+                --
+                5  En Espèce
+                Sur place.
+
+
+
+
+
+                A bientôt.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                contact@bledvoyage.com
+                www.bledvoyage.com
+                Téléphone & Fax : 00 213 24 47 14 04
+            commande_facturer: |
+                %prenom%, 
+                Vous trouverez en pièces jointes : 
+                - Votre pack de ticket cadeau,
+                - Votre facture détaillée.
+                - Nos activités de loisirs pour chasser la routine.
+
+                Merci de nous confirmer par retour de mail la bonne réception de celui-ci.
+
+                Ci-dessous quelques informations sur votre achat.
+
+
+                ------
+                FACTURE : 
+
+                N° de commande : %id%
+                Catégorie du ticket : %ticket%
+                Prénom et Nom : %prenom%, %nom%
+                Téléphone : %tel%
+                E-mail : %email%
+                Date de commande : %datetime%
+                Tarif : %tarif% dinars/ticket
+                Quantité : %nombre%
+                Mode de paiement : %paiement%
+                Total : %total% dinars
+
+
+
+                A bientôt.
+                bledvoyage.com
+
+                ---
+                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                81 Chenoua plage, 42000 Tipaza, Algérie.
+                RCN° :42/00-2647788A13 - NIF :197622290072621.
                 contact@bledvoyage.com
                 www.bledvoyage.com
                 Fax : 00 213 24 47 14 04

@@ -14,6 +14,7 @@ use Base\BledvoyageBundle\Form\Type\SortieType;
 use Base\BledvoyageBundle\Entity\Sortie;
 use Base\BledvoyageBundle\Entity\Categorie;
 use Base\BledvoyageBundle\Entity\CategorieTicket;
+use Base\BledvoyageBundle\Entity\DateSortie;
 use Symfony\Component\HttpFoundation\Request;
 
 use FOS\UserBundle\FOSUserEvents;
@@ -30,11 +31,18 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em         = $this->getDoctrine();
+        $emm        = $em->getManager();
         $locale     = $this->get('request')->getLocale();
+        // La liste des sorties
         $sortie     = new Sortie();
         $product    = $sortie->getSorties($em, $locale);
+        // La liste des categories
         $categories = new Categorie();
         $categorie  = $categories->getCategorie($em, $locale);
+        // Mise à jour des dates des sorties le dimanche et le lundi
+        $dateUpdate = new DateSortie();
+        $dateUpdate->getUpdate($em, $emm);
+        // Recuperer l'id de formation
         foreach ($categorie as $data)
         {
             if($data->getNom() == 'formation'){ $formation = $data->getId(); }

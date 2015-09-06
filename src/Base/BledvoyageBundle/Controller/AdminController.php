@@ -885,11 +885,11 @@ class AdminController extends Controller
     
     public function statisticMoisAction($year = 15)
     {
-        $locale     = $this->get('request')->getLocale();
+        $locale             = $this->get('request')->getLocale();
         $dateFromNumberWeek = $this->container->get('dateFromNumberWeek');
-        $toTwoDate = $dateFromNumberWeek->toTwoDate(1, 2015);
-        $dimanche  = $toTwoDate[0];
-        $samedi    = $toTwoDate[1];
+        $toTwoDate          = $dateFromNumberWeek->toTwoDate(1, 2015);
+        $dimanche           = $toTwoDate[0];
+        $samedi             = $toTwoDate[1];
         
         $year = '20'.$year;
         if ($year == date('Y')){
@@ -901,14 +901,14 @@ class AdminController extends Controller
         }
         
         $qb = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.categorieTicket', 'b')
-                   ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
-                   ->setParameters(array(
-                       'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
-                       'dateB' => $dateB,
-                   ));
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.categorieTicket', 'b')
+            ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
+            ->setParameters(array(
+                'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
+                'dateB' => $dateB,
+            ));
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -921,14 +921,14 @@ class AdminController extends Controller
         $commandes = $query->getResult();
         
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
-                   ->createQueryBuilder('a')
-                   ->addSelect('b')
-                   ->leftJoin('a.sortie', 'b')
-                   ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
-                   ->setParameters(array(
-                       'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
-                       'dateB' => $dateB,
-                   ));
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.sortie', 'b')
+            ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
+            ->setParameters(array(
+                'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
+                'dateB' => $dateB,
+            ));
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -941,16 +941,16 @@ class AdminController extends Controller
         $reservations = $query->getResult();
         
         $operateurs = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Operateur')
-                    ->createQueryBuilder('a')
-                    ->addSelect('b')
-                    ->leftJoin('a.user', 'b')
-                    ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
-                    ->setParameters(array(
-                       'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
-                       'dateB' => $dateB,
-                    ))
-                    ->getQuery()
-                    ->getResult();
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.user', 'b')
+            ->where('a.dateTime >= :dateA AND a.dateTime <= :dateB')
+            ->setParameters(array(
+               'dateA' => date('Y-m-d', strtotime($year.'-01-01')),
+               'dateB' => $dateB,
+            ))
+            ->getQuery()
+            ->getResult();
         
         $nm = 0;
         $m = array();
@@ -1023,8 +1023,8 @@ class AdminController extends Controller
                             case 1: $note[$i][$j]      = $note[$i][$j] + 1;      default;
                             case 2: $confirmer[$i][$j] = $confirmer[$i][$j] + 1; default;
                             case 3: $acompte[$i][$j]   = $acompte[$i][$j] + 1;   default;
-                            case 4: @$factureO[$i][$j]  = @$factureO[$i][$j] + 1;  default;
-                            case 5: @$avisO[$i][$j]     = @$avisO[$i][$j] + 1;     default;
+                            case 4: @$factureO[$i][$j] = @$factureO[$i][$j] + 1;  default;
+                            case 5: @$avisO[$i][$j]    = @$avisO[$i][$j] + 1;     default;
                         }
                     }
                 }
@@ -1033,7 +1033,7 @@ class AdminController extends Controller
         for($i=1; $i<=$month; $i++){
             $dataR[]      = $reservation[$i];
             $confirmerR[] = $confirmationR[$i];
-            $avisRR[]      = $avisR[$i];
+            $avisRR[]     = $avisR[$i];
             $annulerR[]   = $annulationR[$i];
             
             $dataC[]      = $commande[$i];
@@ -1226,23 +1226,23 @@ class AdminController extends Controller
         $date6 = date('Y-m-d', strtotime(date('Y-m-d').' - 1 DAY'));
         $date7 = date('Y-m-d');
         $commande = $product = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
-                   ->createQueryBuilder('a')
-                   ->where('a.dateTime >= :date')
-                   ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
-                   ->getQuery()
-                   ->getResult();
+            ->createQueryBuilder('a')
+            ->where('a.dateTime >= :date')
+            ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
+            ->getQuery()
+            ->getResult();
         $reservation = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Booking')
-                   ->createQueryBuilder('a')
-                   ->where('a.dateTime >= :date')
-                   ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
-                   ->getQuery()
-                   ->getResult();
+            ->createQueryBuilder('a')
+            ->where('a.dateTime >= :date')
+            ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
+            ->getQuery()
+            ->getResult();
         $ticket = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
-                   ->createQueryBuilder('a')
-                   ->where('a.dateTime >= :date')
-                   ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
-                   ->getQuery()
-                   ->getResult();
+            ->createQueryBuilder('a')
+            ->where('a.dateTime >= :date')
+            ->setParameter('date', date('Y-m-d', strtotime(date('Y-m-d').' - 6 DAY')))
+            ->getQuery()
+            ->getResult();
         $reservation1 = $reservation2 = $reservation3 = $reservation4 = $reservation5 = $reservation6 = $reservation7 = 0;
         $commande1 = $commande2 = $commande3 = $commande4 = $commande5 = $commande6 = $commande7 = 0;
         $ticket1 = $ticket2 = $ticket3 = $ticket4 = $ticket5 = $ticket6 = $ticket7 = 0;
@@ -1337,10 +1337,10 @@ class AdminController extends Controller
     {
         $locale     = $this->get('request')->getLocale();
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
-                ->createQueryBuilder('a')
-                ->where('a.valider = :valider')
-                ->setParameter('valider', '1')
-                ->orderBy('a.id','ASC');
+            ->createQueryBuilder('a')
+            ->where('a.valider = :valider')
+            ->setParameter('valider', '1')
+            ->orderBy('a.id','ASC');
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -1353,10 +1353,10 @@ class AdminController extends Controller
         $sortie = $query->getResult();
         
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Invitation')
-                ->createQueryBuilder('a')
-                ->addSelect('b')
-                ->leftJoin('a.sortie', 'b')
-                ->orderBy('a.id','DESC');
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.sortie', 'b')
+            ->orderBy('a.id','DESC');
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -1374,16 +1374,16 @@ class AdminController extends Controller
             $sortie = $em->getRepository('BaseBledvoyageBundle:Sortie')->find($request->get('sortie'));
             $invitation   = new Invitation();
             $invitation->setNom($request->get('nom'))
-                       ->setUser($this->get('security.context')->getToken()->getUser())
-                       ->setSortie($sortie)
-                       ->setPrenom($request->get('prenom'))
-                       ->setMail($request->get('mail'))
-                       ->setEntreprise($request->get('entreprise'))
-                       ->setTelephone($request->get('tel'))
-                       ->setNombre($request->get('nombre'))
-                       ->setPourcentage($request->get('pourcentage'))
-                       ->setTextPerso($request->get('textPerso'))
-                       ->setIp($request->getClientIp());
+                ->setUser($this->get('security.context')->getToken()->getUser())
+                ->setSortie($sortie)
+                ->setPrenom($request->get('prenom'))
+                ->setMail($request->get('mail'))
+                ->setEntreprise($request->get('entreprise'))
+                ->setTelephone($request->get('tel'))
+                ->setNombre($request->get('nombre'))
+                ->setPourcentage($request->get('pourcentage'))
+                ->setTextPerso($request->get('textPerso'))
+                ->setIp($request->getClientIp());
             if (null !== $request->get('dateSortie')){
                 $invitation->setDateSortie(new \DateTime($frToDatetime->toDatetime($request->get('dateSortie'))));
             }
@@ -1448,10 +1448,10 @@ class AdminController extends Controller
     {
         $locale     = $this->get('request')->getLocale();
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
-                ->createQueryBuilder('a')
-                ->where('a.valider = :valider')
-                ->setParameter('valider', '1')
-                ->orderBy('a.id','ASC');
+            ->createQueryBuilder('a')
+            ->where('a.valider = :valider')
+            ->setParameter('valider', '1')
+            ->orderBy('a.id','ASC');
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
