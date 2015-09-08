@@ -1551,4 +1551,10 @@ class AdminController extends Controller
         
         return $this->forward('BaseBledvoyageBundle:Admin:validationSortie');
     }
+    
+    public function ticketAction()
+    {
+        
+        return $this->render('BaseBledvoyageBundle:Admin:ticket.html.twig');
+    }
 }

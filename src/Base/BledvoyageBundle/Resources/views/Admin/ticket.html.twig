@@ -1,0 +1,83 @@
+{% extends "::Admin/base.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="bloc_page_body222">
+    <h2>
+        Informations sur les commandes
+    </h2>
+</div>
+<section>
+    <form method="post">
+        <div class="avisor">
+            <h3>Entrez le numéro de commande</h3>
+            <input class="ouardep" type="number" name="commande" required />
+            <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+        </div>			
+    </form>
+</section>
+<section>
+    <h2>Commande N° 222</h2>
+    <h3>Informations sur la commande</h3>
+    <p>Nom : Harmel</p>
+    <p>Prénom : Raouf</p>
+    <p>Téléphone : 0554252529</p>
+    <p>Mail : raoufharmel@hotmail.fr</p>
+    <p>Date commande : 2015-01-22</p>
+    <p>Catégorie : Pack découverte</p>
+    <p>Quantité : 2</p>
+    <p>Date d'achat : 2015-01-29 13:16:38</p>
+    <h3>Remarques</h3>
+    <p>
+        <br />
+        Le 05/09/2015: Consommée:02 tickets<br />
+        01-05-2015
+    </p>
+    <br />
+    <h2>Les tickets</h2>
+    <div class="avison">
+        <table>
+            <thead>
+                <tr>
+                    <th class="numero">N°</th>
+                    <th>Code</th>
+                    <th>Place(s) maximum</th>
+                    <th>Place(s) utilisée(s)</th>
+                    <th>Place(s) restante(s)</th>
+                    <th>Valable jusqu'au</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="numero">1</td>
+                    <td>9CA9C1F0</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>2015-07-29</td>
+                </tr>
+                <tr>
+                    <td class="numero">2</td>
+                    <td>550B1C39</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2015-07-29</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<form method="post">
+    <textarea name="remarques"></textarea>
+    <input type="hidden" name="rem" value="1">
+    <input type="hidden" name="commande" value="222">
+    <input type="submit" value="Envoyer">
+</form>
+{% endblock %}

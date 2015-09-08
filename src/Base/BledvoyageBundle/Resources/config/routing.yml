@@ -143,6 +143,10 @@ bledvoyage_admin_invitation:
     path:     manager/invitation
     defaults: { _controller: BaseBledvoyageBundle:Admin:invitation }
 
+bledvoyage_admin_ticket:
+    path:     manager/ticket
+    defaults: { _controller: BaseBledvoyageBundle:Admin:ticket }
+
 bledvoyage_admin_devis_entreprise:
     path:     manager/devis
     defaults: { _controller: BaseBledvoyageBundle:Admin:devisEntreprise }
