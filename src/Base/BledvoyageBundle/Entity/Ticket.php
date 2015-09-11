@@ -278,4 +278,36 @@ class Ticket
     {
         return $this->ip;
     }
+    
+    /**
+     * function getTicket
+     * 
+     * @param object $em
+     * @param int $id
+     * @param string $locale
+     * @return object
+     */
+    public function getTicket($em, $id, $locale)
+    {
+        $qb = $em->getRepository('BaseBledvoyageBundle:Ticket')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.commande', 'b')
+            ->addSelect('c')
+            ->leftJoin('b.categorieTicket', 'c')
+            ->where('a.commande = :id')
+            ->setParameter('id', $id);
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        return $query->getResult();
+    }
 }

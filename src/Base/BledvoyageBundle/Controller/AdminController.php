@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Swift_Attachment;
 use Base\BledvoyageBundle\Entity\Ticket;
+use Base\BledvoyageBundle\Entity\Commande;
 use Base\BledvoyageBundle\Entity\Operateur;
 use Base\BledvoyageBundle\Entity\Invitation;
 use Ob\HighchartsBundle\Highcharts\Highchart;
@@ -1566,56 +1567,43 @@ class AdminController extends Controller
     
     public function ticketAction(Request $request)
     {
-        
-        if ($request->getMethod() == 'POST') {
-            $locale = $this->get('request')->getLocale();
-            $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
-                ->createQueryBuilder('a')
-                ->addSelect('b')
-                ->leftJoin('a.categorieTicket', 'b')
-                ->addSelect('c')
-                ->leftJoin('a.user', 'c')
-                ->where('a.id = :id')
-                ->setParameter('id', $request->request->get('commande'));
-            // Use Translation Walker
-            $query = $qb->getQuery();
-            $query->setHint(
-                \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
-                'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
-            );
-            // Force the locale
-            $query->setHint(
-                \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
-                $locale
-            );
-            $product = $query->getResult();
+        $em         = $this->getDoctrine();
+        $emm        = $em->getManager();
+        $locale     = $this->get('request')->getLocale();
+        $id         = $request->request->get('commande');
+        $remarque   = $request->request->get('remarque');
+        $nbrTicket  = 0;
+        if ($request->getMethod() == 'POST' && null === $remarque) {
+            $commande = new Commande();
+            $product = $commande->getCommande($em, $id, $locale);
             
-            $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
-                ->createQueryBuilder('a')
-                ->addSelect('b')
-                ->leftJoin('a.commande', 'b')
-                ->addSelect('c')
-                ->leftJoin('b.categorieTicket', 'c')
-                ->where('a.commande = :id')
-                ->setParameter('id', $request->request->get('commande'));
-            // Use Translation Walker
-            $query = $qb->getQuery();
-            $query->setHint(
-                \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
-                'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
-            );
-            // Force the locale
-            $query->setHint(
-                \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
-                $locale
-            );
-            $ticket = $query->getResult();
+            $tickets = new Ticket();
+            $ticket  = $tickets->getTicket($em, $id, $locale);
+            foreach($ticket as $d) {
+                $nbrTicket++;
+            }
+        }elseif ($request->getMethod() == 'POST' && null !== $remarque) {
+            $update = $emm->createQueryBuilder()
+                ->update('BaseBledvoyageBundle:Commande', 'a')
+                ->set('a.remarque', "'".$remarque."'")
+                ->where('a.id = '.$id);
+            $update->getQuery()->execute();
+            
+            $commande = new Commande();
+            $product = $commande->getCommande($em, $id, $locale);
+            
+            $tickets = new Ticket();
+            $ticket  = $tickets->getTicket($em, $id, $locale);
+            foreach($ticket as $d) {
+                $nbrTicket++;
+            }
         }else{
-            $product = $ticket = '';
+            $product    = $ticket = '';
         }
         return $this->render('BaseBledvoyageBundle:Admin:ticket.html.twig', array(
-            'product' => $product,
-            'ticket'  => $ticket,
+            'product'   => $product,
+            'ticket'    => $ticket,
+            'nbrTicket' => $nbrTicket,
         ));
     }
 }

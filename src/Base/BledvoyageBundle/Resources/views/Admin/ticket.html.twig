@@ -25,9 +25,9 @@
 {% if product is not empty %}
 {% for data in product %}
 <section>
-    <h2>Commande N° 222</h2>
+    <h2>Commande N° {{ data.id }}</h2>
     <h3>Informations sur la commande</h3>
-    <p>Nom : </p>
+    <p>Nom : {{ data.user.firstname }}</p>
     <p>Prénom : {{ data.user.secondename }}</p>
     <p>Téléphone : {{ data.user.phone }}</p>
     <p>Mail : {{ data.user.email }}</p>
@@ -41,6 +41,7 @@
         {% if data.remarque is not empty %}{{ data.remarque }}{% else %}Néant{% endif %}
     </p>
     <br />
+    {% if nbrTicket > 0 %}
     <h2>Les tickets</h2>
     <div class="avison">
         <table>
@@ -68,11 +69,14 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <h3>La commande n'a pas été payée</h3>
+    {% endif %}
 </section>
 <form method="post">
     <label>Ajouter une remarque:</label>
     <textarea name="remarques"></textarea>
-    <input type="hidden" name="rem" value="1">
+    <input type="hidden" name="remarque" value="1">
     <input type="hidden" name="commande" value="222">
     <input type="submit" value="Envoyer">
 </form>

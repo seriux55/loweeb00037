@@ -677,4 +677,28 @@ class Commande
     {
         return $this->lang;
     }
+    
+    public function getCommande($em, $id, $locale)
+    {
+        $qb = $em->getRepository('BaseBledvoyageBundle:Commande')
+            ->createQueryBuilder('a')
+            ->addSelect('b')
+            ->leftJoin('a.categorieTicket', 'b')
+            ->addSelect('c')
+            ->leftJoin('a.user', 'c')
+            ->where('a.id = :id')
+            ->setParameter('id', $id);
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        return $query->getResult();
+    }
 }
