@@ -272,33 +272,45 @@ class AdminController extends Controller
         );
         $product = $query->getResult();
         
-        $d = $resa = array();
+        $totalReservation = $totalPlace = 0;
+        $d = $resa = $dateConfirmer = array();
         foreach ($product as $data) {
             if(!in_array($data->getSortie()->getId(), $d)){
-                $sorties[] = $data->getSortie();
-                $d[] = $data->getSortie()->getId();
+                $sorties[]  = $data->getSortie();
+                $d[]        = $data->getSortie()->getId();
             }
+            if(!in_array($data->getDateConfirmer(), $dateConfirmer)){
+                $dateConfirmer['date'] = $data->getDateConfirmer();
+            }
+            $totalReservation = $totalReservation + 1;
+            $totalPlace       = $totalPlace + $data->getNombre();
         }
-        $nbrReservation = $nbrPlace = 0;
-        foreach ($d as $value) {
-            foreach ($product as $data){
-                if($data->getSortie()->getId() == $value){
-                    
-                    // Ça ne veut rien dire **************
-                    $nbrPlace = $nbrPlace + $data->getNombre();
-                    $resa[] = array(
-                        'id'                => $data->getSortie()->getId(),
-                        'nbrReservation'    => $nbrReservation++,
-                        'nbrPlace'          => $nbrPlace,
-                    );
+        $nbrReservation = $nbrPlace = array();
+        foreach ($product as $data) {
+            foreach($dateConfirmer['date'] as $date){
+                if (array_key_exists('a'.strtotime($date), $nbrReservation)) {
+                    $nbrReservation['a'.strtotime($date)] = $nbrReservation['a'.strtotime($date)] + 1;
+                }else{
+                    $nbrReservation['a'.strtotime($date)] = 1;
+                }
+                if (array_key_exists('a'.strtotime($date), $nbrPlace)) {
+                    $nbrPlace['a'.strtotime($date)] = $nbrPlace['a'.strtotime($date)] + $data->getNombre();
+                }else{
+                    $nbrPlace['a'.strtotime($date)] = $data->getNombre();
                 }
             }
         }
         
         return $this->render('BaseBledvoyageBundle:Admin:listes.html.twig', array(
-            'product'   => $product,
-            'sortie'    => $sorties,
-            'resa'      => $resa,
+            'product'           => $product,
+            'sortie'            => $sorties,
+            'resa'              => $resa,
+            'dateConfirmer'     => $dateConfirmer,
+            'nbrPlace'          => $nbrPlace,
+            'nbrReservation'    => $nbrReservation,
+            'nbrSortie'         => count($d),
+            'totalReservation'  => $totalReservation,
+            'totalPlace'        => $totalPlace,
         ));    
     }
     
@@ -445,7 +457,7 @@ class AdminController extends Controller
                  ->setAdresseEntreprise($request->get('adresse'));
             $em->persist($commande);
             $ticket  = new Ticket();
-            $dateFin = date('Y-m-d', strtotime($commande->getCategorieTicket()->getDuree()));
+            $dateFin = date('Y-m-d', strtotime('+'.$commande->getCategorieTicket()->getDuree().'month', strtotime(date('Y-m-d'))));
             $ticket->setCommande($commande)
                    ->setDateFin(new \DateTime($dateFin))
                    ->setIp($this->getRequest()->getClientIp());
@@ -1552,9 +1564,58 @@ class AdminController extends Controller
         return $this->forward('BaseBledvoyageBundle:Admin:validationSortie');
     }
     
-    public function ticketAction()
+    public function ticketAction(Request $request)
     {
         
-        return $this->render('BaseBledvoyageBundle:Admin:ticket.html.twig');
+        if ($request->getMethod() == 'POST') {
+            $locale = $this->get('request')->getLocale();
+            $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Commande')
+                ->createQueryBuilder('a')
+                ->addSelect('b')
+                ->leftJoin('a.categorieTicket', 'b')
+                ->addSelect('c')
+                ->leftJoin('a.user', 'c')
+                ->where('a.id = :id')
+                ->setParameter('id', $request->request->get('commande'));
+            // Use Translation Walker
+            $query = $qb->getQuery();
+            $query->setHint(
+                \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+                'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+            );
+            // Force the locale
+            $query->setHint(
+                \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+                $locale
+            );
+            $product = $query->getResult();
+            
+            $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Ticket')
+                ->createQueryBuilder('a')
+                ->addSelect('b')
+                ->leftJoin('a.commande', 'b')
+                ->addSelect('c')
+                ->leftJoin('b.categorieTicket', 'c')
+                ->where('a.commande = :id')
+                ->setParameter('id', $request->request->get('commande'));
+            // Use Translation Walker
+            $query = $qb->getQuery();
+            $query->setHint(
+                \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+                'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+            );
+            // Force the locale
+            $query->setHint(
+                \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+                $locale
+            );
+            $ticket = $query->getResult();
+        }else{
+            $product = $ticket = '';
+        }
+        return $this->render('BaseBledvoyageBundle:Admin:ticket.html.twig', array(
+            'product' => $product,
+            'ticket'  => $ticket,
+        ));
     }
 }

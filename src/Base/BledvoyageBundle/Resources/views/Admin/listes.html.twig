@@ -15,9 +15,9 @@
 </div>		
 <section>
     <div class="avisor">
-        <h3>31 sorties</h3>
-        <p> Nombres de réservations total = 368</p>				
-        <p> Nombres de places réservés = 1007</p>
+        <h3>{{ nbrSortie }} sorties</h3>
+        <p> Nombres de réservations total = {{ totalReservation }}</p>				
+        <p> Nombres de places réservés = {{ totalPlace }}</p>
     </div>
 </section>
     
@@ -29,18 +29,21 @@
             <h3>Sortie : {{ data.titre }}</h3> 
             <h4><img src="{{ asset('bundles/basebledvoyage/images/interface/date.png') }}" alt="Image"> Du {{ data.dateDebut|date('d/m/Y') }} AU {{ data.dateFin|date('d/m/Y') }} | <img src="{{ asset('bundles/basebledvoyage/images/interface/heure.png') }}" alt="Image">  {{ data.heureDebut }} - {{ data.heureFin }}.</h4>
             <p>
-                Tarif : {{ data.tarif }} Da/per
+                Tarif : {{ data.tarif }} dinars/personne
             </p>
+            {#
             <p>Réservations : {% for d in resa %}{% if d.id == data.id %}{{ d.nbrReservation }}{% endif %}{% endfor %} </p>
             <p>Places : 3 </p>
+            #}
         </div>
         <div class="avison">
             <ul class="resu">
+                {% for dataD in dateConfirmer %}
                 <li class="resuhe">
                     <div class="resudate">
-                        <h1>14/02/2015</h1>
+                        <h1>{{ dataD.date|date('d/m/Y') }}</h1>
                     </div>
-                    <strong>TOTAL :  3 résa, 3 places</strong><table>
+                    <strong>TOTAL :  {{ nbrReservation['a'~dataD.date|date('U')] }} résa, {{ nbrPlace[dateU] }} places</strong><table>
                         <thead>
                             <tr>
                                 <th class="numero">Ligne</th>
@@ -56,7 +59,7 @@
                         <tbody>
                             {% set i = 1 %}
                             {% for dataB in product %}
-                            {% if dataB.sortie.id == data.id %}
+                            {% if dataB.sortie.id == data.id and dataB.dateReserver|date('d/m/Y') == dataD.date|date('d/m/Y') %}
                             <tr>
                                 <td class="numero">{{ i }}</td>
                                 <td>{{ dataB.id }}</td>
@@ -73,13 +76,14 @@
                         </tbody>
                     </table>
                 </li>
+                {% endfor %}
             </ul>
         </div>
     </section>
     {% endfor %}
 </div>
 
-
+{#
 <div class="bloc_page_body3">
     <script>
     jQuery(document).ready(function(){
@@ -160,4 +164,5 @@
         </div>
     </section>
 </div>
+#}
 {% endblock %}

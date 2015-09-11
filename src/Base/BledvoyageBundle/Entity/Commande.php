@@ -28,6 +28,7 @@ class Commande
         $this->dateRdv      = new \dateTime('0000-00-00 00:00:00');
         $this->dateAchat    = new \dateTime('0000-00-00 00:00:00');
         $this->lang         = 'fr';
+        $this->remarque     = '';
     }
     
     /**
@@ -158,7 +159,14 @@ class Commande
     /**
      * @var string
      *
-     * @ORM\Column(name="ip", type="string", length=255)
+     * @ORM\Column(name="remarque", type="string", length=1023)
+     */
+    private $remarque;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=255, nullable=true)
      */
     private $ip;
 
@@ -576,6 +584,29 @@ class Commande
     public function getLieuRdv()
     {
         return $this->lieuRdv;
+    }
+
+    /**
+     * Set remarque
+     *
+     * @param string $remarque
+     * @return Commande
+     */
+    public function setRemarque($remarque)
+    {
+        $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    /**
+     * Get remarque
+     *
+     * @return string 
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
     }
 
     /**
