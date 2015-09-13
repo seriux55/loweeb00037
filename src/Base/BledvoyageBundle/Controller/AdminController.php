@@ -1582,15 +1582,18 @@ class AdminController extends Controller
             foreach($ticket as $d) {
                 $nbrTicket++;
             }
-        }elseif ($request->getMethod() == 'POST' && null !== $remarque) {
-            $update = $emm->createQueryBuilder()
-                ->update('BaseBledvoyageBundle:Commande', 'a')
-                ->set('a.remarque', "'".$remarque."'")
-                ->where('a.id = '.$id);
-            $update->getQuery()->execute();
-            
+        }elseif ($request->getMethod() == 'POST' && $remarque === '1') {
             $commande = new Commande();
             $product = $commande->getCommande($em, $id, $locale);
+            foreach($product as $data) {
+                $oldRemarque = $data->getRemarque();
+            }
+            
+            $update = $emm->createQueryBuilder()
+                ->update('BaseBledvoyageBundle:Commande', 'a')
+                ->set('a.remarque', "'".$oldRemarque.date('d/m/Y').": ".$request->request->get('remarques')."\n'")
+                ->where('a.id = '.$id);
+            $update->getQuery()->execute();
             
             $tickets = new Ticket();
             $ticket  = $tickets->getTicket($em, $id, $locale);

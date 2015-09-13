@@ -38,7 +38,7 @@
     <h3>Remarques</h3>
     <p>
         <br />
-        {% if data.remarque is not empty %}{{ data.remarque }}{% else %}Néant{% endif %}
+        {% if data.remarque is not empty %}{{ data.remarque|nl2br }}{% else %}Néant{% endif %}
     </p>
     <br />
     {% if nbrTicket > 0 %}
@@ -77,7 +77,7 @@
     <label>Ajouter une remarque:</label>
     <textarea name="remarques"></textarea>
     <input type="hidden" name="remarque" value="1">
-    <input type="hidden" name="commande" value="222">
+    <input type="hidden" name="commande" value="{{ data.id }}">
     <input type="submit" value="Envoyer">
 </form>
 {% endfor %}

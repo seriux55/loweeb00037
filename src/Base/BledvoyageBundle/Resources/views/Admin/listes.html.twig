@@ -43,7 +43,7 @@
                     <div class="resudate">
                         <h1>{{ dataD.date|date('d/m/Y') }}</h1>
                     </div>
-                    <strong>TOTAL :  {{ nbrReservation['a'~dataD.date|date('U')] }} résa, {{ nbrPlace[dateU] }} places</strong><table>
+                    <strong>TOTAL :  {{ nbrReservation['a'~dataD.date|date('U')] }} résa, {{ nbrPlace['a'~dataD.date|date('U')] }} places</strong><table>
                         <thead>
                             <tr>
                                 <th class="numero">Ligne</th>
