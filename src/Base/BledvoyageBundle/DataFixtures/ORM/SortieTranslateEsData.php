@@ -636,11 +636,6 @@ Shoes like tennis, arctic clothing or windproof gloves.");
         $ticket3->setTranslatableLocale('es');
         $manager->persist($ticket3);
         
-        $ticket4 = $this->getReference('ticket4');
-        $ticket4->setNom('Paquete de Ocio 12');
-        $ticket4->setTranslatableLocale('es');
-        $manager->persist($ticket4);
-        
         $manager->flush();
     }
     

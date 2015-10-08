@@ -23,7 +23,7 @@
         </p>
     </div>
 </section>
-<div class=".bloc_page_body3">
+<div class="bloc_page_body3">
     {% for data in product %}
     <script>
     jQuery(document).ready(function(){
@@ -118,7 +118,7 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{% if dataT.dateAchat != 'Ì' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
+                            <td>{% if dataT.dateAchat|date('d/m/Y') != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
                             <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td class="couleur">{{ dataT.note }}</td>
@@ -135,7 +135,7 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{% if dataT.dateAchat != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
+                            <td>{% if dataT.dateAchat|date('d/m/Y') != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
                             <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td class="couleur">{{ dataT.note }}</td>
@@ -152,7 +152,7 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{% if dataT.dateAchat != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
+                            <td>{% if dataT.dateAchat|date('d/m/Y') != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
                             <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td class="couleur">{{ dataT.note }}</td>
@@ -169,7 +169,7 @@
                             <td>{{ dataT.nom }}</td>
                             <td>{{ dataT.tel }}</td>
                             <td>{{ dataT.place }}</td>
-                            <td>{% if dataT.dateAchat != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
+                            <td>{% if dataT.dateAchat|date('d/m/Y') != '30/11/-0001' %}{{ dataT.dateAchat|date('d/m/Y') }}{% endif %}</td>
                             <td>{{ dataT.modePaiement }}</td>
                             <td>{% if dataT.rdv != '30/11/-0001' %}{{ dataT.rdv }}{% endif %}</td>
                             <td></td>

@@ -81,13 +81,15 @@ Student rate : 1800 Dinars/person.
 
 Various:
 Use of their own 4WM, the rate is 900 Dinars/person and wearing the helmet is mandatory.");
-        $sortie2->setConditions("Register using the booking form to process your registration quickly.
-Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
-Be of age,
+        $sortie2->setConditions("Register using the booking form to reserve your place,
+Have his driver's license,
 Be healthy,
-Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
-The activities Will be allocated  according to Weather conditions.
-To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
+Driver: Be of age,
+Passenger: Minor from 10 years permitted with the presence of a parent,
+Wearing clothes and mountain shoes (closed and rising) is strongly recommended,
+Wearing gloves is recommended,
+Foreign nationals should be a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+And also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them.");
         $sortie2->setTranslatableLocale('en');
         $manager->persist($sortie2);
         
@@ -117,7 +119,7 @@ A backpack, a good gourmet sandwich, a large bottle of water, a pair of sneakers
 Every Thursday, Friday and Saturday from 6:00 to 2:00 p.m..
 Normal rate: 2900 Dinas / person.
 Student rate 2400 Dinars / person.
-Great reduction, make the activity at 1900 dinars instead of 2,900 dinars by buying your ticket in advance. Click here for more detail: Enjoy a significant reduction.");
+Great reduction, make the activity at 1900 dinars instead of 2900 dinars by buying your ticket in advance. Click here for more detail: Enjoy a significant reduction.");
         $sortie4->setConditions("Register using the booking form to process your registration quickly.
 Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
 Be of age,
@@ -129,20 +131,19 @@ To conclude, during the activities, It’s preferred to not wear jewelries (Ring
         $manager->persist($sortie4);
         
         $sortie5 = $this->getReference('sortie5');
-        $sortie5->setTitre('Aventure d\'orientation et jeux de pistes montagne');
-        $sortie5->setDescriptif("Encore une nouveauté en Algérie, Nouvelle activité, nouvelles aventure ! 
-Apprendre à lire une carte, à utiliser une boussole ou à suivre un itinéraire balisé tout en s’amusant, voici le principe de ce jeu d’orientation créé spécialement pour les amoureux de la nature & montagne. 
+        $sortie5->setTitre('Adventure Guidance and mountain hunts');
+        $sortie5->setDescriptif("Learn to read a map, use a compass or to follow a signposted route while having fun, here is the principle of this guidance game created specifically for lovers of nature and mountains.
 
-En compagnie de notre moniteur Sliman, qui nous équipera de boussoles, cartes, jumelles, talkies-walkies, … et avec bon sens de l’observation, nous partagerons ensemble ce moment de plaisir ! 
-Un sac à dos, un bon sandwich gourmand, une grande bouteille d’eau, une paire de basket et une casquette et à nous l’aventure !
+Together with our Sliman monitor, which will equip us compasses, maps, binoculars, walkie-talkies, ... and with good sense of observation, we all share this moment of pleasure !
+A backpack, a good gourmet sandwich, a large bottle of water, a pair of sneakers and a cap and our adventure !
 
-Saurez-vous relever le défi ?
+Can you meet the challenge ?
 
-C’est parti ! 
+Let's go ! 
 
 
-Tarif normal : 2900 Dinas/personne.
-Tarif étudiant : 2400 Dinars/personne.");
+Normal price : 2900 dinars/person.
+Student price : 2400 dinars/person.");
         $sortie5->setConditions("Register using the booking form to process your registration quickly.
 Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
 Be of age,
@@ -175,10 +176,13 @@ To conclude, during the activities, It’s preferred to not wear jewelries (Ring
 We begin with an introductory scuba session followed by a walk under water about 20 minutes ... and discover the different underwater species. We end by a global debriefing.
 And to finish,
 Do not forget your USB key to retrieve your photos & videos, all fresh.");
-        $sortie7->setConditions("S'inscrire l'aide du formulaire de réservation pour réserver votre place,
-Être majeur,
-Être en bonne santé.
-Et aussi, pendant l'activité, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre sous l'eau.");
+        $sortie7->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie7->setTranslatableLocale('en');
         $manager->persist($sortie7);
         
@@ -216,12 +220,13 @@ Introduction to fishing offshore.
 
 Standard Price: 4900 dinars / person.
 Student price: 4400 dinars / person.");
-        $sortie9->setConditions("- S'inscrire à l'aide du formulaire de réservation,
-- Être en bonne santé,
-- Être majeur,
-- Savoir nager,
-- Les ressortissants étrangers doivent faire l'objet d'une déclaration de présence auprès des autorités locales : Police nationale, gendarmerie nationale, dans la région concernée,
-Et pour finir, pendant les activités, il est préférable de ne pas porter de bijoux (bagues, colliers, bracelets,...) aux risques de les perdre sous l'eau.");
+        $sortie9->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie9->setTranslatableLocale('en');
         $manager->persist($sortie9);
         
@@ -258,13 +263,15 @@ The bikes and helmets will be provided by the home, with the possibility to brin
 rate:
 Standard Price: 2900 dinars / person.
 Student rate 2400 Dinars / person.");
-        $sortie11->setConditions("Register using the booking form to process your registration quickly.
-Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
-Be of age,
+        $sortie11->setConditions("Register using the booking form to reserve your place,
+Have his driver's license,
 Be healthy,
-Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
-The activities Will be allocated  according to Weather conditions.
-To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
+Driver: Be of age,
+Passenger: Minor from 10 years permitted with the presence of a parent,
+Wearing clothes and mountain shoes (closed and rising) is strongly recommended,
+Wearing gloves is recommended,
+Foreign nationals should be a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+And also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them.");
         $sortie11->setTranslatableLocale('en');
         $manager->persist($sortie11);
         
@@ -352,262 +359,199 @@ Shoes like tennis, arctic clothing or windproof gloves.");
         $manager->persist($sortie15);
         
         $sortie16 = $this->getReference('sortie16');
-        $sortie16->setTitre('Paragliding training and internship');
-        $sortie16->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie16->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie16->setTitre('Quad Discovery');
+        $sortie16->setDescriptif("Every day we will meet at Djbel Chenoua, Tipaza, for a hike in Quad! 45 minutes at 1:00 discovery, morning and afternoon.
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+You will take the controls of a machine for a sensational adventure Mountain. We all share this moment of pleasure!
+A backpack, a good gourmet sandwich, a large bottle of water, a pair of sneakers and a cap and our adventure!
+Let's go !
+
+Normal rate: 1900 dinars / person.
+Student price: 1800 dinars / person.
+
+Miscellaneous:
+Using its own quad, the rate is 900 Dinars / person and helmets are mandatory.");
+        $sortie16->setConditions("Register using the booking form to reserve your place,
+Have his driver's license,
+Be healthy,
+Driver: Be of age,
+Passenger: Minor from 10 years permitted with the presence of a parent,
+Wearing clothes and mountain shoes (closed and rising) is strongly recommended,
+Wearing gloves is recommended,
+Foreign nationals should be a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
+And also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them.");
         $sortie16->setTranslatableLocale('en');
         $manager->persist($sortie16);
         
         $sortie17 = $this->getReference('sortie17');
-        $sortie17->setTitre('Paragliding training and internship');
-        $sortie17->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie17->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie17->setTitre('Sensation Quad');
+        $sortie17->setDescriptif("Still a novelty in Algeria !
+Every day we will meet at Djbel Chenoua, Tipaza, for a hike in Quad! 1:00 to 1:15 of pure sensation morning and afternoon.
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+You will take the controls of a machine for a sensational adventure Mountain. We all share this moment of pleasure!
+A backpack, a good gourmet sandwich, a large bottle of water, a pair of sneakers and a cap and our adventure!
+Let's go !
+
+Normal rate: dinars 2900 / person.
+Student price: 2400 dinars / person.
+
+Miscellaneous:
+Using its own quad, the price is 1900 dinars / person and helmets are mandatory");
+        $sortie17->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie17->setTranslatableLocale('en');
         $manager->persist($sortie17);
         
         $sortie18 = $this->getReference('sortie18');
-        $sortie18->setTitre('Paragliding training and internship');
-        $sortie18->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie18->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
-
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie18->setTitre('Jet Ski Discovery');
+        $sortie18->setDescriptif("A hike discovery will allow us to take control of the watercraft, while enjoying an extraordinary landscape in Tipaza. A fun time!
+Duration: 45min of walking, including 15 minutes of driving / person.
+Normal rate: 2900 Da");
+        $sortie18->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie18->setTranslatableLocale('en');
         $manager->persist($sortie18);
         
         $sortie19 = $this->getReference('sortie19');
-        $sortie19->setTitre('Paragliding training and internship');
-        $sortie19->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie19->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie19->setTitre('Jet Ski Ride');
+        $sortie19->setDescriptif("We will take the controls of the Jet Ski, from which to conquer the beautiful coastline of Tipaza. Scenery breathtaking. A real fun time!
+Duration: 1h15min hike, including 25 minutes of driving / person.
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+Normal rate: 3900 Da");
+        $sortie19->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie19->setTranslatableLocale('en');
         $manager->persist($sortie19);
         
         $sortie20 = $this->getReference('sortie20');
-        $sortie20->setTitre('Paragliding training and internship');
-        $sortie20->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie20->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie20->setTitre('Jet Ski Sensation');
+        $sortie20->setDescriptif("A beautiful hiking jet ski, off the coast of Tipaza, supervised by professional and experienced instructors, We'll Fly sensational machines for hiking discovery of an extraordinary landscape in Tipaza. A fun time!
+Duration: 1h30min hike, including 30 minutes of driving / person
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+Normal rate: 4900 Da");
+        $sortie20->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie20->setTranslatableLocale('en');
         $manager->persist($sortie20);
         
         $sortie21 = $this->getReference('sortie21');
-        $sortie21->setTitre('Paragliding training and internship');
-        $sortie21->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie21->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
-
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+        $sortie21->setTitre('Jet Ski Trip');
+        $sortie21->setDescriptif("We will take the controls of the Jet Ski, for a beautiful ride Wed Framed by professionals and experienced instructors, we will leave to the discovery of an extraordinary landscape in Tipaza. A fun time!
+Duration: 2h15min of walking, including 45 minutes of driving / person.
+Normal rate: 6400 Da");
+        $sortie21->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie21->setTranslatableLocale('en');
         $manager->persist($sortie21);
         
         $sortie22 = $this->getReference('sortie22');
-        $sortie22->setTitre('Paragliding training and internship');
-        $sortie22->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie22->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie22->setTitre('Jet Ski Evasion');
+        $sortie22->setDescriptif("An escape jet ski off the coast of Tipaza. Supervised by professionals and experienced instructors, We'll Fly sensational machines to hike to an extraordinary landscape in Tipaza. A unique moment of escape!
+Duration: 3h00 Hiking, 1:00 whose driving / person.
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+Normal rate: 7400 Da");
+        $sortie22->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie22->setTranslatableLocale('en');
         $manager->persist($sortie22);
         
         $sortie23 = $this->getReference('sortie23');
-        $sortie23->setTitre('Paragliding training and internship');
-        $sortie23->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie23->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie23->setTitre('Temptation buoy');
+        $sortie23->setDescriptif("An exit in Outboard, buoys and swimming sensation off, Monday to Saturday of the month of August from 10:00 to 20:00 for a ride of an hour and a half with rodeo.
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+Are you attracted by the idea of a cruise along the Bay of Tipaza
+Discover another side of Tipaza, speedboat, the wind in your hair, ...
+Off in the swimming breaks in natural caves,
+Watersports activities for challengers; you can embark on our inflatable buoys ... Nothing to fear except go down the drain, so brace yourself, the rodeo begins!
+
+Normal rate: 2900 dinars / person.
+Student price: 2400 dinars / person.");
+        $sortie23->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie23->setTranslatableLocale('en');
         $manager->persist($sortie23);
         
         $sortie24 = $this->getReference('sortie24');
-        $sortie24->setTitre('Paragliding training and internship');
-        $sortie24->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie24->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie24->setTitre('Dirty Quad Trip - Full Day');
+        $sortie24->setDescriptif('A "Quad Trip" fun & discovery time of a day, with lunch at Mount Chenoua,
+You will take orders for our Quads pack of wild mountain Rita, Robusta, nervousness, Tornado, etc. Come climb!
+In the program :
+09h00-09h30: Arrival & Welcome of participants,
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+9:30 to 10:00: instructions and introduction to Quad
+
+10:00 a.m. to 12:00: Quad & Hiking breaks photos,
+
+12:00 to 1:00 p.m.: Barbecue Outdoor & Cooling,
+
+1:00 p.m. to 4:00 p.m.: Hiking Suite Quad Breaks & Photos
+4:00 p.m. to 4:30 p.m.: Fin & Departure of participants.
+Let\'s go !
+
+Normal rate: 11900 dinars / person.
+Student rate: 10900 dinars / person.');
+        $sortie24->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie24->setTranslatableLocale('en');
         $manager->persist($sortie24);
         
         $sortie25 = $this->getReference('sortie25');
-        $sortie25->setTitre('Paragliding training and internship');
-        $sortie25->setDescriptif("See for yourself! This is what Jaafar offers.
-A 7 day training full time or part time, at your own pace for an introduction to the activity of «Paragliding» and acquire the basic principles of flights in several cities in Algeria: Oran, Blida, Tipaza, Algiers, Bouira, Setif ... Become autonomous Paragliding!
-program:
-More than 56 hours of theory and practical sessions spread at your pace and in the company of qualified and experienced instructors.
-Supplies and equipment available and suitable for all levels. Numerous flights per day. Handling, takeoff, flying, landing, meteorology, etc.
-At the end of this training, the monitor will issue you a federal license, a certificate of completion «Autonomous Driver», an airline liability insurance of one year. AND you will be able to fly alone!");
-        $sortie25->setConditions("Register using the booking form to reserve your place,
-To be healthy,
-Foreign nationals must be subject to a declaration of presence to the local authorities: National Police, National Gendarmerie, in the region concerned,
-Present a medical certificate of non-cons to the practice of paragliding,
-Accessible from 14 years without prerequisites with parental consent,
+        $sortie25->setTitre('Quad After Work');
+        $sortie25->setDescriptif('A hike "After Work" Quad, to decompress?
+Every evening at 19:00, we meet at Mount Chenoua, Tipaza, for a walk in the mountains, sunset live, absolute quiet, 1:15 to 1:30 of pure pleasure. The best niche of the day.
+You will take the controls of a machine for a sensational adventure Mountain.
+A backpack, a good gourmet sandwich, a large bottle of water, a pair of sneakers and a cap and our adventure!
+Let\'s go !
 
-Documents required for training:
-A medical certificate of non-cons to the practice of paragliding,
-A birth certificate,
-4 passport photos,
-Copy of the national map.
-Also, during the activity, it is best not to wear jewelry (rings, necklaces, bracelets, ...) the risk of losing them,
-What to bring
-We recommend a casual dress, but for your comfort and safety.
-Shoes like tennis, arctic clothing or windproof gloves.");
+Normal rate: Dinas 3900 / person.
+Student price: 3400 dinars / person.');
+        $sortie25->setConditions("Register using the booking form to process your registration quickly.
+Payment of a deposit of at least 30% (The last minute cancellations deprive others from participating),
+Be of age,
+Be healthy,
+Foreign nationals must be subject of a declaration of presence to the local authorities : National PD,national gendarmerie, in the concerned region .
+The activities Will be allocated  according to Weather conditions.
+To conclude, during the activities, It’s preferred to not wear jewelries (Rings, Necklaces, bracelets,...) of the risk of loss.");
         $sortie25->setTranslatableLocale('en');
         $manager->persist($sortie25);
         
@@ -655,11 +599,6 @@ Shoes like tennis, arctic clothing or windproof gloves.");
         $ticket3->setNom('Leisure pack 6');
         $ticket3->setTranslatableLocale('en');
         $manager->persist($ticket3);
-        
-        $ticket4 = $this->getReference('ticket4');
-        $ticket4->setNom('Leisure pack 12');
-        $ticket4->setTranslatableLocale('en');
-        $manager->persist($ticket4);
         
         $manager->flush();
     }

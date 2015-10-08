@@ -96,16 +96,16 @@ base:
             participant_1:
                 The participants
             participant_2:
-                participant(s) this week
+                participant(s) in this week
             retour:
                 Click here to go back to outings list...
         entreprise:
             vitrine_1:
-                Chassez la routine !
+                Hunt routine !
             vitrine_2:
-                De l'aventure, du plaisir, de la cohésion, du challenge pour ses salariés, ses collaborateurs, ses partenaires, ... Des activités de Team Building, des sorties détente, sur mesure et unique en Algérie.
+                Adventure, fun, cohesion, the challenge for its employees, its employees, partners ... Team Building Activities, leisure outings, customized and unique in Algeria.
             vitrine_3:
-                Découvrir nos offres pour corporates
+                Discover our offers for corporates
             titre:
                 Team Building, Pleasure & Adventure
             contenu_1:
@@ -172,10 +172,10 @@ base:
             revenir:
                 Come back to bledvoyage.com
             envoyer_1:
-                Sortie envoyée!
+                Sent out!
             envoyer_2: >
-                Votre sortie a été transmise à l'équipe, pour validation.
-                Vous receverez un e-mail dès que possible, n'hésitez pas à consutler le dossier "courrier indesirable".
+                Your release was transmitted to the team, for validation.
+                You will receive an email as soon as possible, please check the "spam" folder.
             velo:
                 Biking, Cyclime
             randonee:
@@ -239,17 +239,17 @@ base:
             economie:
                 of economy
             offre:
-                Offer available until march 19th 2015, in the limite of the available stock !
+                Offer available until october 10th 2015, in the limite of the available stock !
             commander:
                 Order
             envoyer_1:
-                Commande envoyée!
+                Order sent!
             envoyer_2:
-                Votre commande a été transmise aux organisateurs, elle est en attente de confirmation.
+                Your order has been sent to the organizers, it is waiting for confirmation.
             envoyer_3:
-                Vous recevrez un e-mail dans quelques jours, n'hésitez pas à consulter le dossier "courrier indésirable ».
+                You will receive an email in a few days, do not hesitate to consult the file "junk mail."
             envoyer_4:
-                Si dans les 5 heures vous ne recevez pas d'appels de notre part, merci de nous le signaler sur le +213 553 815 922 ou sur contact@bledvoyage.com
+                If within five hours you do not receive calls from us, thank you notify us on +213 553 815 922 or contact@bledvoyage.com
         promotiontype:
             recapitulatif:
                 Summary and booking
@@ -272,7 +272,7 @@ base:
             perso_3:
                 Skip this step if you do not need to add a message
             perso_4:
-                "Ex : Best wishes, Happy birthday mom, Valentine's day, ..."
+                "Ex : Best wishes, Happy Mother Day, Happy Birthday, ..."
             valider:
                 Validate
             aide_1:
@@ -312,27 +312,27 @@ base:
             confirmation:
                 Confirmation
             booking_1:
-                Reservacion enviada
+                Booking sent
             booking_2:
-                Su reserva ha sido enviado a los organizadores, se espera de confirmación.
+                Your reservation has been sent to the organizers, it is waiting for confirmation.
             booking_3:
-                Usted recibirá un correo electrónico en unos pocos días, no dude en consultar el archivo de "correo basura".
+                You will receive an email in a few days, do not hesitate to consult the file "junk mail."
             booking_4:
-                Si dentro de cinco horas no recibe llamadas de nosotros, sinalalo en+213 553 815 922 ou bien contact@bledvoyage.com
+                If within five hours you do not receive calls from us, thank you notify us on +213 553 815 922 or contact@bledvoyage.com
             commande_1:
-                Demanda enviada
+                Order sent
             commande_2:
-                Su pedido ha sido enviado a los organizadores, se espera de confirmación.
+                Your order has been sent to the organizers, it is waiting for confirmation.
             commande_3:
-                Usted recibirá un correo electrónico en unos pocos días, no dude en consultar el archivo de "correo basura".
+                You will receive an email in a few days, do not hesitate to consult the file "junk mail."
             commande_4:
-                Si dentro de cinco horas no recibe llamadas de nosotros, gracias a que nos notifique en 213 553 815 922 o contact@bledvoyage.com
+                If within five hours you do not receive calls from us, thank you notify us on +213 553 815 922 or contact@bledvoyage.com
             avis_1:
-                Aviso enviado
+                Reviewed
             avis_2:
-                Tu opinión se ha enviado al equipo. Será en línea dentro de poco momentos.
+                Your review was sent to the team. It will be posted shortly.
             merci:
-                Thank you!
+                Thanks!
         ticket:
             promo:
                 PROMO CODE
@@ -340,337 +340,337 @@ base:
                 Valid until
         commande:
             commande_facturer_facture_1: >
-                bledvoyage.com et nroho.com sont des services opérés par la société "Sebastopol", dont le siège social est situé au :
+                bledvoyage.com and nroho.com are services operated by the company "Sebastopol", whose registered office is located at :
             commande_facturer_facture_2: |
-                Services de réservation :
-                Sorties : http://www.bledvoyage.com
-                Covoiturages & Sorties : http://www.nroho.com
+                Reservation services :
+                Outputs : http://www.bledvoyage.com
+                Carpools & Outputs : http://www.nroho.com
                 Contact : contact@bledvoyage.com
-                tél./Fax : +213 24471404 (De 09h00 - 18h00)
+                Tel/Fax : +213 24471404 (From 9:00 to 6:00 p.m)
             commande_facturer_facture_3:
-                Offre
+                Offer
             commande_facturer_facture_4: |
-                N° de commande : %idCommande%
-                N° de facture : %id%
-                Date de commande: %datetime%
-                Mode de règlement : %paiement%
+                Order number : %idCommande%
+                Invoice # : %id%
+                Order date : %datetime%
+                Method of payment : %paiement%
             commande_facturer_facture_5: |
-                Nom de l'entreprise : %entreprise%
+                Company Name : %entreprise%
                 Adresse : %adresse%
             commande_facturer_facture_6: |
-                Téléphone : %tel%
+                Phone : %tel%
                 E-mail : %email%
             commande_facturer_facture_7:
-                Quantité
+                Amount
             commande_facturer_facture_8:
                 Total HT
             commande_facturer_facture_9:
-                TVA
+                VAT
             commande_facturer_facture_10:
-                Somme Payée TTC
+                Amount Paid Tax
             commande_facturer_facture_11:
-                Facture du
+                Bill
         mail:
             conf_reservation: |
-                Bonjour %prenom%, 
-                Nous vous confirmons votre réservation. Vous trouverez ci-après, les détails de votre réservation.
+                Hello %prenom%, 
+                We confirm your booking. You will find below the details of your reservation.
 
-                DETAIL RESERVATION : 
+                BOOKING DETAILS : 
 
-                N° de réservation : %id%
-                Sortie : %sortie%
-                Date de réservation : %datetime%
-                Tarif : %tarif% da/personne
-                Heure de début : %heureDebut%
-                Nombre de places : %nombre%
-                Votre créneau : %creneau%
+                No booking : %id%
+                Exit : %sortie%
+                Date of reservation : %datetime%
+                Price : %tarif% da/person
+                Start time : %heureDebut%
+                Number of places : %nombre%
+                Your niche : %creneau%
 
-                Grâce à la promotion vous n'avez plus rien a payer.
+                By promoting you no longer have to pay anything.
 
-                Suivez nos aventures sur nos pages facebook : 
+                Follow our adventures on our facebook page : 
                 - #nroho : https://www.facebook.com/nroho
                 - #chassezlaroutine : https://www.facebook.com/bledvoyage
 
-                Aussi, vous trouverez ci-après les conditions de participation imposé par le moniteur, un plan d'accès, ainsi que les coordonées 
-                de la personne à contacter :
+                Also you will find below the conditions of participation imposed by the monitor, a map, and contact information 
+                the contact person :
 
-                Conditions de participation :
+                Conditions of participation :
                 %condition%
 
 
-                Plan d'accès :
+                Access map :
                 %plan%
 
-                Personne à contacter :
+                Contact person :
                 Soumia : 0556179774
 
-                Moniteur activité :
+                Monitor activity :
                 %moniteur%
 
                 -----
-                Modalités de paiement : 
-                Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre réservation rapidement :
-                Prendre une photo lisible avec votre reçu avec votre smartphone, 
-                appareil photo,... Et envoyez-nous la photo avec votre numéro de réservation sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
-                Nous vous contacterons très rapidement pour valider votre réservation. 
+                Payment terms : 
+                Different methods of payment are available. If you opt for the first 3 modes to hold your reservation quickly :
+                Take a photo with your legible receipt with your smartphone, 
+                camera, ... and send us the photo with your booking number on contact@bledvoyage.com, by fax on number: 00 213 24 47 14 04.
+                We will contact you soon to confirm your booking. 
 
 
-                1  Le Mandat postal : 
-                Titulaire du compte : Centre sebastopol    
+                1  The Postal money : 
+                Account holder : Centre sebastopol    
                 CCP : 0000378861  75
 
 
                 --
-                2  Le virement bancaire : 
-                Titulaire du compte : BADR - Sebastopol - 81, Chenoua plage, 42000, Tipaza - Algérie.
+                2  Bank transfer : 
+                Account holder : BADR - Sebastopol - 81, Chenoua plage, 42000, Tipaza - Algérie.
                 R.I.B : 003 - 00448 - 300183300019.
 
 
                 --
-                3  Paiement par chèque
-                Libeller le chèque à l ordre de : Sebastopol
-                Envoyer le chèque à :
+                3  Payment by check
+                Make check payable to the order of : Sebastopol
+                Send check to :
                 81, Chenoua plage - 42000, Tipaza - Algérie.
 
 
                 --
-                4  Entreprises et professionnels
-                Envoyez un bon de commande, avec, nombre de place, date de réservation, signature et cachet, par 
-                E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 07. 
+                4  Businesses and professionals
+                Send an order with, number of seats, reservation date, signature and stamp, by 
+                E-mail: contact@bledvoyage.com or by fax to: 00 213 24 47 14 07. 
 
 
                 --
-                5  En Espèce
-                Sur place.
+                5  Cash
+                In site.
 
 
 
 
 
-                A bientôt.
+                See you soon.
                 bledvoyage.com
 
                 ---
-                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                bledvoyage.com is a service operated by the company "Sebastopol", whose registered office is located at : 
                 81 Chenoua plage, 42000 Tipaza, Algérie.
                 contact@bledvoyage.com
                 www.bledvoyage.com
                 Fax : 00 213 24 47 14 04
             conf_commande: |
-                Bonjour %prenom%, 
-                Nous vous confirmons votre commande. Vous trouverez ci-après, les détails de votre commande.
+                Hello %prenom%, 
+                We confirm your order. You will find below the details of your order.
 
-                DETAIL COMMANDE : 
+                DETAIL ORDER : 
 
-                N° de commande : %id%
-                Catégorie : %categorie%
-                Date de commande : %datetime%
-                Tarif : %tarif%
-                Nombre de tickets : %nombre%
+                Order number : %id%
+                Category : %categorie%
+                Order date : %datetime%
+                Price : %tarif%
+                Number of tickets : %nombre%
 
-                Mode de paiement choisi : %modePaiement%
+                Method of payment : %modePaiement%
                 %rdv%
 
-                Personne à contacter :
+                Contact person :
                 Soumia : 0556179774
 
 
                 -----
-                Nos modes de paiement :
+                Our methods of payment :
                     
-                Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre réservation rapidement :
-                Prendre une photo lisible avec votre reçu avec votre smartphone, 
-                appareil photo,... Et envoyez-nous la photo avec votre numéro de réservation sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
-                Nous vous contacterons très rapidement pour valider votre réservation. 
+                Different methods of payment are available. If you opt for the first 3 modes to hold your reservation quickly :
+                Take a readable picture with your receipt with your smartphone, 
+                camera, ... and send us the photo with your booking number on contact@bledvoyage.com, by fax on number: 00 213 24 47 14 04.
+                We will contact you soon to confirm your booking.
 
 
-                1  Le Mandat postal : 
-                Titulaire du compte : Centre sebastopol    
+                1  The Postal money : 
+                Account holder : Centre sebastopol    
                 CCP : 0000378861  75
 
 
                 --
-                2  Le virement bancaire : 
-                Titulaire du compte : BADR - Sebastopol - 81, Chenoua plage, 42000, Tiapza - Algérie.
+                2  Bank transfer : 
+                Account holder : BADR - Sebastopol - 81, Chenoua plage, 42000, Tipaza - Algérie.
                 R.I.B : 003 - 00448 - 300183300019.
 
 
                 --
-                3  Paiement par chèque
-                Libeller le chèque à l ordre de : Sebastopol
-                Envoyer le chèque à :
+                3  Payment by check
+                Make check payable to the order of : Sebastopol
+                Send check to :
                 81, Chenoua plage - 42000, Tipaza - Algérie.
 
 
                 --
-                4  Entreprises et professionnels
-                Envoyez un bon de commande, avec, nombre de place, date de réservation, signature et cachet, par 
-                E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 04. 
+                4  Businesses and professionals
+                Send an order with, number of seats, reservation date, signature and stamp, by 
+                E-mail: contact@bledvoyage.com or by fax to: 00 213 24 47 14 07. 
 
 
                 --
-                5  En Espèce
-                Sur place.
+                5  Cash
+                In site.
 
 
 
 
 
-                A bientôt.
+                See you soon.
                 bledvoyage.com
 
                 ---
-                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                bledvoyage.com is a service operated by the company "Sebastopol", whose registered office is located at : 
                 81 Chenoua plage, 42000 Tipaza, Algérie.
                 contact@bledvoyage.com
                 www.bledvoyage.com
                 Fax : 00 213 24 47 14 04
             env_avis: |
-                Bonjour %prenom%, 
-                Vous avez récemment participé à la sortie : %sortie%, à %localisation%.
-                Nous étions très ravis de vous acceuillir. 
-                On vous invite à laisser votre avis sur cette sortie ici : http://www.bledvoyage.com/avis/%id%
+                Hello %prenom%, 
+                You recently participated in the release : %sortie%, at %localisation%.
+                We were very pleased to welcome you. 
+                We invite you to leave your opinion about this event here : http://www.bledvoyage.com/avis/%id%
 
-                Partagez vos photos avec vous ! Sur nos pages facebook : 
+                Share your photos with you! On our facebook page : 
                 - #nroho : https://www.facebook.com/nroho
                 - #chassezlaroutine : https://www.facebook.com/bledvoyage
 
-                Aussi, vous trouverez ci-dessous les détails de participation.
+                Also, you will find below the details of participation.
 
                 ------
                 Participant : 
 
-                N° de réservation : %id%
-                Sortie : %sortie%
-                Localisation : %localisation%
-                Prénom et Nom : %prenom%, %nom%
-                Téléphone : %tel%
+                No booking : %id%
+                Exit : %sortie%
+                Location : %localisation%
+                First and last name : %prenom%, %nom%
+                Phone : %tel%
                 E-mail : %email%
-                Date de réservation : %datetime%
-                Tarif : %tarif% dainars/personne
-                Nombre de places : %nombre%
+                Date of reservation : %datetime%
+                Price : %tarif% dainars/personne
+                Number of places : %nombre%
                 Total  : %total% dinars
 
-                A bientôt.
+                See you soon.
                 bledvoyage.com
 
                 ---
-                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                bledvoyage.com is a service operated by the company "Sebastopol", whose registered office is located at : 
                 81 Chenoua plage, 42000 Tipaza, Algérie.
                 contact@bledvoyage.com
                 www.bledvoyage.com
                 Fax : 00 213 24 47 14 04
             att_commande: |
-                Bonjour , 
-                Votre commande sur « bledvoyage » est en attente de confirmation. Notre équipe prendra contact avec vous très vite.
-                Vous trouverez ci-après, les détails de votre commande.
+                Hello %secondename%, 
+                Your order on "bledvoyage" is awaiting confirmation. Our team will contact you shortly.
+                You will find below the details of your order.
 
-                DETAIL COMMANDE : 
+                DETAIL ORDER : 
 
-                N° de commande : %id%
-                Prénom et Nom : %secondename%, %firstname%
-                Ticket cadeau : %nom%
-                Date de commande : %datetime%
-                Tarif : %tarif% dinars
-                Quantité : %nombre%
-                Validité : %duree% Mois
+                Order number : %id%
+                First and last name : %secondename%, %firstname%
+                Ticket Gift : %nom%
+                Order date : %datetime%
+                Price : %tarif% dinars
+                Amount : %nombre%
+                Validity : %duree% mounth
 
-                Aussi, vous trouverez ci-après quelques informations sur la commande, les conditions, ainsi que les coordonées 
-                de la personne à contacter en cas de besoin :
+                Also you will find below some information about the order, conditions and contact information  
+                of the person to contact in case of need :
 
-                Descriptif :
+                Description :
                 %description%
 
-                Conditions :
+                Terms :
                 %conditions%
 
-                Personne à contacter en cas de besoin, ou si vous ne recevez pas de réponse de notre part sous 24h, ayez le réflexe de nous appeler :
+                Person to contact in case of need, or if you do not receive a reply from us within 24 hours, have the reflex to call :
                 Soumia : 0 556 179 774
 
 
                 -----
-                MODALITÉS DE PAIEMENT : 
+                PAYMENT TERMS : 
 
-                Différents moyens de paiement sont disponibles. Si vous optez pour les 3 premiers modes et pour valider votre commande rapidement :
-                Prendre une photo lisible avec votre reçu en utilisant votre smartphone, appareil photo,... 
-                Et envoyez-nous la photo avec votre numéro de commande sur contact@bledvoyage.com, par fax sur le numéro : 00 213 24 47 14 04.
-                Nous vous contacterons très rapidement pour valider votre réservation. 
+                Different methods of payment are available. If you opt for the first 3 modes to hold your reservation quickly :
+                Take a readable picture with your receipt with your smartphone, 
+                camera, ... and send us the photo with your booking number on contact@bledvoyage.com, by fax on number: 00 213 24 47 14 04.
+                We will contact you soon to confirm your order.
 
 
-                1  Le Mandat postal : 
-                Titulaire du compte : Centre sebastopol    
+                1  The Postal money : 
+                Account holder : Centre sebastopol    
                 CCP : 0000378861  75
 
 
                 --
-                2  Le virement bancaire : 
-                Titulaire du compte : Sebastopol - 81, Cehnoua plage, 42000, Tiapza - Algérie.
+                2  Bank transfer : 
+                Account holder : BADR - Sebastopol - 81, Chenoua plage, 42000, Tipaza - Algérie.
                 R.I.B : 003 - 00448 - 300183300019.
 
 
                 --
-                3  Paiement par chèque
-                Libeller le chèque à l ordre de : Sebastopol
-                Envoyer le chèque à :
+                3  Payment by check
+                Make check payable to the order of : Sebastopol
+                Send check to :
                 81, Chenoua plage - 42000, Tipaza - Algérie.
 
 
                 --
-                4  Entreprises et professionnels
-                Envoyez un bon de commande, avec le pack demandé, le nombre de pack, signature et cachet, par 
-                E-mail : contact@bledvoyage.com, ou par Fax au : 00 213 24 47 14 07. 
+                4  Businesses and professionals
+                Send an order with, number of seats, reservation date, signature and stamp, by 
+                E-mail: contact@bledvoyage.com or by fax to: 00 213 24 47 14 07. 
 
 
                 --
-                5  En Espèce
-                Sur place.
+                5  Cash
+                In site.
 
 
 
 
 
-                A bientôt.
+                See you soon.
                 bledvoyage.com
 
                 ---
-                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                bledvoyage.com is a service operated by the company "Sebastopol", whose registered office is located at : 
                 81 Chenoua plage, 42000 Tipaza, Algérie.
                 contact@bledvoyage.com
                 www.bledvoyage.com
-                Téléphone & Fax : 00 213 24 47 14 04
+                Fax : 00 213 24 47 14 04
             commande_facturer: |
                 %prenom%, 
-                Vous trouverez en pièces jointes : 
-                - Votre pack de ticket cadeau,
-                - Votre facture détaillée.
-                - Nos activités de loisirs pour chasser la routine.
+                Please find attachments : 
+                - Your ticket gift pack,
+                - Your itemized invoice.
+                - Our leisure activities for hunting routine.
 
-                Merci de nous confirmer par retour de mail la bonne réception de celui-ci.
+                Thank you to confirm us by return mail the receipt thereof.
 
-                Ci-dessous quelques informations sur votre achat.
+                Below is some information about your purchase.
 
 
                 ------
-                FACTURE : 
+                INVOICE : 
 
-                N° de commande : %id%
-                Catégorie du ticket : %ticket%
-                Prénom et Nom : %prenom%, %nom%
-                Téléphone : %tel%
+                Order number : %id%
+                Ticket category : %ticket%
+                First and last name : %prenom%, %nom%
+                Phone : %tel%
                 E-mail : %email%
-                Date de commande : %datetime%
-                Tarif : %tarif% dinars/ticket
-                Quantité : %nombre%
-                Mode de paiement : %paiement%
+                Order date : %datetime%
+                Price : %tarif% dinars/ticket
+                Amount : %nombre%
+                Payment method : %paiement%
                 Total : %total% dinars
 
 
 
-                A bientôt.
+                See you soon.
                 bledvoyage.com
 
                 ---
-                bledvoyage.com est un service opéré par la société "Sebastopol", dont le siège social est situé au : 
+                bledvoyage.com is a service operated by the company "Sebastopol", whose registered office is located at : 
                 81 Chenoua plage, 42000 Tipaza, Algérie.
                 RCN° :42/00-2647788A13 - NIF :197622290072621.
                 contact@bledvoyage.com

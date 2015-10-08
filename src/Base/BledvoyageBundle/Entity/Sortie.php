@@ -40,9 +40,9 @@ class Sortie implements Translatable
     private $id;
     
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="orderby", type="string", length=255)
+     * @ORM\Column(name="orderby", type="integer")
      */
     private $order;
     
@@ -356,7 +356,7 @@ class Sortie implements Translatable
     /**
      * Set order
      *
-     * @param string $order
+     * @param integer $order
      * @return Sortie
      */
     public function setOrder($order)
@@ -369,7 +369,7 @@ class Sortie implements Translatable
     /**
      * Get order
      *
-     * @return string 
+     * @return integer 
      */
     public function getOrder()
     {
@@ -1346,7 +1346,7 @@ class Sortie implements Translatable
             ->AddSelect('d')
             ->leftJoin('a.user', 'd')
             ->where('a.valider = 1')
-            ->orderBy('a.id','ASC');
+            ->orderBy('a.order','ASC');
         // Use Translation Walker
         $query = $qb->getQuery();
         $query->setHint(

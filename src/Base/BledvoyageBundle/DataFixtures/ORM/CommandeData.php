@@ -39,6 +39,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande1->setHeureRdv("");
         $commande1->setLieuRdv("");
         $commande1->setIp("127.0.0.1");
+        $commande1->setLang("en");
         $commande1->setDateTime(new \Datetime('2015-03-01 12:00:00'));
         $manager->persist($commande1);
         
@@ -60,6 +61,7 @@ class CommandeData extends AbstractFixture implements FixtureInterface, Containe
         $commande2->setHeureRdv("");
         $commande2->setLieuRdv("");
         $commande2->setIp("127.0.0.1");
+        $commande1->setLang("es");
         $commande2->setDateTime(new \Datetime('2015-03-01 12:00:00'));
         $manager->persist($commande2);
         

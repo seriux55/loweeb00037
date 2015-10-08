@@ -201,7 +201,7 @@ class AdminController extends Controller
             ->leftJoin('a.user', 'b')
             ->addSelect('c')
             ->leftJoin('a.categorieTicket', 'c')
-            ->orderBy('a.id','DESC');
+            ->orderBy('a.id','ASC');
         $query = $qb->getQuery();
         $query->setHint(
             \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
@@ -341,13 +341,23 @@ class AdminController extends Controller
             $frToDatetime = $this->container->get('FrToDatetime');
             $em = $this->getDoctrine()->getManager();
             $commande = $em->getRepository('BaseBledvoyageBundle:Commande')->find($id);
-            $commande->setModePaiement($request->get('paiement'))
-                ->setNombre($request->get('nombre'))
-                ->setLieuRdv($request->get('lieuRdv'))
-                ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))))
-                ->setHeureRdv($request->get('heureRdv'))
-                ->setConfirmer('1')
-                ->getUser()->setEmail($request->get('email'));
+            if($request->get('paiement') == "Chenoua"){
+                $commande->setModePaiement($request->get('paiement'))
+                    ->setNombre($request->get('nombre'))
+                    ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('date1'))))
+                    ->setHeureRdv($request->get('heure1'))
+                    ->setConfirmer('1')
+                    ->getUser()->setEmail($request->get('email'));
+            }else{
+                $commande->setModePaiement($request->get('paiement'))
+                    ->setNombre($request->get('nombre'))
+                    ->setLieuRdv($request->get('lieuRdv'))
+                    ->setDateRdv(new \DateTime($frToDatetime->toDatetime($request->get('dateRdv'))))
+                    ->setHeureRdv($request->get('heureRdv'))
+                    ->setConfirmer('1')
+                    ->getUser()->setEmail($request->get('email'));
+            }
+            
             $em->persist($commande);
             $operateur = new Operateur();
             $operateur->setUser($this->get('security.context')->getToken()->getUser())
