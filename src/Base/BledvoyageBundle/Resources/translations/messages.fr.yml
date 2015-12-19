@@ -471,6 +471,18 @@ base:
                 Mode de paiement choisi : %modePaiement%
                 %rdv%
 
+                Aussi, vous trouverez ci-après quelques informations sur la commande, les conditions, ainsi que les coordonées de la personne à contacter en cas de besoin :
+                
+                Descriptif :
+                %description%
+                
+                Le ticket cadeau vous permet d'accéder aux activités loisirs :
+                MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
+                TERRE : Randonnée VTT, Balade et découverte de la ville Romaine.
+
+                Conditions :
+                %conditions%
+                
                 Personne à contacter :
                 Soumia : 0556179774
 
@@ -575,12 +587,18 @@ base:
                 Quantité : %nombre%
                 Validité : %duree% Mois
 
+                Si dans les 5 heures vous ne recevez pas d'appels de notre part, merci de nous le signaler sur le +213 553 815 922 ou sur contact@bledvoyage.com
+                
                 Aussi, vous trouverez ci-après quelques informations sur la commande, les conditions, ainsi que les coordonées 
                 de la personne à contacter en cas de besoin :
 
                 Descriptif :
                 %description%
-
+                
+                Le ticket cadeau vous permet d'accéder aux activités loisirs :
+                MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
+                TERRE : Randonnée VTT, Balade et découverte de la ville Romaine.
+                
                 Conditions :
                 %conditions%
 
@@ -644,7 +662,23 @@ base:
                 - Votre pack de ticket cadeau,
                 - Votre facture détaillée.
                 - Nos activités de loisirs pour chasser la routine.
+                
+                Aussi, vous trouverez ci-après quelques informations sur la commande, les conditions, ainsi que les coordonées de la personne à contacter en cas de besoin :
+                
+                DESCRIPTIF :
+                %description%
+                
+                UTILISATION :
+                Le ticket cadeau vous permet d'accéder aux activités loisirs :
+                MONTAGNE : Randonnée fraicheur matinale, Randonnée & Tir l'arc, Chasse au trésor, Jeux d'orientation, Quad en montagne.
+                TERRE : Randonnée VTT, Balade et découverte de la ville Romaine.
 
+                CONDITIONS :
+                %conditions%
+                
+                CONTACT :
+                Soumia : 0556179774
+                
                 Merci de nous confirmer par retour de mail la bonne réception de celui-ci.
 
                 Ci-dessous quelques informations sur votre achat.

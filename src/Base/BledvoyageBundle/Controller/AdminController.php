@@ -369,7 +369,7 @@ class AdminController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Confirmation de commande') //Confirmation de reservation, bledvoyage.com
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
+                ->setTo(array('nadir.allam@bledvoyage.com'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:commande_confirmer.txt.twig', array(
                     'product' => array(
                         'prenom'        => $commande->getUser()->getSecondename(),
@@ -382,6 +382,8 @@ class AdminController extends Controller
                         'dateRdv'       => $commande->getDateRdv(),
                         'heureRdv'      => $commande->getHeureRdv(),
                         'lieuRdv'       => $commande->getLieuRdv(),
+                        'descriptif'    => $commande->getCategorieTicket()->getDescription(),
+                        'conditions'    => $commande->getCategorieTicket()->getConditions(),
                     )
                 )))
             ;
@@ -497,6 +499,8 @@ class AdminController extends Controller
                     'tarif'         => $commande->getCategorieTicket()->getTarif(),
                     'nombre'        => $commande->getNombre(),
                     'total'         => $total,
+                    'descriptif'    => $commande->getCategorieTicket()->getDescription(),
+                    'conditions'    => $commande->getCategorieTicket()->getConditions(),
                 )
             ));
             $ticketPdf = $this->renderView('BaseBledvoyageBundle:Mail:commande_facturer_ticket.pdf.twig', array(
@@ -1504,16 +1508,16 @@ class AdminController extends Controller
             $pdf_1 = new \HTML2PDF('P','A4','fr');
             $pdf_1->pdf->SetDisplayMode('real');
             $pdf_1->writeHTML($devisPdf);
-            $content_1 = $pdf_1->Output('Ticket.pdf', true);
+            $content_1 = $pdf_1->Output('Ticket.pdf');
             $message = \Swift_Message::newInstance()
                 ->setSubject('test Votre ticket cadeau, bledvoyage.com, devis')
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo(array('nadir.allam@bledvoyage.com'))
+                ->setTo(array('nadir.allam@bledvoyage.com', 'validation@nroho.com'))
                 ->setBody('Bonjour le devis')
                 ->attach(Swift_Attachment::newInstance($content_1, 'devis_bledvoyage.pdf', 'application/pdf'))
             ;
             $this->get('mailer')->send($message);
-            return $devisPdf;
+            //return $devisPdf;
         }
         
         return $this->render('BaseBledvoyageBundle:Admin:devis_entreprise.html.twig', array(
@@ -1524,6 +1528,7 @@ class AdminController extends Controller
     
     public function validationSortieAction()
     {
+        $s = 0;
         $locale = $this->get('request')->getLocale();
         
         $qb = $this->getDoctrine()->getRepository('BaseBledvoyageBundle:Sortie')
@@ -1548,8 +1553,12 @@ class AdminController extends Controller
             $locale
         );
         $sorties = $query->getResult();
+        foreach($sorties as $data){
+            $s++;
+        }
         return $this->render('BaseBledvoyageBundle:Admin:nouvelle_sortie.html.twig', array(
             'sorties'   => $sorties,
+            'nbrS'      => $s,
         ));
     }
     

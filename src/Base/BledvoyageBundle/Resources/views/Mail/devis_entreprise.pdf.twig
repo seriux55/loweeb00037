@@ -1,22 +1,110 @@
-<page>
+<style type="text/css">
+*{ color:#333333;}
+p{ margin:0; padding:4mm 0 0 0; }
+hr{ background:#717375; height:1px; border:none; }
+table{ border-collapse:collapse; width:100%; font-size: 12pt; font-family:helvetica; line-height: 5mm;}
+table{ font-weight: bolder; color :#000; }
+em{ font-size: 9pt; }
+h1{ color:#000; margin:0; padding:0; }
+td.right{ text-align:right 1px solid #f3f3f3; }
+table.border td{ border:1px solid #f3f3f3;padding:2mm 2mm;background:#f3f3f3;border-collapse:collapse; }
+table.border th,td.black{ background:#f3f3f3; color:#333; font-weight:normal; border:1px solid #f3f3f3; padding:1mm 4mm; text-align:left;border-collapse:collapse; }
+td.noborder{ border:none; }
+.signature
+{
+    color:#999999;
+    text-align:center;
+    margin:0px;
+    width:80%;
+    font-size:11px;
+    padding-top:10px;
+    margin-top:10px;
+    border-top:1px solid #cdcaca;
+    top:1300px;
+}
+h1
+{
+    background:#ffffff;
+    color:#333333;
+    font-size:22px;
+    font-weight:normal;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:1px solid #cdcaca;
+}
+tbody
+{
+    border:none;
+    border-collapse:collapse;
+}
+thead
+{
+    border:none;
+    border-collapse:collapse;
+}
+</style>
+<page backtop="20mm" backleft="10mm" backright="10mm" backbotton="30mm" footer="page;">
 
-<table>
-    <p><strong> Liste des sorties</strong> Vous avez le détail suivant.</p>
-    <thead>
+    <!-- Le footer -->
+    <page_footer>
+        <table style="width:100%;padding-bottom:1mm;padding-top:2px;">
+            <tr>
+                <td style="width:100%;border-top:1px solid #e8e8e8; padding:0mm;">
+                    <p class="signature" style="width:100%;padding:0mm;line-height: 4mm;">
+                        {% trans %}base.bledvoyage.commande.commande_facturer_facture_1{% endtrans %}
+                    </p>
+                </td>
+            </tr>	
+        </table>
+    </page_footer>
+    <!--  entête -->
+    <table style="vertical-align:top;">
         <tr>
-            <th>Le titre de la sortie</th>
-            <th>Tarif</th>
+            <td style="width:65%">
+                <img style="width:290px;" src="bundles/basebledvoyage/images/admin/logo_facture.jpg" alt="" >
+            </td>
+            <td style="width:35%; font-size:10px;color:#666666; line-height:3mm;text-align:right;">
+                {% trans %}base.bledvoyage.commande.commande_facturer_facture_2{% endtrans %}<br/>
+            </td>
         </tr>
-    </thead>
-    <tbody>
-        {% for data in sorties %}
-        <tr>
-            <td>{{ data.titre }}</td>
-            <td>{{ data.tarif }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<p>Total : {{ total }}</p>
+    </table>
+    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <table style="vertical-align:top;">
+        <p><strong> Liste des sorties</strong> Vous avez le détail suivant.</p>
+        <thead>
+            <tr>
+                <th>Le titre de la sortie</th>
+                <th>Tarif</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in sorties %}
+            <tr>
+                <td>{{ data.titre }}</td>
+                <td>{{ data.tarif }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="border">
+        <thead>
+        <tbody>
+            <tr>
+                <th style="width:80%">Total : </th>
+                <td style="width:20%;text-align:center;">{{ total }} DA</td>
+            </tr>
+        </tbody>
+        </thead>
+    </table>
 
 </page>

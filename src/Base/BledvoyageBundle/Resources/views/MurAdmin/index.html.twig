@@ -17,21 +17,21 @@
     <div class="avisor">
         <form method="post">
             <h3>Ecrire un statut</h3>
-            <textarea name="statut"></textarea><br />
+            <textarea rows="5" cols="147" name="statut"></textarea><br />
             {% for data in shift %}
             <input type="checkbox" name="destinataire[]" value="{{ data.id }}">{{ data.name }}
             {% endfor %}
-            <input type="submit" name="poster" value="valider">
+            <input class="trouvezi" type="submit" name="poster" value="valider">
         </form>
     </div>
 </section>
     
 {% set conc = false %}
-<div class="bloc_page_body3">
+<div>
     {% for data in statut %}
     <section>
         <div class="avisor">
-            {% if is_granted("ROLE_ADMIN") %}<div><a href="{{ path('bledvoyage_admin_del_statut', { 'id' : data.id } ) }}">x</a></div>{% endif %}
+            {% if is_granted("ROLE_ADMIN") %}<div style="text-align: right;"><a href="{{ path('bledvoyage_admin_del_statut', { 'id' : data.id } ) }}">x</a></div>{% endif %}
             <form method="post">
                 <h4>{{ data.user.secondename }}</h4>
                 <p>{{ data.statut }}</p>
@@ -50,8 +50,8 @@
                         <p><b>{{ d.user.secondename }}</b> : {{ d.comment }}</p>
                     {% endif %}
                 {% endfor %}
-                <textarea name="commentaire"></textarea>
-                <input type="submit" name="comment" value="commenter">
+                <textarea rows="5" cols="80" name="commentaire"></textarea>
+                <input class="trouvezi" type="submit" name="comment" value="commenter">
             </form>
         </div>
     </section>

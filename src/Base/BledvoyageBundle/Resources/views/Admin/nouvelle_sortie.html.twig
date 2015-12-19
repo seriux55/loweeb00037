@@ -8,6 +8,13 @@
         Validation des sorties
     </h2>
 </div>
+{% if nbrS == 0 %}
+<div class="sectiono">
+    <div class="mt1">
+        <center><p>Il n'y a pas de sortie à valider.</p></center>
+    </div>
+</div>
+{% endif %}
 {% for data in sorties %}
 <section>
     <div class="conte">

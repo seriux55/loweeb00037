@@ -24,16 +24,16 @@
                         <a href="{{ path('bledvoyage_admin_reservation') }}">Réservations</a>
                         <a href="{{ path('bledvoyage_admin_commande') }}">Commandes</a>
                         <a href="{{ path('bledvoyage_admin_listes') }}">Listes</a>
+                        <a href="{{ path('bledvoyage_admin_ticket') }}">Ticket</a>
                         {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('bledvoyage_admin_invitation') }}">Invitation</a>
                         <a href="{{ path('bledvoyage_admin_statisqtique') }}">Statistique</a>
                         <a href="{{ path('bledvoyage_admin_devis_entreprise') }}">Devis</a>
-                        <a href="{{ path('bledvoyage_admin_ticket') }}">Ticket</a>
                         <a href="{{ path('bledvoyage_admin_nouvelle_sortie') }}">Valider</a>
                         {% endif %}
                         {# <a href="{{ path('bledvoyage_admin_present') }}">Présents</a> #}
                         {% if not is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('base_bledvoyage_homepage') }}">Les sorties</a>
+                        <a href="{{ path('base_bledvoyage_homepage') }}">Sorties</a>
                         {% endif %}
                         {#
                         <div class="contsou">

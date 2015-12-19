@@ -350,18 +350,18 @@ class DefaultController extends Controller
             $textPerso = $request->get('textPerso');
             if($textPerso == "Ex : Meilleurs Voeux, Bonne Fête Maman, Saint Valentin, Bon anniversaire, ..." || $textPerso = "Ex : Mis mejores deseos, feliz día de la madre, feliz cumpleaños, ..." || $textPerso == "Ex : Best wishes, Happy birthday mom, Valentine's day, ..."){ $textPerso = ""; }
             $commande->setUser($this->get('security.context')->getToken()->getUser())
-                     ->setCategorieTicket($em->getRepository('BaseBledvoyageBundle:CategorieTicket')->find($id))
-                     ->setPaiement($em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode('espèce'))
-                     ->setNombre($request->get('nombre'))
-                     ->setTextPerso($textPerso)
-                     ->setLang($locale)
-                     ->setIp($this->getRequest()->getClientIp());
+                ->setCategorieTicket($em->getRepository('BaseBledvoyageBundle:CategorieTicket')->find($id))
+                ->setPaiement($em->getRepository('BaseBledvoyageBundle:Paiement')->findOneByMode('espèce'))
+                ->setNombre($request->get('nombre'))
+                ->setTextPerso($textPerso)
+                ->setLang($locale)
+                ->setIp($this->getRequest()->getClientIp());
             $em->persist($commande);
             $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Votre commande chez bledvoyage.com') //Votre commande chez bledvoyage.com
                 ->setFrom('contact@bledvoyage.com')
-                ->setTo(array('nadir.allam@bledvoyage.com','karim.man@live.fr'))
+                ->setTo(array('nadir.allam@bledvoyage.com'))
                 ->setBody($this->renderView('BaseBledvoyageBundle:Mail:user_commande.txt.twig', array(
                     'product' => $commande)
                 ));

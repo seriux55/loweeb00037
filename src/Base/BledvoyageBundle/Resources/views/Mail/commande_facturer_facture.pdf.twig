@@ -3,7 +3,7 @@
 p{ margin:0; padding:4mm 0 0 0; }
 hr{ background:#717375; height:1px; border:none; }
 table{ border-collapse:collapse; width:100%; font-size: 12pt; font-family:helvetica; line-height: 5mm;}
-table{ strong color :#000; }
+table{ font-weight: bolder; color :#000; }
 em{ font-size: 9pt; }
 h1{ color:#000; margin:0; padding:0; }
 td.right{ text-align:right 1px solid #f3f3f3; }
@@ -128,40 +128,40 @@ thead
     </table>
     <table class="border">
         <thead>
-        <tbody>
-            <tr>
-                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_3{% endtrans %} « {{ product.offre }} »</th>
-                <td style="width:20%;text-align:center;">{{ product.tarif }} DA</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_7{% endtrans %}</th>
-                <td style="width:20%;text-align:center;">{{ product.nombre }}</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_8{% endtrans %}</th>
-                <td style="width:20%;text-align:center;">{{ product.total - (product.total * 0.17)|number_format(2, '.', ',') }} DA</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_9{% endtrans %} (17%)</th>
-                <td style="width:20%;text-align:center;">{{ product.total * 0.17 }} DA</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th style="width:80%"><strong>{% trans %}base.bledvoyage.commande.commande_facturer_facture_10{% endtrans %}</strong></th>
-                <td style="width:20%;text-align:center;"><strong>{{ product.total }} DA</strong></td>
-            </tr>
-        </tbody>
+            <tbody>
+                <tr>
+                    <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_3{% endtrans %} « {{ product.offre }} »</th>
+                    <td style="width:20%;text-align:center;">{{ product.tarif }} DA</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_7{% endtrans %}</th>
+                    <td style="width:20%;text-align:center;">{{ product.nombre }}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_8{% endtrans %}</th>
+                    <td style="width:20%;text-align:center;">{{ product.total - (product.total * 0.17)|number_format(2, '.', ',') }} DA</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th style="width:80%">{% trans %}base.bledvoyage.commande.commande_facturer_facture_9{% endtrans %} (17%)</th>
+                    <td style="width:20%;text-align:center;">{{ product.total * 0.17 }} DA</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th style="width:80%"><strong>{% trans %}base.bledvoyage.commande.commande_facturer_facture_10{% endtrans %}</strong></th>
+                    <td style="width:20%;text-align:center;"><strong>{{ product.total }} DA</strong></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
         </thead>
-        <tbody>
-            <tr>
-            </tr>
-        </tbody>
     </table>
 </page>

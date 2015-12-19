@@ -15,16 +15,18 @@
 </div>
 <section>
     <form method="post">
-        <div class="avisor">
-            <h3>Entrez le numéro de commande</h3>
+        <div>
+            <center><h3>Entrez le numéro de commande</h3>
             <input class="ouardep" type="number" name="commande" required />
             <input class="cherchez" name="login" type="submit" value="Envoyer"/>
+            </center>
         </div>			
     </form>
 </section>
 {% if product is not empty %}
 {% for data in product %}
 <section>
+    <div class="avisor">
     <h2>Commande N° {{ data.id }}</h2>
     <h3>Informations sur la commande</h3>
     <p>Nom : {{ data.user.firstname }}</p>
@@ -35,9 +37,9 @@
     <p>Catégorie : {{ data.categorieTicket.nom }}</p>
     <p>Quantité : {{ data.nombre }}</p>
     <p>Date d'achat : {{ data.dateTime|date('d/m/Y à h:s') }}</p>
+    <br />
     <h3>Remarques</h3>
     <p>
-        <br />
         {% if data.remarque is not empty %}{{ data.remarque|nl2br }}{% else %}Néant{% endif %}
     </p>
     <br />
@@ -70,16 +72,21 @@
         </table>
     </div>
     {% else %}
-    <h3>La commande n'a pas été payée</h3>
+    <h2>La commande n'a pas été payée</h2>
     {% endif %}
+    </div>
 </section>
-<form method="post">
-    <label>Ajouter une remarque:</label>
-    <textarea name="remarques"></textarea>
-    <input type="hidden" name="remarque" value="1">
-    <input type="hidden" name="commande" value="{{ data.id }}">
-    <input type="submit" value="Envoyer">
-</form>
+<section>
+    <div class="avisor">
+        <form method="post">
+            <label>Ajouter une remarque:</label>
+            <textarea name="remarques"></textarea>
+            <input type="hidden" name="remarque" value="1">
+            <input type="hidden" name="commande" value="{{ data.id }}">
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+</section>
 {% endfor %}
 {% endif %}
 {% endblock %}
